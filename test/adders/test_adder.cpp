@@ -21,7 +21,7 @@ SCENARIO( "Adder can be declared and added to", "[adder]" ) {
 }
 
 
-/**Alternative Syntax*/
+/**Alternate Syntax*/
 TEST_CASE ("Adder can be declared and added to - scenario test","[adder]")
 {
    Adder adder(0);
