@@ -31,13 +31,9 @@ target_link_libraries(CatchTestDemo CatchTestDemo_Lib)
 
 #If tests are set to build (Run ccmake to configure!)
 if (test)
-  # This adds another subdirectory, which has 'project(gtest)'.
 
+  #add additional Cmake capabilities (Running specific tests from 'make test')
   enable_testing()
-
-  # Include the gtest library. gtest_SOURCE_DIR is available due to
-  # 'project(gtest)' above.
-  include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
   ##############
   # Unit Tests
