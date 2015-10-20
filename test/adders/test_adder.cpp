@@ -20,3 +20,19 @@ SCENARIO( "Adder can be declared and added to", "[adder]" ) {
    }
 }
 
+
+/**Alternative Syntax*/
+TEST_CASE ("Adder can be declared and added to - scenario test","[adder]")
+{
+   Adder adder(0);
+
+   SECTION("Setting the initial value is reflected in getValue"){
+      adder = Adder(5);
+      REQUIRE(adder.getValue() == 5);
+   }
+   SECTION("The adder is added to"){
+      REQUIRE(adder.addTo(2) == 2);
+      REQUIRE(adder.getValue() == 2);
+
+   }
+}
