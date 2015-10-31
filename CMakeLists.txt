@@ -5,49 +5,20 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall ")
 option(test "Build all tests." ON) # Makes boolean 'test' available.
 
 
-project (CatchTestDemo)
-#Enable a testing library with CMAKE
+# Turn on the ability to create folders to organize projects (.vcproj)
+# It creates "CMakePredefinedTargets" folder by default and adds CMake
+# defined projects like INSTALL.vcproj and ZERO_CHECK.vcproj
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+# Command to output information to the console
+# Useful for displaying errors, warnings, and debugging
+message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
+
+project (SAA_Application)
+
+add_subdirectory(src)
+add_subdirectory(app)
+add_subdirectory(test)
+add_subdirectory(include)
 enable_testing()
-#Include any libraries
-include_directories ("${PROJECT_SOURCE_DIR}/lib")
-
-#Include any include files
-include_directories ("${PROJECT_SOURCE_DIR}/include")
-
-#Gather any source files
-file(GLOB_RECURSE CatchTestDemo_SOURCES "src/*.cpp" "src/*.cc")
-
-
-#Build the main project as a library, and only link main at the end
-list(REMOVE_ITEM CatchTestDemo_SOURCES ${PROJECT_SOURCE_DIR}/src/main.cpp)
-add_library(CatchTestDemo_Lib ${CatchTestDemo_SOURCES})
-
-#add main
-add_executable(CatchTestDemo ${PROJECT_SOURCE_DIR}/src/main.cpp)
-
-#and link the 'library'
-target_link_libraries(CatchTestDemo CatchTestDemo_Lib)
-
-
-#If tests are set to build (Run ccmake to configure!)
-if (test)
-
-  #add additional Cmake capabilities (Running specific tests from 'make test')
-  enable_testing()
-
-  ##############
-  # Unit Tests
-  ##############
-  #Gather all unit tests.
-  file(GLOB_RECURSE TEST_SRC_FILES "test/*.cpp")
-
-  #Add tests to the executable
-  add_executable(runUnitTests ${TEST_SRC_FILES})
-
-  # Standard linking to gtest executables (If you want to use GoogleTests's prebuilt main file).
-  
-  # Extra linking for the project.
-  target_link_libraries(runUnitTests CatchTestDemo_Lib)
-
-
-endif()
+add_test(SAA-Test ${PROJECT_BINARY_DIR}/bin/saa_test.exe)

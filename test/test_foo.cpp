@@ -9,7 +9,4 @@ TEST_CASE( "Foo test Succeeds", "[fooTests]" ) {
    REQUIRE( foo.bar(3) == 6 );
    REQUIRE( foo.bar(10) == 20 );
 }
-TEST_CASE ("Foo test fails", "[fooTests]"){
-   Foo foo;
-   REQUIRE( foo.bar(1) == 1);
-}
+
