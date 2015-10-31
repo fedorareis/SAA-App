@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Kyle\Documents\GitHub\SAA-Application-Cmake\_build_win\CMakeFiles\0ce34d73575e7e6c17eb2a5e069e4fd5\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2769078A-62D1-3611-87E5-36129283D5C3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
