@@ -1,3 +1,0 @@
-C:/Users/Kyle/Documents/GitHub/SAA-Application-Cmake/_build_win/bin/saa-application.lib
-C:/Users/Kyle/Documents/GitHub/SAA-Application-Cmake/_build_win/bin/app.exe
-C:/Users/Kyle/Documents/GitHub/SAA-Application-Cmake/_build_win/bin/saa_test.exe
