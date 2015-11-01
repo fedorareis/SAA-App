@@ -1,7 +1,11 @@
 Building for the first time:
 
 Visual Studio:
-	Open Saa-Application.sln in the _build_win folder
+	Make a new _build_win folder
+	Navigate to _build_win
+	run ```Cmake .. -G "Visual Studio 14 2015" in the folder
+	open SAA-Application.sln
+	
 Unix/Linux
 	Create a new _build_xxx folder, with xxx as your target OS.
 	CD into the folder
