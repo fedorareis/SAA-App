@@ -3,7 +3,7 @@ file (GLOB TOP_FUNCTION_HEADERS
 source_group("" FILES ${TOP_FUNCTION_HEADERS})
 
 file (GLOB ADDER_FUNCTION_HEADERS
-      "Adders/*.h")
+      "adders/*.h")
 source_group("adders" FILES ${ADDER_FUNCTION_HEADERS})
 
 
