@@ -10,3 +10,8 @@ TEST_CASE( "Foo test Succeeds", "[fooTests]" ) {
    REQUIRE( foo.bar(10) == 20 );
 }
 
+TEST_CASE( "Foo Test Fails", "[fooTests]")
+{
+   Foo foo;
+   REQUIRE(foo.bar(1) == 1);
+}
