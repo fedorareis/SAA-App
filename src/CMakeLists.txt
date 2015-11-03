@@ -5,7 +5,7 @@ file (GLOB TOP_FUNCTION_SOURCES
       "*.cpp")
 
 file (GLOB ADDER_FUNCTION_SOURCES
-      "Adders/*.cpp")
+      "adders/*.cpp")
 
 # Create named folders for the sources within the .vcproj
 # Empty name lists them directly under the .vcproj
