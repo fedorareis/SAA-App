@@ -7,4 +7,4 @@ int main(int argC, const char* argV[])
    SaaApplication app;
    app.report();
    return 0;
-}
+}//nothing
