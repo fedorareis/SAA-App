@@ -16,6 +16,8 @@ message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
 
 project (SAA_Application)
 
+
+
 add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(test)
