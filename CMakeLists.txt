@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8)
 
 #Environment Setup,  add C++11, debugging symbols, all warnings
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall ")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS} -std=c++11 -g -Wall ")
 option(test "Build all tests." ON) # Makes boolean 'test' available.
 
 
