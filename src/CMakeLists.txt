@@ -20,7 +20,7 @@ include_directories (${PROJECT_SOURCE_DIR}/src)
 # Creates saa-application.dll with the listed sources collected in the variables
 # Also adds sources to the Solution Explorer
 add_library(common-sources ${COMMON_FUNCTION_SOURCES})
-add_library(cdti-sources ${CDTI_FUNCTION_SOURCES})
+add_library(cdti-sources ${CDTI_FUNCTION_SOURCES} cdti/Snapshot.cpp cdti/Snapshot.h)
 add_library(saa-application-sources ${SAA_APPLICATION_FUNCTION_SOURCES})
 add_library(test-server-sources ${TEST_SERVER_FUNCTION_SOURCES})
 

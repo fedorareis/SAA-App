@@ -7,6 +7,17 @@ file (GLOB_RECURSE CDTI_APP_SOURCES
       "cdti/*.cpp")
 
 
+# Find the QtWidgets library
+find_package(Qt5Widgets)
+
+# Add the include directories for the Qt 5 Widgets module to
+# the compile lines.
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
+
+# Use the compile definitions defined in the Qt 5 Widgets module
+add_definitions(${Qt5Widgets_DEFINITIONS})
+
+
 add_executable (cdti ${CDTI_APP_SOURCES})
 target_link_libraries (cdti common-sources cdti-sources)
 
@@ -20,7 +31,7 @@ file (GLOB_RECURSE TEST_SERVER_APP_SOURCES
       "test-server/*.cpp")
 
 add_executable (test-server ${TEST_SERVER_APP_SOURCES})
-target_link_libraries (test-server  common-sources test-server-sources)
+target_link_libraries (test-server common-sources test-server-sources Qt5::Widgets)
 
 
 
