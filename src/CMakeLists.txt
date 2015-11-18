@@ -2,7 +2,7 @@
 
 # Collect sources into the variable SIMPLE_FUNCTION_SOURCES  
 file (GLOB_RECURSE COMMON_FUNCTION_SOURCES
-      "common/*.cpp")
+      "common/*.cpp" "common/*.cc")
 
 file (GLOB_RECURSE CDTI_FUNCTION_SOURCES
       "cdti/*.cpp")
