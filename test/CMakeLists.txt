@@ -10,7 +10,9 @@ file (GLOB_RECURSE SAA_APPLICATION_TEST_SOURCES
 file (GLOB_RECURSE TEST_SERVER_TEST_SOURCES
       "test-server/*.cpp")
 
-find_library(LIB_PROTO protobuf)
+if( NOT DEFINED protobuf_BINARY_DIR )
+	message( FATAL_ERROR "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
+endif()
 
 
 # Properties->C/C++->General->Additional Include Directories
@@ -21,7 +23,7 @@ include_directories (${PROJECT_SOURCE_DIR}/lib)
 #Add all the tests
 add_executable (saa_test main.cpp ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
 #Link all of the sources
-target_link_libraries (saa_test cdti-sources common-sources saa-application-sources test-server-sources ${LIB_PROTO})
+target_link_libraries (saa_test cdti-sources common-sources saa-application-sources test-server-sources protobuf)
 
 set_property(TARGET saa_test PROPERTY FOLDER "executables")
 
