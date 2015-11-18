@@ -4,6 +4,8 @@
 
 #ifndef SAA_APPLICATION_TESTFILEPARSER_H
 #define SAA_APPLICATION_TESTFILEPARSER_H
+
+#include <iostream>
 /**
  * Include library for XML parsing
  *
@@ -12,15 +14,15 @@
  */
 class TestFileParser{
    // ALWAYS initialize data members in the same order they are declared
+
 public:
-   TestFileParser(std::string file) : testFile(file) { }; // constructor
-   void load(); // read test suits to form test case
+   TestFileParser(std::string file) : testFile(file){std::cout << "Hello from TestParser"<<std::endl;}; // constructor
+   void load(){std::cout << "testFile is "<<testFile<<std::endl;}; // read test suits to form test case
    // std::deque<TestCase> GetTestSuits(); // returns the list of TestCases
 
-protected:
+private:
    std::string testFile;
 
-private:
    void buildTestCase(); // builds each test case
    void getOwnship(); // handles parsing data for ownship
    void getPlanes(); // handles parsing data for other planes
