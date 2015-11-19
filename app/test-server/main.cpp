@@ -14,7 +14,7 @@ int main(int argC, const char* argV[])
    Common common;
    common.report();
 
-   std::string s("test_suit_1");
+   std::string s("TestCaseExample.xml");
    TestFileParser parser(s);
    parser.load();
 
