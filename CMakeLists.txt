@@ -17,7 +17,7 @@ message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
 project (SAA_Application)
 
 
-add_subdirectory(lib/google/protobuf/cmake)
+add_subdirectory(lib/protobuf/cmake)
 include_directories(${protobuf_SOURCE_DIR}/../src)
 link_directories(${protobuf_BINARY_DIR})
 message("Proto is at: " ${protobuf_SOURCE_DIR})
