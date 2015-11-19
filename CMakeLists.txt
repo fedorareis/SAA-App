@@ -1,9 +1,21 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 2.8.12)
+IF(WIN32)
+    set(CMAKE_PREFIX_PATH "C:\\Qt\\5.4\\mingw491_32\\")
+ENDIF()
+
+IF(APPLE)
+    set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1")
+endif()
+    # Tell CMake to run moc when necessary:
+set(CMAKE_AUTOMOC ON)
+# As moc files are generated in the binary dir, tell CMake
+# to always look for includes there:
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+
 #Environment Setup,  add C++11, debugging symbols, all warnings
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall ")
-
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall ")
 option(test "Build all tests." ON) # Makes boolean 'test' available.
-
 
 # Turn on the ability to create folders to organize projects (.vcproj)
 # It creates "CMakePredefinedTargets" folder by default and adds CMake
