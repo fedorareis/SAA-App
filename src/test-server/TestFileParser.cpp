@@ -2,7 +2,7 @@
 // Created by Helen Hwang on 11/18/15.
 //
 #include "TestFileParser.h"
-#include "../lib/xml-parser/rapidxml.hpp"
+#include <xml-parser/rapidxml.hpp>
 
 /**
  * This initializes the parser
