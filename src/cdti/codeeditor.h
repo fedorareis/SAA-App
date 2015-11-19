@@ -38,58 +38,62 @@
 **
 ****************************************************************************/
 
-#ifndef SCREENSHOT_H
-#define SCREENSHOT_H
+#ifndef CODEEDITOR_H
+#define CODEEDITOR_H
 
-#include <QPixmap>
-#include <QWidget>
+#include <QPlainTextEdit>
+#include <QObject>
 
-class QCheckBox;
-class QGridLayout;
-class QGroupBox;
-class QHBoxLayout;
-class QLabel;
-class QPushButton;
-class QSpinBox;
-class QVBoxLayout;
+class QPaintEvent;
+class QResizeEvent;
+class QSize;
+class QWidget;
 
-class Screenshot : public QWidget
+class LineNumberArea;
+
+
+class CodeEditor : public QPlainTextEdit
 {
 Q_OBJECT
 
 public:
-    Screenshot();
+    CodeEditor(QWidget *parent = 0);
+
+    void lineNumberAreaPaintEvent(QPaintEvent *event);
+    int lineNumberAreaWidth();
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 
 private slots:
-    void newScreenshot();
-    void saveScreenshot();
-    void shootScreen();
-    void updateCheckBox();
+    void updateLineNumberAreaWidth(int newBlockCount);
+    void highlightCurrentLine();
+    void updateLineNumberArea(const QRect &, int);
 
 private:
-    void createOptionsGroupBox();
-    void createButtonsLayout();
-    QPushButton *createButton(const QString &text, QWidget *receiver,
-                              const char *member);
-    void updateScreenshotLabel();
-
-    QPixmap originalPixmap;
-
-    QLabel *screenshotLabel;
-    QGroupBox *optionsGroupBox;
-    QSpinBox *delaySpinBox;
-    QLabel *delaySpinBoxLabel;
-    QCheckBox *hideThisWindowCheckBox;
-    QPushButton *newScreenshotButton;
-    QPushButton *saveScreenshotButton;
-    QPushButton *quitScreenshotButton;
-
-    QVBoxLayout *mainLayout;
-    QGridLayout *optionsGroupBoxLayout;
-    QHBoxLayout *buttonsLayout;
+    QWidget *lineNumberArea;
 };
+
+
+class LineNumberArea : public QWidget
+{
+public:
+    LineNumberArea(CodeEditor *editor) : QWidget(editor) {
+        codeEditor = editor;
+    }
+
+    QSize sizeHint() const Q_DECL_OVERRIDE {
+        return QSize(codeEditor->lineNumberAreaWidth(), 0);
+    }
+
+protected:
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE {
+        codeEditor->lineNumberAreaPaintEvent(event);
+    }
+
+private:
+    CodeEditor *codeEditor;
+};
+
 
 #endif

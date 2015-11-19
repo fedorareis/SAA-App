@@ -1,37 +1,30 @@
-#CMakeLists for main application
-
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 
-#Script for building the CDTI sources
-file (GLOB_RECURSE CDTI_APP_SOURCES
-      "cdti/*.cpp")
 
-
+#CDTI application
 # Find the QtWidgets library
 find_package(Qt5Widgets)
 
-# Add the include directories for the Qt 5 Widgets module to
-# the compile lines.
-include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
-# Use the compile definitions defined in the Qt 5 Widgets module
-add_definitions(${Qt5Widgets_DEFINITIONS})
+#Script for building the CDTI sources
+file (GLOB_RECURSE CDTI_APP_SOURCES "cdti/*.cpp")
 
+add_executable (cdti WIN32 ${CDTI_APP_SOURCES})
+target_link_libraries (cdti common-sources cdti-sources Qt5::Widgets)
 
-add_executable (cdti ${CDTI_APP_SOURCES})
-target_link_libraries (cdti common-sources cdti-sources)
-
+#SAA application
 file (GLOB_RECURSE SAA_APPLICATION_APP_SOURCES
       "saa-application/*.cpp")
 
 add_executable (saa-application ${SAA_APPLICATION_APP_SOURCES})
 target_link_libraries (saa-application  common-sources saa-application-sources)
 
+#Test server Application
 file (GLOB_RECURSE TEST_SERVER_APP_SOURCES
       "test-server/*.cpp")
 
 add_executable (test-server ${TEST_SERVER_APP_SOURCES})
-target_link_libraries (test-server common-sources test-server-sources Qt5::Widgets)
+target_link_libraries (test-server common-sources test-server-sources)
 
 
 

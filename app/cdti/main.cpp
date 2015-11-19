@@ -38,14 +38,17 @@
 **
 ****************************************************************************/
 
-#include <QApplication>
-#include <cdti/Snapshot.h>
+#include <QtWidgets>
 
+#include "cdti/codeeditor.h"
 
-int main(int argc, char *argv[])
+int main(int argv, char **args)
 {
-   QApplication app(argc, argv);
-   Screenshot screenshot;
-   screenshot.show();
+   QApplication app(argv, args);
+
+   CodeEditor editor;
+   editor.setWindowTitle(QObject::tr("Code Editor Example"));
+   editor.show();
+
    return app.exec();
 }
