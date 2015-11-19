@@ -1,10 +1,14 @@
 cmake_minimum_required (VERSION 2.8.12)
+IF(WIN32)
+    set(CMAKE_PREFIX_PATH "C:\\Qt\\5.4\\mingw491_32\\")
+ENDIF()
 
-# Tell CMake to run moc when necessary:
+    # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
 # to always look for includes there:
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 
 #Environment Setup,  add C++11, debugging symbols, all warnings
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall ")
@@ -20,6 +24,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
 
 project (SAA_Application)
+
+
 
 add_subdirectory(src)
 add_subdirectory(app)
