@@ -3,14 +3,14 @@ include_directories ("${PROJECT_SOURCE_DIR}/src")
 
 #CDTI application
 # Find the QtWidgets library
-find_package(Qt5Widgets)
+#find_package(Qt5W
 
 
 #Script for building the CDTI sources
 file (GLOB_RECURSE CDTI_APP_SOURCES "cdti/*.cpp")
 
-add_executable (cdti WIN32 ${CDTI_APP_SOURCES})
-target_link_libraries (cdti common-sources cdti-sources Qt5::Widgets)
+add_executable (cdti-main WIN32 ${CDTI_APP_SOURCES})
+target_link_libraries (cdti-main common-sources cdti-sources)
 
 #SAA application
 file (GLOB_RECURSE SAA_APPLICATION_APP_SOURCES
@@ -29,7 +29,7 @@ target_link_libraries (test-server common-sources test-server-sources)
 
 
 # Adds logic to INSTALL.vcproj to copy cdti.exe to destination directory
-install (TARGETS cdti
+install (TARGETS cdti-main
 		 RUNTIME DESTINATION ${PROJECT_BINARY_DIR}/bin)
 # Adds logic to INSTALL.vcproj to copy saa-application.exe to destination directory
 install (TARGETS saa-application
