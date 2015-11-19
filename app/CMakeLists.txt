@@ -2,7 +2,9 @@
 
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 
-find_library(LIB_PROTO protobuf)
+if( NOT DEFINED protobuf_BINARY_DIR )
+	message( FATAL_ERROR "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
+endif()
 
 #Script for building the CDTI sources
 file (GLOB_RECURSE CDTI_APP_SOURCES
@@ -10,19 +12,19 @@ file (GLOB_RECURSE CDTI_APP_SOURCES
 
 
 add_executable (cdti ${CDTI_APP_SOURCES})
-target_link_libraries (cdti common-sources cdti-sources ${LIB_PROTO} )
+target_link_libraries (cdti common-sources cdti-sources protobuf )
 
 file (GLOB_RECURSE SAA_APPLICATION_APP_SOURCES
       "saa-application/*.cpp")
 
 add_executable (saa-application ${SAA_APPLICATION_APP_SOURCES})
-target_link_libraries (saa-application  common-sources saa-application-sources ${LIB_PROTO} )
+target_link_libraries (saa-application  common-sources saa-application-sources protobuf )
 
 file (GLOB_RECURSE TEST_SERVER_APP_SOURCES
       "test-server/*.cpp")
 
 add_executable (test-server ${TEST_SERVER_APP_SOURCES})
-target_link_libraries (test-server  common-sources test-server-sources ${LIB_PROTO} )
+target_link_libraries (test-server  common-sources test-server-sources protobuf )
 
 
 
