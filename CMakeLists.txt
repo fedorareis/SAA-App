@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8)
-
 #Environment Setup,  add C++11, debugging symbols, all warnings
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall ")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -Wall ")
+
 option(test "Build all tests." ON) # Makes boolean 'test' available.
 
 
@@ -13,8 +13,23 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Command to output information to the console
 # Useful for displaying errors, warnings, and debugging
 message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
-
+SET(protobuf_BUILD_TESTS OFF)
+set(protobuf_BUILD_SHARED_LIBS OFF)
+set(protobuf_DEBUG_POSTFIX "")
 project (SAA_Application)
+
+#SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
+
+
+add_subdirectory(lib/protobuf/cmake)
+
+include_directories(${protobuf_SOURCE_DIR}/../src)
+link_directories(${protobuf_BINARY_DIR})
+link_directories(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+message("Proto is at: " ${protobuf_SOURCE_DIR})
+message("Proto libs at: " ${protobuf_BINARY_DIR})
+
+message("libs search path: " ${CMAKE_LIBRARY_PATH})
 
 add_subdirectory(src)
 add_subdirectory(app)
