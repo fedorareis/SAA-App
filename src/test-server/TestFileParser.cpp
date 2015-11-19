@@ -15,6 +15,8 @@ void TestFileParser::load()
    xml_document<> doc; // root of the DOM hierarchy; xml_node and a memory_pool
    //doc.parse<0>(text); // 0 means default parse flags; flags must be a compile-time constant!
 
+   /* File == One test case */
+
    // to access DOM tree, use methods of xml_node and xml_attribute classes
    /**
     cout << "Name of my first node is: " << doc.first_node()->name() << "\n";
@@ -29,5 +31,4 @@ void TestFileParser::load()
     */
 }
 
-// think if I need to add more functions in parsing...
 
