@@ -12,6 +12,7 @@ void TestFileParser::load()
    std::cout<<"test file is "<<TestFileParser::testFile<<std::endl;
    // try using the xml parser
    using namespace rapidxml;
+
    xml_document<> doc; // root of the DOM hierarchy; xml_node and a memory_pool
    //doc.parse<0>(text); // 0 means default parse flags; flags must be a compile-time constant!
 
@@ -30,5 +31,3 @@ void TestFileParser::load()
     }
     */
 }
-
-
