@@ -3,6 +3,9 @@ IF(WIN32)
     set(CMAKE_PREFIX_PATH "C:\\Qt\\5.4\\mingw491_32\\")
 ENDIF()
 
+IF(APPLE)
+    set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1")
+endif()
     # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
