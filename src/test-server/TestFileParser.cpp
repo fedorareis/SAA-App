@@ -13,21 +13,46 @@ void TestFileParser::load()
    // try using the xml parser
    using namespace rapidxml;
 
-   xml_document<> doc; // root of the DOM hierarchy; xml_node and a memory_pool
-   //doc.parse<0>(text); // 0 means default parse flags; flags must be a compile-time constant!
+   /* //xml document is loaded through a string variable before you can work with
+      // loading document
+      xml_document<> doc;
+      std::ifstream file("xml_file.xml");
+      std::stringstream buffer;
+      buffer << file.rdbuf();
+      file.close();
+      std::string content(buffer.str());
+      doc.parse<0>(&content[0]);*/
 
    /* File == One test case */
 
-   // to access DOM tree, use methods of xml_node and xml_attribute classes
    /**
-    cout << "Name of my first node is: " << doc.first_node()->name() << "\n";
-    xml_node<> *node = doc.first_node("foobar");
-    cout << "Node foobar has value " << node->value() << "\n";
-    for (xml_attribute<> *attr = node->first_attribute();
-           attr; attr = attr->next_attribute())
-    {
-       cout << "Node foobar has attribute " << attr->name() << " ";
-       cout << "with value " << attr->value() << "\n";
-    }
+    * // Getting the root node
+     xml_node<> *pRoot = doc.first_node(); // With the xml example above this is the <document/> node
     */
+
+   // Iterating through the child node
+   /*
+    * for(xml_node<> *pNode=pRoot->first_node("node"); pNode; pNode=pNode->next_sibling())
+{
+// This loop will walk you through two nodes:
+node attribute="0" and then node attribute="1"
+// Do something here
+}
+    */
+
+   // Getting to the first node by its name
+   /* xml_attribute<> *pAttr = pNode->first_attribute("attribute"); */
+
+
+   // Getting the attribute
+   /* xml_node<> *pNode = pRoot->first_node("node"); */
+
+   // Getting to the first node without caring for its name
+   /* pRoot->first_node(); */
+
+   // Getting string value
+   /* std::string strValue = pAttr->value();*/
+
+   // Getting int value
+   /* int nValue = atoi(pAttr->value()); */
 }

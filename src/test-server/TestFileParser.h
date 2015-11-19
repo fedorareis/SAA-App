@@ -18,7 +18,7 @@ class TestFileParser{
 public:
    TestFileParser(std::string file) : testFile(file){std::cout << "Hello from TestParser"<<std::endl;}; // constructor
    void load();
-   // std::deque<TestCase> GetTestSuits(); // returns the list of TestCases
+   // TestCase GetTestCase(); // returns the TestCase built from this file
 
 private:
    std::string testFile;
