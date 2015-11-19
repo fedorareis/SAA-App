@@ -16,7 +16,9 @@ message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
 
 project (SAA_Application)
 
+SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
 
+SET(protobuf_BUILD_TESTS OFF)
 add_subdirectory(lib/protobuf/cmake)
 include_directories(${protobuf_SOURCE_DIR}/../src)
 link_directories(${protobuf_BINARY_DIR})
