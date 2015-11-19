@@ -10,4 +10,8 @@
 void TestFileParser::load()
 {
    std::cout<<"test file is "<<TestFileParser::testFile<<std::endl;
+   // try using the xml parser
 }
+
+// think if I need to add more functions in parsing...
+
