@@ -7,7 +7,7 @@ Visual Studio:
 	open SAA-Application.sln
 	
 Unix/Linux
-	Create a new _build_xxx folder, with xxx as your target OS.
+	Create a new _buildxxx folder, with xxx as your target OS.
 	CD into the folder
 	run Cmake .. to generate a makefile
 	run Make to build the application

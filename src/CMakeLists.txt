@@ -2,7 +2,7 @@
 
 # Collect sources into the variable SIMPLE_FUNCTION_SOURCES  
 file (GLOB_RECURSE COMMON_FUNCTION_SOURCES
-      "common/*.cpp")
+      "common/*.cpp" "common/*.cc")
 
 file (GLOB_RECURSE CDTI_FUNCTION_SOURCES
       "cdti/*.cpp")
@@ -19,6 +19,7 @@ include_directories (${PROJECT_SOURCE_DIR}/src)
 # Set Properties->General->Configuration Type to Dynamic Library(.dll)
 # Creates saa-application.dll with the listed sources collected in the variables
 # Also adds sources to the Solution Explorer
+
 add_library(common-sources ${COMMON_FUNCTION_SOURCES})
 add_library(cdti-sources ${CDTI_FUNCTION_SOURCES})
 add_library(saa-application-sources ${SAA_APPLICATION_FUNCTION_SOURCES})
