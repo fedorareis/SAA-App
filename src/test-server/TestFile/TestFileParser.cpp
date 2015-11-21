@@ -25,6 +25,12 @@ void TestFileParser::load()
 
    /* File == One test case */
 
+
+}
+
+void TestFileParser::buildTestCase()
+{
+   // builds the test case
    /**
     * // Getting the root node
      xml_node<> *pRoot = doc.first_node(); // With the xml example above this is the <document/> node
@@ -39,6 +45,14 @@ node attribute="0" and then node attribute="1"
 // Do something here
 }
     */
+}
+
+/**
+ * Returns true if required configuration data is all found
+ */
+bool TestFileParser::getOwnship()
+{
+   //
 
    // Getting to the first node by its name
    /* xml_attribute<> *pAttr = pNode->first_attribute("attribute"); */
@@ -55,4 +69,13 @@ node attribute="0" and then node attribute="1"
 
    // Getting int value
    /* int nValue = atoi(pAttr->value()); */
+}
+
+/**
+ * Returns true if required configuration data is all found
+ * Requires at least 1 plane to be present
+ */
+bool TestFileParser::getPlanes()
+{
+   //
 }

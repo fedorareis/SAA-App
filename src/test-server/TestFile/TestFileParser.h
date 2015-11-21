@@ -16,16 +16,17 @@ class TestFileParser{
    // ALWAYS initialize data members in the same order they are declared
 
 public:
-   TestFileParser(std::string file) : testFile(file){std::cout << "Hello from TestParser"<<std::endl;}; // constructor
-   void load();
+   TestFileParser(std::string file) : testFile(file){}; // constructor
+
+   void load(); // loads the testFile to the parser
    // TestCase GetTestCase(); // returns the TestCase built from this file
 
 private:
    std::string testFile;
 
-   void buildTestCase(); // builds each test case
-   void getOwnship(); // handles parsing data for ownship
-   void getPlanes(); // handles parsing data for other planes
+   void buildTestCase(); // builds the test case
+   bool getOwnship(); // handles parsing data for ownship
+   bool getPlanes(); // handles parsing data for other planes
 };
 
 #endif //SAA_APPLICATION_TESTFILEPARSER_H
