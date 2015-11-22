@@ -235,3 +235,4 @@ CMakeCache.txt
 Testing
 _build*
 .idea
+.idea/*
