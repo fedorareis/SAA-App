@@ -14,7 +14,8 @@ int main(int argC, const char* argV[])
    Common common;
    common.report();
 
-   std::string s("TestCaseExample.xml");
+   // Note: find a better way to include resource folder....
+   std::string s("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample.xml");
    TestFileParser parser(s);
    parser.load();
 

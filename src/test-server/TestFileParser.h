@@ -6,7 +6,9 @@
 #define SAA_APPLICATION_TESTFILEPARSER_H
 
 #include <iostream>
-#include <xml-parser/rapidxml.hpp>
+#include <fstream>
+#include <../lib/xml-parser/rapidxml.hpp>
+
 /**
  * Include library for XML parsing
  *
