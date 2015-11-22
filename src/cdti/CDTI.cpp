@@ -9,3 +9,8 @@
 void Cdti::report() {
     std::cout << "Hello from CDTI!" << std::endl;
 }
+
+void Cdti::report(void v)
+{
+
+}
