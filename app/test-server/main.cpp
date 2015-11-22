@@ -15,9 +15,14 @@ int main(int argC, const char* argV[])
    common.report();
 
    // Note: find a better way to include resource folder....
+   std::cout<<"\nTest File 1"<<std::endl;
    std::string s("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample.xml");
    TestFileParser parser(s);
    parser.load();
 
+   std::cout<<"\nTest File 2"<<std::endl;
+   std::string s1("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample2.xml");
+   TestFileParser parser_1(s1);
+   parser_1.load();
    return 0;
 }
