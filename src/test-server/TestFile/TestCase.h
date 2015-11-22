@@ -1,8 +1,0 @@
-//
-// Created by Hae Ri Hwang on 11/21/15.
-//
-
-#ifndef SAA_APPLICATION_TESTCASE_H
-#define SAA_APPLICATION_TESTCASE_H
-
-#endif //SAA_APPLICATION_TESTCASE_H
