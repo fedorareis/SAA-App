@@ -29,8 +29,8 @@ private:
    rapidxml::xml_document<> doc;
 
    void buildTestCase(); // builds the test case
-   bool getOwnship(); // handles parsing data for ownship
-   bool getPlanes(); // handles parsing data for other planes
+   void getOwnship(rapidxml::xml_node<> *inside); // handles parsing data for ownship
+   void getPlanes(); // handles parsing data for other planes
 };
 
 #endif //SAA_APPLICATION_TESTFILEPARSER_H
