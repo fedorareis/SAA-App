@@ -6,6 +6,7 @@
 #define SAA_APPLICATION_TESTFILEPARSER_H
 
 #include <iostream>
+#include <xml-parser/rapidxml.hpp>
 /**
  * Include library for XML parsing
  *
@@ -23,6 +24,7 @@ public:
 
 private:
    std::string testFile;
+   rapidxml::xml_document<> doc;
 
    void buildTestCase(); // builds the test case
    bool getOwnship(); // handles parsing data for ownship

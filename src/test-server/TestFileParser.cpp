@@ -2,8 +2,8 @@
 // Created by Helen Hwang on 11/18/15.
 //
 #include "TestFileParser.h"
-#include <xml-parser/rapidxml.hpp>
 
+using namespace rapidxml;
 /**
  * This initializes the parser
  */
@@ -11,21 +11,17 @@ void TestFileParser::load()
 {
    std::cout<<"test file is "<<TestFileParser::testFile<<std::endl;
    // try using the xml parser
-   using namespace rapidxml;
 
-   /* //xml document is loaded through a string variable before you can work with
       // loading document
       xml_document<> doc;
-      std::ifstream file("xml_file.xml");
+      std::ifstream file(testFile);
       std::stringstream buffer;
       buffer << file.rdbuf();
       file.close();
       std::string content(buffer.str());
-      doc.parse<0>(&content[0]);*/
+      doc.parse<0>(&content[0]);
 
    /* File == One test case */
-
-
 }
 
 void TestFileParser::buildTestCase()
