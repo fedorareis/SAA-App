@@ -44,6 +44,9 @@ void TestFileParser::buildTestCase()
    getOwnship(inside);
 }
 
+/**
+ * Reading ownship data
+ */
 void TestFileParser::getOwnship(xml_node<> *inside)
 {
    std::cout<<"[Ownship]"<<std::endl;
