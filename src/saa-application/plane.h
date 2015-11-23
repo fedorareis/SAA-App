@@ -11,10 +11,14 @@ class Plane
 {
 public:
    std::string getTailNumber();
+   int getRelativeBearing();
+   int getRelativeElevation();
+   std::string getMessage();
 private:
    std::string tailNumber;
-   int speed;
+   int relativeBearing;
    int relativeElevation;
    std::string message;
 };
+
 #endif //SAA_APPLICATION_PLANE_H
