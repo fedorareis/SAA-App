@@ -1,0 +1,31 @@
+<!-- name and description attributes are optional -->
+<test name="Plane Tracking 3" description="Contains configuration error">
+    <!-- ownership data is required -->
+    <!-- tag is required -->
+    <ownship tag="ABC123">
+        <!-- Only 1 of the 3 sensors are required -->
+        <tcas enabled="true" error="1.5"/>
+        <radar enabled="false"/>
+        <ads-b enabled="true" error="0.2"/>
+        <!-- movement and type attribute is required -->
+        <movement type="linear">
+            <!-- both position and direction attribute is required -->
+            <!-- xyz coordinates are ALL required -->
+            <position x="0" y="0" z="0"/>
+            <direction x="575" y="0" z="0"/>
+        </movement>
+    </ownship>
+    <plane tag="N37789">
+        <ads-b enabled="true"/>
+        <movement type="linear">
+            <position x="0" y="10" z="0.3"/>
+            <!-- missing direction -->
+        </movement>
+    </plane>
+    <plane tag="RDR002">
+        <radar enabled="true" error="0.5"/>
+        <movement type="linear">
+            <!-- missing position -->
+        </movement>
+    </plane>
+</test>
