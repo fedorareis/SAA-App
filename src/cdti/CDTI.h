@@ -7,6 +7,6 @@
 class Cdti
 {
 public:
-    void report(void);
+    void report();
 };
 #endif //SAA_APPLICATION_CDTI_H
