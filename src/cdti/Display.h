@@ -1,10 +1,11 @@
 #ifndef SAA_APPLICATION_DISPLAY_CDTI_H
 #define SAA_APPLICATION_DISPLAY_CDTI_H
 
-#include <QtWidgets/qwidget.h>
+#include <QtWidgets>
 
-class Display: public QWidget
+class Display: public QMainWindow
 {
+    Q_OBJECT
 private:
     const int width, height;
 public:

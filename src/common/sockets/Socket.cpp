@@ -1,5 +1,5 @@
 #include "Socket.h"
-#include <String.h>
+#include <string.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <iostream>
