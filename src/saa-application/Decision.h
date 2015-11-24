@@ -7,6 +7,7 @@
 class Decision
 {
 public:
-    void report();
+   void report();
+   CDTIReport generateReport();
 };
 #endif //SAA_APPLICATION_DECISION_H
