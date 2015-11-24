@@ -39,6 +39,8 @@
 ****************************************************************************/
 
 #include <QtWidgets>
+#include <cdti/Display.h>
+#include <cdti/DisplayController.h>
 
 #include "cdti/codeeditor.h"
 
@@ -46,9 +48,8 @@ int main(int argv, char **args)
 {
    QApplication app(argv, args);
 
-   CodeEditor editor;
-   editor.setWindowTitle(QObject::tr("Code Editor Example"));
-   editor.show();
-
+   Display display(640,480);
+   DisplayController displayController(display);
+   displayController.run();
    return app.exec();
 }
