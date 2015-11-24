@@ -6,26 +6,34 @@
 #define SAA_APPLICATION_TESTFILEPARSER_H
 
 #include <iostream>
+#include <fstream>
+#include <exception>
+#include <../lib/xml-parser/rapidxml.hpp>
+
 /**
- * Include library for XML parsing
- *
- * This class parses the XML file that may contain multiple testsuit
- * which may contain multiple testcases.
+ * This class parses the XML file that contains one test case and validates
+ * whether the file contains all necessary the configuration data.
  */
 class TestFileParser{
    // ALWAYS initialize data members in the same order they are declared
 
 public:
-   TestFileParser(std::string file) : testFile(file){std::cout << "Hello from TestParser"<<std::endl;}; // constructor
-   void load(){std::cout << "testFile is "<<testFile<<std::endl;}; // read test suits to form test case
-   // std::deque<TestCase> GetTestSuits(); // returns the list of TestCases
+   TestFileParser(std::string file) : testFile(file){}; // constructor
+
+   void load(); // loads the testFile to the parser
+   // TestCase GetTestCase(); // returns the TestCase built from this file
 
 private:
    std::string testFile;
+   rapidxml::xml_document<> doc; // file iterator
 
-   void buildTestCase(); // builds each test case
-   void getOwnship(); // handles parsing data for ownship
-   void getPlanes(); // handles parsing data for other planes
+   void buildTestCase(); // builds the test case
+   void getOwnship(rapidxml::xml_node<> *node); // handles parsing data for ownship
+   void getMovement(rapidxml::xml_node<> *node); // handles parsing data for movement
+   bool isAttribute(rapidxml::xml_node<> *node, std::string attribute); // validates that attribute exists
+   void getSensors(rapidxml::xml_node<> *node); // handles parsing sensors
+   void getPlanes(rapidxml::xml_node<> *node); // handles parsing data for other planes
+   bool isCoordinate(rapidxml::xml_node<> *node); // validates that all xyz coordinates exists
 };
 
 #endif //SAA_APPLICATION_TESTFILEPARSER_H
