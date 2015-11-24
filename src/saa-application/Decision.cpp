@@ -6,7 +6,7 @@
 #include <fstream>
 #include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
-#include "Plane.h"
+#include "saa-application/Plane.h"
 
 void Decision::report()
 {
