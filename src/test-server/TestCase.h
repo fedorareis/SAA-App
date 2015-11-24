@@ -9,7 +9,6 @@
 class TestCase {
 
 public:
-   static TestCase LoadTestCase(std::string fileName);
 };
 
 

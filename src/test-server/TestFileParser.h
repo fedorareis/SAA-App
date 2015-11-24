@@ -38,9 +38,10 @@ enum ErrorCode
 /**
  * This class parses the XML file that contains one test case and validates
  * whether the file contains all necessary the configuration data.
+ *
+ * Throws Exception if test file is not valid
  */
 class TestFileParser{
-   // ALWAYS initialize data members in the same order they are declared
 
 public:
    TestFileParser(std::string file) : testFile(file){}; // constructor
