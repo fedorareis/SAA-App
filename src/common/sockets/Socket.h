@@ -23,6 +23,7 @@ class Socket
   Socket();
   virtual ~Socket();
 
+
   /**
    * create a new socket
    * @return true if no problems occurred.
@@ -95,10 +96,15 @@ class Socket
    */
   bool is_valid() const { return m_sock != -1; }
 
+   void close();
+
  private:
 
   int m_sock;
   sockaddr_in m_addr;
+
+   protected:
+   int port;
 
 
 };

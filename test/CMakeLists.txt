@@ -10,6 +10,9 @@ file (GLOB_RECURSE SAA_APPLICATION_TEST_SOURCES
 file (GLOB_RECURSE TEST_SERVER_TEST_SOURCES
       "test-server/*.cpp")
 
+file (GLOB_RECURSE MOCKS_SOURCES
+		"mocks/*.cpp")
+
 if( NOT DEFINED protobuf_BINARY_DIR )
 	message( FATAL_ERROR "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
 endif()
@@ -21,7 +24,7 @@ include_directories (${PROJECT_SOURCE_DIR}/lib)
 
 
 #Add all the tests
-add_executable (saa_test main.cpp ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
+add_executable (saa_test main.cpp ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
 #Link all of the sources
 target_link_libraries (saa_test cdti-sources common-sources saa-application-sources test-server-sources protobuf)
 
