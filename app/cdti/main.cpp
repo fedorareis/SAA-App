@@ -48,7 +48,7 @@ int main(int argv, char **args)
 {
    QApplication app(argv, args);
 
-   Display display(640,480);
+   Display display(800,800);
    DisplayController displayController(display);
    displayController.run();
    return app.exec();
