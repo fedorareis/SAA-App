@@ -63,3 +63,30 @@ void Decision::report()
    std::cout << "Plane velocityZ: " << cdtiPlane.velocity().z() << std::endl;
    std::cout << "Plane severity: " << cdtiPlane.severity() << std::endl;
 }
+
+CDTIReport Decision::generateReport()
+{
+   CDTIPlane *plane = new CDTIPlane();
+   Vector *vector = new Vector();
+   Vector *vector2 = new Vector();
+
+   std::string id = "CF34X";
+   plane->set_id(id);
+   vector->set_x(1);
+   vector->set_y(1);
+   vector->set_z(1);
+   vector2->set_x(1);
+   vector2->set_y(1);
+   vector2->set_z(1);
+   plane->set_allocated_velocity(vector);
+   plane->set_allocated_position(vector2);
+   plane->set_severity(CDTIPlane::PROXIMATE);
+
+   CDTIReport report;
+
+   report.set_advisorylevel(CDTIReport::PROXIMATE);
+   report.set_advisorymessage("Move out of the way");
+   report.set_allocated_ownship(plane);
+   report.set_timestamp(1);
+   report.add
+}
