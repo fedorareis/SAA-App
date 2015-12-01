@@ -38,7 +38,6 @@ int main(int argC, const char* argV[])
 
    TestEnvironment environment(testCase);
    environment.acceptConnections();
-
    std::cout << "Environment has finished accepting connections" << std::endl;
 
    return 0;

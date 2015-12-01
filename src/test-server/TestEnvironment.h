@@ -19,7 +19,9 @@ class TestEnvironment {
    private:
       AdsbSensor adsbSensor;
       OwnshipSensor ownshipSensor;
+      ClientSocket cdtiSocket;
       TestCase testCase;
+
 
 
 };

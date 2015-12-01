@@ -8,6 +8,7 @@
 #include <thread>
 #include <test-server/endpoints/Sensor.h>
 #include <iostream>
+#include <common/sockets/SocketException.h>
 
 TestEnvironment::TestEnvironment(TestCase tc) {
    this->testCase = tc;
@@ -29,8 +30,17 @@ bool TestEnvironment::acceptConnections()
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();
    t2.join();
+   std::cout << "Connecting to client on 4000..." << std::endl;
+   try {
+      this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 4000);
+   }
+   catch(SocketException exc)
+   {
+      std::cout << exc.description() << std::endl;
+   }
 
 
-
+   std::cout << "Successfully connected to client" << std::endl;
+   std::cout << "Shutting down..." << std::endl;
    std::cout << "Server would send stuff here!";
 }

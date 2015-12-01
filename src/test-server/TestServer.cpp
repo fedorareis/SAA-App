@@ -27,7 +27,6 @@ void TestServer::setupSockets(int ownshipPort, int adsbPort, int tcasPort, int r
     ownshipSocket = new ServerSocket(ownshipPort);
     tcasSocket = new ServerSocket(tcasPort);
     radarSocket = new ServerSocket(radarPort);
-
-
-
 }
+
+
