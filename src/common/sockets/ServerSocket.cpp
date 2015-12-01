@@ -10,6 +10,8 @@
 #include <iostream>
 #include <thread>
 #include "ProtobufSocketSerializer.h"
+#include "ClientSocket.h"
+
 #define PROTOBUF_HEADER_LEN 4
 ServerSocket::ServerSocket(const int port)
 {
@@ -129,6 +131,16 @@ void ServerSocket::accept(ServerSocket & sock)
    }
 }
 
+void ServerSocket::connectToClient(ClientSocket & socket, int port)
+{
+   if(!is_valid())
+   {
+      throw new SocketException("Not connected to a client");
+   }
+   sockaddr_in newHost = this->m_addr;
+   newHost.sin_port = htons(port);
+   socket.connect(newHost);
+}
 
 int ServerSocket::getPort() {
    return this->port;

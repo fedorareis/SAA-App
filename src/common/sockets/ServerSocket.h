@@ -3,6 +3,7 @@
 #define ServerSocket_class
 
 #include "Socket.h"
+#include "ClientSocket.h"
 #include <google/protobuf/message.h>
 #include <thread>
 
@@ -60,6 +61,8 @@ class ServerSocket : private Socket
    void close(){ Socket::close();}
 
    int getPort();
+
+   void connectToClient(ClientSocket & socket, int port);
 
    private:
    /**

@@ -53,6 +53,13 @@ class Socket
    */
   bool connect ( const std::string host, const int port );
 
+   /**
+     * Connect to a current socket
+     * @param  host connection info to connect on
+     * @return      true if connection was successful
+     */
+   bool connect ( const sockaddr_in host );
+
   /**
    * Send string data down the socket
    * @param  msg the string message to send
@@ -101,10 +108,10 @@ class Socket
  private:
 
   int m_sock;
-  sockaddr_in m_addr;
 
    protected:
    int port;
+   sockaddr_in m_addr;
 
 
 };
