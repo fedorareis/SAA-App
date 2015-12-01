@@ -6,6 +6,8 @@ ENDIF()
 IF(APPLE)
     set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1")
 endif()
+
+option(BUILD_PROTOBUF "Build the protobuf library" ON)
     # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
@@ -33,14 +35,14 @@ project (SAA_Application)
 #SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
 
 
+if(BUILD_PROTOBUF)
 add_subdirectory(lib/protobuf/cmake)
-
 include_directories(${protobuf_SOURCE_DIR}/../src)
 link_directories(${protobuf_BINARY_DIR})
 link_directories(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 message("Proto is at: " ${protobuf_SOURCE_DIR})
 message("Proto libs at: " ${protobuf_BINARY_DIR})
-
+ENDIF()
 message("libs search path: " ${CMAKE_LIBRARY_PATH})
 
 add_subdirectory(src)
