@@ -14,4 +14,5 @@ void SaaApplication::report()
     Decision dec;
     cor.report();
     dec.report();
+    dec.generateReport();
 }

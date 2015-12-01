@@ -49,8 +49,6 @@ void Decision::report()
 
    std::cout << "Plane2 ID: " << plane2.id() << std::endl;
 
-   google::protobuf::ShutdownProtobufLibrary();
-
    Plane plane3 = Plane("X305C", 3, 4, 5, 6, 7, 8);
    CDTIPlane cdtiPlane = plane3.getCDTIPlane();
 
@@ -62,10 +60,13 @@ void Decision::report()
    std::cout << "Plane velocityY: " << cdtiPlane.velocity().y() << std::endl;
    std::cout << "Plane velocityZ: " << cdtiPlane.velocity().z() << std::endl;
    std::cout << "Plane severity: " << cdtiPlane.severity() << std::endl;
+
+   google::protobuf::ShutdownProtobufLibrary();
 }
 
 CDTIReport Decision::generateReport()
 {
+   std::vector<CDTIPlane> list;
    CDTIPlane *plane = new CDTIPlane();
    Vector *vector = new Vector();
    Vector *vector2 = new Vector();
@@ -82,11 +83,24 @@ CDTIReport Decision::generateReport()
    plane->set_allocated_position(vector2);
    plane->set_severity(CDTIPlane::PROXIMATE);
 
+   list.push_back(*plane);
+
    CDTIReport report;
 
    report.set_advisorylevel(CDTIReport::PROXIMATE);
    report.set_advisorymessage("Move out of the way");
    report.set_allocated_ownship(plane);
    report.set_timestamp(1);
-   report.add
+   for (std::vector<CDTIPlane>::iterator it = list.begin(); it != list.end(); ++it)
+   {
+      CDTIPlane* planes = report.add_planes();
+      planes->set_id(it->id());
+      plane->set_allocated_velocity(it->mutable_velocity());
+      plane->set_allocated_position(it->mutable_velocity());
+      plane->set_severity(it->severity());
+   }
+
+   google::protobuf::ShutdownProtobufLibrary();
+
+   return report;
 }

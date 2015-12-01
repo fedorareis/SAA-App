@@ -4,9 +4,15 @@
 
 #ifndef SAA_APPLICATION_SAAAPPLICATION_H
 #define SAA_APPLICATION_SAAAPPLICATION_H
+
+#include <vector>
+#include <common/protobuf/cdti.pb.h>
+
 class SaaApplication
 {
 public:
-    void report();
+   void report();
+private:
+   std::vector<CDTIPlane> list;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H
