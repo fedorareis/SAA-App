@@ -9,5 +9,6 @@ struct ConnectionInfo
    const int port;
 
 
+
 };
 #endif //SAA_APPLICATION_CONNECTIONINFO_H

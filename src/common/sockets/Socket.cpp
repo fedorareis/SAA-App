@@ -54,6 +54,7 @@ bool Socket::bind(const int port)
    {
       return false;
    }
+   this->port = port;
    return true;
 }
 
@@ -184,4 +185,11 @@ bool Socket::send(const void *msg, int len) const {
    {
       return true;
    }
+}
+
+void Socket::close() {
+   if(is_valid())
+      ::close(m_sock);
+   m_sock = -1;
+
 }
