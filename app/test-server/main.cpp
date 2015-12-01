@@ -8,24 +8,24 @@
 #include <test-server/endpoints/mocks/MockSensorEndpoint.h>
 #include "test-server/TestServer.h"
 #include "test-server/TestFileParser.h"
-
 int main(int argC, const char* argV[])
 {
 
    Common common;
    common.report();
-   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(4000));
-   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
+   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(5000));
+   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(6000));
 
 
 
    // Note: find a better way to include resource folder....
-   /*
+
    std::cout<<"\nTest File 1"<<std::endl;
-   std::string s("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample.xml");
+   //__DIR__ is injected in compile time
+   std::string s(__DIR__"/resources/TestCaseExample.xml");
    TestFileParser parser(s);
    parser.load();
-
+   /*
    // contains multiple planes
    std::cout<<"\nTest File 2"<<std::endl;
    std::string s1("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample2.xml");
@@ -43,6 +43,6 @@ int main(int argC, const char* argV[])
    TestEnvironment environment(testCase);
    environment.acceptConnections();
    std::cout << "Environment has finished accepting connections" << std::endl;
-
+   TestServer::shutdown();
    return 0;
 }
