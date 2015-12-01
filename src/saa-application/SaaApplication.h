@@ -13,6 +13,6 @@ class SaaApplication
 public:
    void report();
 private:
-   std::vector<CDTIPlane> list;
+   std::vector<CDTIPlane *> list;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H

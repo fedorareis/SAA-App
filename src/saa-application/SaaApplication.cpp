@@ -13,6 +13,7 @@ void SaaApplication::report()
     Correlation cor;
     Decision dec;
     cor.report();
-    dec.report();
-    dec.generateReport();
+    dec.report(&list);
+    auto rep = dec.generateReport(&list);
+    delete rep;
 }

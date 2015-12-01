@@ -10,7 +10,7 @@
 class Decision
 {
 public:
-   void report();
-   CDTIReport generateReport();
+   void report(std::vector<CDTIPlane *>* list);
+   CDTIReport * generateReport(std::vector<CDTIPlane *>* list);
 };
 #endif //SAA_APPLICATION_DECISION_H
