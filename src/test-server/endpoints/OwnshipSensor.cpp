@@ -4,8 +4,8 @@
 
 #include "OwnshipSensor.h"
 #include "common/protobuf/ownship.pb.h"
-OwnshipSensor::OwnshipSensor():
-Sensor(){
+OwnshipSensor::OwnshipSensor(SensorEndpoint * endpoint):
+Sensor(endpoint){
 
 }
 /**
@@ -20,9 +20,6 @@ Sensor(){
 void OwnshipSensor::sendData(Plane & plane)
 {
    OwnshipReport report;
-
-
-
    (this->getEndpoint().getSocket().operator<<(report));
 
 }

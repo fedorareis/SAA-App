@@ -8,8 +8,9 @@
 
 class OwnshipSensor : public Sensor {
    public:
-   OwnshipSensor();
+   OwnshipSensor(SensorEndpoint * endpoint);
    virtual void sendData(Plane & plane);
+
 
 };
 

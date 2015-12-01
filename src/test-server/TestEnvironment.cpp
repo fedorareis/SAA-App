@@ -12,20 +12,29 @@
 
 TestEnvironment::TestEnvironment(TestCase tc) {
    this->testCase = tc;
+
 }
-void acceptNetworkConnection(Sensor * acceptingSocket, ServerSocket * bindingSocket)
+//What I raelly want to do is accept a mock service.
+void acceptNetworkConnection(Sensor * acceptingSocket, SensorEndpoint * bindingEndpoint)
 {
 
-   bindingSocket->accept(acceptingSocket->getEndpoint().getSocket());
-   std::cout << "Server has accepted adsb socket" << std::endl;
+   try{
+
+      bindingEndpoint->accept(acceptingSocket->getEndpoint());
+      std::cout << "Server has accepted socket" << std::endl;
+   }
+   catch(SocketException exc)
+   {
+      std::cout << exc.description() << std::endl;
+   }
 
 }
 
 bool TestEnvironment::acceptConnections()
 {
    //Threaded accept
-   std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getPort() << std::endl;
-   std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getPort() << std::endl;
+   std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getSocket().getPort() << std::endl;
+   std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getSocket().getPort() << std::endl;
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();

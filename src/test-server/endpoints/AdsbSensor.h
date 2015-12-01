@@ -8,7 +8,7 @@
 #include "Sensor.h"
 class AdsbSensor : public Sensor {
    public:
-   AdsbSensor();
+   AdsbSensor(SensorEndpoint * endpoint);
    virtual void sendData(Plane & plane);
 
 };

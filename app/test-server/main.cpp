@@ -5,6 +5,7 @@
 #include <iosfwd>
 #include <string>
 #include <test-server/TestEnvironment.h>
+#include <test-server/endpoints/mocks/MockSensorEndpoint.h>
 #include "test-server/TestServer.h"
 #include "test-server/TestFileParser.h"
 
@@ -13,7 +14,10 @@ int main(int argC, const char* argV[])
 
    Common common;
    common.report();
-   TestServer::setupSockets(5000,6000,7000,8000);
+   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(4000));
+   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
+
+
 
    // Note: find a better way to include resource folder....
    /*

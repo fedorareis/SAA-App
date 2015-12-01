@@ -6,22 +6,23 @@
 #define SAA_APPLICATION_TESTSERVER_H
 
 #include <common/sockets/ServerSocket.h>
+#include <test-server/endpoints/SensorEndpoint.h>
 
 class TestServer{
    public:
-   static void setupSockets(int ownshipPort, int adsbPort, int tcasPort, int radarPort);
+   static void provideOwnshipEndpoint(SensorEndpoint * endpoint);
+   static void provideAdsbEndpoint(SensorEndpoint * endpoint);
    static void shutdown();
    void report();
 
-   static ServerSocket * getOwnshipSocket();
-   static ServerSocket * getAdsbSocket();
-   static ServerSocket * getTcasSocket();
-   static ServerSocket * getRadarSocket();
+   static SensorEndpoint * getOwnshipSocket();
+   static SensorEndpoint * getAdsbSocket();
+   static SensorEndpoint * getTcasSocket();
+   static SensorEndpoint * getRadarSocket();
    private:
-   static ServerSocket * ownshipSocket;
-   static ServerSocket * adsbSocket;
-   static ServerSocket * tcasSocket;
-   static ServerSocket * radarSocket;
-
+   static SensorEndpoint * ownshipSocket;
+   static SensorEndpoint * adsbSocket;
+   static SensorEndpoint * tcasSocket;
+   static SensorEndpoint * radarSocket;
 };
 #endif //SAA_APPLICATION_TESTSERVER_H

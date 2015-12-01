@@ -11,11 +11,13 @@
 class SensorEndpoint {
    public:
       SensorEndpoint();
-      ~SensorEndpoint();
+      virtual  ~SensorEndpoint();
+      virtual void accept(SensorEndpoint & endpoint) = 0;
       ServerSocket & getSocket();
-   protected:
-      ServerSocket socket;
 
+      //please don't use this i'm horrible ~love kyle
+      ServerSocket * socket;
+   protected:
 
 };
 

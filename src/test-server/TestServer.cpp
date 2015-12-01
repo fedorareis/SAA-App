@@ -3,30 +3,33 @@
 //
 
 #include <iostream>
+#include <test-server/endpoints/AdsbSensor.h>
+#include <test-server/endpoints/OwnshipSensor.h>
 #include "TestServer.h"
 
-ServerSocket * TestServer::adsbSocket = nullptr;
-ServerSocket * TestServer::ownshipSocket = nullptr;
-ServerSocket * TestServer::tcasSocket = nullptr;
-ServerSocket * TestServer::radarSocket = nullptr;
 
-ServerSocket *TestServer::getOwnshipSocket() {
+SensorEndpoint * TestServer::ownshipSocket = nullptr;
+SensorEndpoint * TestServer::adsbSocket = nullptr;
+
+SensorEndpoint * TestServer::getOwnshipSocket() {
     return ownshipSocket;
 }
-ServerSocket *TestServer::getAdsbSocket() {
+SensorEndpoint * TestServer::getAdsbSocket() {
     return adsbSocket;
 }
-ServerSocket * TestServer::getTcasSocket() {
-    return tcasSocket;
-}
-ServerSocket * TestServer::getRadarSocket(){
-    return radarSocket;
-}
-void TestServer::setupSockets(int ownshipPort, int adsbPort, int tcasPort, int radarPort) {
-    adsbSocket = new ServerSocket(adsbPort);
-    ownshipSocket = new ServerSocket(ownshipPort);
-    tcasSocket = new ServerSocket(tcasPort);
-    radarSocket = new ServerSocket(radarPort);
+
+void TestServer::provideOwnshipEndpoint(SensorEndpoint *endpoint) {
+    TestServer::ownshipSocket = endpoint;
 }
 
+void TestServer::provideAdsbEndpoint(SensorEndpoint *endpoint) {
+    TestServer::adsbSocket = endpoint;
 
+}
+
+void TestServer::shutdown() {
+    if(ownshipSocket != nullptr)
+        delete ownshipSocket;
+    if(adsbSocket != nullptr)
+        delete adsbSocket;
+}

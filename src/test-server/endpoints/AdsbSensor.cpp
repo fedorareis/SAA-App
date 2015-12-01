@@ -5,8 +5,8 @@
 #include "AdsbSensor.h"
 #include <common/protobuf/adsb.pb.h>
 //@TODO add configuration data for error here
-AdsbSensor::AdsbSensor():
-Sensor()
+AdsbSensor::AdsbSensor(SensorEndpoint * endpoint):
+Sensor(endpoint)
 {
 
 }
