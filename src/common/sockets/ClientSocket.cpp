@@ -18,11 +18,28 @@ ClientSocket::ClientSocket(std::string host, int port)
    {
       throw SocketException("Could not create client socket.");
    }
-   if(!Socket::connect(host, port))
+   connect(host,port);
+
+}
+
+ClientSocket::ClientSocket(const sockaddr_in host)
+{
+   if(!Socket::create())
    {
-      throw SocketException("Could not connet to" + host + ":" + std::to_string(port));
+      throw SocketException("Could not create client socket");
+   }
+   connect(host);
+}
+
+ClientSocket::ClientSocket() {
+   if(!Socket::create())
+   {
+      throw SocketException("Could not create client socket");
    }
 }
+
+
+
 
 const ClientSocket & ClientSocket::operator << (const std::string& s) const
 {
@@ -119,3 +136,20 @@ const ClientSocket & ClientSocket::operator >> (::google::protobuf::Message & ms
    return *this;
 }
 */
+void ClientSocket::connect(std::string host, int port) {
+
+   if(!Socket::connect(host, port))
+   {
+      throw SocketException("Could not connet to" + host + ":" + std::to_string(port));
+   }
+
+}
+
+void ClientSocket::connect(const sockaddr_in host) {
+   if(!Socket::connect(host))
+   {
+      throw SocketException("Could not connect to host on port " + std::to_string(ntohs(host.sin_port)));
+   }
+
+
+}

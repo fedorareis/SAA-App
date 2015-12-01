@@ -3,7 +3,9 @@
 #define ServerSocket_class
 
 #include "Socket.h"
+#include "ClientSocket.h"
 #include <google/protobuf/message.h>
+#include <thread>
 
 
 /**
@@ -19,7 +21,7 @@ class ServerSocket : private Socket
    /**
     * Create and open a socket on the specified port
     */
-   ServerSocket ( int port );
+   ServerSocket (const int port );
    /**
     * create a socket for accepting a current connection
     */
@@ -34,28 +36,35 @@ class ServerSocket : private Socket
    * Write a string to the client
    * String  std::string the string to write
    */
-   const ServerSocket& operator << ( const std::string& ) const;
+   virtual const ServerSocket& operator << ( const std::string& ) const;
    /**
     * Read a string form the client
     * string    std::string    the string to read into
     */
-   const ServerSocket& operator >> ( std::string& ) const;
+   virtual const ServerSocket& operator >> ( std::string& ) const;
    /**
     * Write a protocl buffer to the client
     * msg    protobufMessage   The message to write
     */
-   const ServerSocket& operator << ( const ::google::protobuf::Message & msg ) const;
+   virtual const ServerSocket& operator << ( const ::google::protobuf::Message & msg ) const;
    /**
     * Read a protocol buffer from the client into message
     * msg    protobufMessage   the message to read into
     */
-   const ServerSocket& operator >> ( ::google::protobuf::Message & msg ) const; 
+   virtual const ServerSocket& operator >> ( ::google::protobuf::Message & msg ) const;
 
    /**
     * Accept a connection, and bind it to the new socket
     */
-   void accept ( ServerSocket& );
-private:
+   virtual void accept ( ServerSocket& );
+
+   void close(){ Socket::close();}
+
+   int getPort();
+
+   void connectToClient(ClientSocket & socket, int port);
+
+   private:
    /**
     * Read a the header length from a protocol buffer
     * @param  data The raw bytes of the protocl buffer

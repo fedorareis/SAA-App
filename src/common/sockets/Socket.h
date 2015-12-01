@@ -23,6 +23,7 @@ class Socket
   Socket();
   virtual ~Socket();
 
+
   /**
    * create a new socket
    * @return true if no problems occurred.
@@ -51,6 +52,13 @@ class Socket
    * @return      true if connection was successful
    */
   bool connect ( const std::string host, const int port );
+
+   /**
+     * Connect to a current socket
+     * @param  host connection info to connect on
+     * @return      true if connection was successful
+     */
+   bool connect ( const sockaddr_in host );
 
   /**
    * Send string data down the socket
@@ -95,10 +103,15 @@ class Socket
    */
   bool is_valid() const { return m_sock != -1; }
 
+   void close();
+
  private:
 
   int m_sock;
-  sockaddr_in m_addr;
+
+   protected:
+   int port;
+   sockaddr_in m_addr;
 
 
 };

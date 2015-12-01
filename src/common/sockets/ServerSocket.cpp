@@ -8,9 +8,12 @@
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <iostream>
+#include <thread>
 #include "ProtobufSocketSerializer.h"
+#include "ClientSocket.h"
+
 #define PROTOBUF_HEADER_LEN 4
-ServerSocket::ServerSocket(int port)
+ServerSocket::ServerSocket(const int port)
 {
    //Create the socket
    if(! Socket::create())
@@ -126,4 +129,19 @@ void ServerSocket::accept(ServerSocket & sock)
    {
       throw SocketException("Could not accept socket");
    }
+}
+
+void ServerSocket::connectToClient(ClientSocket & socket, int port)
+{
+   if(!is_valid())
+   {
+      throw new SocketException("Not connected to a client");
+   }
+   sockaddr_in newHost = this->m_addr;
+   newHost.sin_port = htons(port);
+   socket.connect(newHost);
+}
+
+int ServerSocket::getPort() {
+   return this->port;
 }

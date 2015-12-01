@@ -22,16 +22,25 @@ public:
     * @param port  the port to connect to.
     */
    ClientSocket ( std::string host, int port );
+
+   ClientSocket ( const sockaddr_in host );
+
+   ClientSocket();
    /**
     * Close the socket
     */
    virtual ~ClientSocket(){};
+
+   void connect(std::string host, int port);
+   void connect(const sockaddr_in host);
 
    /**
     * Send string data to the ost
     * @param string the data to send
     * @return the socket, for chaining
     */
+
+
    const ClientSocket& operator << ( const std::string& ) const;
    /**
     * Recieve string data from the host

@@ -54,6 +54,7 @@ bool Socket::bind(const int port)
    {
       return false;
    }
+   this->port = port;
    return true;
 }
 
@@ -74,7 +75,7 @@ bool Socket::listen() const
 bool Socket::accept(Socket & new_socket) const
 {
    int addr_length = sizeof(m_addr);
-   new_socket.m_sock = ::accept(m_sock,(sockaddr * ) &m_addr, (socklen_t *) &addr_length);
+   new_socket.m_sock = ::accept(m_sock,(sockaddr * ) &new_socket.m_addr, (socklen_t *) &addr_length);
    if(new_socket.m_sock <= 0)
    {
       return false;
@@ -157,6 +158,22 @@ bool Socket::connect(const std::string host, const int port)
    else
       return false;
 }
+bool Socket::connect(const sockaddr_in host)
+{
+   if(!is_valid())
+   {
+      return false;
+   }
+
+
+   int status = ::connect(m_sock, (sockaddr * ) &host, sizeof(m_addr));
+
+   if(status == 0)
+      return true;
+   else
+      return false;
+}
+
 void Socket::set_non_blocking (const bool b)
 {
    int opts;
@@ -184,4 +201,11 @@ bool Socket::send(const void *msg, int len) const {
    {
       return true;
    }
+}
+
+void Socket::close() {
+   if(is_valid())
+      ::close(m_sock);
+   m_sock = -1;
+
 }
