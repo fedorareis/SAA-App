@@ -4,9 +4,10 @@
 
 #ifndef SAA_APPLICATION_CDTIENDPOINT_H
 #define SAA_APPLICATION_CDTIENDPOINT_H
-#include <google/protobuf/Message.h>
+#include <google/protobuf/message.h>
 
-class CDTIEndpoint {
+class CDTIEndpoint
+{
    public:
    virtual const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const = 0;
 

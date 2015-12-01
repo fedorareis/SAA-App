@@ -8,10 +8,13 @@
 #include "common/protobuf/cdti.pb.h"
 class CDTIMockEndpoint : public CDTIEndpoint
 {
-   public:
+private:
+    CDTIReport report;
+    int time;
+public:
    CDTIMockEndpoint();
    const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const;
-   private:
-   CDTIReport report;
+    void step();
+
 };
 #endif //SAA_APPLICATION_CDTIMOCKENDPOINT_H

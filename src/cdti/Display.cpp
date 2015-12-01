@@ -20,8 +20,6 @@ void Display::setupLayout()
     Pal.setColor(QPalette::Background, Qt::black);
     setAutoFillBackground(true);
     setPalette(Pal);
-
-    //draw Circles
 }
 
 void Display::paintEvent(QPaintEvent *event)
@@ -32,7 +30,7 @@ void Display::paintEvent(QPaintEvent *event)
     projectDir.cdUp();
     projectDir.cdUp();
     //open image and scale it
-    QImageReader imageReader(projectDir.filePath("resources/awesome.png"));
+    QImageReader imageReader(projectDir.filePath("resources/ownship.png"));
     QImage image = imageReader.read();
     image = image.scaled(100,100,Qt::IgnoreAspectRatio);
 
@@ -53,8 +51,23 @@ void Display::paintEvent(QPaintEvent *event)
     }
 
     //paint planes
+
+    //paint ownship
     painter.setPen(QPen(QColor(200,200,200,100), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter.setBrush(QBrush(image));
     painter.translate(-50,-50);
     painter.drawRect(0,0,100,100);
+
+    //paint any other planes in space
+    for(auto plane: planes)
+    {
+        painter.setPen(QPen(QColor(200,200,200,100), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        painter.setBrush(QBrush(plane->getSeverityImage()));
+        Vector position = plane->getPosition();
+        painter.resetTransform();
+        painter.translate(width / 2 + position.x() * 2.3,height / 2 - position.y() * 2.3);
+        //for rect offset
+        painter.translate(-50,-50);
+        painter.drawRect(0,0,100,100);
+    }
 }

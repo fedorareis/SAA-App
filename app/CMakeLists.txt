@@ -11,7 +11,7 @@ file (GLOB_RECURSE CDTI_APP_SOURCES
       "cdti/*.cpp")
 
 add_executable (cdti-main WIN32 ${CDTI_APP_SOURCES})
-target_link_libraries (cdti-main common-sources cdti-sources)
+target_link_libraries (cdti-main common-sources cdti-sources protobuf)
 
 #SAA application
 add_executable (cdti ${CDTI_APP_SOURCES})

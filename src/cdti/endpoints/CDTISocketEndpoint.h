@@ -7,13 +7,13 @@
 
 #include "cdti/endpoints/CDTIEndpoint.h"
 #include "common/sockets/ClientSocket.h"
-class CDTISocketEndpoint : public CDTIEndpoint{
-   public:
+class CDTISocketEndpoint : public CDTIEndpoint
+{
+private:
+    ClientSocket socket;
+public:
    CDTISocketEndpoint(std::string host, int port);
    const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const;
-
-   private:
-   ClientSocket socket;
 };
 
 

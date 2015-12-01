@@ -140,7 +140,7 @@ void ClientSocket::connect(std::string host, int port) {
 
    if(!Socket::connect(host, port))
    {
-      throw SocketException("Could not connet to" + host + ":" + std::to_string(port));
+      throw SocketException("Could not connect to " + host + ":" + std::to_string(port));
    }
 
 }
