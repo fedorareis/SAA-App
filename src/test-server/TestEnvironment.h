@@ -7,6 +7,7 @@
 #include "test-server/endpoints/SensorEndpoint.h"
 #include "test-server/endpoints/Sensor.h"
 #include "test-server/endpoints/AdsbSensor.h"
+#include "test-server/endpoints/OwnshipSensor.h"
 #include "TestCase.h"
 
 class TestEnvironment {
@@ -17,7 +18,9 @@ class TestEnvironment {
 
    private:
       AdsbSensor adsbSensor;
+      OwnshipSensor ownshipSensor;
       TestCase testCase;
+
 
 };
 
