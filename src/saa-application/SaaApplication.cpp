@@ -57,6 +57,7 @@ void SaaApplication::report()
     AdsBReport adsb;
     OwnshipReport ownship;
 
+    //set up sockets
     std::vector<ClientSocket> socks = SocketSetup();
     ClientSocket ownSock = socks.back();
     socks.pop_back();
@@ -70,6 +71,7 @@ void SaaApplication::report()
             ownSock.operator>>(ownship); //blocking call, waits for server
             std::vector<Plane> planes = convertToRelative(adsb, ownship);
             planes = cor.correlate(planes);
+            std::cout << "finished one cycle" << std::endl;
             //send to decision making module here
         }
         catch (SocketException) {
