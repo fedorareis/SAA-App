@@ -101,11 +101,11 @@ void SaaApplication::report()
          //send to decision making module here
          dec.report(&list);
          rep = dec.generateReport(&list);
-         cdtiOut << (*rep);
+         //cdtiOut << (*rep);
       }
-      catch (SocketException exc)
+      catch (SocketException)
       {
-         std::cout << exc.description() << std::endl;
+         std::cout << "got a socket exception..." << std::endl;
          run = false;
       }
    }
