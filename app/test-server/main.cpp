@@ -24,8 +24,9 @@ int main(int argC, const char* argV[])
    std::cout<<"\nTest File 1"<<std::endl;
    //__DIR__ is injected in compile time
    std::string s(__DIR__"/resources/TestCaseExample.xml");
-   TestFileParser parser(s);
-   parser.load();
+   TestFileParser parser;
+   parser.load(s);
+
    /*
    // contains multiple planes
    std::cout<<"\nTest File 2"<<std::endl;
@@ -39,6 +40,8 @@ int main(int argC, const char* argV[])
    TestFileParser parser_2(s2);
    parser_2.load();
     */
+
+   /*
    TestCase testCase;
    TestServerPlane ownshipPlane;
    ownshipPlane.setMotion(new LinearMotion(Vector3d(0,0,8000), Vector3d(875,0,0)));
@@ -60,5 +63,6 @@ int main(int argC, const char* argV[])
    environment.acceptConnections();
    std::cout << "Environment has finished accepting connections" << std::endl;
    TestServer::shutdown();
+    */
    return 0;
 }
