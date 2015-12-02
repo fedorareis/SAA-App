@@ -3,9 +3,12 @@
 //
 
 #include <math.h>
+#include <iostream>
 #include "TestCase.h"
 #include "common/Maths.h"
-TestCase::TestCase() {
+TestCase::TestCase() :
+ownship(TestServerPlane())
+{
 
 }
 
@@ -13,12 +16,12 @@ void TestCase::setName(const std::string name) {
    this->name = name;
 }
 
-void TestCase::setOwnship(const TestServerPlane &plane) {
-   ownship = TestServerPlane(plane);
+void TestCase::setOwnship(const TestServerPlane & newPlane) {
+   ownship = newPlane;
 }
 
-void TestCase::addPlane(const TestServerPlane &plane) {
-   otherPlanes.push_back(TestServerPlane(plane));
+void TestCase::addPlane(const TestServerPlane & newPlane) {
+   otherPlanes.push_back(TestServerPlane(newPlane));
 
 }
 void TestCase::update(float dt)
@@ -39,6 +42,7 @@ const std::vector<TestServerPlane> & TestCase::getPlanes() {
 }
 
 void TestCase::complete() {
+   ownship.setLatLongAlt(Vector3d(0,0,ownship.getMotion()->getInitialPosition().z));
    for(auto plane = otherPlanes.begin(); plane != otherPlanes.end(); plane++)
    {
       if(plane->getMotion() != nullptr)
@@ -47,10 +51,11 @@ void TestCase::complete() {
 
          Vector3d diffPos = relPos - ownship.getMotion()->getInitialPosition();
 
-         //Offset by lat and long miles
-         float newLat = ownship.getLatitude()   + diffPos.x / (M_PI  * 2 * EARTH_RADIUS)/360.0; //Arc length, nMi/theta
-         float newLong = ownship.getLongitude() + diffPos.y / (M_PI  * 2 * EARTH_RADIUS)/360.0;
-         plane->setLatLongAlt(Vector3d(newLat,newLong,diffPos.z));
+         //Offset by lat and long miles (This should be encapsulated somewhere else)
+         float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * EARTH_RADIUS)/360.0); //Arc length, nMi/theta
+         float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EARTH_RADIUS)/360.0);
+         plane->setLatLongAlt(Vector3d(newLat,newLong,relPos.z + ownship.getAltitude()));
+         std::cout << "Other plane at " << plane->getLatitude() << " " << plane->getLongitude() << " " << plane->getAltitude() << std::endl;
 
       }
    }

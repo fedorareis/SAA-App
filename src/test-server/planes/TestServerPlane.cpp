@@ -31,6 +31,7 @@ TestServerPlane::TestServerPlane():
 }
 
 
+
 //Actually move the plane (Can't do LatLongAlt from dNES)
 void TestServerPlane::update(float dT)
 {
@@ -52,10 +53,10 @@ void TestServerPlane::setTcasEnabled(bool tcas) {
    this->isTCasEnabled = tcas;
 }
 
-void TestServerPlane::setMotion(const Motion * m) {
+void TestServerPlane::setMotion(const Motion & m) {
    if(motionPtr != nullptr)
       delete  motionPtr;
-   motionPtr = m->clone();
+   motionPtr = m.clone();
 }
 
 double TestServerPlane::getLatitude() const {
@@ -92,7 +93,10 @@ bool TestServerPlane::getTcasEnabled() const {
 
 TestServerPlane::~TestServerPlane() {
    if(motionPtr != nullptr)
+   {
       delete motionPtr;
+      motionPtr = nullptr;
+   }
 
 }
 
@@ -105,8 +109,11 @@ std::string TestServerPlane::getTailNumber() const {
 }
 
 TestServerPlane::TestServerPlane(const TestServerPlane &other):
+t(other.t),
+tailNumber(other.tailNumber),
 latLongAlt(other.latLongAlt),
-northEastDownVel(other.northEastDownVel)
+northEastDownVel(other.northEastDownVel),
+motionPtr(nullptr)
 {
    if(other.motionPtr != nullptr)
       this->motionPtr = other.motionPtr->clone();
@@ -125,4 +132,19 @@ Motion *TestServerPlane::getMotion() {
 void TestServerPlane::setLatLongAlt(Vector3d latLongAlt) {
    this->latLongAlt = latLongAlt;
 
+}
+
+TestServerPlane &TestServerPlane::operator=(const TestServerPlane &rhs) {
+   if(&rhs == this)
+      return *this;
+   this->latLongAlt = rhs.latLongAlt;
+   this->northEastDownVel = rhs.northEastDownVel;
+   this->isADSBEnabled = rhs.isADSBEnabled;
+   this->isTCasEnabled = rhs.isTCasEnabled;
+   this->tailNumber = rhs.tailNumber;
+   if(this->motionPtr)
+      delete motionPtr;
+   this->motionPtr = rhs.motionPtr->clone();
+   this->t = rhs.t;
+   return *this;
 }

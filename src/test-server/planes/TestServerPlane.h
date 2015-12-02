@@ -13,6 +13,7 @@ class TestServerPlane {
    public:
    TestServerPlane();
    TestServerPlane(const TestServerPlane & other);
+   TestServerPlane& operator= (const TestServerPlane & rhs);
    ~TestServerPlane();
 
    /**
@@ -22,7 +23,7 @@ class TestServerPlane {
 
    void setAdsbEnabled(bool adsb);
    void setTcasEnabled(bool tcas);
-   void setMotion(const Motion * m);
+   void setMotion(const Motion & m);
    void setTailNumber(std::string name);
    void setLatLongAlt(Vector3d latLongAlt);
    double getLatitude() const;
