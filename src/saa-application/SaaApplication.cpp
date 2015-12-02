@@ -68,6 +68,8 @@ void SaaApplication::report()
             std::vector<Plane> planes = convertToRelative(adsb, ownship);
             planes = cor.correlate(planes);
             std::cout << "finished one cycle" << std::endl;
+            Plane rPlane = planes.back();
+            rPlane.printPos();
             //send to decision making module here
         }
         catch (SocketException) {
