@@ -38,17 +38,19 @@ bool TestEnvironment::acceptConnections()
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();
    t2.join();
-   std::cout << "Connecting to client on 4000..." << std::endl;
+   std::cout << "Connecting to client on 6000..." << std::endl;
    try {
-      this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 4000);
+      this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 6000);
+      std::cout << "Successfully connected to client" << std::endl;
+
    }
    catch(SocketException exc)
    {
       std::cout << exc.description() << std::endl;
+      
    }
 
 
-   std::cout << "Successfully connected to client" << std::endl;
 }
 
 void TestEnvironment::start(TestCase & tc)

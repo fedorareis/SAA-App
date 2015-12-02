@@ -73,16 +73,16 @@ void SaaApplication::report()
    CDTIReport *rep = nullptr;
 
    //Set up server sockets
-   //setupSockets(4000);
-   //std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
+   setupSockets(6000);
+   std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
-   //t1.join();
    //t2.join();
 
    //set up client sockets
    ClientSocket ownSock;
    ClientSocket adsbSock;
    SocketSetup(adsbSock, ownSock);
+   t1.join();
 
    //socks.pop_back();
 
