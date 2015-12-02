@@ -16,3 +16,7 @@ void Correlation::report()
    std::cout << "We are correlating some stuff" << std::endl;
 
 }
+
+std::vector<Plane> Correlation::correlate(std::vector<Plane> planes) {
+   return planes;
+}
