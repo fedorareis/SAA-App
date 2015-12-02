@@ -80,7 +80,6 @@ int TestFileParser::buildTestCase()
 
    // test must exist
    if(node) {
-
       // Name and description are optional
       if (isAttribute(node, "name")) {
          test.setName(node->first_attribute("name")->value());
@@ -116,6 +115,9 @@ int TestFileParser::buildTestCase()
       if (code) {
          return code;
       }
+
+      test.complete();
+
       return ErrorCode::success;
    }
 
@@ -138,14 +140,14 @@ int TestFileParser::getOwnship(xml_node<> *node)
       } else return ErrorCode::os_tagErr;
 
       //parses sensor data
-      auto code = getSensors(ownship, &plane);
+      auto code = getSensors(ownship, plane);
       // checks the sensor for ownship
       if (code) {
          return ErrorCode::os_sensorErr;
       }
 
       // parse movement
-      code = getMovement(ownship->first_node("movement"), &plane);
+      code = getMovement(ownship->first_node("movement"), plane);
       // checks the movement for ownship
       if (code) {
          if(code == ErrorCode::positionError)
@@ -166,12 +168,9 @@ int TestFileParser::getOwnship(xml_node<> *node)
 /**
  * Parses the sensor data; There has to be at least 1 sensor for any plane
  */
-int TestFileParser::getSensors(xml_node<> *node, TestServerPlane* aircraft)
+int TestFileParser::getSensors(xml_node<> *node, TestServerPlane & aircraft)
 {
-   TestServerPlane *plane = aircraft;
    int count = 0;
-   std::cout<<"     sensor(s)"<<std::endl;
-
    // checking whether tcas exists
    {
       xml_node<> *sensor = node->first_node("tcas");
@@ -181,18 +180,18 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane* aircraft)
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
             if(!std::strcmp(sensor->first_attribute("enabled")->value(),"true")) {
-               std::cout<<"    tcas enabled"<<std::endl;
-               (*plane).setTcasEnabled(true);
+               aircraft.setTcasEnabled(true);
             }
             else {
-               std::cout<<"    tcas diabled"<<std::endl;
-               (*plane).setTcasEnabled(false);
+               aircraft.setTcasEnabled(false);
             }
          }
+         /*
          // checks if error value is specified
          if (isAttribute(sensor, "error")) {
             std::cout << "    tcas error = " << sensor->first_attribute("error")->value() << std::endl;
          }
+          */
          count++;
       }
    }
@@ -202,6 +201,7 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane* aircraft)
       xml_node<> *sensor = node->first_node("radar");
       // checks that sensor exists
       if (sensor) {
+         /*
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
             std::cout << "   Radar = " << sensor->first_attribute("enabled")->value()<<std::endl;
@@ -210,6 +210,7 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane* aircraft)
          if (isAttribute(sensor, "error")) {
             std::cout << "      radar error = " << sensor->first_attribute("error")->value() << std::endl;
          }
+          */
          count++;
       }
    }
@@ -223,17 +224,18 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane* aircraft)
          if (isAttribute(sensor, "enabled")) {
             // string to bool conversion
             if(!std::strcmp(sensor->first_attribute("enabled")->value(), "true"))
-            { std::cout<<"    ads-b enabled"<<std::endl;
-               (*plane).setAdsbEnabled(true);
+            {
+               aircraft.setAdsbEnabled(true);
             } else {
-               std::cout<<"    ads-b disabled"<<std::endl;
-               (*plane).setAdsbEnabled(false);
+               aircraft.setAdsbEnabled(false);
             }
          }
+         /*
          // checks if error value is specified
          if (isAttribute(sensor, "error")) {
             std::cout << "    ads-b error = " << sensor->first_attribute("error")->value() << std::endl;
          }
+          */
          count++;
       }
    }
@@ -277,15 +279,14 @@ bool TestFileParser::isCoordinate(xml_node<> *node)
 /**
  * Parses the movements
  */
-int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane *aircraft) {
+int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane & aircraft) {
    xml_node<> *movement = node;
 
-   TestServerPlane *plane = aircraft;
    std::string type;
 
    // checks that movement exists
    if (movement) {
-      // Checks that the movment type is defined
+      // Checks that the movement type is defined
       if (movement->first_attribute("type")) {
          type = movement->first_attribute("type")->value();
       }
@@ -337,8 +338,7 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane *air
       // motion type
       if(type == "linear")
       {
-         std::cout<<"    Motion is Linear"<<std::endl;
-         (*plane).setMotion(LinearMotion(Vector3d(pos_x,pos_y,pos_z), Vector3d(dir_x,dir_y,dir_z)));
+         aircraft.setMotion(LinearMotion(Vector3d(pos_x,pos_y,pos_z), Vector3d(dir_x,dir_y,dir_z)));
       }
 
       return ErrorCode::success;
@@ -363,7 +363,7 @@ int TestFileParser::getPlanes(xml_node<> *node)
       } else return ErrorCode::p_tagErr;
 
       // gets the sensor data
-      auto code = getSensors(plane, &intruder);
+      auto code = getSensors(plane, intruder);
       if(code)
       {
          return ErrorCode::p_sensorErr;
@@ -373,7 +373,7 @@ int TestFileParser::getPlanes(xml_node<> *node)
       xml_node<> *movement = plane->first_node("movement");
       // movement must exist
       if(movement) {
-         code = getMovement(movement, &intruder);
+         code = getMovement(movement, intruder);
          if (code) {
             if (code == ErrorCode::positionError) return ErrorCode::p_posErr;
             else return ErrorCode::p_mvntErr;

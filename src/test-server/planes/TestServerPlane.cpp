@@ -20,6 +20,11 @@ Vector3d addToLatitudeLongitude(Vector3d latLongAlt, Vector3d translation)
    return finalVector;
 }
 
+void TestServerPlane::setNorthEastDownVelocity(Vector3d ned)
+{
+   northEastDownVel = ned;
+}
+
 TestServerPlane::TestServerPlane():
       t(0),
       latLongAlt(0,0,0),
@@ -113,6 +118,8 @@ t(other.t),
 tailNumber(other.tailNumber),
 latLongAlt(other.latLongAlt),
 northEastDownVel(other.northEastDownVel),
+isADSBEnabled(other.isADSBEnabled),
+isTCasEnabled(other.isTCasEnabled),
 motionPtr(nullptr)
 {
    if(other.motionPtr != nullptr)
@@ -137,6 +144,7 @@ void TestServerPlane::setLatLongAlt(Vector3d latLongAlt) {
 TestServerPlane &TestServerPlane::operator=(const TestServerPlane &rhs) {
    if(&rhs == this)
       return *this;
+
    this->latLongAlt = rhs.latLongAlt;
    this->northEastDownVel = rhs.northEastDownVel;
    this->isADSBEnabled = rhs.isADSBEnabled;
