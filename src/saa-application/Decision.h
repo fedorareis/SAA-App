@@ -6,11 +6,12 @@
 #define SAA_APPLICATION_DECISION_H
 
 #include "common/protobuf/cdti.pb.h"
+#include "Plane.h"
 
 class Decision
 {
 public:
-   void report(std::vector<CDTIPlane *>* list);
-   CDTIReport * generateReport(std::vector<CDTIPlane *>* list);
+   void report(std::vector<CDTIPlane *>* list, std::vector<Plane>* planes);
+   CDTIReport * generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship);
 };
 #endif //SAA_APPLICATION_DECISION_H

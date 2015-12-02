@@ -63,6 +63,13 @@ std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
    return planes;
 }
 
+void SaaApplication::convertOwnship(OwnshipReport ownship)
+{
+   Plane ownshipPlane("Ownship", ownship.ownship_latitude(), ownship.ownship_longitude(),
+      ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down());
+   cdtiOwnship = ownshipPlane.getCDTIPlane();
+}
+
 void SaaApplication::report()
 {
    bool run = true;
@@ -76,13 +83,14 @@ void SaaApplication::report()
    setupSockets(6000);
    std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
-   //t2.join();
+
 
    //set up client sockets
    ClientSocket ownSock;
    ClientSocket adsbSock;
    SocketSetup(adsbSock, ownSock);
    t1.join();
+   //t2.join();
 
    //socks.pop_back();
 
@@ -93,15 +101,17 @@ void SaaApplication::report()
       {
          adsbSock.operator>>(adsb); //blocking call, waits for server
          ownSock.operator>>(ownship); //blocking call, waits for server
+         SaaApplication::convertOwnship(ownship);
          std::vector<Plane> planes = convertToRelative(adsb, ownship);
          planes = cor.correlate(planes);
-         std::cout << "finished one cycle" << std::endl;
-         Plane rPlane = planes.back();
-         rPlane.printPos();
+         //Plane rPlane = planes.back();
+         //rPlane.printPos();
          //send to decision making module here
-         dec.report(&list);
-         rep = dec.generateReport(&list);
+         dec.report(&list, &planes);
+         rep = dec.generateReport(&list, cdtiOwnship);
          cdtiOut << (*rep);
+         //validationOut << (*rep);
+         std::cout << "finished one cycle" << std::endl;
       }
       catch (SocketException)
       {

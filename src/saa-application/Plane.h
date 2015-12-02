@@ -15,8 +15,8 @@ class Plane
 {
 public:
    Plane(std::string tailNumber, int positionX, int positionY, int positionZ, int velocityX, int velocityY,
-            int velocityZ) :
-           tailNumber(tailNumber)
+         int velocityZ) :
+         tailNumber(tailNumber)
    {
       velocity = new Vector();
       position = new Vector();
@@ -28,15 +28,15 @@ public:
       position->set_z(positionZ);
    }
 
-    void printPos();
+   void printPos();
 
-   CDTIPlane getCDTIPlane();
+   CDTIPlane* getCDTIPlane();
 
 private:
    std::string tailNumber;
    Vector *velocity;
    Vector *position;
-   CDTIPlane plane;
+   CDTIPlane *plane = new CDTIPlane();
    CDTIPlane::Severity severity;
 };
 
