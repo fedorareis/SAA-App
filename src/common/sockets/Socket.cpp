@@ -1,5 +1,5 @@
 #include "Socket.h"
-#include <String.h>
+#include <string.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <iostream>
@@ -207,5 +207,20 @@ void Socket::close() {
    if(is_valid())
       ::close(m_sock);
    m_sock = -1;
+
+}
+
+Socket::Socket(const Socket &other):
+   m_sock(other.m_sock),
+   m_addr(other.m_addr),
+   port(other.port)
+{
+
+}
+
+bool Socket::hasData() {
+   char lenBfr;
+   return Socket::recv(&lenBfr,1,MSG_PEEK) > 0;
+
 
 }

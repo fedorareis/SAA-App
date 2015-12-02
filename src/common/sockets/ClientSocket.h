@@ -61,6 +61,8 @@ public:
     */
    const ClientSocket& operator >> ( ::google::protobuf::Message & msg ) const;
 
+   bool hasData();
+
 private:
    /**
     * Read the length of the protocol buffer, from the header

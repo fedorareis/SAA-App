@@ -153,3 +153,14 @@ void ClientSocket::connect(const sockaddr_in host) {
 
 
 }
+
+bool ClientSocket::hasData()
+{
+   return Socket::hasData();
+}
+
+ClientSocket::ClientSocket(const ClientSocket &other):
+   Socket(other)
+{
+
+}
