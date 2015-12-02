@@ -9,7 +9,7 @@
 class OwnshipSensor : public Sensor {
    public:
    OwnshipSensor(SensorEndpoint * endpoint);
-   virtual void sendData(TestServerPlane & plane);
+   virtual void sendData(const TestServerPlane & plane);
 
 
 };

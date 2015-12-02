@@ -14,8 +14,8 @@ int main(int argC, const char* argV[])
 
    Common common;
    common.report();
-   TestServer::provideAdsbEndpoint(new MockSensorEndpoint());
-   TestServer::provideOwnshipEndpoint(new MockSensorEndpoint());
+   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(4000));
+   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
 
 
@@ -56,7 +56,7 @@ int main(int argC, const char* argV[])
    testCase.setOwnship(ownshipPlane);
    testCase.addPlane(otherPlane);
 
-   testCase.setTotalTime(60.0f);
+   testCase.setTotalTime(10.0f);
    //Test cases start at lat 0 long 0
    testCase.complete();
 
@@ -64,6 +64,7 @@ int main(int argC, const char* argV[])
    TestEnvironment environment;
    environment.acceptConnections();
    environment.start(testCase);
+
    std::cout << "Environment has finished accepting connections" << std::endl;
    TestServer::shutdown();
 

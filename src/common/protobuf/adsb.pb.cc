@@ -84,8 +84,8 @@ void protobuf_AddDesc_adsb_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nadsb.proto\"\226\001\n\nAdsBReport\022\021\n\ttimestamp"
-    "\030\001 \002(\020\022\020\n\010latitude\030\002 \002(\017\022\021\n\tlongitude\030\003 "
-    "\002(\017\022\020\n\010altitude\030\004 \002(\017\022\023\n\013tail_number\030\005 \002"
+    "\030\001 \002(\020\022\020\n\010latitude\030\002 \002(\002\022\021\n\tlongitude\030\003 "
+    "\002(\002\022\020\n\010altitude\030\004 \002(\002\022\023\n\013tail_number\030\005 \002"
     "(\t\022\r\n\005north\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030"
     "\010 \002(\002B#\n\033edu.calpoly.capstone.sensorB\004Ad"
     "sB", 202);
@@ -243,12 +243,12 @@ bool AdsBReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 latitude = 2;
+      // required float latitude = 2;
       case 2: {
         if (tag == 21) {
          parse_latitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &latitude_)));
           set_has_latitude();
         } else {
@@ -258,12 +258,12 @@ bool AdsBReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 longitude = 3;
+      // required float longitude = 3;
       case 3: {
         if (tag == 29) {
          parse_longitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &longitude_)));
           set_has_longitude();
         } else {
@@ -273,12 +273,12 @@ bool AdsBReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 altitude = 4;
+      // required float altitude = 4;
       case 4: {
         if (tag == 37) {
          parse_altitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &altitude_)));
           set_has_altitude();
         } else {
@@ -380,19 +380,19 @@ void AdsBReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteSFixed64(1, this->timestamp(), output);
   }
 
-  // required sfixed32 latitude = 2;
+  // required float latitude = 2;
   if (has_latitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(2, this->latitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->latitude(), output);
   }
 
-  // required sfixed32 longitude = 3;
+  // required float longitude = 3;
   if (has_longitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(3, this->longitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->longitude(), output);
   }
 
-  // required sfixed32 altitude = 4;
+  // required float altitude = 4;
   if (has_altitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(4, this->altitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->altitude(), output);
   }
 
   // required string tail_number = 5;
@@ -435,19 +435,19 @@ void AdsBReport::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteSFixed64ToArray(1, this->timestamp(), target);
   }
 
-  // required sfixed32 latitude = 2;
+  // required float latitude = 2;
   if (has_latitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(2, this->latitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->latitude(), target);
   }
 
-  // required sfixed32 longitude = 3;
+  // required float longitude = 3;
   if (has_longitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(3, this->longitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->longitude(), target);
   }
 
-  // required sfixed32 altitude = 4;
+  // required float altitude = 4;
   if (has_altitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(4, this->altitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->altitude(), target);
   }
 
   // required string tail_number = 5;
@@ -493,17 +493,17 @@ int AdsBReport::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_latitude()) {
-    // required sfixed32 latitude = 2;
+    // required float latitude = 2;
     total_size += 1 + 4;
   }
 
   if (has_longitude()) {
-    // required sfixed32 longitude = 3;
+    // required float longitude = 3;
     total_size += 1 + 4;
   }
 
   if (has_altitude()) {
-    // required sfixed32 altitude = 4;
+    // required float altitude = 4;
     total_size += 1 + 4;
   }
 
@@ -538,13 +538,13 @@ int AdsBReport::ByteSize() const {
     // required sfixed64 timestamp = 1;
     total_size += 1 + 8;
 
-    // required sfixed32 latitude = 2;
+    // required float latitude = 2;
     total_size += 1 + 4;
 
-    // required sfixed32 longitude = 3;
+    // required float longitude = 3;
     total_size += 1 + 4;
 
-    // required sfixed32 altitude = 4;
+    // required float altitude = 4;
     total_size += 1 + 4;
 
     // required string tail_number = 5;
@@ -692,7 +692,7 @@ void AdsBReport::clear_timestamp() {
   // @@protoc_insertion_point(field_set:AdsBReport.timestamp)
 }
 
-// required sfixed32 latitude = 2;
+// required float latitude = 2;
 bool AdsBReport::has_latitude() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -706,17 +706,17 @@ void AdsBReport::clear_latitude() {
   latitude_ = 0;
   clear_has_latitude();
 }
- ::google::protobuf::int32 AdsBReport::latitude() const {
+ float AdsBReport::latitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.latitude)
   return latitude_;
 }
- void AdsBReport::set_latitude(::google::protobuf::int32 value) {
+ void AdsBReport::set_latitude(float value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.latitude)
 }
 
-// required sfixed32 longitude = 3;
+// required float longitude = 3;
 bool AdsBReport::has_longitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -730,17 +730,17 @@ void AdsBReport::clear_longitude() {
   longitude_ = 0;
   clear_has_longitude();
 }
- ::google::protobuf::int32 AdsBReport::longitude() const {
+ float AdsBReport::longitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.longitude)
   return longitude_;
 }
- void AdsBReport::set_longitude(::google::protobuf::int32 value) {
+ void AdsBReport::set_longitude(float value) {
   set_has_longitude();
   longitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.longitude)
 }
 
-// required sfixed32 altitude = 4;
+// required float altitude = 4;
 bool AdsBReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -754,11 +754,11 @@ void AdsBReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
- ::google::protobuf::int32 AdsBReport::altitude() const {
+ float AdsBReport::altitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.altitude)
   return altitude_;
 }
- void AdsBReport::set_altitude(::google::protobuf::int32 value) {
+ void AdsBReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.altitude)

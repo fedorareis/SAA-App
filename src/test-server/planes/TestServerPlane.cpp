@@ -59,27 +59,27 @@ void TestServerPlane::setMotion(const Motion & m) {
    motionPtr = m.clone();
 }
 
-double TestServerPlane::getLatitude() const {
+float TestServerPlane::getLatitude() const {
    return this->latLongAlt.x;
 }
 
-double TestServerPlane::getLongitude() const {
+float TestServerPlane::getLongitude() const {
    return this->latLongAlt.y;
 }
 
-double TestServerPlane::getAltitude() const {
+float TestServerPlane::getAltitude() const {
    return this->latLongAlt.z;
 }
 
-double TestServerPlane::getNorthVelocity() const{
+float TestServerPlane::getNorthVelocity() const{
    return this->northEastDownVel.x;
 }
 
-double TestServerPlane::getEastVelocity() const{
+float TestServerPlane::getEastVelocity() const{
    return this->northEastDownVel.y;
 }
 
-double TestServerPlane::getDownVelocity() const{
+float TestServerPlane::getDownVelocity() const{
    return this->northEastDownVel.z;
 }
 
@@ -121,7 +121,7 @@ motionPtr(nullptr)
 }
 
 
-double TestServerPlane::getTimestamp() {
+double TestServerPlane::getTimestamp() const {
    return t;
 }
 

@@ -21,7 +21,7 @@ void TestCase::setOwnship(const TestServerPlane & newPlane) {
 }
 
 void TestCase::addPlane(const TestServerPlane & newPlane) {
-   otherPlanes.push_back(TestServerPlane(newPlane));
+   otherPlanes.push_back(newPlane);
 
 }
 void TestCase::update(float dt)
@@ -33,7 +33,7 @@ void TestCase::update(float dt)
       i->update(dt);
    }
 }
-TestServerPlane TestCase::getOwnship() {
+const TestServerPlane & TestCase::getOwnship() {
    return ownship;
 }
 
