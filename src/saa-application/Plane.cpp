@@ -10,8 +10,8 @@ CDTIPlane Plane::getCDTIPlane()
 
    plane.set_id(tailNumber);
    plane.set_severity(severity);
-   plane.set_allocated_position(position);
-   plane.set_allocated_velocity(velocity);
+   plane.set_allocated_position(new Vector(*position));
+   plane.set_allocated_velocity(new Vector(*velocity));
 
    return plane;
 }
