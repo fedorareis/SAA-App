@@ -6,104 +6,31 @@
 #include <fstream>
 #include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
-#include "saa-application/Plane.h"
 
-void Decision::report(std::vector<CDTIPlane *>* list)
+void Decision::report(std::vector<CDTIPlane *>* list, std::vector<Plane>* planes)
 {
-   std::cout << "We are making decisions here" << std::endl;
-   CDTIPlane plane;
-   Vector *vector = new Vector();
-   Vector *vector2 = new Vector();
-   CDTIPlane plane2;
+   //std::cout << "We are making decisions here" << std::endl;
 
-   std::string id = "CF34X";
-   plane.set_id(id);
-   std::cout << "Plane ID: " << plane.id() << std::endl;
-   vector->set_x(1);
-   vector->set_y(1);
-   vector->set_z(1);
-   vector2->set_x(1);
-   vector2->set_y(1);
-   vector2->set_z(1);
-   plane.set_allocated_velocity(vector);
-   std::cout << "Plane volocity x: " << plane.velocity().x() << std::endl;
-   plane.set_allocated_position(vector2);
-   std::cout << "Plane position x: " << plane.position().x() << std::endl;
-   plane.set_severity(CDTIPlane::PROXIMATE);
-   std::cout << "Plane severity: " << plane.severity() << std::endl;
-
-   // Write the new plane back to disk.
-   /*(std::fstream output("test", std::ios::out | std::ios::trunc | std::ios::binary);
-   if (!plane.SerializeToOstream(&output))
+   list->clear();
+   for (std::vector<Plane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
-      std::cerr << "Failed to write plane." << std::endl;
+      CDTIPlane* plane = it->getCDTIPlane();
+      plane->set_severity(CDTIPlane::PROXIMATE);
+      list->push_back(plane);
    }
-
-   output.close();*/
-
-   std::fstream input("test", std::ios::in | std::ios::binary);
-   if (!plane2.ParseFromIstream(&input))
-   {
-      std::cerr << "Failed to parse plane." << std::endl;
-   }
-
-   std::cout << "Plane2 ID: " << plane2.id() << std::endl;
-
-   Plane plane3 = Plane("X305C", 3, 4, 5, 6, 7, 8);
-   CDTIPlane cdtiPlane = plane3.getCDTIPlane();
-
-   std::cout << "Plane ID: " << cdtiPlane.id() << std::endl;
-   std::cout << "Plane positionX: " << cdtiPlane.position().x() << std::endl;
-   std::cout << "Plane positionY: " << cdtiPlane.position().y() << std::endl;
-   std::cout << "Plane positionZ: " << cdtiPlane.position().z() << std::endl;
-   std::cout << "Plane velocityX: " << cdtiPlane.velocity().x() << std::endl;
-   std::cout << "Plane velocityY: " << cdtiPlane.velocity().y() << std::endl;
-   std::cout << "Plane velocityZ: " << cdtiPlane.velocity().z() << std::endl;
-   std::cout << "Plane severity: " << cdtiPlane.severity() << std::endl;
 
 }
 
-CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list)
+CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship)
 {
-   //std::vector<CDTIPlane *> list;
-   CDTIPlane *plane = new CDTIPlane();
-   CDTIPlane *plane2 = new CDTIPlane();
-   Vector *vector = new Vector();
-   Vector *vector2 = new Vector();
-   Vector *vector3 = new Vector();
-   Vector *vector4 = new Vector();
-
-   std::string id = "CF34X";
-   plane->set_id(id);
-   vector->set_x(1);
-   vector->set_y(1);
-   vector->set_z(1);
-   vector2->set_x(1);
-   vector2->set_y(1);
-   vector2->set_z(1);
-   plane->set_allocated_velocity(vector);
-   plane->set_allocated_position(vector2);
-   plane->set_severity(CDTIPlane::PROXIMATE);
-
-   plane2->set_id(id);
-   vector3->set_x(1);
-   vector3->set_y(1);
-   vector3->set_z(1);
-   vector4->set_x(1);
-   vector4->set_y(1);
-   vector4->set_z(1);
-   plane2->set_allocated_velocity(vector3);
-   plane2->set_allocated_position(vector4);
-   plane2->set_severity(CDTIPlane::PROXIMATE);
-
-   (*list).push_back(plane2);
+   //std::cout << "We are generating the cdti report here" << std::endl;
 
    CDTIReport * report = new CDTIReport;
 
    report->set_advisorylevel(CDTIReport::PROXIMATE);
    report->set_advisorymessage("Move out of the way");
-   report->set_allocated_ownship(plane);
-   report->set_timestamp(1);
+   report->set_allocated_ownship(ownship);
+   report->set_timestamp(time(0));
    for (std::vector<CDTIPlane *>::iterator it = (*list).begin(); it != (*list).end(); ++it)
    {
       CDTIPlane* planes = report->add_planes();

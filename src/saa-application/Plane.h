@@ -30,13 +30,13 @@ public:
 
    void printPos();
 
-   CDTIPlane getCDTIPlane();
+   CDTIPlane* getCDTIPlane();
 
 private:
    std::string tailNumber;
    Vector *velocity;
    Vector *position;
-   CDTIPlane plane;
+   CDTIPlane *plane = new CDTIPlane();
    CDTIPlane::Severity severity;
 };
 
