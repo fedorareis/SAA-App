@@ -4,6 +4,8 @@
 
 #ifndef SAA_APPLICATION_TESTENVIRONMENT_H
 #define SAA_APPLICATION_TESTENVIRONMENT_H
+
+#include <test-server/endpoints/SocketSensorEndpoint.h>
 #include "test-server/endpoints/SensorEndpoint.h"
 #include "test-server/endpoints/Sensor.h"
 #include "test-server/endpoints/AdsbSensor.h"
@@ -12,15 +14,14 @@
 
 class TestEnvironment {
    public:
-      TestEnvironment(TestCase  tc);
+      TestEnvironment();
       bool acceptConnections();
-      void start();
+      void start(TestCase & tc);
 
    private:
-      AdsbSensor adsbSensor;
-      OwnshipSensor ownshipSensor;
+      AdsbSensor adsbSensor = AdsbSensor(new SocketSensorEndpoint());
+      OwnshipSensor ownshipSensor = OwnshipSensor(new SocketSensorEndpoint());
       ClientSocket cdtiSocket;
-      TestCase testCase;
 
 
 

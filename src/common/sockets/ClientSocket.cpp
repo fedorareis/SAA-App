@@ -153,3 +153,9 @@ void ClientSocket::connect(const sockaddr_in host) {
 
 
 }
+
+ClientSocket::ClientSocket(const ClientSocket &other):
+   Socket(other)
+{
+
+}

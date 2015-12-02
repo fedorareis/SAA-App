@@ -26,6 +26,10 @@ struct Vector3d
     double latitude(){return x;}
     double longitude(){return y;}
     double altitude(){return z;}
+   Vector3d operator- (const Vector3d & rhs)
+   {
+      return Vector3d(x - rhs.x, y - rhs.y, z - rhs.z);
+   }
    double x;
    double y;
    double z;

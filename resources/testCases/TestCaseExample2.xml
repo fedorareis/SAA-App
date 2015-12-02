@@ -6,28 +6,28 @@
         <ads-b enabled="true" error="0.2"/>
         <movement type="linear">
             <position x="0" y="0" z="0"/>
-            <direction x="575" y="0" z="0"/>
+            <direction x="836" y="0" z="0"/><!--Feet/second-->
         </movement>
     </ownship>
     <plane tag="N37789">
         <ads-b enabled="true"/>
         <movement type="linear">
             <position x="0" y="10" z="0.3"/>
-            <direction x="575" y="0" z="0"/>
+            <direction x="836" y="0" z="0"/><!--Feet/second-->
         </movement>
     </plane>
     <plane tag="RDR002">
         <radar enabled="true"/>
         <movement type="linear">
             <position x="0" y="20" z="0.5"/>
-            <direction x="300" y="0" z="0"/>
+            <direction x="836" y="0" z="0"/><!--Feet/second-->
         </movement>
     </plane>
     <plane tag="TCA021">
         <tcas enabled="true"/>
         <movement type="linear">
             <position x="0" y="50" z="10"/>
-            <direction x="700" y="0" z="0"/>
+            <direction x="836" y="0" z="0"/> <!--Feet/second-->
         </movement>
     </plane>
 </test>

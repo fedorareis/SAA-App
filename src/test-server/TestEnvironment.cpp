@@ -10,22 +10,30 @@
 #include <iostream>
 #include <common/sockets/SocketException.h>
 
-TestEnvironment::TestEnvironment(TestCase tc) {
-   this->testCase = tc;
+TestEnvironment::TestEnvironment() {
+
 }
-void acceptNetworkConnection(Sensor * acceptingSocket, ServerSocket * bindingSocket)
+
+void acceptNetworkConnection(Sensor * acceptingSocket, SensorEndpoint * bindingEndpoint)
 {
 
-   bindingSocket->accept(acceptingSocket->getEndpoint().getSocket());
-   std::cout << "Server has accepted adsb socket" << std::endl;
+   try{
+
+      bindingEndpoint->accept(acceptingSocket->getEndpoint());
+      std::cout << "Server has accepted socket" << std::endl;
+   }
+   catch(SocketException exc)
+   {
+      std::cout << exc.description() << std::endl;
+   }
 
 }
 
 bool TestEnvironment::acceptConnections()
 {
    //Threaded accept
-   std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getPort() << std::endl;
-   std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getPort() << std::endl;
+   std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getSocket().getPort() << std::endl;
+   std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getSocket().getPort() << std::endl;
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();
@@ -41,6 +49,25 @@ bool TestEnvironment::acceptConnections()
 
 
    std::cout << "Successfully connected to client" << std::endl;
-   std::cout << "Shutting down..." << std::endl;
-   std::cout << "Server would send stuff here!";
+}
+
+void TestEnvironment::start(TestCase & tc)
+{
+   bool sendADSB = tc.getOwnship().getADSBEnabled();
+   while(tc.isRunning())
+   {
+
+      ownshipSensor.sendData(tc.getOwnship());
+      if(sendADSB)
+      {
+
+         for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
+         {
+            adsbSensor.sendData(*plane);
+         }
+      }
+      tc.update(1);
+      sleep(1); //sleep for one second before sending next data batch.
+   }
+
 }

@@ -58,11 +58,11 @@ class ServerSocket : private Socket
     */
    virtual void accept ( ServerSocket& );
 
-   void close(){ Socket::close();}
+   virtual void close(){ Socket::close();}
 
-   int getPort();
+   virtual int getPort();
 
-   void connectToClient(ClientSocket & socket, int port);
+   virtual void connectToClient(ClientSocket & socket, int port);
 
    private:
    /**

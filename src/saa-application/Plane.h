@@ -28,6 +28,8 @@ public:
       position->set_z(positionZ);
    }
 
+    void printPos();
+
    CDTIPlane getCDTIPlane();
 
 private:

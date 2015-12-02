@@ -8,8 +8,8 @@
 #include "Sensor.h"
 class AdsbSensor : public Sensor {
    public:
-   AdsbSensor();
-   virtual void sendData(Plane & plane);
+   AdsbSensor(SensorEndpoint * endpoint);
+   virtual void sendData(const TestServerPlane & plane) override;
 
 };
 

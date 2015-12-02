@@ -11,10 +11,17 @@
 class Sensor {
 
    public:
+   Sensor(){};
+   virtual ~Sensor(){
+      if(endpoint != nullptr)
+         delete endpoint;
+   }
+   Sensor(SensorEndpoint * endpoint);
    SensorEndpoint & getEndpoint();
+   void setEndpoint(SensorEndpoint * endpoint) {this->endpoint = endpoint;}
    private:
-   SensorEndpoint endpoint;
-   virtual void sendData(Plane & plane) = 0;
+   SensorEndpoint * endpoint;
+   virtual void sendData(const TestServerPlane & plane) = 0;
 };
 
 

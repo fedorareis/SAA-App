@@ -15,3 +15,13 @@ CDTIPlane Plane::getCDTIPlane()
 
    return plane;
 }
+
+void Plane::printPos() {
+   //printf("tailNumber %s\n", tailNumber);
+   printf("position x %f\n", position->x());
+   printf("position y %f\n", position->y());
+   printf("position z %f\n", position->z());
+   printf("velocity x %f\n", velocity->x());
+   printf("velocity y %f\n", velocity->y());
+   printf("velocity z %f\n", velocity->z());
+}
