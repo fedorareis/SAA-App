@@ -146,3 +146,7 @@ void ServerSocket::connectToClient(ClientSocket & socket, int port)
 int ServerSocket::getPort() {
    return this->port;
 }
+
+bool ServerSocket::hasData() {
+   return Socket::hasData();
+}

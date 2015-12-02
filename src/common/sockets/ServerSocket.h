@@ -62,6 +62,8 @@ class ServerSocket : private Socket
 
    virtual int getPort();
 
+   bool hasData();
+
    virtual void connectToClient(ClientSocket & socket, int port);
 
    private:

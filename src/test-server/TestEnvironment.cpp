@@ -40,14 +40,14 @@ bool TestEnvironment::acceptConnections()
    t2.join();
    std::cout << "Connecting to client on 6000..." << std::endl;
    try {
-      this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 6000);
+      //this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 6000);
       std::cout << "Successfully connected to client" << std::endl;
 
    }
    catch(SocketException exc)
    {
       std::cout << exc.description() << std::endl;
-      
+
    }
 
 

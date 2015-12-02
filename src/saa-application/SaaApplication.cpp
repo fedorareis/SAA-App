@@ -87,7 +87,7 @@ void SaaApplication::report()
    //socks.pop_back();
 
    // loop for each cycle (1 sec) currently being handled by waiting for the server on the reads.
-   while (run)
+   while (adsbSock.hasData() && ownSock.hasData())
    {
       try
       {
@@ -101,7 +101,7 @@ void SaaApplication::report()
          //send to decision making module here
          dec.report(&list);
          rep = dec.generateReport(&list);
-         //cdtiOut << (*rep);
+         cdtiOut << (*rep);
       }
       catch (SocketException)
       {
