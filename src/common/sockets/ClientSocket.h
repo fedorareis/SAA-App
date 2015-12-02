@@ -25,6 +25,8 @@ public:
 
    ClientSocket ( const sockaddr_in host );
 
+   ClientSocket(const ClientSocket & other);
+
    ClientSocket();
    /**
     * Close the socket

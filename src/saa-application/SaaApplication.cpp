@@ -17,19 +17,15 @@
 /**
  * Sets up the socket connections to the test server for reading in sensor data.
  */
-std::vector <ClientSocket> SocketSetup() {
-    std::vector<ClientSocket> v;
+void SocketSetup(ClientSocket & adsbSock, ClientSocket & ownSock) {
     try {
-        ClientSocket adsbSock("localhost", 4000);
-        v.push_back(adsbSock);
-        ClientSocket ownSock("localhost", 5000);
-        v.push_back(ownSock);
+         adsbSock.connect("localhost", 4000);
+         ownSock.connect("localhost", 5000);
     }
     catch (SocketException) {
         std::cout << "failed to open socket" << std::endl;
         std::exit(-1);
     }
-    return v;
 }
 
 /**
@@ -58,11 +54,11 @@ void SaaApplication::report()
     OwnshipReport ownship;
 
     //set up sockets
-    std::vector<ClientSocket> socks = SocketSetup();
-    ClientSocket ownSock = socks.back();
-    socks.pop_back();
-    ClientSocket adsbSock = socks.back();
-    socks.pop_back();
+    ClientSocket ownSock;
+    ClientSocket adsbSock;
+    SocketSetup(ownSock, adsbSock);
+
+    //socks.pop_back();
 
     // loop for each cycle (1 sec) currently being handled by waiting for the server on the reads.
     while(run) {
