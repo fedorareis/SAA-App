@@ -34,7 +34,8 @@ enum ErrorCode
    positionError, // =13 missing position
    directionError, // =14 missing direction
    coordMissingErr, // =15 one of xyz value is missing
-   testMissingError // =16 test tag is missing on the test
+   timeMissingErr, // = 16 total time for test to run is missing
+   testMissingError // =17 test tag is missing on the test
 };
 
 /**
@@ -48,7 +49,7 @@ class TestFileParser{
 public:
    TestFileParser(){}; // constructor; if ever changed to Singleton pattern, move to private
    TestFileParser& instance(){static TestFileParser parser; return parser;}; // For Singleton pattern
-   void load(std::string testFile); // loads the testFile to the parser
+   bool load(std::string testFile); // loads the testFile to the parser
    TestCase GetTestCase(); // returns the TestCase built from this file
 
 private:
@@ -58,9 +59,9 @@ private:
 
    int buildTestCase(); // builds the test case
    int getOwnship(rapidxml::xml_node<> *node); // handles parsing data for ownship
-   int getMovement(rapidxml::xml_node<> *node, const TestServerPlane &plane); // handles parsing data for movement
+   int getMovement(rapidxml::xml_node<> *node, TestServerPlane & plane); // handles parsing data for movement
    bool isAttribute(rapidxml::xml_node<> *node, std::string attribute); // validates that attribute exists
-   int getSensors(rapidxml::xml_node<> *node, const TestServerPlane &plane); // handles parsing sensors
+   int getSensors(rapidxml::xml_node<> *node, TestServerPlane & plane); // handles parsing sensors
    int getPlanes(rapidxml::xml_node<> *node); // handles parsing data for other planes
    bool isCoordinate(rapidxml::xml_node<> *node); // validates that all xyz coordinates exists
 };

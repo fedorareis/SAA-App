@@ -55,7 +55,7 @@ void TestCase::complete() {
          float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * EARTH_RADIUS)/360.0); //Arc length, nMi/theta
          float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EARTH_RADIUS)/360.0);
          plane->setLatLongAlt(Vector3d(newLat,newLong,relPos.z + ownship.getAltitude()));
-         std::cout << "Other plane at " << plane->getLatitude() << " " << plane->getLongitude() << " " << plane->getAltitude() << std::endl;
+         plane->setNorthEastDownVelocity(plane->getMotion()->getVelocityAtTick(0));
 
       }
    }

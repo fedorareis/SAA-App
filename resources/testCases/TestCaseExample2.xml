@@ -1,5 +1,5 @@
 
-<test name="Plane Tracking 2" description="2 Plane flies parallel to UAV">
+<test name="Plane Tracking 2" description="2 Plane flies parallel to UAV" time="30">
     <ownship tag="ABC123">
         <tcas enabled="true" error="1.5"/>
         <radar enabled="false"/>
