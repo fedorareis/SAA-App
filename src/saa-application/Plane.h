@@ -1,6 +1,9 @@
-//
-// Created by Kyle Reis on 11/19/15.
-//
+/*
+ * Created by Kyle Reis on 11/19/15.
+ *
+ * X, Y, and Z, refer to North, East, and Down respectively
+ * relative to the Ownship.
+*/
 
 #ifndef SAA_APPLICATION_PLANE_H
 #define SAA_APPLICATION_PLANE_H
@@ -12,7 +15,8 @@ class Plane
 {
 public:
    Plane(std::string tailNumber, int positionX, int positionY, int positionZ, int velocityX, int velocityY,
-            int velocityZ) : tailNumber(tailNumber)
+            int velocityZ) :
+           tailNumber(tailNumber)
    {
       velocity = new Vector();
       position = new Vector();
