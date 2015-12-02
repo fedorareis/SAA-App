@@ -10,7 +10,7 @@ Sensor(endpoint)
 {
 
 }
-void AdsbSensor::sendData(Plane & plane)
+void AdsbSensor::sendData(TestServerPlane & plane)
 {
    AdsBReport report;
    //report.set_timestamp(plane.getTimestep());

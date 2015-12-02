@@ -9,7 +9,7 @@
 class AdsbSensor : public Sensor {
    public:
    AdsbSensor(SensorEndpoint * endpoint);
-   virtual void sendData(Plane & plane);
+   virtual void sendData(TestServerPlane & plane);
 
 };
 
