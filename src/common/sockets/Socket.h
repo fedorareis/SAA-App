@@ -21,6 +21,7 @@ class Socket
 {
  public:
   Socket();
+   Socket(const Socket & other);
   virtual ~Socket();
 
 

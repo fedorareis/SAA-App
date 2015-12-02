@@ -109,26 +109,26 @@ class AdsBReport : public ::google::protobuf::Message {
   ::google::protobuf::int64 timestamp() const;
   void set_timestamp(::google::protobuf::int64 value);
 
-  // required sfixed32 latitude = 2;
+  // required float latitude = 2;
   bool has_latitude() const;
   void clear_latitude();
   static const int kLatitudeFieldNumber = 2;
-  ::google::protobuf::int32 latitude() const;
-  void set_latitude(::google::protobuf::int32 value);
+  float latitude() const;
+  void set_latitude(float value);
 
-  // required sfixed32 longitude = 3;
+  // required float longitude = 3;
   bool has_longitude() const;
   void clear_longitude();
   static const int kLongitudeFieldNumber = 3;
-  ::google::protobuf::int32 longitude() const;
-  void set_longitude(::google::protobuf::int32 value);
+  float longitude() const;
+  void set_longitude(float value);
 
-  // required sfixed32 altitude = 4;
+  // required float altitude = 4;
   bool has_altitude() const;
   void clear_altitude();
   static const int kAltitudeFieldNumber = 4;
-  ::google::protobuf::int32 altitude() const;
-  void set_altitude(::google::protobuf::int32 value);
+  float altitude() const;
+  void set_altitude(float value);
 
   // required string tail_number = 5;
   bool has_tail_number() const;
@@ -189,10 +189,10 @@ class AdsBReport : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::int64 timestamp_;
-  ::google::protobuf::int32 latitude_;
-  ::google::protobuf::int32 longitude_;
+  float latitude_;
+  float longitude_;
   ::google::protobuf::internal::ArenaStringPtr tail_number_;
-  ::google::protobuf::int32 altitude_;
+  float altitude_;
   float north_;
   float east_;
   float down_;
@@ -235,7 +235,7 @@ inline void AdsBReport::set_timestamp(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:AdsBReport.timestamp)
 }
 
-// required sfixed32 latitude = 2;
+// required float latitude = 2;
 inline bool AdsBReport::has_latitude() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -249,17 +249,17 @@ inline void AdsBReport::clear_latitude() {
   latitude_ = 0;
   clear_has_latitude();
 }
-inline ::google::protobuf::int32 AdsBReport::latitude() const {
+inline float AdsBReport::latitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.latitude)
   return latitude_;
 }
-inline void AdsBReport::set_latitude(::google::protobuf::int32 value) {
+inline void AdsBReport::set_latitude(float value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.latitude)
 }
 
-// required sfixed32 longitude = 3;
+// required float longitude = 3;
 inline bool AdsBReport::has_longitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -273,17 +273,17 @@ inline void AdsBReport::clear_longitude() {
   longitude_ = 0;
   clear_has_longitude();
 }
-inline ::google::protobuf::int32 AdsBReport::longitude() const {
+inline float AdsBReport::longitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.longitude)
   return longitude_;
 }
-inline void AdsBReport::set_longitude(::google::protobuf::int32 value) {
+inline void AdsBReport::set_longitude(float value) {
   set_has_longitude();
   longitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.longitude)
 }
 
-// required sfixed32 altitude = 4;
+// required float altitude = 4;
 inline bool AdsBReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -297,11 +297,11 @@ inline void AdsBReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
-inline ::google::protobuf::int32 AdsBReport::altitude() const {
+inline float AdsBReport::altitude() const {
   // @@protoc_insertion_point(field_get:AdsBReport.altitude)
   return altitude_;
 }
-inline void AdsBReport::set_altitude(::google::protobuf::int32 value) {
+inline void AdsBReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.altitude)
