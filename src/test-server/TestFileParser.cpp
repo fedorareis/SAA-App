@@ -2,6 +2,7 @@
 // Created by Helen Hwang on 11/18/15.
 //
 #include <sstream>
+#include <test-server/planes/LinearMotion.h>
 #include "TestFileParser.h"
 
 using namespace rapidxml;
@@ -162,7 +163,7 @@ int TestFileParser::getOwnship(xml_node<> *node)
 /**
  * Parses the sensor data; There has to be at least 1 sensor for any plane
  */
-int TestFileParser::getSensors(xml_node<> *node, const TestServerPlane &plane)
+int TestFileParser::getSensors(xml_node<> *node, TestServerPlane &plane)
 {
    int count = 0;
    std::cout<<"[sensor(s)]"<<std::endl;
@@ -175,7 +176,7 @@ int TestFileParser::getSensors(xml_node<> *node, const TestServerPlane &plane)
 
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
-            //plane.setTcasEnabled(sensor->first_attribute("enabled")->value());
+            plane.setTcasEnabled(sensor->first_attribute("enabled")->value());
             std::cout << "   Tcas = " << sensor->first_attribute("enabled")->value() << std::endl;
          }
          // checks if error value is specified
@@ -212,7 +213,7 @@ int TestFileParser::getSensors(xml_node<> *node, const TestServerPlane &plane)
       if (sensor) {
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
-            // plane.setAdsbEnabled(sensor->first_attribute("enabled")->value());
+            plane.setAdsbEnabled(sensor->first_attribute("enabled")->value());
             std::cout << "   ADS-B = " << sensor->first_attribute("enabled")->value()<<std::endl;
          }
          // checks if error value is specified
@@ -263,18 +264,27 @@ bool TestFileParser::isCoordinate(xml_node<> *node)
 /**
  * Parses the movements
  */
-int TestFileParser::getMovement(rapidxml::xml_node<> *node, const TestServerPlane &plane) {
+int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane &plane) {
    xml_node<> *movement = node;
+
+   std::string type;
 
    // checks that movement exists
    if (movement) {
       // Checks that the movment type is defined
       if (movement->first_attribute("type")) {
-         std::string type = movement->first_attribute("type")->value();
+         type = movement->first_attribute("type")->value();
          std::cout << "[Movement] " << type << std::endl;
-//         if(type)
       }
       else return ErrorCode::missingTypeErr;
+
+      // Working around vector and Motion stuff; Will change later
+      double pos_x;
+      double pos_y;
+      double pos_z;
+      double dir_x;
+      double dir_y;
+      double dir_z;
 
       // checks movements
       {
@@ -283,6 +293,11 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, const TestServerPlan
          if(pos) {
             // coordinate must exist
             if (isCoordinate(pos)) {
+               // working around
+               pos_x = std::atof(pos->first_attribute("x")->value());
+               pos_y = std::atof(pos->first_attribute("y")->value());
+               pos_z = std::atof(pos->first_attribute("z")->value());
+
                std::cout << "   Position = (" << pos->first_attribute("x")->value() << ", ";
                std::cout << pos->first_attribute("y")->value() << ", ";
                std::cout << pos->first_attribute("z")->value() << ")" << std::endl;
@@ -300,6 +315,10 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, const TestServerPlan
          {
             // coordinate must exist
             if (isCoordinate(dir)) {
+               dir_x = std::atof(dir->first_attribute("x")->value());
+               dir_y = std::atof(dir->first_attribute("y")->value());
+               dir_z = std::atof(dir->first_attribute("z")->value());
+
                std::cout << "   Direction = (" << dir->first_attribute("x")->value() << ", ";
                std::cout << dir->first_attribute("y")->value() << ", ";
                std::cout << dir->first_attribute("z")->value() << ")" << std::endl;
@@ -308,6 +327,17 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, const TestServerPlan
          }
          else return ErrorCode::directionError;
       }
+
+      Vector3d position(pos_x, pos_y, pos_z);
+      Vector3d direction(dir_x, dir_y, dir_z);
+
+      // hard coded for now...
+      if(type == "linear")
+      {
+         LinearMotion motion(position, direction);
+         plane.setMotion(&motion);
+      }
+
       return ErrorCode::success;
    }
 

@@ -58,9 +58,9 @@ private:
 
    int buildTestCase(); // builds the test case
    int getOwnship(rapidxml::xml_node<> *node); // handles parsing data for ownship
-   int getMovement(rapidxml::xml_node<> *node, const TestServerPlane &plane); // handles parsing data for movement
+   int getMovement(rapidxml::xml_node<> *node, TestServerPlane &plane); // handles parsing data for movement
    bool isAttribute(rapidxml::xml_node<> *node, std::string attribute); // validates that attribute exists
-   int getSensors(rapidxml::xml_node<> *node, const TestServerPlane &plane); // handles parsing sensors
+   int getSensors(rapidxml::xml_node<> *node, TestServerPlane &plane); // handles parsing sensors
    int getPlanes(rapidxml::xml_node<> *node); // handles parsing data for other planes
    bool isCoordinate(rapidxml::xml_node<> *node); // validates that all xyz coordinates exists
 };

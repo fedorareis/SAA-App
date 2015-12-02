@@ -17,10 +17,6 @@ int main(int argC, const char* argV[])
    TestServer::provideAdsbEndpoint(new MockSensorEndpoint());
    TestServer::provideOwnshipEndpoint(new MockSensorEndpoint());
 
-
-
-   // Note: find a better way to include resource folder....
-
    std::cout<<"\nTest File 1"<<std::endl;
    //__DIR__ is injected in compile time
    std::string s(__DIR__"/resources/TestCaseExample.xml");
