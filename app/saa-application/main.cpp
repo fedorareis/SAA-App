@@ -11,5 +11,7 @@ int main(int argC, const char* argV[])
    //Common common;
    //common.report();
 
+   SaaApplication::shutdown();
+
    return 0;
 }

@@ -15,6 +15,7 @@ public:
    void report();
    static ServerSocket * getCdtiSocket();
    static void setupSockets(int CdtiSocket);
+   static void shutdown();
 private:
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
