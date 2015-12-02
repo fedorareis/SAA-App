@@ -12,8 +12,8 @@
    <plane tag="N37789">
       <ads-b enabled="true"/>
       <movement type="linear">
-         <position x="0" y="10" z="0.3"/>
-         <direction x="575" y="0" z="0"/>
+         <position x="0" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+         <direction x="836" y="0" z="0"/> <!--Feet/second-->
       </movement>
    </plane>
 </test>

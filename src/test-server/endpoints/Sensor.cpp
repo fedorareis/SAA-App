@@ -6,5 +6,11 @@
 
 SensorEndpoint & Sensor::getEndpoint()
 {
-   return endpoint;
+   return *endpoint;
+}
+
+Sensor::Sensor(SensorEndpoint *endpoint):
+      endpoint(endpoint)
+{
+
 }

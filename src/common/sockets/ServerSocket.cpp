@@ -13,6 +13,7 @@
 #include "ClientSocket.h"
 
 #define PROTOBUF_HEADER_LEN 4
+
 ServerSocket::ServerSocket(const int port)
 {
    //Create the socket
