@@ -10,11 +10,10 @@
 #include <iostream>
 #include <common/sockets/SocketException.h>
 
-TestEnvironment::TestEnvironment(TestCase tc) {
-   this->testCase = tc;
+TestEnvironment::TestEnvironment() {
 
 }
-//What I raelly want to do is accept a mock service.
+
 void acceptNetworkConnection(Sensor * acceptingSocket, SensorEndpoint * bindingEndpoint)
 {
 
@@ -50,6 +49,25 @@ bool TestEnvironment::acceptConnections()
 
 
    std::cout << "Successfully connected to client" << std::endl;
-   std::cout << "Shutting down..." << std::endl;
-   std::cout << "Server would send stuff here!";
+}
+
+void TestEnvironment::start(TestCase & tc)
+{
+   bool sendADSB = tc.getOwnship().getADSBEnabled();
+   while(tc.isRunning())
+   {
+
+      ownshipSensor.sendData(tc.getOwnship());
+      if(sendADSB)
+      {
+
+         for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
+         {
+            adsbSensor.sendData(*plane);
+         }
+      }
+      tc.update(1);
+      sleep(1); //sleep for one second before sending next data batch.
+   }
+
 }

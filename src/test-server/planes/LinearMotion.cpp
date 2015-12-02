@@ -20,7 +20,7 @@ velocity(other.velocity)
 
 }
 
-LinearMotion::LinearMotion(Vector3d intialPos, Vector3d velocity):
+LinearMotion::LinearMotion(Vector3d initialPos, Vector3d velocity):
 initialPos(initialPos),
 velocity(velocity)
 {
@@ -36,5 +36,5 @@ LinearMotion::~LinearMotion() {
 }
 
 Vector3d LinearMotion::getInitialPosition() {
-   return Vector3d(0, 0, 0);
+   return initialPos;
 }

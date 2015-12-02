@@ -83,9 +83,9 @@ void protobuf_AddDesc_ownship_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rownship.proto\"\234\001\n\rOwnshipReport\022\021\n\ttim"
-    "estamp\030\001 \002(\020\022\030\n\020ownship_latitude\030\002 \002(\017\022\031"
-    "\n\021ownship_longitude\030\003 \002(\017\022\030\n\020ownship_alt"
-    "itude\030\004 \002(\017\022\r\n\005north\030\005 \002(\002\022\014\n\004east\030\006 \002(\002"
+    "estamp\030\001 \002(\020\022\030\n\020ownship_latitude\030\002 \002(\002\022\031"
+    "\n\021ownship_longitude\030\003 \002(\002\022\030\n\020ownship_alt"
+    "itude\030\004 \002(\002\022\r\n\005north\030\005 \002(\002\022\014\n\004east\030\006 \002(\002"
     "\022\014\n\004down\030\007 \002(\002B&\n\033edu.calpoly.capstone.s"
     "ensorB\007Ownship", 214);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
@@ -234,12 +234,12 @@ bool OwnshipReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 ownship_latitude = 2;
+      // required float ownship_latitude = 2;
       case 2: {
         if (tag == 21) {
          parse_ownship_latitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ownship_latitude_)));
           set_has_ownship_latitude();
         } else {
@@ -249,12 +249,12 @@ bool OwnshipReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 ownship_longitude = 3;
+      // required float ownship_longitude = 3;
       case 3: {
         if (tag == 29) {
          parse_ownship_longitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ownship_longitude_)));
           set_has_ownship_longitude();
         } else {
@@ -264,12 +264,12 @@ bool OwnshipReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 ownship_altitude = 4;
+      // required float ownship_altitude = 4;
       case 4: {
         if (tag == 37) {
          parse_ownship_altitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &ownship_altitude_)));
           set_has_ownship_altitude();
         } else {
@@ -354,19 +354,19 @@ void OwnshipReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteSFixed64(1, this->timestamp(), output);
   }
 
-  // required sfixed32 ownship_latitude = 2;
+  // required float ownship_latitude = 2;
   if (has_ownship_latitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(2, this->ownship_latitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->ownship_latitude(), output);
   }
 
-  // required sfixed32 ownship_longitude = 3;
+  // required float ownship_longitude = 3;
   if (has_ownship_longitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(3, this->ownship_longitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->ownship_longitude(), output);
   }
 
-  // required sfixed32 ownship_altitude = 4;
+  // required float ownship_altitude = 4;
   if (has_ownship_altitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(4, this->ownship_altitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->ownship_altitude(), output);
   }
 
   // required float north = 5;
@@ -399,19 +399,19 @@ void OwnshipReport::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteSFixed64ToArray(1, this->timestamp(), target);
   }
 
-  // required sfixed32 ownship_latitude = 2;
+  // required float ownship_latitude = 2;
   if (has_ownship_latitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(2, this->ownship_latitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->ownship_latitude(), target);
   }
 
-  // required sfixed32 ownship_longitude = 3;
+  // required float ownship_longitude = 3;
   if (has_ownship_longitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(3, this->ownship_longitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->ownship_longitude(), target);
   }
 
-  // required sfixed32 ownship_altitude = 4;
+  // required float ownship_altitude = 4;
   if (has_ownship_altitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(4, this->ownship_altitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->ownship_altitude(), target);
   }
 
   // required float north = 5;
@@ -446,17 +446,17 @@ int OwnshipReport::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_ownship_latitude()) {
-    // required sfixed32 ownship_latitude = 2;
+    // required float ownship_latitude = 2;
     total_size += 1 + 4;
   }
 
   if (has_ownship_longitude()) {
-    // required sfixed32 ownship_longitude = 3;
+    // required float ownship_longitude = 3;
     total_size += 1 + 4;
   }
 
   if (has_ownship_altitude()) {
-    // required sfixed32 ownship_altitude = 4;
+    // required float ownship_altitude = 4;
     total_size += 1 + 4;
   }
 
@@ -484,13 +484,13 @@ int OwnshipReport::ByteSize() const {
     // required sfixed64 timestamp = 1;
     total_size += 1 + 8;
 
-    // required sfixed32 ownship_latitude = 2;
+    // required float ownship_latitude = 2;
     total_size += 1 + 4;
 
-    // required sfixed32 ownship_longitude = 3;
+    // required float ownship_longitude = 3;
     total_size += 1 + 4;
 
-    // required sfixed32 ownship_altitude = 4;
+    // required float ownship_altitude = 4;
     total_size += 1 + 4;
 
     // required float north = 5;
@@ -628,7 +628,7 @@ void OwnshipReport::clear_timestamp() {
   // @@protoc_insertion_point(field_set:OwnshipReport.timestamp)
 }
 
-// required sfixed32 ownship_latitude = 2;
+// required float ownship_latitude = 2;
 bool OwnshipReport::has_ownship_latitude() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -642,17 +642,17 @@ void OwnshipReport::clear_ownship_latitude() {
   ownship_latitude_ = 0;
   clear_has_ownship_latitude();
 }
- ::google::protobuf::int32 OwnshipReport::ownship_latitude() const {
+ float OwnshipReport::ownship_latitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_latitude)
   return ownship_latitude_;
 }
- void OwnshipReport::set_ownship_latitude(::google::protobuf::int32 value) {
+ void OwnshipReport::set_ownship_latitude(float value) {
   set_has_ownship_latitude();
   ownship_latitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_latitude)
 }
 
-// required sfixed32 ownship_longitude = 3;
+// required float ownship_longitude = 3;
 bool OwnshipReport::has_ownship_longitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -666,17 +666,17 @@ void OwnshipReport::clear_ownship_longitude() {
   ownship_longitude_ = 0;
   clear_has_ownship_longitude();
 }
- ::google::protobuf::int32 OwnshipReport::ownship_longitude() const {
+ float OwnshipReport::ownship_longitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_longitude)
   return ownship_longitude_;
 }
- void OwnshipReport::set_ownship_longitude(::google::protobuf::int32 value) {
+ void OwnshipReport::set_ownship_longitude(float value) {
   set_has_ownship_longitude();
   ownship_longitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_longitude)
 }
 
-// required sfixed32 ownship_altitude = 4;
+// required float ownship_altitude = 4;
 bool OwnshipReport::has_ownship_altitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -690,11 +690,11 @@ void OwnshipReport::clear_ownship_altitude() {
   ownship_altitude_ = 0;
   clear_has_ownship_altitude();
 }
- ::google::protobuf::int32 OwnshipReport::ownship_altitude() const {
+ float OwnshipReport::ownship_altitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_altitude)
   return ownship_altitude_;
 }
- void OwnshipReport::set_ownship_altitude(::google::protobuf::int32 value) {
+ void OwnshipReport::set_ownship_altitude(float value) {
   set_has_ownship_altitude();
   ownship_altitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_altitude)

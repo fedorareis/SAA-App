@@ -33,7 +33,7 @@ public:
     */
    void update(float dt);
 
-   TestServerPlane getOwnship();
+   const TestServerPlane & getOwnship();
    /**
     * Retrieve all the planes at a certain time(1 tick = 10 seconds)
     */

@@ -14,15 +14,14 @@
 
 class TestEnvironment {
    public:
-      TestEnvironment(TestCase  tc);
+      TestEnvironment();
       bool acceptConnections();
-      void start();
+      void start(TestCase & tc);
 
    private:
       AdsbSensor adsbSensor = AdsbSensor(new SocketSensorEndpoint());
       OwnshipSensor ownshipSensor = OwnshipSensor(new SocketSensorEndpoint());
       ClientSocket cdtiSocket;
-      TestCase testCase;
 
 
 

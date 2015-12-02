@@ -17,9 +17,16 @@ Sensor(endpoint){
     required float east = 6; // ownship velocity east
     required float down = 7; // ownship velocity down
  */
-void OwnshipSensor::sendData(TestServerPlane & plane)
+void OwnshipSensor::sendData(const TestServerPlane & plane)
 {
    OwnshipReport report;
+   report.set_timestamp((long)plane.getTimestamp());
+   report.set_ownship_latitude(plane.getLatitude());
+   report.set_ownship_longitude(plane.getLongitude());
+   report.set_ownship_altitude(plane.getAltitude());
+   report.set_north(plane.getNorthVelocity());
+   report.set_east(plane.getEastVelocity());
+   report.set_down(plane.getDownVelocity());
    (this->getEndpoint().getSocket().operator<<(report));
 
 }
