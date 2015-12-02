@@ -6,7 +6,7 @@
 #define SAA_APPLICATION_MOTION_H
 #define TICKS_PER_SECOND 1 //Linear mapping right now because i'm lazy ~kyle (apoligies)
 
-#include "common/maths.h"
+#include "common/Maths.h"
 class Motion {
    public:
 

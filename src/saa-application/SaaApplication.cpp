@@ -20,9 +20,9 @@
 std::vector <ClientSocket> SocketSetup() {
     std::vector<ClientSocket> v;
     try {
-        ClientSocket adsbSock("localhost", 5000);
+        ClientSocket adsbSock("localhost", 4000);
         v.push_back(adsbSock);
-        ClientSocket ownSock("localhost", 6000);
+        ClientSocket ownSock("localhost", 5000);
         v.push_back(ownSock);
     }
     catch (SocketException) {
@@ -75,17 +75,19 @@ void SaaApplication::report()
             //send to decision making module here
         }
         catch (SocketException) {
+            std::cout << "got a socket exception..." << std::endl;
             run = false;
         }
     }
-
+/*
     std::cout << "Hello from Saa App!" << std::endl;
-    //Correlation cor;
+    Correlation cor;
     Decision dec;
     cor.report();
     dec.report(&list);
     auto rep = dec.generateReport(&list);
     delete rep;
+    */
 }
 
 
