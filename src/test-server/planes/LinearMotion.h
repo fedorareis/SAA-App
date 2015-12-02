@@ -10,8 +10,12 @@
 
 class LinearMotion : public Motion {
    public:
-   LinearMotion(Vector3d velocity);
+   LinearMotion(Vector3d initialPos, Vector3d velocity);
    LinearMotion(const LinearMotion & other);
+
+   virtual ~LinearMotion();
+
+   virtual Vector3d getInitialPosition() override;
 
    virtual Vector3d getVelocityAtTick(float tick) override;
 
@@ -20,6 +24,7 @@ class LinearMotion : public Motion {
    virtual Vector3d getMotionAtTick(float tick);
 
    private:
+      Vector3d initialPos;
       Vector3d velocity;
 };
 

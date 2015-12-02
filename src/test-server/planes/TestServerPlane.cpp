@@ -7,14 +7,14 @@
 
 Vector3d addToLatitudeLongitude(Vector3d latLongAlt, Vector3d translation)
 {
-   const float R = 20.9e6; //Radius of earth in feet.
-   const float ft2Deg = 2*M_PI*R/360.0;
+   const double R = 20.9e6; //Radius of earth in feet.
+   const double ft2Deg = 2*M_PI*R/360.0;
    //Convert N and E into angle rotations
-   float dLat = translation.x;
-   float dLong = translation.y;
-   float dAlt = translation.z;
+   double dLat = translation.x;
+   double dLong = translation.y;
+   double dAlt = -translation.z;
    Vector3d finalVector = latLongAlt;
-   finalVector.z += translation.z; //Already in feet
+   finalVector.z += dAlt; //Already in feet
    finalVector.x += dLat / ft2Deg; //(in ft, convert to angle)
    finalVector.y += dLong / ft2Deg; //(@TODO make this not actually just plane wrong (Badumchi i hate myself))
    return finalVector;
@@ -23,8 +23,8 @@ Vector3d addToLatitudeLongitude(Vector3d latLongAlt, Vector3d translation)
 TestServerPlane::TestServerPlane():
       t(0),
       latLongAlt(0,0,0),
-northEastDownVel(0,0,0),
-motionPtr(nullptr)
+      northEastDownVel(0,0,0),
+      motionPtr(nullptr)
 
 {
 
@@ -32,12 +32,15 @@ motionPtr(nullptr)
 
 
 //Actually move the plane (Can't do LatLongAlt from dNES)
-void TestServerPlane::move(float dT)
+void TestServerPlane::update(float dT)
 {
    t+=dT;
-   Vector3d translation = this->motionPtr->getVelocityAtTick(t) * dT;
-   this->latLongAlt = addToLatitudeLongitude(latLongAlt,translation); //in (ft/sec)
-   this->northEastDownVel = this->motionPtr->getVelocityAtTick(t);
+   if(motionPtr != nullptr) {
+
+      Vector3d translation = this->motionPtr->getVelocityAtTick(t) * dT;
+      this->latLongAlt = addToLatitudeLongitude(latLongAlt, translation); //in (ft/sec)
+      this->northEastDownVel = this->motionPtr->getVelocityAtTick(t);
+   }
 
 }
 
@@ -99,4 +102,27 @@ void TestServerPlane::setTailNumber(std::string name) {
 }
 std::string TestServerPlane::getTailNumber() const {
    return this->tailNumber;
+}
+
+TestServerPlane::TestServerPlane(const TestServerPlane &other):
+latLongAlt(other.latLongAlt),
+northEastDownVel(other.northEastDownVel)
+{
+   if(other.motionPtr != nullptr)
+      this->motionPtr = other.motionPtr->clone();
+
+}
+
+
+double TestServerPlane::getTimestamp() {
+   return t;
+}
+
+Motion *TestServerPlane::getMotion() {
+   return motionPtr;
+}
+
+void TestServerPlane::setLatLongAlt(Vector3d latLongAlt) {
+   this->latLongAlt = latLongAlt;
+
 }

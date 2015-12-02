@@ -12,18 +12,19 @@
 class TestServerPlane {
    public:
    TestServerPlane();
+   TestServerPlane(const TestServerPlane & other);
    ~TestServerPlane();
 
    /**
     * Create a test server plane at a different time.
     */
-   void move(float dt);
+   void update(float dt);
 
    void setAdsbEnabled(bool adsb);
    void setTcasEnabled(bool tcas);
    void setMotion(const Motion * m);
    void setTailNumber(std::string name);
-
+   void setLatLongAlt(Vector3d latLongAlt);
    double getLatitude() const;
    double getLongitude() const;
    double getAltitude() const;
@@ -32,9 +33,11 @@ class TestServerPlane {
    double getDownVelocity() const;
    bool getADSBEnabled() const;
    bool getTcasEnabled() const;
+   double getTimestamp();
+   Motion * getMotion();
    std::string getTailNumber() const;
    private:
-   float t;
+   double t;
    Motion * motionPtr;
    Vector3d northEastDownVel;
    Vector3d latLongAlt;

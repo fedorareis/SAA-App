@@ -14,11 +14,14 @@ LinearMotion * LinearMotion::clone() const {
 }
 
 LinearMotion::LinearMotion(const LinearMotion &other):
-velocity(other.velocity){
+initialPos(other.initialPos),
+velocity(other.velocity)
+{
 
 }
 
-LinearMotion::LinearMotion(Vector3d velocity):
+LinearMotion::LinearMotion(Vector3d intialPos, Vector3d velocity):
+initialPos(initialPos),
 velocity(velocity)
 {
 
@@ -26,4 +29,12 @@ velocity(velocity)
 
 Vector3d LinearMotion::getVelocityAtTick(float tick) {
    return velocity;
+}
+
+LinearMotion::~LinearMotion() {
+
+}
+
+Vector3d LinearMotion::getInitialPosition() {
+   return Vector3d(0, 0, 0);
 }

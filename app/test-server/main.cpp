@@ -6,6 +6,7 @@
 #include <string>
 #include <test-server/TestEnvironment.h>
 #include <test-server/endpoints/mocks/MockSensorEndpoint.h>
+#include <test-server/planes/LinearMotion.h>
 #include "test-server/TestServer.h"
 #include "test-server/TestFileParser.h"
 int main(int argC, const char* argV[])
@@ -13,8 +14,8 @@ int main(int argC, const char* argV[])
 
    Common common;
    common.report();
-   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(5000));
-   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(6000));
+   TestServer::provideAdsbEndpoint(new MockSensorEndpoint());
+   TestServer::provideOwnshipEndpoint(new MockSensorEndpoint());
 
 
 
@@ -39,6 +40,21 @@ int main(int argC, const char* argV[])
    parser_2.load();
     */
    TestCase testCase;
+   TestServerPlane ownshipPlane;
+   ownshipPlane.setMotion(new LinearMotion(Vector3d(0,0,8000), Vector3d(875,0,0)));
+   ownshipPlane.setTailNumber("N00000");
+   ownshipPlane.setAdsbEnabled(true);
+   TestServerPlane otherPlane;
+   otherPlane.setMotion((new LinearMotion(Vector3d(5,15,-2000), Vector3d(0,875,0))));
+   otherPlane.setTailNumber("N12345");
+   otherPlane.setAdsbEnabled(true);
+
+   testCase.setOwnship(ownshipPlane);
+   testCase.addPlane(otherPlane);
+   testCase.setTotalTime(60.0f);
+   //Test cases start at lat 0 long 0
+   testCase.complete();
+
 
    TestEnvironment environment(testCase);
    environment.acceptConnections();

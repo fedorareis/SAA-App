@@ -18,6 +18,8 @@ public:
     * Set the name of the test case
     */
    void setName(const std::string name);
+
+   void setTotalTime(float totalTime);
    /**
     * Set the ownship data of the test case
     */
@@ -29,11 +31,23 @@ public:
    /**
     * Retreieve the ownship a a certain time (1 tick = 10seconds)
     */
-   TestServerPlane getOwnshipAtTick(float tick);
+   void update(float dt);
+
+   TestServerPlane getOwnship();
    /**
     * Retrieve all the planes at a certain time(1 tick = 10 seconds)
     */
-   std::vector<TestServerPlane> getPlanesAtTick(float tick);
+   const std::vector<TestServerPlane> & getPlanes();
+
+   void complete();
+
+   bool isRunning();
+
+   private:
+   float t;
+   TestServerPlane ownship;
+   std::vector<TestServerPlane> otherPlanes;
+   std::string name;
 };
 
 
