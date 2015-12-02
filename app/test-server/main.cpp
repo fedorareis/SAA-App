@@ -11,33 +11,103 @@
 #include "test-server/TestFileParser.h"
 int main(int argC, const char* argV[])
 {
-
+/*
    Common common;
    common.report();
    TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(4000));
    TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
-   std::cout<<"\nTest File 1"<<std::endl;
+ */
+   std::cout<<"\n----Test File 1----"<<std::endl;
    //__DIR__ is injected in compile time
    std::string s(__DIR__"/resources/TestCaseExample.xml");
    TestFileParser parser;
-   //parser.load(s);
+   // true if building test case is successful
+   if(parser.load(s))
+   {
+      TestCase tc = parser.GetTestCase();
+      std::cout<<"[Ownship]"<<std::endl;
+      TestServerPlane ownship = tc.getOwnship();
+      std::cout<<ownship.getTailNumber()<<std::endl;
+      std::cout<<"ADS-B enabled: " <<ownship.getADSBEnabled()<<std::endl;
+      std::cout<<"TCAS enabled: " <<ownship.getTcasEnabled()<<std::endl;
+      std::cout<<"Position: ("<<ownship.getLatitude()<<", "<<ownship.getLongitude()<<", "<< ownship.getAltitude()<<")"<< std::endl;
+      std::cout<<"Direction: ("<<ownship.getNorthVelocity()<<", "<<ownship.getEastVelocity()<<", "<< ownship.getDownVelocity()<<")"<< std::endl;
 
-   /*
-   // contains multiple planes
-   std::cout<<"\nTest File 2"<<std::endl;
-   std::string s1("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample2.xml");
-   TestFileParser parser_1(s1);
-   parser_1.load();
+      std::cout<<"\n[Intruders]"<<std::endl;
+      std::vector<TestServerPlane> planes = tc.getPlanes();
+      for(TestServerPlane plane : planes)
+      {
+         std::cout<<plane.getTailNumber()<<std::endl;
+         std::cout<<"ADS-B enabled: " <<plane.getADSBEnabled()<<std::endl;
+         std::cout<<"TCAS enabled: " <<plane.getTcasEnabled()<<std::endl;
+         std::cout<<"Position: ("<<plane.getLatitude()<<", "<<plane.getLongitude()<<", "<< plane.getAltitude()<<")"<< std::endl;
+         std::cout<<"Direction: ("<<plane.getNorthVelocity()<<", "<<plane.getEastVelocity()<<", "<< plane.getDownVelocity()<<")"<< std::endl;
+         std::cout<<std::endl;
+      }
+   }
 
-   // contains configuration error
-   std::cout<<"\nTest File 3"<<std::endl;
-   std::string s2("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample3.xml");
-   TestFileParser parser_2(s2);
-   parser_2.load();
-    */
+   std::cout<<"\n----Test File 2----"<<std::endl;
+   //__DIR__ is injected in compile time
+   std::string s2(__DIR__"/resources/TestCaseExample2.xml");
+   // true if building test case is successful
+   if(parser.load(s2)) {
+      TestCase tc = parser.GetTestCase();
+      std::cout << "[Ownship]" << std::endl;
+      TestServerPlane ownship = tc.getOwnship();
+      std::cout << ownship.getTailNumber() << std::endl;
+      std::cout << "ADS-B enabled: " << ownship.getADSBEnabled() << std::endl;
+      std::cout << "TCAS enabled: " << ownship.getTcasEnabled() << std::endl;
+      std::cout << "Position: (" << ownship.getLatitude() << ", " << ownship.getLongitude() << ", " <<
+      ownship.getAltitude() << ")" << std::endl;
+      std::cout << "Direction: (" << ownship.getNorthVelocity() << ", " << ownship.getEastVelocity() << ", " <<
+      ownship.getDownVelocity() << ")" << std::endl;
 
+      std::cout << "\n[Intruders]" << std::endl;
+      std::vector<TestServerPlane> planes = tc.getPlanes();
+      for (TestServerPlane plane : planes) {
+         std::cout << plane.getTailNumber() << std::endl;
+         std::cout << "ADS-B enabled: " << plane.getADSBEnabled() << std::endl;
+         std::cout << "TCAS enabled: " << plane.getTcasEnabled() << std::endl;
+         std::cout << "Position: (" << plane.getLatitude() << ", " << plane.getLongitude() << ", " <<
+         plane.getAltitude() << ")" << std::endl;
+         std::cout<<"Direction: ("<<plane.getNorthVelocity()<<", "<<plane.getEastVelocity()<<", "<< plane.getDownVelocity()<<")"<< std::endl;
+         std::cout << std::endl;
+      }
+   }
 
+   std::cout<<"\n-----Test File 3----"<<std::endl;
+   //__DIR__ is injected in compile time
+   std::string s3(__DIR__"/resources/TestCaseExample3.xml");
+   // true if building test case is successful
+   if(parser.load(s3)) {
+      TestCase tc = parser.GetTestCase();
+      std::cout << "[Ownship]" << std::endl;
+      TestServerPlane ownship = tc.getOwnship();
+      std::cout << ownship.getTailNumber() << std::endl;
+      std::cout << "ADS-B enabled: " << ownship.getADSBEnabled() << std::endl;
+      std::cout << "TCAS enabled: " << ownship.getTcasEnabled() << std::endl;
+      std::cout << "Position: (" << ownship.getLatitude() << ", " << ownship.getLongitude() << ", " <<
+      ownship.getAltitude() << ")" << std::endl;
+      std::cout << "Direction: (" << ownship.getNorthVelocity() << ", " << ownship.getEastVelocity() << ", " <<
+      ownship.getDownVelocity() << ")" << std::endl;
+
+      std::cout << "\n[Intruders]" << std::endl;
+      std::vector<TestServerPlane> planes = tc.getPlanes();
+      for (TestServerPlane plane : planes) {
+         std::cout << plane.getTailNumber() << std::endl;
+         std::cout << "ADS-B enabled: " << plane.getADSBEnabled() << std::endl;
+         std::cout << "TCAS enabled: " << plane.getTcasEnabled() << std::endl;
+         std::cout << "Position: (" << plane.getLatitude() << ", " << plane.getLongitude() << ", " <<
+         plane.getAltitude() << ")" << std::endl;
+         std::cout<<"Direction: ("<<plane.getNorthVelocity()<<", "<<plane.getEastVelocity()<<", "<< plane.getDownVelocity()<<")"<< std::endl;
+         std::cout << std::endl;
+      }
+   }
+
+   std::cout<<"----------"<<std::endl;
+
+/*
    TestCase testCase;
    TestServerPlane ownshipPlane;
    ownshipPlane.setMotion(LinearMotion(Vector3d(0,0,8000), Vector3d(875,0,0)));
@@ -63,6 +133,6 @@ int main(int argC, const char* argV[])
 
    std::cout << "Environment has finished accepting connections" << std::endl;
    TestServer::shutdown();
-
+*/
    return 0;
 }
