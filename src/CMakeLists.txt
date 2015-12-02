@@ -22,10 +22,13 @@ include_directories(${PROJECT_SOURCE_DIR}/lib)
 # Also adds sources to the Solution Explorer
 
 add_library(common-sources ${COMMON_FUNCTION_SOURCES})
+target_link_libraries(common-sources protobuf)
 add_library(cdti-sources ${CDTI_FUNCTION_SOURCES})
-target_link_libraries(cdti-sources Qt5::Widgets)
+target_link_libraries(cdti-sources Qt5::Widgets cdti-sources)
 add_library(saa-application-sources ${SAA_APPLICATION_FUNCTION_SOURCES})
+target_link_libraries(saa-application-sources common-sources)
 add_library(test-server-sources ${TEST_SERVER_FUNCTION_SOURCES})
+target_link_libraries(test-server-sources common-sources)
 
 
 # Adds logic to INSTALL.vcproj to copy sa--application.dll to the destination directory
