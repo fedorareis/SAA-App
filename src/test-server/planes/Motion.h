@@ -5,6 +5,7 @@
 #ifndef SAA_APPLICATION_MOTION_H
 #define SAA_APPLICATION_MOTION_H
 #define TICKS_PER_SECOND 1 //Linear mapping right now because i'm lazy ~kyle (apoligies)
+<<<<<<< HEAD
 struct Vector3d
 {
    Vector3d(double x, double y, double z):
@@ -20,6 +21,9 @@ struct Vector3d
    double z;
 
 };
+=======
+#include "common/maths.h"
+>>>>>>> origin/master
 class Motion {
    public:
    virtual Vector3d getMotionAtTick(float tick) = 0;
