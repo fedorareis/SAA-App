@@ -56,7 +56,7 @@ void SaaApplication::report()
     //set up sockets
     ClientSocket ownSock;
     ClientSocket adsbSock;
-    SocketSetup(ownSock, adsbSock);
+    SocketSetup(adsbSock, ownSock);
 
     //socks.pop_back();
 
