@@ -30,7 +30,7 @@ set(protobuf_BUILD_SHARED_LIBS OFF)
 set(protobuf_DEBUG_POSTFIX "")
 project (SAA_Application)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -D__DIR__=\\\"${PROJECT_BINARY_DIR}\\\"")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -pthread -D__DIR__=\\\"${PROJECT_BINARY_DIR}\\\"")
 message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
 
 
