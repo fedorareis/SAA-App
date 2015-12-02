@@ -17,7 +17,7 @@ class TestServerPlane {
    /**
     * Create a test server plane at a different time.
     */
-   TestServerPlane createPlaneAtTick(float tick);
+   void move(float dt);
 
    void setAdsbEnabled(bool adsb);
    void setTcasEnabled(bool tcas);
@@ -32,14 +32,15 @@ class TestServerPlane {
    double getDownVelocity() const;
    bool getADSBEnabled() const;
    bool getTcasEnabled() const;
-
+   std::string getTailNumber() const;
    private:
+   float t;
    Motion * motionPtr;
-   Vector3d northEastSouth;
+   Vector3d northEastDownVel;
    Vector3d latLongAlt;
 
    bool isADSBEnabled;
-   bool isTCaseEnabled;
+   bool isTCasEnabled;
    std::string tailNumber;
 };
 

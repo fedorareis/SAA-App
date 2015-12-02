@@ -12,6 +12,9 @@ class LinearMotion : public Motion {
    public:
    LinearMotion(Vector3d velocity);
    LinearMotion(const LinearMotion & other);
+
+   virtual Vector3d getVelocityAtTick(float tick) override;
+
    virtual LinearMotion * clone() const;
 
    virtual Vector3d getMotionAtTick(float tick);
