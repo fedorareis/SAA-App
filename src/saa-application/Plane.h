@@ -14,8 +14,8 @@
 class Plane
 {
 public:
-   Plane(std::string tailNumber, int positionX, int positionY, int positionZ, int velocityX, int velocityY,
-         int velocityZ) :
+   Plane(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
+         float velocityZ) :
          tailNumber(tailNumber)
    {
       velocity = new Vector();

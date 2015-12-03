@@ -12,7 +12,7 @@ class DisplayController
 {
 private:
     Display& display;
-    CDTIMockEndpoint* socket;
+    CDTIEndpoint* socket;
     AlertMessages* messages;
     std::thread* socketThread;
 public:

@@ -6,7 +6,7 @@
 #include "TestFileParser.h"
 
 using namespace rapidxml;
-
+#include <cstring>
 /**
  * This initializes the parser and checks that the file can be open
  */
