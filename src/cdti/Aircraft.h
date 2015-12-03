@@ -1,8 +1,8 @@
 #ifndef SAA_APPLICATION_AIRCRAFT_CDTI_H
 #define SAA_APPLICATION_AIRCRAFT_CDTI_H
 
-#include <common/protobuf/cdti.pb.h>
 #include <QtGui/qimage.h>
+#include <common/protobuf/cdti.pb.h>
 
 class Aircraft
 {
@@ -10,7 +10,8 @@ class Aircraft
 private:
     Vector position, velocity;
     CDTIPlane_Severity severity;
-    QImage image1,image2,image3;
+    QImage image;
+
 public:
     void setPosition(const Vector &position)
     {
@@ -41,9 +42,6 @@ public:
     {
         return severity;
     }
-
-    Aircraft(const CDTIPlane &plane);
-    QImage getSeverityImage();
 };
 
 #endif //SAA_APPLICATION_AIRCRAFT_CDTI_H

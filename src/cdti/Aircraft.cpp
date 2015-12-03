@@ -3,49 +3,46 @@
 #include <iostream>
 #include "Aircraft.h"
 
-Aircraft::Aircraft(const CDTIPlane &plane)
-{
-    //load images
-    QDir projectDir(".");
-    projectDir.cdUp();
-    projectDir.cdUp();
-    //open image and scale it
-    QImageReader imageReader(projectDir.filePath("resources/advisory.png"));
-    image1 = imageReader.read();
-    imageReader.setFileName(projectDir.filePath("resources/resolution.png"));
-    image2 = imageReader.read();
-    imageReader.setFileName(projectDir.filePath("resources/traffic.png"));
-    image3 = imageReader.read();
-
-    image1 = image1.scaled(100,100,Qt::IgnoreAspectRatio);
-    image2 = image2.scaled(100,100,Qt::IgnoreAspectRatio);
-    image3 = image3.scaled(100,100,Qt::IgnoreAspectRatio);
-
-    if(image1.isNull())
-        std::cout << "IT'S NO USE: "<< imageReader.errorString().toStdString() << std::endl;
-    if(image2.isNull())
-        std::cout << "IT'S NO USE: "<< imageReader.errorString().toStdString() << std::endl;
-    if(image3.isNull())
-        std::cout << "IT'S NO USE: "<< imageReader.errorString().toStdString() << std::endl;
-}
-
 QImage Aircraft::getSeverityImage()
 {
+    //load image
     QImage finalImage;
+    QDir projectDir(".");
+    //projectDir.cdUp();
+    //projectDir.cdUp();
+
+    QImageReader imageReader(projectDir.filePath("resources/proximate.png"));
+    QImage image1 = imageReader.read();
+    imageReader.setFileName(projectDir.filePath("resources/traffic.png"));
+    QImage image2 = imageReader.read();
+    imageReader.setFileName(projectDir.filePath("resources/resolution.png"));
+    QImage image3 = imageReader.read();
+
     switch(severity)
     {
-        case CDTIPlane_Severity::CDTIPlane_Severity_PROXIMATE:
+        case CDTIPlane_Severity_PROXIMATE:
             finalImage = image1;
             //std::cout << "proximate" << std::endl;
             break;
-        case CDTIPlane_Severity::CDTIPlane_Severity_RESOLUTION:
+        case CDTIPlane_Severity_TRAFFIC:
             finalImage = image2;
-            //std::cout << "resolution" << std::endl;
-            break;
-        case CDTIPlane_Severity::CDTIPlane_Severity_TRAFFIC:
-            finalImage = image3;
             //std::cout << "traffic" << std::endl;
             break;
+        case CDTIPlane_Severity_RESOLUTION:
+            finalImage = image3;
+            //std::cout << "resolution" << std::endl;
+            break;
     }
+
+    if(image.isNull())
+        std::cout << "WHAT HAPPENED: "<< imageReader.errorString().toStdString() << std::endl;
+
     return finalImage;
+}
+
+Aircraft::Aircraft(const CDTIPlane &plane)
+{
+    //open image and scale it
+    image = getSeverityImage();
+    image = image.scaled(100,100,Qt::IgnoreAspectRatio);
 }
