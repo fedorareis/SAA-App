@@ -209,3 +209,18 @@ void Socket::close() {
    m_sock = -1;
 
 }
+
+Socket::Socket(const Socket &other):
+   m_sock(other.m_sock),
+   m_addr(other.m_addr),
+   port(other.port)
+{
+
+}
+
+bool Socket::hasData() {
+   char lenBfr;
+   return Socket::recv(&lenBfr,1,MSG_PEEK) > 0;
+
+
+}

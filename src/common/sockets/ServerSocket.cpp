@@ -13,6 +13,7 @@
 #include "ClientSocket.h"
 
 #define PROTOBUF_HEADER_LEN 4
+
 ServerSocket::ServerSocket(const int port)
 {
    //Create the socket
@@ -144,4 +145,8 @@ void ServerSocket::connectToClient(ClientSocket & socket, int port)
 
 int ServerSocket::getPort() {
    return this->port;
+}
+
+bool ServerSocket::hasData() {
+   return Socket::hasData();
 }

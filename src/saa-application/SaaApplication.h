@@ -4,9 +4,26 @@
 
 #ifndef SAA_APPLICATION_SAAAPPLICATION_H
 #define SAA_APPLICATION_SAAAPPLICATION_H
+
+#include <vector>
+#include <common/protobuf/cdti.pb.h>
+#include <common/protobuf/ownship.pb.h>
+#include "common/sockets/ServerSocket.h"
+#include "Plane.h"
+
 class SaaApplication
 {
 public:
-    void report();
+   void report();
+   static ServerSocket * getCdtiSocket();
+   static void setupSockets(int CdtiSocket);
+   static void shutdown();
+private:
+   void convertOwnship(OwnshipReport ownship);
+   std::vector<CDTIPlane *> list;
+   static ServerSocket * cdtiSocket;
+   ServerSocket cdtiOut;
+   ServerSocket validationOut;
+   CDTIPlane* cdtiOwnship;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H
