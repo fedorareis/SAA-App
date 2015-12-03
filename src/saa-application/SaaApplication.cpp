@@ -50,14 +50,14 @@ std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::vector<Plane> planes;
    std::string tailNumber = "Tail Number Here";
-   int positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+   float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                 ownship.ownship_longitude());
-   int positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
+   float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
                                 ownship.ownship_longitude());
-   int positionZ = adsb.altitude() - ownship.ownship_altitude();
-   int velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
-   int velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
-   int velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
+   float positionZ = adsb.altitude() - ownship.ownship_altitude();
+   float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
+   float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
+   float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
    Plane adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ);
    planes.push_back(adsbPlane);
    return planes;

@@ -6,7 +6,6 @@
 void DisplayController::run()
 {
     display.setupLayout();
-    display.show();
     std::cout << "DISPLAY RUNNING!" << std::endl;
     socketThread = new std::thread(std::thread( [this] { this->listenOnSocket(); } ));
 }
@@ -16,11 +15,13 @@ DisplayController::DisplayController(Display& display):display(display)
     //set up socket
     try
     {
-        socket = new CDTIMockEndpoint();
+        socket = new CDTISocketEndpoint("localhost",6000);
+        //socket = new CDTIMockEndpoint();
     }
     catch(SocketException exception)
     {
         std::cout << exception.description() << std::endl;
+        std::terminate();
     }
 
     //make AlertMessage
@@ -49,8 +50,12 @@ void DisplayController::listenOnSocket()
                 aircraft->setSeverity(report.planes(i).severity());
             }
         }
+        if(!initialized)
+            display.show();
+
+        display.update();
         initialized = true;
         sleep(1);
-        socket->step();
+        //socket->step();
     }
 }
