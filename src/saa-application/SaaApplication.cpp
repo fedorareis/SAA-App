@@ -65,8 +65,7 @@ std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
 
 void SaaApplication::convertOwnship(OwnshipReport ownship)
 {
-   Plane ownshipPlane("Ownship", ownship.ownship_latitude(), ownship.ownship_longitude(),
-      ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down());
+   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
    cdtiOwnship = ownshipPlane.getCDTIPlane();
 }
 
