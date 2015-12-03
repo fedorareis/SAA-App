@@ -30,6 +30,10 @@ struct Vector3d
    {
       return Vector3d(x - rhs.x, y - rhs.y, z - rhs.z);
    }
+   double distance(const Vector3d & other)
+   {
+      return sqrt((other.x-x)*(other.x-x) + (other.y-y)*(other.y-y) + (other.z-z)*(other.z-z));
+   }
    double x;
    double y;
    double z;

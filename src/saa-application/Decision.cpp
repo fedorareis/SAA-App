@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
 
@@ -15,7 +16,19 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<Plane>* planes
    for (std::vector<Plane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
-      plane->set_severity(CDTIPlane::PROXIMATE);
+      if(it->getPosition().distance(Vector3d(0,0,0)) < 3)
+      {
+         plane->set_severity(CDTIPlane::RESOLUTION);
+      }
+      else if(it->getPosition().distance(Vector3d(0,0,0)) < 5)
+      {
+         plane->set_severity(CDTIPlane::TRAFFIC);
+      }
+      else
+      {
+         plane->set_severity(CDTIPlane::PROXIMATE);
+      }
+
       list->push_back(plane);
    }
 

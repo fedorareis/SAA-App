@@ -51,9 +51,9 @@ std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
    std::vector<Plane> planes;
    std::string tailNumber = "Tail Number Here";
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                ownship.ownship_longitude());
+                                ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
-                                ownship.ownship_longitude());
+                                ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
    float positionZ = adsb.altitude() - ownship.ownship_altitude();
    float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));

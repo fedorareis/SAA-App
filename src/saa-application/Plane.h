@@ -9,6 +9,7 @@
 #define SAA_APPLICATION_PLANE_H
 
 #include <string>
+#include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 
 class Plane
@@ -31,7 +32,10 @@ public:
    void printPos();
 
    CDTIPlane* getCDTIPlane();
-
+   Vector3d  getPosition()
+   {
+      return Vector3d(position->x(),position->y(),position->z());
+   }
 private:
    std::string tailNumber;
    Vector *velocity;
