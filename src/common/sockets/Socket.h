@@ -21,6 +21,7 @@ class Socket
 {
  public:
   Socket();
+   Socket(const Socket & other);
   virtual ~Socket();
 
 
@@ -97,6 +98,7 @@ class Socket
    */
   void set_non_blocking ( const bool );
 
+   bool hasData();
   /**
    * Check of the socket is valid for use
    * @return false if the socket has not been created

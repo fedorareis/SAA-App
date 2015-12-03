@@ -109,26 +109,26 @@ class OwnshipReport : public ::google::protobuf::Message {
   ::google::protobuf::int64 timestamp() const;
   void set_timestamp(::google::protobuf::int64 value);
 
-  // required sfixed32 ownship_latitude = 2;
+  // required float ownship_latitude = 2;
   bool has_ownship_latitude() const;
   void clear_ownship_latitude();
   static const int kOwnshipLatitudeFieldNumber = 2;
-  ::google::protobuf::int32 ownship_latitude() const;
-  void set_ownship_latitude(::google::protobuf::int32 value);
+  float ownship_latitude() const;
+  void set_ownship_latitude(float value);
 
-  // required sfixed32 ownship_longitude = 3;
+  // required float ownship_longitude = 3;
   bool has_ownship_longitude() const;
   void clear_ownship_longitude();
   static const int kOwnshipLongitudeFieldNumber = 3;
-  ::google::protobuf::int32 ownship_longitude() const;
-  void set_ownship_longitude(::google::protobuf::int32 value);
+  float ownship_longitude() const;
+  void set_ownship_longitude(float value);
 
-  // required sfixed32 ownship_altitude = 4;
+  // required float ownship_altitude = 4;
   bool has_ownship_altitude() const;
   void clear_ownship_altitude();
   static const int kOwnshipAltitudeFieldNumber = 4;
-  ::google::protobuf::int32 ownship_altitude() const;
-  void set_ownship_altitude(::google::protobuf::int32 value);
+  float ownship_altitude() const;
+  void set_ownship_altitude(float value);
 
   // required float north = 5;
   bool has_north() const;
@@ -175,9 +175,9 @@ class OwnshipReport : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::int64 timestamp_;
-  ::google::protobuf::int32 ownship_latitude_;
-  ::google::protobuf::int32 ownship_longitude_;
-  ::google::protobuf::int32 ownship_altitude_;
+  float ownship_latitude_;
+  float ownship_longitude_;
+  float ownship_altitude_;
   float north_;
   float east_;
   float down_;
@@ -220,7 +220,7 @@ inline void OwnshipReport::set_timestamp(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:OwnshipReport.timestamp)
 }
 
-// required sfixed32 ownship_latitude = 2;
+// required float ownship_latitude = 2;
 inline bool OwnshipReport::has_ownship_latitude() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -234,17 +234,17 @@ inline void OwnshipReport::clear_ownship_latitude() {
   ownship_latitude_ = 0;
   clear_has_ownship_latitude();
 }
-inline ::google::protobuf::int32 OwnshipReport::ownship_latitude() const {
+inline float OwnshipReport::ownship_latitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_latitude)
   return ownship_latitude_;
 }
-inline void OwnshipReport::set_ownship_latitude(::google::protobuf::int32 value) {
+inline void OwnshipReport::set_ownship_latitude(float value) {
   set_has_ownship_latitude();
   ownship_latitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_latitude)
 }
 
-// required sfixed32 ownship_longitude = 3;
+// required float ownship_longitude = 3;
 inline bool OwnshipReport::has_ownship_longitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -258,17 +258,17 @@ inline void OwnshipReport::clear_ownship_longitude() {
   ownship_longitude_ = 0;
   clear_has_ownship_longitude();
 }
-inline ::google::protobuf::int32 OwnshipReport::ownship_longitude() const {
+inline float OwnshipReport::ownship_longitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_longitude)
   return ownship_longitude_;
 }
-inline void OwnshipReport::set_ownship_longitude(::google::protobuf::int32 value) {
+inline void OwnshipReport::set_ownship_longitude(float value) {
   set_has_ownship_longitude();
   ownship_longitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_longitude)
 }
 
-// required sfixed32 ownship_altitude = 4;
+// required float ownship_altitude = 4;
 inline bool OwnshipReport::has_ownship_altitude() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -282,11 +282,11 @@ inline void OwnshipReport::clear_ownship_altitude() {
   ownship_altitude_ = 0;
   clear_has_ownship_altitude();
 }
-inline ::google::protobuf::int32 OwnshipReport::ownship_altitude() const {
+inline float OwnshipReport::ownship_altitude() const {
   // @@protoc_insertion_point(field_get:OwnshipReport.ownship_altitude)
   return ownship_altitude_;
 }
-inline void OwnshipReport::set_ownship_altitude(::google::protobuf::int32 value) {
+inline void OwnshipReport::set_ownship_altitude(float value) {
   set_has_ownship_altitude();
   ownship_altitude_ = value;
   // @@protoc_insertion_point(field_set:OwnshipReport.ownship_altitude)

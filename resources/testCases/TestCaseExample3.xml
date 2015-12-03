@@ -1,5 +1,5 @@
 <!-- name and description attributes are optional -->
-<test name="Plane Tracking 3" description="Contains configuration error">
+<test name="Plane Tracking 3" description="Contains configuration error" time="10">
     <!-- ownership data is required -->
     <!-- tag is required -->
     <ownship tag="ABC123">

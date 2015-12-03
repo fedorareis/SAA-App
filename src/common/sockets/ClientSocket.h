@@ -25,6 +25,8 @@ public:
 
    ClientSocket ( const sockaddr_in host );
 
+   ClientSocket(const ClientSocket & other);
+
    ClientSocket();
    /**
     * Close the socket
@@ -60,6 +62,8 @@ public:
     * @return the socket, for chaining.
     */
    const ClientSocket& operator >> ( ::google::protobuf::Message & msg ) const;
+
+   bool hasData();
 
 private:
    /**

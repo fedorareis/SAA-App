@@ -5,40 +5,80 @@
 #include <iosfwd>
 #include <string>
 #include <test-server/TestEnvironment.h>
+#include <test-server/endpoints/mocks/MockSensorEndpoint.h>
+#include <test-server/planes/LinearMotion.h>
 #include "test-server/TestServer.h"
 #include "test-server/TestFileParser.h"
-
 int main(int argC, const char* argV[])
 {
-
    Common common;
    common.report();
-   TestServer::setupSockets(5000,6000,7000,8000);
+   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(4000));
+   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
-   // Note: find a better way to include resource folder....
-   /*
-   std::cout<<"\nTest File 1"<<std::endl;
-   std::string s("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample.xml");
-   TestFileParser parser(s);
-   parser.load();
+   std::cout<<"\n----Test File 1----"<<std::endl;
+   //__DIR__ is injected in compile time
+   std::string s(__DIR__"/resources/TestCaseExample.xml");
+   TestFileParser parser;
+   // true if building test case is successful
+   if(parser.load(s))
+   {
+      TestCase testCase = parser.GetTestCase();
 
-   // contains multiple planes
-   std::cout<<"\nTest File 2"<<std::endl;
-   std::string s1("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample2.xml");
-   TestFileParser parser_1(s1);
-   parser_1.load();
+      TestEnvironment environment;
+      environment.acceptConnections();
+      environment.start(testCase);
 
-   // contains configuration error
-   std::cout<<"\nTest File 3"<<std::endl;
-   std::string s2("/Users/Helen/Desktop/REPO/saa-application/resources/testCases/TestCaseExample3.xml");
-   TestFileParser parser_2(s2);
-   parser_2.load();
-    */
+      std::cout << "Environment has finished accepting connections" << std::endl;
+   }
+   TestServer::shutdown();
+/*
+   std::cout<<"\n----Test File 2----"<<std::endl;
+   //__DIR__ is injected in compile time
+   std::string s2(__DIR__"/resources/TestCaseExample2.xml");
+   // true if building test case is successful
+   if(parser.load(s2)) {
+      TestCase tc = parser.GetTestCase();
+
+   }
+
+   std::cout<<"\n-----Test File 3----"<<std::endl;
+   //__DIR__ is injected in compile time
+   std::string s3(__DIR__"/resources/TestCaseExample3.xml");
+   // true if building test case is successful
+   if(parser.load(s3)) {
+      TestCase tc = parser.GetTestCase();
+
+      }
+   }
+*/
+
+/*
    TestCase testCase;
+   TestServerPlane ownshipPlane;
+   ownshipPlane.setMotion(LinearMotion(Vector3d(0,0,8000), Vector3d(875,0,0)));
+   ownshipPlane.setTailNumber("N00000");
+   ownshipPlane.setAdsbEnabled(true);
 
-   TestEnvironment environment(testCase);
+   TestServerPlane otherPlane;
+   otherPlane.setMotion(LinearMotion(Vector3d(5,15,-2000), Vector3d(0,875,0)));
+   otherPlane.setTailNumber("N12345");
+   otherPlane.setAdsbEnabled(true);
+
+   testCase.setOwnship(ownshipPlane);
+   testCase.addPlane(otherPlane);
+
+   testCase.setTotalTime(10.0f);
+   //Test cases start at lat 0 long 0
+   testCase.complete();
+
+
+   TestEnvironment environment;
    environment.acceptConnections();
-   std::cout << "Environment has finished accepting connections" << std::endl;
+   environment.start(testCase);
 
+   std::cout << "Environment has finished accepting connections" << std::endl;
+   TestServer::shutdown();
+*/
    return 0;
 }
