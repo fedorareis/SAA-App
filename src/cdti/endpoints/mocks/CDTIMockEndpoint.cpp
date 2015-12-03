@@ -44,16 +44,16 @@ CDTIMockEndpoint::CDTIMockEndpoint()
 {
     Vector *position1 = new Vector(), *position2 = new Vector(), *position3 = new Vector();
 
-    position1->set_x(100);
-    position1->set_y(100);
+    position1->set_x(10);
+    position1->set_y(10);
     position1->set_z(0);
 
-    position2->set_x(-60);
-    position2->set_y(-60);
+    position2->set_x(-6);
+    position2->set_y(-6);
     position2->set_z(0);
 
-    position3->set_x(95);
-    position3->set_y(-75);
+    position3->set_x(9);
+    position3->set_y(-7);
     position3->set_z(0);
    //Initialize report
     report.set_allocated_ownship(makeOwnship());

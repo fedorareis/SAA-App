@@ -26,9 +26,7 @@ void Display::paintEvent(QPaintEvent *event)
 {
     //TODO Move to airplane implementation?
     //setup loading directory
-    QDir projectDir(".");
-    projectDir.cdUp();
-    projectDir.cdUp();
+    QDir projectDir(__DIR__);
     //open image and scale it
     QImageReader imageReader(projectDir.filePath("resources/ownship.png"));
     QImage image = imageReader.read();

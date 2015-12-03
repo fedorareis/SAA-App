@@ -13,6 +13,9 @@ private:
     QImage image;
 
 public:
+   Aircraft(const CDTIPlane &plane);
+   QImage getSeverityImage();
+
     void setPosition(const Vector &position)
     {
         Aircraft::position = position;
