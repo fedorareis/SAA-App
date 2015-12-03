@@ -19,6 +19,10 @@ QImage Aircraft::getSeverityImage()
     imageReader.setFileName(projectDir.filePath("resources/resolution.png"));
     QImage image3 = imageReader.read();
 
+    image1 = image1.scaled(100,100,Qt::IgnoreAspectRatio);
+    image2= image2.scaled(100,100,Qt::IgnoreAspectRatio);
+    image3 = image3.scaled(100,100,Qt::IgnoreAspectRatio);
+
     switch(severity)
     {
         case CDTIPlane_Severity_PROXIMATE:

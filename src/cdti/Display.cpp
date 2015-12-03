@@ -51,7 +51,7 @@ void Display::paintEvent(QPaintEvent *event)
     //paint planes
 
     //paint ownship
-    painter.setPen(QPen(QColor(200,200,200,100), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    painter.setPen(QPen(QColor(200,200,200,0), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter.setBrush(QBrush(image));
     painter.translate(-50,-50);
     painter.drawRect(0,0,100,100);
@@ -59,11 +59,11 @@ void Display::paintEvent(QPaintEvent *event)
     //paint any other planes in space
     for(auto plane: planes)
     {
-        painter.setPen(QPen(QColor(200,200,200,100), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        painter.setPen(QPen(QColor(200,200,200,0), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
         painter.setBrush(QBrush(plane->getSeverityImage()));
         Vector position = plane->getPosition();
         painter.resetTransform();
-        painter.translate(width / 2 + position.x() * 2.3,height / 2 - position.y() * 2.3);
+        painter.translate(width / 2 + position.x() * 20,height / 2 - position.y() * 20);
         //for rect offset
         painter.translate(-50,-50);
         painter.drawRect(0,0,100,100);

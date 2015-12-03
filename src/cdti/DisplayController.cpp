@@ -15,8 +15,8 @@ DisplayController::DisplayController(Display& display):display(display)
     //set up socket
     try
     {
-        //socket = new CDTISocketEndpoint("localhost",6000);
-        socket = new CDTIMockEndpoint();
+        socket = new CDTISocketEndpoint("localhost",6000);
+        //socket = new CDTIMockEndpoint();
     }
     catch(SocketException exception)
     {
