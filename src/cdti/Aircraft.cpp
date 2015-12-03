@@ -8,10 +8,11 @@ QImage Aircraft::getSeverityImage()
     //load image
     QImage finalImage;
     QDir projectDir(".");
-    //projectDir.cdUp();
-    //projectDir.cdUp();
+    projectDir.cdUp();
+    projectDir.cdUp();
 
     QImageReader imageReader(projectDir.filePath("resources/proximate.png"));
+    //imageReader.setScaledSize(QSize(25,25));
     QImage image1 = imageReader.read();
     imageReader.setFileName(projectDir.filePath("resources/traffic.png"));
     QImage image2 = imageReader.read();
@@ -42,7 +43,10 @@ QImage Aircraft::getSeverityImage()
 
 Aircraft::Aircraft(const CDTIPlane &plane)
 {
+    severity = plane.severity();
+    position = plane.position();
+    velocity = plane.velocity();
     //open image and scale it
     image = getSeverityImage();
-    image = image.scaled(100,100,Qt::IgnoreAspectRatio);
+    //image = image.scaled(100,100,Qt::IgnoreAspectRatio);
 }
