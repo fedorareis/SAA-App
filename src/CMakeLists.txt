@@ -17,6 +17,8 @@ file (GLOB_RECURSE TEST_SERVER_FUNCTION_SOURCES
 # Properties->C/C++->General->Additional Include Directories
 include_directories (${PROJECT_SOURCE_DIR}/src)
 include_directories(${PROJECT_SOURCE_DIR}/lib)
+include_directories("/usr/local/include")
+link_directories("/usr/local/lib")
 # Set Properties->General->Configuration Type to Dynamic Library(.dll)
 # Creates saa-application.dll with the listed sources collected in the variables
 # Also adds sources to the Solution Explorer

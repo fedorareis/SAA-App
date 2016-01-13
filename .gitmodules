@@ -1,3 +1,6 @@
 [submodule "lib/protobuf"]
 	path = lib/protobuf
 	url = https://github.com/google/protobuf.git
+[submodule "lib/googletest"]
+	path = lib/googletest
+	url = https://github.com/google/googletest.git

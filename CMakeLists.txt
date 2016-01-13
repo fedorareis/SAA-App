@@ -15,6 +15,9 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 
+#add Googletest
+
+
 #Environment Setup,  add C++11, debugging symbols, all warnings
 option(test "Build all tests." ON) # Makes boolean 'test' available.
 
@@ -29,6 +32,7 @@ SET(protobuf_BUILD_TESTS OFF)
 set(protobuf_BUILD_SHARED_LIBS OFF)
 set(protobuf_DEBUG_POSTFIX "")
 project (SAA_Application)
+
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -pthread -D__DIR__=\\\"${PROJECT_BINARY_DIR}\\\"")
 message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
@@ -46,7 +50,7 @@ message("Proto is at: " ${protobuf_SOURCE_DIR})
 message("Proto libs at: " ${protobuf_BINARY_DIR})
 ENDIF()
 message("libs search path: " ${CMAKE_LIBRARY_PATH})
-
+add_subdirectory(lib/googletest)
 add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(test)
