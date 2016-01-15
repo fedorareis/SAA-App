@@ -14,14 +14,15 @@
 class SaaApplication
 {
 public:
-   void report();
+   void initSocks();
    static ServerSocket * getCdtiSocket();
-   static void setupSockets(int CdtiSocket);
    static void shutdown();
 private:
+   static void setupSockets(int CdtiSocket);
    void convertOwnship(OwnshipReport ownship);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
+   void processSensors(ClientSocket ownSock, ClientSocket adsbSocks)
    ServerSocket cdtiOut;
    ServerSocket validationOut;
    CDTIPlane* cdtiOwnship;

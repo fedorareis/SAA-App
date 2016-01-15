@@ -69,14 +69,9 @@ void SaaApplication::convertOwnship(OwnshipReport ownship)
    cdtiOwnship = ownshipPlane.getCDTIPlane();
 }
 
-void SaaApplication::report()
+void SaaApplication::initSocks()
 {
    bool run = true;
-   Correlation cor;
-   Decision dec;
-   AdsBReport adsb;
-   OwnshipReport ownship;
-   CDTIReport *rep = nullptr;
 
    //Set up server sockets
    setupSockets(6000);
@@ -93,33 +88,8 @@ void SaaApplication::report()
 
    //socks.pop_back();
 
-   // loop for each cycle (1 sec) currently being handled by waiting for the server on the reads.
-   while (adsbSock.hasData() && ownSock.hasData())
-   {
-      try
-      {
-         adsbSock.operator>>(adsb); //blocking call, waits for server
-         ownSock.operator>>(ownship); //blocking call, waits for server
-         SaaApplication::convertOwnship(ownship);
-         std::vector<Plane> planes = convertToRelative(adsb, ownship);
-         planes = cor.correlate(planes);
-         //Plane rPlane = planes.back();
-         //rPlane.printPos();
-         //send to decision making module here
-         dec.report(&list, &planes);
-         rep = dec.generateReport(&list, cdtiOwnship);
-         cdtiOut << (*rep);
-         //validationOut << (*rep);
-         std::cout << "finished one cycle" << std::endl;
-      }
-      catch (SocketException)
-      {
-         std::cout << "got a socket exception..." << std::endl;
-         run = false;
-      }
-   }
+   processSensors(ownSock, adsbSock);
 
-   delete rep;
 /*
     std::cout << "Hello from Saa App!" << std::endl;
     Correlation cor;
@@ -127,6 +97,40 @@ void SaaApplication::report()
     cor.report();
 
     */
+}
+
+void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
+{
+   Correlation cor;
+   Decision dec;
+   CDTIReport *rep = nullptr;
+   AdsBReport adsb;
+   OwnshipReport ownship;
+
+   try
+   {
+      adsbSock.operator>>(adsb); //blocking call, waits for server
+      ownSock.operator>>(ownship); //blocking call, waits for server
+      SaaApplication::convertOwnship(ownship);
+      std::vector<Plane> planes = convertToRelative(adsb, ownship);
+      planes = cor.correlate(planes);
+      //Plane rPlane = planes.back();
+      //rPlane.printPos();
+      //send to decision making module here
+      dec.report(&list, &planes);
+      rep = dec.generateReport(&list, cdtiOwnship);
+      cdtiOut << (*rep);
+      //validationOut << (*rep);
+      std::cout << "finished one cycle" << std::endl;
+   }
+   catch (SocketException)
+   {
+      std::cout << "got a socket exception..." << std::endl;
+      //run = false;
+      exit(-1);
+   }
+
+   delete rep;
 }
 
 ServerSocket *SaaApplication::getCdtiSocket()
