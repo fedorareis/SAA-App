@@ -13,6 +13,8 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<Plane>* planes
    //std::cout << "We are making decisions here" << std::endl;
 
    list->clear();
+
+   // Iterates over the list and assigns a Severity to it.
    for (std::vector<Plane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
@@ -44,6 +46,8 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    report->set_advisorymessage("Move out of the way");
    report->set_allocated_ownship(ownship);
    report->set_timestamp(time(0));
+
+   // Iterates over the list adding planes to the Report for the CDTI
    for (std::vector<CDTIPlane *>::iterator it = (*list).begin(); it != (*list).end(); ++it)
    {
       CDTIPlane* planes = report->add_planes();
