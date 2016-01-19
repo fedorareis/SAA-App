@@ -11,11 +11,14 @@
 #include "SaaApplication.h"
 #include "Correlation.h"
 #include "Decision.h"
+#include <mutex>
 #include "Plane.h"
 #include "common/Maths.h"
 
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
+std::vector<Plane> planes;
+std::mutex mtx;
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
@@ -46,7 +49,7 @@ void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
  */
-std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
+Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::vector<Plane> planes;
    std::string tailNumber = "Tail Number Here";
@@ -59,8 +62,7 @@ std::vector<Plane> convertToRelative(AdsBReport adsb, OwnshipReport ownship)
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
    Plane adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ);
-   planes.push_back(adsbPlane);
-   return planes;
+   return adsbPlane;
 }
 
 void SaaApplication::convertOwnship(OwnshipReport ownship)
@@ -71,13 +73,10 @@ void SaaApplication::convertOwnship(OwnshipReport ownship)
 
 void SaaApplication::initSocks()
 {
-   bool run = true;
-
    //Set up server sockets
    setupSockets(6000);
    std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
-
 
    //set up client sockets
    ClientSocket ownSock;
@@ -85,18 +84,9 @@ void SaaApplication::initSocks()
    SocketSetup(adsbSock, ownSock);
    t1.join();
    //t2.join();
-
    //socks.pop_back();
 
    processSensors(ownSock, adsbSock);
-
-/*
-    std::cout << "Hello from Saa App!" << std::endl;
-    Correlation cor;
-    Decision dec;
-    cor.report();
-
-    */
 }
 
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
@@ -104,15 +94,13 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    Correlation cor;
    Decision dec;
    CDTIReport *rep = nullptr;
-   AdsBReport adsb;
    OwnshipReport ownship;
 
    try
    {
-      adsbSock.operator>>(adsb); //blocking call, waits for server
-      ownSock.operator>>(ownship); //blocking call, waits for server
+      std::thread adsb(adsbThread, adsbSock, ownship);
+      std::thread ownship(ownshipThread, ownSock, ownship);
       SaaApplication::convertOwnship(ownship);
-      std::vector<Plane> planes = convertToRelative(adsb, ownship);
       planes = cor.correlate(planes);
       //Plane rPlane = planes.back();
       //rPlane.printPos();
@@ -131,6 +119,20 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    }
 
    delete rep;
+}
+
+void ownshipThread(ClientSocket ownSock, OwnshipReport &ownship)
+{
+   ownSock.operator>>(ownship); //blocking call, waits for server
+}
+
+void adsbThread(ClientSocket adsbSock, OwnshipReport &ownship)
+{
+   AdsBReport adsb;
+   adsbSock.operator>>(adsb); //blocking call, waits for server
+   mtx.lock();
+   planes.push_back(adsbToRelative(adsb, ownship));
+   mtx.unlock();
 }
 
 ServerSocket *SaaApplication::getCdtiSocket()
