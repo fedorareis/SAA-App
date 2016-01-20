@@ -12,7 +12,7 @@
 #include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 
-enum sensor
+enum Sensor
 {
    adsb,
    tcas,
@@ -26,6 +26,7 @@ public:
          float velocityZ) :
          tailNumber(tailNumber)
    {
+      Sensor sensor;
       velocity = new Vector();
       position = new Vector();
       velocity->set_x(velocityX);
