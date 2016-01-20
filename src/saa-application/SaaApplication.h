@@ -25,6 +25,5 @@ private:
    void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
    ServerSocket cdtiOut;
    ServerSocket validationOut;
-   CDTIPlane* cdtiOwnship;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H

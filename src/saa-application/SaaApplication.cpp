@@ -19,6 +19,7 @@
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<Plane> planes;
 std::mutex mtx;
+CDTIPlane* cdtiOwnship;
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
