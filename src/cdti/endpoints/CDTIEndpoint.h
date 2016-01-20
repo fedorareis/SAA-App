@@ -8,8 +8,9 @@
 
 class CDTIEndpoint
 {
-   public:
-   virtual const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const = 0;
+public:
+    virtual const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const = 0;
+    virtual bool isRunning() const = 0;
 
 };
 

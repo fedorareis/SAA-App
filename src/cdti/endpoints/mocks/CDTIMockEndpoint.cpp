@@ -93,4 +93,7 @@ const CDTIEndpoint& CDTIMockEndpoint::operator >> (::google::protobuf::Message &
    return *this;
 }
 
-
+bool CDTIMockEndpoint::isRunning() const
+{
+    return true;
+}

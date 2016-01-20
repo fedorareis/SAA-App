@@ -16,8 +16,19 @@ private:
     AlertMessages* messages;
     std::thread* socketThread;
 public:
+    /**
+     * constructs a Display controller with the configured display
+     *
+     * @param display: the display that the controller manages
+     */
     DisplayController(Display& dipslay);
+    /**
+     * starts the update loop
+     */
     void run();
+    /**
+     * method for the polling thread. polls for new reports, and updates the display as naecessary
+     */
     void listenOnSocket();
 };
 #endif //SAA_APPLICATION_DISPLAYCONTROLLER_CDTI_H

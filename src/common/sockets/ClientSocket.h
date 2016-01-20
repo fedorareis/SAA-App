@@ -64,6 +64,7 @@ public:
    const ClientSocket& operator >> ( ::google::protobuf::Message & msg ) const;
 
    bool hasData();
+    bool isRunning() const;
 
 private:
    /**
