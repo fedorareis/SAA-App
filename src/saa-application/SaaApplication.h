@@ -19,7 +19,6 @@ public:
    static void shutdown();
 private:
    static void setupSockets(int CdtiSocket);
-   void convertOwnship(OwnshipReport ownship);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
    void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
