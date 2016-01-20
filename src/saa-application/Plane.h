@@ -26,7 +26,6 @@ public:
          float velocityZ) :
          tailNumber(tailNumber)
    {
-      Sensor sensor;
       velocity = new Vector();
       position = new Vector();
       velocity->set_x(velocityX);
@@ -45,6 +44,7 @@ public:
       return Vector3d(position->x(),position->y(),position->z());
    }
 private:
+   Sensor sensor;
    std::string tailNumber;
    Vector *velocity;
    Vector *position;
