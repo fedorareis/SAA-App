@@ -66,7 +66,7 @@ Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    return adsbPlane;
 }
 
-void convertOwnship(OwnshipReport ownship)
+void SaaApplication::convertOwnship(OwnshipReport ownship)
 {
 // moved body into processOwnship function...
 }
@@ -95,6 +95,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
    ownSock.operator>>(ownship); //blocking call, waits for server
    Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
    cdtiOwnship = ownshipPlane.getCDTIPlane();
+   //SaaApplication::convertOwnship(ownship);
 }
 
 void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
@@ -117,7 +118,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    {
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship));
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship));
-      SaaApplication::convertOwnship(ownship);
       planes = cor.correlate(planes);
       //Plane rPlane = planes.back();
       //rPlane.printPos();
