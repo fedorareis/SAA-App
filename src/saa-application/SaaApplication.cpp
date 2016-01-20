@@ -65,10 +65,9 @@ Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    return adsbPlane;
 }
 
-void SaaApplication::convertOwnship(OwnshipReport ownship)
+void convertOwnship(OwnshipReport ownship)
 {
-   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
-   cdtiOwnship = ownshipPlane.getCDTIPlane();
+// moved body into processOwnship function...
 }
 
 void SaaApplication::initSocks()
@@ -89,6 +88,23 @@ void SaaApplication::initSocks()
    processSensors(ownSock, adsbSock);
 }
 
+
+void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
+{
+   ownSock.operator>>(ownship); //blocking call, waits for server
+   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
+   cdtiOwnship = ownshipPlane.getCDTIPlane();
+}
+
+void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
+{
+   AdsBReport adsb;
+   adsbSock.operator>>(adsb); //blocking call, waits for server
+   mtx.lock();
+   planes.push_back(adsbToRelative(adsb, ownship));
+   mtx.unlock();
+}
+
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 {
    Correlation cor;
@@ -98,8 +114,8 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 
    try
    {
-      std::thread adsb(adsbThread, adsbSock, ownship);
-      std::thread ownship(ownshipThread, ownSock, ownship);
+      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship));
+      std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship));
       SaaApplication::convertOwnship(ownship);
       planes = cor.correlate(planes);
       //Plane rPlane = planes.back();
@@ -119,20 +135,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    }
 
    delete rep;
-}
-
-void ownshipThread(ClientSocket ownSock, OwnshipReport &ownship)
-{
-   ownSock.operator>>(ownship); //blocking call, waits for server
-}
-
-void adsbThread(ClientSocket adsbSock, OwnshipReport &ownship)
-{
-   AdsBReport adsb;
-   adsbSock.operator>>(adsb); //blocking call, waits for server
-   mtx.lock();
-   planes.push_back(adsbToRelative(adsb, ownship));
-   mtx.unlock();
 }
 
 ServerSocket *SaaApplication::getCdtiSocket()
