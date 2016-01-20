@@ -12,6 +12,13 @@
 #include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 
+enum Sensor
+{
+   adsb,
+   tcas,
+   radar
+};
+
 class Plane
 {
 public:
@@ -37,6 +44,7 @@ public:
       return Vector3d(position->x(),position->y(),position->z());
    }
 private:
+   Sensor sensor;
    std::string tailNumber;
    Vector *velocity;
    Vector *position;
