@@ -93,9 +93,9 @@ void SaaApplication::initSocks()
 void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
 {
    ownSock.operator>>(ownship); //blocking call, waits for server
+   //SaaApplication::convertOwnship(ownship); body of this function pasted below because threads...
    Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
    cdtiOwnship = ownshipPlane.getCDTIPlane();
-   //SaaApplication::convertOwnship(ownship);
 }
 
 void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
