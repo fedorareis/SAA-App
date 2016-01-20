@@ -6,17 +6,26 @@
 #define SAA_APPLICATION_TESTCASERESULT_H
 #include <string>
 #include <vector>
+#include <common/protobuf/cdti.pb.h>
 
 class ResultPlane
 {
 
-#include <vector>:string correlatedID;
 
 };
 class TestCaseResult {
-   double time;
+
+   public:
+   const std::vector<ResultPlane> & getPlanes(){return planes;}
+   static TestCaseResult fromGoogleProtobuf(const CDTIReport & msg);
+
+   long getTime();
+
+   private:
+
+   long time;
    std::vector<ResultPlane> planes;
-   ResultPlane ownship
+   ResultPlane ownship;
 
 };
 

@@ -98,7 +98,7 @@ class Socket
    */
   void set_non_blocking ( const bool );
 
-   bool hasData();
+   bool hasData() const;
   /**
    * Check of the socket is valid for use
    * @return false if the socket has not been created

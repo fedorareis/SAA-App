@@ -37,7 +37,7 @@ public:
    /**
     * Retrieve all the planes at a certain time(1 tick = 10 seconds)
     */
-   const std::vector<TestServerPlane> & getPlanes();
+   const std::vector<TestServerPlane> & getPlanes() const;
 
    void complete();
 

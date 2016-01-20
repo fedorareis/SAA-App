@@ -32,8 +32,8 @@ void acceptNetworkConnection(Sensor * acceptingSocket, SensorEndpoint * bindingE
 bool TestEnvironment::acceptConnections()
 {
    //Threaded accept
-   std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getSocket().getPort() << std::endl;
-   std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getSocket().getPort() << std::endl;
+   //std::cout << "Server is accepting adsb socket on " << TestServer::getAdsbSocket()->getSocket().getPort() << std::endl;
+   //std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getSocket().getPort() << std::endl;
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();

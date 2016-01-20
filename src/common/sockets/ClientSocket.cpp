@@ -154,7 +154,7 @@ void ClientSocket::connect(const sockaddr_in host) {
 
 }
 
-bool ClientSocket::hasData()
+bool ClientSocket::hasData() const
 {
    return Socket::hasData();
 }
