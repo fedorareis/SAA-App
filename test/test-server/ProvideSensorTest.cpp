@@ -8,6 +8,8 @@
 #include <test-server/TestEnvironment.h>
 #include "mocks/SensorEndpoint_test.h"
 using ::testing::_;
+/*
+ * @TODO: Mock ServerSocket, SensorEndpoint->getSocket
 TEST(ProvideTrest, testMocks)
 {
    SensorEndpoint_test * endpoint1 = new SensorEndpoint_test();
@@ -23,3 +25,4 @@ TEST(ProvideTrest, testMocks)
 
 
 }
+*/

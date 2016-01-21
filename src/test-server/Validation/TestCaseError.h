@@ -9,6 +9,7 @@
 class TestCaseError {
    public:
    TestCaseError(long timestamp) : timestamp(timestamp){};
+   long getTimestamp(){return timestamp;}
    virtual std::string description() = 0;
 
    private:

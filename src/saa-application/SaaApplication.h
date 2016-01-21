@@ -22,7 +22,7 @@ private:
    void convertOwnship(OwnshipReport ownship);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
-   void processSensors(ClientSocket ownSock, ClientSocket adsbSocks)
+   void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
    ServerSocket cdtiOut;
    ServerSocket validationOut;
    CDTIPlane* cdtiOwnship;

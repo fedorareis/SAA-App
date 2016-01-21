@@ -9,6 +9,8 @@
 #include <test-server/endpoints/Sensor.h>
 #include <iostream>
 #include <common/sockets/SocketException.h>
+#include <test-server/Validation/Validator.h>
+#include <test-server/Validation/ValidationWriter.h>
 
 TestEnvironment::TestEnvironment() {
 
@@ -38,11 +40,14 @@ bool TestEnvironment::acceptConnections()
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    t1.join();
    t2.join();
+
+   this->cdtiSocket = std::shared_ptr<ClientSocket>(new ClientSocket());
+
+
    std::cout << "Connecting to client on 6000..." << std::endl;
    try {
-      //this->ownshipSensor.getEndpoint().getSocket().connectToClient(cdtiSocket, 6000);
+      this->ownshipSensor.getEndpoint().getSocket().connectToClient((*cdtiSocket), 6000);
       std::cout << "Successfully connected to client" << std::endl;
-
    }
    catch(SocketException exc)
    {
@@ -56,20 +61,30 @@ bool TestEnvironment::acceptConnections()
 void TestEnvironment::start(TestCase & tc)
 {
    bool sendADSB = tc.getOwnship().getADSBEnabled();
-   while(tc.isRunning())
-   {
-
-      ownshipSensor.sendData(tc.getOwnship());
-      if(sendADSB)
+   Validator validator(tc, this->cdtiSocket);
+   try{
+      while(tc.isRunning())
       {
 
-         for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
+         ownshipSensor.sendData(tc.getOwnship());
+         if(sendADSB)
          {
-            adsbSensor.sendData(*plane);
+
+            for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
+            {
+               adsbSensor.sendData(*plane);
+            }
          }
+         tc.update(1);
+         sleep(1); //sleep for one second before sending next data batch.
       }
-      tc.update(1);
-      sleep(1); //sleep for one second before sending next data batch.
    }
+   catch(SocketException exc)
+   {
+      std::cout << "Socket exception: " << exc.description() << std::endl;
+   }
+   validator.endSimulation();
+
+   ValidationWriter::writeErrors(std::cout, validator);
 
 }

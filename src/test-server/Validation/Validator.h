@@ -28,8 +28,9 @@ class Validator {
     * perform the verification step
     */
    void endSimulation();
-   const std::vector<std::shared_ptr<TestCaseError>> & getErrors();
-   bool hasErrors();
+   const std::vector<std::shared_ptr<TestCaseError>> & getErrors()const;
+   bool recievedResults() const;
+   bool hasErrors()const;
    private:
 
    std::thread reportThread;
@@ -37,7 +38,7 @@ class Validator {
    const TestCase tc;
    std::vector<TestCaseResult> results;
    std::vector<std::shared_ptr<TestCaseError> > errors;
-
+   bool gotResults;
    static void ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSocket> sock);
 
 };

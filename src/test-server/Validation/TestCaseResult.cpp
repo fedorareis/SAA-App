@@ -11,6 +11,7 @@ TestCaseResult TestCaseResult::fromGoogleProtobuf(const CDTIReport &msg) {
    {
       result.time = msg.timestamp();
    }
+
    for(int i = 0; i < msg.planes_size(); i++)
    {
       result.planes.push_back(ResultPlane());

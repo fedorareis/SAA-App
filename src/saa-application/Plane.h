@@ -32,8 +32,8 @@ public:
    void printPos();
 
    CDTIPlane* getCDTIPlane();
-   Vector3d  getPosition()
-   {
+   Vector3d  getPosition(){
+
       return Vector3d(position->x(),position->y(),position->z());
    }
 private:

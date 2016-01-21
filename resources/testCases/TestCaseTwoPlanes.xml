@@ -16,6 +16,13 @@
          <direction x="800" y="0" z="0"/> <!--Feet/second-->
       </movement>
    </plane>
+   <plane tag="N82203">
+      <ads-b enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="-10" z="0.3"/> <!--NED in Nautical Miles-->
+         <direction x="800" y="0" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
 
 </test>
 

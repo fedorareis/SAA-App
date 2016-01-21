@@ -8,7 +8,8 @@
 PlaneCorrelationError::PlaneCorrelationError(int exp, int gotten, long timeStamp):
    TestCaseError(timeStamp)
 {
-   desc = std::string("Correlation error, got " + std::to_string(gotten) + ", Expected " + std::to_string(exp) + "Plane");
+   desc = std::string("Correlation error, got " + std::to_string(gotten) + " plane, Expected " +
+                            std::to_string(exp) + " planes");
 
 }
 

@@ -31,12 +31,12 @@ void Validator::endSimulation() {
    }
 }
 
-const std::vector<std::shared_ptr<TestCaseError>> &Validator::getErrors() {
+const std::vector<std::shared_ptr<TestCaseError>> & Validator::getErrors()const {
    return errors;
 }
 
-bool Validator::hasErrors() {
-   return errors.size() > 0;
+bool Validator::hasErrors()const {
+   return errors.size() > 0 || !recievedResults();
 }
 
 void Validator::ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSocket> sock) {
@@ -47,9 +47,15 @@ void Validator::ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSock
       {
          (*sock) >> rept;
          v->results.push_back(TestCaseResult::fromGoogleProtobuf(rept));
+         v->gotResults = true;
+
       }
       catch(std::exception) {
          //log that shit
       }
    }
+}
+
+bool Validator::recievedResults() const {
+   return this->gotResults;
 }
