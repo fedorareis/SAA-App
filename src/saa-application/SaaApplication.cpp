@@ -12,6 +12,7 @@
 #include "Correlation.h"
 #include "Decision.h"
 #include <mutex>
+#include <chrono>
 #include "Plane.h"
 #include "common/Maths.h"
 
@@ -19,6 +20,7 @@
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<Plane> planes;
 std::mutex mtx;
+CDTIPlane* cdtiOwnship;
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
@@ -45,6 +47,28 @@ void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
    }
 }
 
+
+ServerSocket *SaaApplication::getCdtiSocket()
+{
+   return cdtiSocket;
+}
+
+void SaaApplication::setupSockets(int cdtiPort)
+{
+   cdtiSocket = new ServerSocket(cdtiPort);
+   std::cout << "cdtiSocket initialized" << std::endl;
+}
+
+void SaaApplication::shutdown()
+{
+   if (cdtiSocket != nullptr)
+   {
+      delete cdtiSocket;
+   }
+}
+
+
+
 /**
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
@@ -65,11 +89,6 @@ Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    return adsbPlane;
 }
 
-void convertOwnship(OwnshipReport ownship)
-{
-// moved body into processOwnship function...
-}
-
 void SaaApplication::initSocks()
 {
    //Set up server sockets
@@ -88,21 +107,30 @@ void SaaApplication::initSocks()
    processSensors(ownSock, adsbSock);
 }
 
-
-void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
+void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool & finished)
 {
-   ownSock.operator>>(ownship); //blocking call, waits for server
-   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
-   cdtiOwnship = ownshipPlane.getCDTIPlane();
+   while(ownSock.hasData()) {
+      ownSock.operator>>(ownship); //blocking call, waits for server
+      std::cout << "got ownship data\n";
+      Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
+      cdtiOwnship = ownshipPlane.getCDTIPlane();
+   }
+
+   finished = true;
 }
 
-void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
+void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool & finished)
 {
    AdsBReport adsb;
-   adsbSock.operator>>(adsb); //blocking call, waits for server
-   mtx.lock();
-   planes.push_back(adsbToRelative(adsb, ownship));
-   mtx.unlock();
+   while(adsbSock.hasData()) {
+      adsbSock.operator>>(adsb); //blocking call, waits for server
+      mtx.lock();
+      std::cout << "got an adsb Plane\n";
+      planes.push_back(adsbToRelative(adsb, ownship));
+      mtx.unlock();
+   }
+
+   finished = true;
 }
 
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
@@ -114,44 +142,32 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 
    try
    {
-      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship));
-      std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship));
-      SaaApplication::convertOwnship(ownship);
-      planes = cor.correlate(planes);
-      //Plane rPlane = planes.back();
-      //rPlane.printPos();
-      //send to decision making module here
-      dec.report(&list, &planes);
-      rep = dec.generateReport(&list, cdtiOwnship);
-      cdtiOut << (*rep);
-      //validationOut << (*rep);
-      std::cout << "finished one cycle" << std::endl;
+      bool adsbFinished = false, ownshipFinished = false;
+      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship),std::ref(adsbFinished));
+      std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship),std::ref(ownshipFinished));
+      while (!adsbFinished && !ownshipFinished)
+      {
+         std::this_thread::sleep_for(std::chrono::seconds(1));
+         mtx.lock();
+         std::vector<Plane> planesCopy = planes;
+         planes.clear();
+         mtx.unlock();
+         planesCopy = cor.correlate(planesCopy);
+         dec.report(&list, &planesCopy);
+         rep = dec.generateReport(&list, cdtiOwnship);
+         cdtiOut << (*rep);
+         //validationOut << (*rep);
+         std::cout << "finished one cycle" << std::endl;
+      }
+      adsbthread.join();
+      ownshipthread.join();
    }
    catch (SocketException)
    {
-      std::cout << "got a socket exception..." << std::endl;
+      std::cout << "got a socket exception... exiting" << std::endl;
       //run = false;
       exit(-1);
    }
 
    delete rep;
-}
-
-ServerSocket *SaaApplication::getCdtiSocket()
-{
-   return cdtiSocket;
-}
-
-void SaaApplication::setupSockets(int cdtiPort)
-{
-   cdtiSocket = new ServerSocket(cdtiPort);
-   std::cout << "cdtiSocket initialized" << std::endl;
-}
-
-void SaaApplication::shutdown()
-{
-   if (cdtiSocket != nullptr)
-   {
-      delete cdtiSocket;
-   }
 }
