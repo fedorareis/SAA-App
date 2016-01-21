@@ -3,6 +3,10 @@
 
 #include <QtGui/qimage.h>
 #include <common/protobuf/cdti.pb.h>
+#include "PlaneImage.h"
+#include "Proximate.h"
+#include "Resolution.h"
+#include "Traffic.h"
 
 class Aircraft
 {
@@ -10,11 +14,25 @@ class Aircraft
 private:
     Vector position, velocity;
     CDTIPlane_Severity severity;
-    QImage image;
-
+    bool directional;
+    PlaneImage* currentImage;
+    static Proximate* proximateImage;
+    static Resolution* resolutionImage;
+    static Traffic* trafficImage;
+public:
+    static void setProximateImage(Proximate *proxImg)
+    {
+        proximateImage = proxImg;
+    }
+    static void setResolutionImage(Resolution *resolutionImage) {
+        Aircraft::resolutionImage = resolutionImage;
+    }
+    static void setTrafficImage(Traffic *trafficImage) {
+        Aircraft::trafficImage = trafficImage;
+    }
 public:
    Aircraft(const CDTIPlane &plane);
-   QImage getSeverityImage();
+   void setSeverityImage();
 
     void setPosition(const Vector &position)
     {
@@ -45,6 +63,8 @@ public:
     {
         return severity;
     }
+
+    void draw(QPaintDevice* device,int width, int height);
 };
 
 #endif //SAA_APPLICATION_AIRCRAFT_CDTI_H

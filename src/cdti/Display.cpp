@@ -6,10 +6,17 @@
 Display::Display(int width, int height):width(width),height(height)
 {
     resize(width, height);
+
+    Aircraft::setTrafficImage(new Traffic(100,100));
+    Aircraft::setProximateImage(new Proximate(100,100));
+    Aircraft::setResolutionImage(new Resolution(100,100));
 }
 
 Display::Display(): Display(1280,720)
 {
+    std::string filepath = __FILE__;
+    filepath = filepath.substr(0,filepath.rfind("/") + 1) .append("../..");
+    QDir projectDir(filepath.c_str());
 }
 
 void Display::setupLayout()
@@ -25,14 +32,6 @@ void Display::paintEvent(QPaintEvent *event)
 {
     //TODO Move to airplane implementation?
     //setup loading directory
-    QDir projectDir(__DIR__);
-    //open image and scale it
-    QImageReader imageReader(projectDir.filePath("resources/ownship.png"));
-    QImage image = imageReader.read();
-    image = image.scaled(100,100,Qt::IgnoreAspectRatio);
-
-    if(image.isNull())
-        std::cout << "IT'S NO USE: "<< imageReader.errorString().toStdString() << std::endl;
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -49,22 +48,9 @@ void Display::paintEvent(QPaintEvent *event)
 
     //paint planes
 
-    //paint ownship
-    painter.setPen(QPen(QColor(200,200,200,0), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    painter.setBrush(QBrush(image));
-    painter.translate(-50,-50);
-    painter.drawRect(0,0,100,100);
-
     //paint any other planes in space
     for(auto plane: planes)
     {
-        painter.setPen(QPen(QColor(200,200,200,0), 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-        painter.setBrush(QBrush(plane->getSeverityImage()));
-        Vector position = plane->getPosition();
-        painter.resetTransform();
-        painter.translate(width / 2 + position.x() * 20,height / 2 - position.y() * 20);
-        //for rect offset
-        painter.translate(-50,-50);
-        painter.drawRect(0,0,100,100);
+       plane->draw(this,width,height);
     }
 }
