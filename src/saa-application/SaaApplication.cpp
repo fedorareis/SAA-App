@@ -111,6 +111,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool & finish
 {
    while(ownSock.hasData()) {
       ownSock.operator>>(ownship); //blocking call, waits for server
+      std::cout << "got ownship data\n";
       Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
@@ -124,6 +125,7 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool & finished
    while(adsbSock.hasData()) {
       adsbSock.operator>>(adsb); //blocking call, waits for server
       mtx.lock();
+      std::cout << "got an adsb Plane\n";
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
    }
