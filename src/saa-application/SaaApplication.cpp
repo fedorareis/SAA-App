@@ -115,6 +115,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool & finish
       Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
+   std::cout << "Ownship Thread done\n";
 
    finished = true;
 }
@@ -129,6 +130,7 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool & finished
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
    }
+   std::cout << "ADSBThread done\n";
 
    finished = true;
 }

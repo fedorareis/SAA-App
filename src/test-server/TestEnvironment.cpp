@@ -78,6 +78,8 @@ void TestEnvironment::start(TestCase & tc)
          tc.update(1);
          sleep(1); //sleep for one second before sending next data batch.
       }
+      adsbSensor.close();
+      ownshipSensor.close();
    }
    catch(SocketException exc)
    {

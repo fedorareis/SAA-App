@@ -14,3 +14,7 @@ Sensor::Sensor(SensorEndpoint *endpoint):
 {
 
 }
+
+void Sensor::close() {
+   endpoint->close();
+}

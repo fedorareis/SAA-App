@@ -20,3 +20,7 @@ void MockSensorEndpoint::accept(SensorEndpoint &endpoint) {
       delete endpoint.socket;
    endpoint.socket = new MockServerSocket();
 }
+//Does nothing on a mock endpoint
+void MockSensorEndpoint::close() {
+
+}
