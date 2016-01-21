@@ -19,6 +19,7 @@
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<Plane> planes;
 std::mutex mtx;
+CDTIPlane* cdtiOwnship;
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
@@ -45,6 +46,28 @@ void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
    }
 }
 
+
+ServerSocket *SaaApplication::getCdtiSocket()
+{
+   return cdtiSocket;
+}
+
+void SaaApplication::setupSockets(int cdtiPort)
+{
+   cdtiSocket = new ServerSocket(cdtiPort);
+   std::cout << "cdtiSocket initialized" << std::endl;
+}
+
+void SaaApplication::shutdown()
+{
+   if (cdtiSocket != nullptr)
+   {
+      delete cdtiSocket;
+   }
+}
+
+
+
 /**
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
@@ -65,10 +88,24 @@ Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    return adsbPlane;
 }
 
-void convertOwnship(OwnshipReport ownship)
+void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
 {
-// moved body into processOwnship function...
+   ownSock.operator>>(ownship); //blocking call, waits for server
+   //SaaApplication::convertOwnship(ownship); body of this function pasted below because threads...
+   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
+   cdtiOwnship = ownshipPlane.getCDTIPlane();
 }
+
+void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
+{
+   AdsBReport adsb;
+   adsbSock.operator>>(adsb); //blocking call, waits for server
+   mtx.lock();
+   planes.push_back(adsbToRelative(adsb, ownship));
+   mtx.unlock();
+}
+
+
 
 void SaaApplication::initSocks()
 {
@@ -88,23 +125,6 @@ void SaaApplication::initSocks()
    processSensors(ownSock, adsbSock);
 }
 
-
-void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship)
-{
-   ownSock.operator>>(ownship); //blocking call, waits for server
-   Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
-   cdtiOwnship = ownshipPlane.getCDTIPlane();
-}
-
-void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship)
-{
-   AdsBReport adsb;
-   adsbSock.operator>>(adsb); //blocking call, waits for server
-   mtx.lock();
-   planes.push_back(adsbToRelative(adsb, ownship));
-   mtx.unlock();
-}
-
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 {
    Correlation cor;
@@ -116,7 +136,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    {
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship));
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship));
-      SaaApplication::convertOwnship(ownship);
       planes = cor.correlate(planes);
       //Plane rPlane = planes.back();
       //rPlane.printPos();
@@ -135,23 +154,4 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    }
 
    delete rep;
-}
-
-ServerSocket *SaaApplication::getCdtiSocket()
-{
-   return cdtiSocket;
-}
-
-void SaaApplication::setupSockets(int cdtiPort)
-{
-   cdtiSocket = new ServerSocket(cdtiPort);
-   std::cout << "cdtiSocket initialized" << std::endl;
-}
-
-void SaaApplication::shutdown()
-{
-   if (cdtiSocket != nullptr)
-   {
-      delete cdtiSocket;
-   }
 }

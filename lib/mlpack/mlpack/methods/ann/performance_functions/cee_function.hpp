@@ -1,0 +1,53 @@
+/**
+ * @file cee_function.hpp
+ * @author Marcus Edel
+ *
+ * Definition and implementation of the cross-entropy error performance
+ * function.
+ */
+#ifndef __MLPACK_METHODS_ANN_PERFORMANCE_FUNCTIONS_CEE_FUNCTION_HPP
+#define __MLPACK_METHODS_ANN_PERFORMANCE_FUNCTIONS_CEE_FUNCTION_HPP
+
+#include <mlpack/core.hpp>
+#include <mlpack/methods/ann/layer/linear_layer.hpp>
+#include <mlpack/methods/ann/layer/layer_traits.hpp>
+
+namespace mlpack {
+namespace ann /** Artificial Neural Network. */ {
+
+/**
+ * The cross-entropy error performance function measures the network's
+ * performance according to the cross entropy errors. The log in the cross-
+ * entropy take sinto account the closeness of a prediction and is a more
+ * granular way to calculate the error.
+ *
+ * @tparam Layer The layer that is connected with the output layer.
+ */
+template<
+    class Layer = LinearLayer< >
+>
+class CrossEntropyErrorFunction
+{
+  public:
+  /**
+   * Computes the cross-entropy error function.
+   *
+   * @param input Input data.
+   * @param target Target data.
+   * @return cross-entropy error.
+   */
+  template<typename DataType>
+  static double Error(const DataType& input, const DataType& target)
+  {
+    if (LayerTraits<Layer>::IsBinary)
+      return -arma::dot(arma::trunc_log(arma::abs(target - input)), target);
+
+    return -arma::dot(arma::trunc_log(input), target);
+  }
+
+}; // class CrossEntropyErrorFunction
+
+} // namespace ann
+} // namespace mlpack
+
+#endif

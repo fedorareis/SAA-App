@@ -19,12 +19,10 @@ public:
    static void shutdown();
 private:
    static void setupSockets(int CdtiSocket);
-   void convertOwnship(OwnshipReport ownship);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
    void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
    ServerSocket cdtiOut;
    ServerSocket validationOut;
-   CDTIPlane* cdtiOwnship;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H
