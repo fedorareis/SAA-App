@@ -12,6 +12,13 @@
 #include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 
+enum sensor
+{
+   adsb,
+   tcas,
+   radar
+};
+
 class Plane
 {
 public:
