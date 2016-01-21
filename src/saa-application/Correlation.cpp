@@ -23,12 +23,29 @@ void Correlation::report()
 
 std::vector<Plane> Correlation::correlate(std::vector<Plane> planes)
 {
+   std::vector<double> positions_x;
+   std::vector<double> positions_y;
+   std::vector<double> positions_z;
+
    // FIGURING OUT HOW TO IMPORT Plane DATA INTO arma::mat
+   for (int i = 0; i < planes.size(); i++)
+   {
+      positions_x.push_back(planes.at(i).getPosition().x());
+   }
+   for (int j = 0; j < planes.size(); j++)
+   {
+      positions_x.push_back(planes.at(j).getPosition().y());
+   }
+   for (int k = 0; k < planes.size(); k++)
+   {
+      positions_x.push_back(planes.at(k).getPosition().z());
+   }
+
 
    // The dataset we are clustering.
-   extern arma::mat data;
+   arma::mat data;
    // The number of clusters we are getting.
-   extern size_t clusters;
+   size_t clusters = planes.size();
 
    // The assignments will be stored in this vector.
    arma::Col<size_t> assignments;
