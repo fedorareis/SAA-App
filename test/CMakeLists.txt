@@ -34,7 +34,7 @@ add_executable (saa_test  ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SO
 #Link all of the sources
 target_link_libraries (saa_test cdti-sources common-sources
                        saa-application-sources test-server-sources
-                       protobuf gtest gmock gtest_main)
+                       protobuf mlpack gtest gmock gtest_main)
 
 set_property(TARGET saa_test PROPERTY FOLDER "executables")
 
