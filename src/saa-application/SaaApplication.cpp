@@ -13,7 +13,7 @@
 #include "Decision.h"
 #include <mutex>
 #include <chrono>
-#include "Plane.h"
+#include "SensorData.h"
 #include "common/Maths.h"
 
 
@@ -24,10 +24,8 @@ CDTIPlane* cdtiOwnship;
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
-
    bindingSocket->accept(*acceptingSocket);
    std::cout << "Server has accepted cdti socket" << std::endl;
-
 }
 
 /**
@@ -46,7 +44,6 @@ void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
       std::exit(-1);
    }
 }
-
 
 ServerSocket *SaaApplication::getCdtiSocket()
 {
@@ -67,15 +64,12 @@ void SaaApplication::shutdown()
    }
 }
 
-
-
 /**
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
  */
 Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
-   std::vector<Plane> planes;
    std::string tailNumber = "Tail Number Here";
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                 ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
@@ -107,9 +101,13 @@ void SaaApplication::initSocks()
    processSensors(ownSock, adsbSock);
 }
 
-void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool & finished)
+/*
+ * Thread for the ownship socket data. Reads in an ownship report and updates the shared ownship data.
+ */
+void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finished)
 {
-   while(ownSock.hasData()) {
+   while(ownSock.hasData())
+   {
       ownSock.operator>>(ownship); //blocking call, waits for server
       std::cout << "got ownship data\n";
       Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
@@ -120,13 +118,17 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool & finish
    finished = true;
 }
 
-void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool & finished)
+/*
+ * The thread for the adsb socket data. Reads in an adsb report and adds it to the shared list of planes.
+ */
+void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
 {
    AdsBReport adsb;
-   while(adsbSock.hasData()) {
+   while(adsbSock.hasData())
+   {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      mtx.lock();
       std::cout << "got an adsb Plane\n";
+      mtx.lock();
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
    }
@@ -135,6 +137,11 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool & finished
    finished = true;
 }
 
+/*
+ * Sets up the separate threads for the individual plane sensor sockets and contains
+ * the main loop for timing when to send data on to the correlation module,
+ * then the decision module, and finally onto the cdti and validation server.
+ */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 {
    Correlation cor;
@@ -145,8 +152,8 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
    try
    {
       bool adsbFinished = false, ownshipFinished = false;
-      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship),std::ref(adsbFinished));
-      std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship),std::ref(ownshipFinished));
+      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
+      std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       while (!adsbFinished && !ownshipFinished)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));

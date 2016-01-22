@@ -2,7 +2,7 @@
 // Created by Hae Ri Hwang on 1/20/16.
 //
 #include <gtest/gtest.h>
-#include "MockCorrelation.h"
+//#include "MockCorrelation.h"
 
 TEST(CorrelationTest, CanCorrelateOne) {
   // MockCorrelation corr;

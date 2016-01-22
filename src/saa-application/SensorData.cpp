@@ -2,7 +2,7 @@
 // Created by Kyle Reis on 11/19/15.
 //
 
-#include "Plane.h"
+#include "SensorData.h"
 
 CDTIPlane* Plane::getCDTIPlane()
 {
