@@ -5,7 +5,7 @@
 #ifndef SAA_APPLICATION_CORRELATION_H
 #define SAA_APPLICATION_CORRELATION_H
 
-#include "Plane.h"
+#include "SensorData.h"
 
 class Correlation
 {

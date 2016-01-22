@@ -6,7 +6,7 @@
 #define SAA_APPLICATION_DECISION_H
 
 #include "common/protobuf/cdti.pb.h"
-#include "Plane.h"
+#include "SensorData.h"
 
 class Decision
 {
