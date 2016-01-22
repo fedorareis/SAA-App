@@ -5,8 +5,8 @@
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
 #include <common/sockets/SocketException.h>
-#include <armadillo/include/armadillo.h>
-#include <mlpack/src/mlpack/methods/kmeans/kmeans.hpp>
+#include <mlpack/methods/kmeans/kmeans.hpp>
+#include <armadillo>
 
 #include "Correlation.h"
 #include "common/protobuf/adsb.pb.h"
@@ -30,15 +30,15 @@ std::vector<Plane> Correlation::correlate(std::vector<Plane> planes)
    // FIGURING OUT HOW TO IMPORT Plane DATA INTO arma::mat
    for (int i = 0; i < planes.size(); i++)
    {
-      positions_x.push_back(planes.at(i).getPosition().x());
+      positions_x.push_back(planes.at(i).getPosition().x);
    }
    for (int j = 0; j < planes.size(); j++)
    {
-      positions_x.push_back(planes.at(j).getPosition().y());
+      positions_x.push_back(planes.at(j).getPosition().y);
    }
    for (int k = 0; k < planes.size(); k++)
    {
-      positions_x.push_back(planes.at(k).getPosition().z());
+      positions_x.push_back(planes.at(k).getPosition().z);
    }
 
 

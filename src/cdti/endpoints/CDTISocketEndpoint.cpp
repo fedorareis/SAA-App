@@ -17,5 +17,5 @@ const CDTIEndpoint& CDTISocketEndpoint::operator >> (::google::protobuf::Message
 
 bool CDTISocketEndpoint::isRunning() const
 {
-    return socket.isRunning();
+    return socket.hasData();
 }

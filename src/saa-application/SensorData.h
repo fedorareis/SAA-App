@@ -16,7 +16,8 @@ enum Sensor
 {
    adsb,
    tcas,
-   radar
+   radar,
+   ownship
 };
 
 class Plane

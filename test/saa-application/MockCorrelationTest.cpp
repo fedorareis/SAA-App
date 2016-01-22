@@ -5,7 +5,7 @@
 //#include "MockCorrelation.h"
 
 TEST(CorrelationTest, CanCorrelateOne) {
-   MockCorrelation corr;
+   //MockCorrelation corr;
 
    // make vectors of planes => 2 data adsb and tcas
 
