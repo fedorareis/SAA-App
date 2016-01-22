@@ -14,6 +14,7 @@ private:
 public:
    CDTISocketEndpoint(std::string host, int port);
    const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const;
+    bool isRunning() const;
 };
 
 

@@ -14,7 +14,6 @@ Display::Display(): Display(1280,720)
 
 void Display::setupLayout()
 {
-
     QPalette Pal(palette());
     //set backgroud color
     Pal.setColor(QPalette::Background, Qt::black);

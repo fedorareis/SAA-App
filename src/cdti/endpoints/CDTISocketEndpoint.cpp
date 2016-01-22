@@ -14,3 +14,8 @@ const CDTIEndpoint& CDTISocketEndpoint::operator >> (::google::protobuf::Message
    socket >> msg;
    return *this;
 }
+
+bool CDTISocketEndpoint::isRunning() const
+{
+    return socket.isRunning();
+}

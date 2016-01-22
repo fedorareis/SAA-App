@@ -16,12 +16,13 @@ DisplayController::DisplayController(Display& display):display(display)
     try
     {
         socket = new CDTISocketEndpoint("localhost",6000);
-        //socket = new CDTIMockEndpoint();
     }
     catch(SocketException exception)
     {
         std::cout << exception.description() << std::endl;
-        std::terminate();
+        std::cout << "falling back to mock data" << std::endl;
+
+        socket = new CDTIMockEndpoint();
     }
 
     //make AlertMessage
@@ -30,13 +31,13 @@ DisplayController::DisplayController(Display& display):display(display)
 
 void DisplayController::listenOnSocket()
 {
-    bool initialized = false;
-    while(1)
+    display.show();
+    while(socket->isRunning())
     {
        CDTIReport report = messages->getMessage();
         for(int i = 0; i < report.planes_size(); i++)
         {
-            if(!initialized)
+            if(i >= display.getNumPlanes())
             {
                 Aircraft* aircraft = new Aircraft(report.planes(i));
                 std::cout << "Planes added!" << std::endl;
@@ -50,12 +51,8 @@ void DisplayController::listenOnSocket()
                 aircraft->setSeverity(report.planes(i).severity());
             }
         }
-        if(!initialized)
-            display.show();
 
         display.update();
-        initialized = true;
         sleep(1);
-        //socket->step();
     }
 }

@@ -20,9 +20,9 @@ const int MAXRECV = 500;
 class Socket
 {
  public:
-  Socket();
-   Socket(const Socket & other);
-  virtual ~Socket();
+    Socket();
+    Socket(const Socket & other);
+    virtual ~Socket();
 
 
   /**
@@ -82,7 +82,7 @@ class Socket
    * @return       the number of bytes read
    */
   int recv ( std::string & bfr, int flags = 0 ) const;
-  
+
   /**
    * Recieve raw data from a socket
    * @param  bfr      the buffer to write data into (Ensure it is big enough!)

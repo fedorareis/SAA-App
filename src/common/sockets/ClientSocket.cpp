@@ -164,3 +164,8 @@ ClientSocket::ClientSocket(const ClientSocket &other):
 {
 
 }
+
+bool ClientSocket::isRunning() const
+{
+   return Socket::is_valid();
+}

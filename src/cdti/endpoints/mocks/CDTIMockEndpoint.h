@@ -14,6 +14,7 @@ private:
 public:
    CDTIMockEndpoint();
    const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const;
+    bool isRunning() const;
     void step();
 
 };
