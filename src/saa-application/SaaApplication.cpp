@@ -18,7 +18,7 @@
 
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
-std::vector<Plane> planes;
+std::vector<SensorData> planes;
 std::mutex mtx;
 CDTIPlane* cdtiOwnship;
 
@@ -68,7 +68,7 @@ void SaaApplication::shutdown()
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
  */
-Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
+SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = "Tail Number Here";
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
@@ -79,7 +79,7 @@ Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   Plane adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
+   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
    return adsbPlane;
 }
 
@@ -110,7 +110,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
       std::cout << "got ownship data\n";
-      Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0,Sensor::ownship);
+      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
    std::cout << "Ownship Thread done\n";
@@ -158,7 +158,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
-         std::vector<Plane> planesCopy = planes;
+         std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
          planesCopy = cor.correlate(planesCopy);
