@@ -12,6 +12,6 @@ class Correlation
    public:
       void report();
       //void addPlane(/* When we have a plane class pass one in here*/);
-      virtual std::vector<Plane> correlate(std::vector<Plane> planes);
+      virtual std::vector<SensorData> correlate(std::vector<SensorData> planes);
 };
 #endif //SAA_APPLICATION_CORRELATION_H

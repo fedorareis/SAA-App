@@ -20,11 +20,11 @@ enum Sensor
    ownship
 };
 
-class Plane
+class SensorData
 {
 public:
-   Plane(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
-         float velocityZ, Sensor sensor) :
+   SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
+              float velocityZ, Sensor sensor) :
          tailNumber(tailNumber), sensor(sensor)
    {
       velocity = new Vector();
