@@ -33,12 +33,12 @@ PlaneImage::PlaneImage(std::string resPath, int width, int height)
 void PlaneImage::draw(QPaintDevice *window, int posX, int posY)
 {
     painter.begin(window);
-    painter.setBrush(imageBrush);
-    painter.setPen(outlinePen);
-    //offset currentImage size
-    painter.translate(image.width() / 2, image.height() / 2);
-    painter.translate(posX,posY);
-    painter.drawRect(0,0,image.width(),image.height());
+        painter.setBrush(imageBrush);
+        painter.setPen(outlinePen);
+        //offset currentImage size
+        painter.translate(-image.width() / 2, -image.height() / 2);
+        painter.translate(posX,posY);
+        painter.drawRect(0,0,image.width(),image.height());
     painter.end();
 }
 

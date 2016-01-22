@@ -23,7 +23,7 @@ include_directories(${PROJECT_SOURCE_DIR}/lib)
 
 add_library(common-sources ${COMMON_FUNCTION_SOURCES})
 target_link_libraries(common-sources protobuf)
-add_library(cdti-sources ${CDTI_FUNCTION_SOURCES})
+add_library(cdti-sources ${CDTI_FUNCTION_SOURCES} cdti/Display.h)
 target_link_libraries(cdti-sources Qt5::Widgets common-sources protobuf)
 add_library(saa-application-sources ${SAA_APPLICATION_FUNCTION_SOURCES})
 target_link_libraries(saa-application-sources common-sources)
