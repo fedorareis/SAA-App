@@ -11,23 +11,29 @@
 SensorEndpoint * TestServer::ownshipSocket = nullptr;
 SensorEndpoint * TestServer::adsbSocket = nullptr;
 
-SensorEndpoint * TestServer::getOwnshipSocket() {
+SensorEndpoint * TestServer::getOwnshipSocket()
+{
     return ownshipSocket;
 }
-SensorEndpoint * TestServer::getAdsbSocket() {
+
+SensorEndpoint * TestServer::getAdsbSocket()
+{
     return adsbSocket;
 }
 
-void TestServer::provideOwnshipEndpoint(SensorEndpoint *endpoint) {
+void TestServer::provideOwnshipEndpoint(SensorEndpoint *endpoint)
+{
     TestServer::ownshipSocket = endpoint;
 }
 
-void TestServer::provideAdsbEndpoint(SensorEndpoint *endpoint) {
+void TestServer::provideAdsbEndpoint(SensorEndpoint *endpoint)
+{
     TestServer::adsbSocket = endpoint;
 
 }
 
-void TestServer::shutdown() {
+void TestServer::shutdown()
+{
     if(ownshipSocket != nullptr)
         delete ownshipSocket;
     if(adsbSocket != nullptr)
