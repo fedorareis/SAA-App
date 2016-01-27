@@ -12,12 +12,20 @@
 #include <common/Maths.h>
 #include "common/protobuf/cdti.pb.h"
 
-class Plane
+enum Sensor
+{
+   adsb,
+   tcas,
+   radar,
+   ownship
+};
+
+class SensorData
 {
 public:
-   Plane(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
-         float velocityZ) :
-         tailNumber(tailNumber)
+   SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
+              float velocityZ, Sensor sensor) :
+         tailNumber(tailNumber), sensor(sensor)
    {
       velocity = new Vector();
       position = new Vector();
@@ -31,12 +39,21 @@ public:
 
    void printPos();
 
+   Sensor getSensor()
+   {
+      return sensor;
+   }
+
    CDTIPlane* getCDTIPlane();
+
    Vector3d  getPosition()
    {
       return Vector3d(position->x(),position->y(),position->z());
    }
+
+
 private:
+   Sensor sensor;
    std::string tailNumber;
    Vector *velocity;
    Vector *position;

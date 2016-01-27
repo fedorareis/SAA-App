@@ -7,7 +7,7 @@
 int main(int argC, const char* argV[])
 {
    SaaApplication app;
-   app.report();
+   app.initSocks();
    //Common common;
    //common.report();
 

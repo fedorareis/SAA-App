@@ -18,7 +18,7 @@ int main(int argC, const char* argV[])
 
    std::cout<<"\n----Test File 1----"<<std::endl;
    //__DIR__ is injected in compile time
-   std::string s(__DIR__"/resources/TestCaseExample.xml");
+   std::string s(__DIR__"/resources/TestCaseExample2Planes.xml");
    TestFileParser parser;
    // true if building test case is successful
    if(parser.load(s))

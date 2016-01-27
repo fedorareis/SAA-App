@@ -33,8 +33,8 @@ public:
     */
    virtual ~ClientSocket(){};
 
-   void connect(std::string host, int port);
-   void connect(const sockaddr_in host);
+   virtual void connect(std::string host, int port);
+   virtual void connect(const sockaddr_in host);
 
    /**
     * Send string data to the ost
@@ -43,27 +43,27 @@ public:
     */
 
 
-   const ClientSocket& operator << ( const std::string& ) const;
+   virtual const ClientSocket& operator << ( const std::string& ) const;
    /**
     * Recieve string data from the host
     * @param string the string to read data into
     * @return the socket, for chaining
     */
-   const ClientSocket& operator >> ( std::string& ) const;
+   virtual const ClientSocket& operator >> ( std::string& ) const;
    /**
     * Send protocol buffer data from the host
     * @param msg the message to send
     * @return the Socket, for chaining
     */
-   const ClientSocket& operator << ( const ::google::protobuf::Message & msg ) const;
+   virtual const ClientSocket& operator << ( const ::google::protobuf::Message & msg ) const;
    /**
     * Recieve protcol buffer data from the host
     * @param msg the message to read into
     * @return the socket, for chaining.
     */
-   const ClientSocket& operator >> ( ::google::protobuf::Message & msg ) const;
+   virtual const ClientSocket& operator >> ( ::google::protobuf::Message & msg ) const;
 
-   bool hasData();
+   virtual bool hasData() const;
 
 private:
    /**

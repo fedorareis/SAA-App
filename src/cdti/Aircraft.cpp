@@ -7,7 +7,7 @@ QImage Aircraft::getSeverityImage()
 {
     //load image
     QImage finalImage;
-    QDir projectDir(".");
+    QDir projectDir(__DIR__);
     projectDir.cdUp();
     projectDir.cdUp();
 

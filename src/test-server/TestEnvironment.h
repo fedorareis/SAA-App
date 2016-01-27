@@ -11,6 +11,7 @@
 #include "test-server/endpoints/AdsbSensor.h"
 #include "test-server/endpoints/OwnshipSensor.h"
 #include "TestCase.h"
+#include <memory>
 
 class TestEnvironment {
    public:
@@ -21,7 +22,7 @@ class TestEnvironment {
    private:
       AdsbSensor adsbSensor = AdsbSensor(new SocketSensorEndpoint());
       OwnshipSensor ownshipSensor = OwnshipSensor(new SocketSensorEndpoint());
-      ClientSocket cdtiSocket;
+      std::shared_ptr<ClientSocket> cdtiSocket;
 
 
 

@@ -37,7 +37,7 @@ const TestServerPlane & TestCase::getOwnship() {
    return ownship;
 }
 
-const std::vector<TestServerPlane> & TestCase::getPlanes() {
+const std::vector<TestServerPlane> & TestCase::getPlanes() const {
    return otherPlanes;
 }
 

@@ -9,21 +9,20 @@
 #include <common/protobuf/cdti.pb.h>
 #include <common/protobuf/ownship.pb.h>
 #include "common/sockets/ServerSocket.h"
-#include "Plane.h"
+#include "SensorData.h"
 
 class SaaApplication
 {
 public:
-   void report();
+   void initSocks();
    static ServerSocket * getCdtiSocket();
-   static void setupSockets(int CdtiSocket);
    static void shutdown();
 private:
-   void convertOwnship(OwnshipReport ownship);
+   static void setupSockets(int CdtiSocket);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
+   void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
    ServerSocket cdtiOut;
    ServerSocket validationOut;
-   CDTIPlane* cdtiOwnship;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H
