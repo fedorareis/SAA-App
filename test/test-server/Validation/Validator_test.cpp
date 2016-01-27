@@ -34,7 +34,9 @@ TEST(Validation, testSingleValidReport)
 {
    //Mock Report
    CDTIReport report;
-   report.add_planes();
+   CDTIPlane * cdtiPlane = report.add_planes();
+   cdtiPlane->set_id("N12345");
+
    report.set_timestamp(0);
    //Mock
    std::shared_ptr<ClientSocket_test> testSocket(new ClientSocket_test());

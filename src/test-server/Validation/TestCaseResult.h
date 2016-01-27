@@ -7,10 +7,49 @@
 #include <string>
 #include <vector>
 #include <common/protobuf/cdti.pb.h>
+#include <common/Maths.h>
 
+/**
+ * A ResultPlane contains easier to access information from a CDTI plane message
+ */
 class ResultPlane
 {
+   public:
+   /*
+    * Construct a default result plane
+    */
+   ResultPlane();
 
+   /*
+    * Create a result plane from a google protobuf message
+    * @msg the message to construct from
+    */
+   static ResultPlane fromGoogleProtobuf(const CDTIPlane & msg);
+   /**
+    * Get the ownship-ned position of the plane
+    * @return a position (in miles) relative to the ownship's world position
+    */
+   Vector3d getPosition();
+
+   /**
+    * Get the velocity of the plane, in ned coordinates
+    * @return a velocity vector
+    */
+   Vector3d getVelocity();
+   /**
+    * Get the plane's tag
+    */
+   std::string getTag();
+   /**
+    * Get the plane severity
+    */
+   CDTIPlane_Severity getSeverity();
+
+   private:
+   Vector3d relativePosition;
+   Vector3d nedVelocity;
+   std::string tag;
+   CDTIPlane_Severity severity;
 
 };
 class TestCaseResult {
