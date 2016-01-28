@@ -13,12 +13,12 @@
 #include "Decision.h"
 #include <mutex>
 #include <chrono>
-#include "Plane.h"
+#include "SensorData.h"
 #include "common/Maths.h"
 
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
-std::vector<Plane> planes;
+std::vector<SensorData> planes;
 std::mutex mtx;
 CDTIPlane* cdtiOwnship;
 
@@ -31,11 +31,13 @@ void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindin
 /**
  * Sets up the socket connections to the test server for reading in sensor data.
  */
-void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
+void SocketSetup(ClientSocket &radarSock, ClientSocket &tcasSock, ClientSocket &adsbSock, ClientSocket &ownSock)
 {
    try
    {
-      adsbSock.connect("localhost", 4000);
+      //radarSock.connect("localhost", 5003);
+      tcasSock.connect("localhost", 5002);
+      adsbSock.connect("localhost", 5001);
       ownSock.connect("localhost", 5000);
    }
    catch (SocketException)
@@ -68,18 +70,18 @@ void SaaApplication::shutdown()
  * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
  * containing the adsb data converted to relative position to the ownship in the form of a plane object.
  */
-Plane adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
+SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = "Tail Number Here";
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
+                                  ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
-                                ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
+                                  ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
    float positionZ = adsb.altitude() - ownship.ownship_altitude();
    float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   Plane adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ);
+   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
    return adsbPlane;
 }
 
@@ -91,9 +93,8 @@ void SaaApplication::initSocks()
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
 
    //set up client sockets
-   ClientSocket ownSock;
-   ClientSocket adsbSock;
-   SocketSetup(adsbSock, ownSock);
+   ClientSocket radarSock, tcasSock, adsbSock, ownSock;
+   SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
    t1.join();
    //t2.join();
    //socks.pop_back();
@@ -110,9 +111,10 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
       std::cout << "got ownship data\n";
-      Plane ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0);
+      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
+   std::cout << "Ownship Thread done\n";
 
    finished = true;
 }
@@ -131,6 +133,7 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
    }
+   std::cout << "ADSBThread done\n";
 
    finished = true;
 }
@@ -156,7 +159,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
-         std::vector<Plane> planesCopy = planes;
+         std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
          planesCopy = cor.correlate(planesCopy);
