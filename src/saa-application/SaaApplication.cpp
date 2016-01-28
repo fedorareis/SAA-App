@@ -31,12 +31,14 @@ void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindin
 /**
  * Sets up the socket connections to the test server for reading in sensor data.
  */
-void SocketSetup(ClientSocket &adsbSock, ClientSocket &ownSock)
+void SocketSetup(ClientSocket &radarSock, ClientSocket &tcasSock, ClientSocket &adsbSock, ClientSocket &ownSock)
 {
    try
    {
-      adsbSock.connect("localhost", 4000);
-      ownSock.connect("localhost", 5000);
+      //radarSock.connect("localhost", 6003);
+      tcasSock.connect("localhost", 6002);
+      adsbSock.connect("localhost", 6001);
+      ownSock.connect("localhost", 6000);
    }
    catch (SocketException)
    {
@@ -91,9 +93,8 @@ void SaaApplication::initSocks()
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
 
    //set up client sockets
-   ClientSocket ownSock;
-   ClientSocket adsbSock;
-   SocketSetup(adsbSock, ownSock);
+   ClientSocket radarSock, tcasSock, adsbSock, ownSock;
+   SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
    t1.join();
    //t2.join();
    //socks.pop_back();
