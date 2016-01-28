@@ -13,9 +13,10 @@ int main(int argC, const char* argV[])
 {
    Common common;
    common.report();
-   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(6001));
-   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(6000));
-   TestServer::provideTcasEndpoint(new SocketSensorEndpoint(6002));
+
+   TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
+   TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(5001));
+   TestServer::provideTcasEndpoint(new SocketSensorEndpoint(5002));
 
    std::cout<<"\n----Test File 1----"<<std::endl;
    //__DIR__ is injected in compile time

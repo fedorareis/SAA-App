@@ -36,9 +36,9 @@ void SocketSetup(ClientSocket &radarSock, ClientSocket &tcasSock, ClientSocket &
    try
    {
       //radarSock.connect("localhost", 6003);
-      tcasSock.connect("localhost", 6002);
-      adsbSock.connect("localhost", 6001);
-      ownSock.connect("localhost", 6000);
+      tcasSock.connect("localhost", 5002);
+      adsbSock.connect("localhost", 5001);
+      ownSock.connect("localhost", 5000);
    }
    catch (SocketException)
    {
