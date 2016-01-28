@@ -22,3 +22,4 @@ float calcDistance(float lat1, float lon1, float lat2, float lon2) {
 float fpsToNmph(float fps) {
     return fps * KNOT_CONVERSION;
 }
+

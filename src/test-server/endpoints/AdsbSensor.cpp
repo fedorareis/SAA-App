@@ -9,8 +9,13 @@ AdsbSensor::AdsbSensor(SensorEndpoint * endpoint):
 Sensor(endpoint)
 {
 
+
 }
-void AdsbSensor::sendData(const TestServerPlane & plane)
+/**
+ * ADSB doesn't acutally use the ownship
+ * @TODO Refactor this!
+ */
+void AdsbSensor::sendData(const TestServerPlane & plane, const TestServerPlane & ownship)
 {
    AdsBReport report;
    report.set_timestamp(plane.getTimestamp());

@@ -109,26 +109,26 @@ class TcasReport : public ::google::protobuf::Message {
   ::google::protobuf::int32 id() const;
   void set_id(::google::protobuf::int32 value);
 
-  // required sfixed32 range = 2;
+  // required float range = 2;
   bool has_range() const;
   void clear_range();
   static const int kRangeFieldNumber = 2;
-  ::google::protobuf::int32 range() const;
-  void set_range(::google::protobuf::int32 value);
+  float range() const;
+  void set_range(float value);
 
-  // required sfixed32 altitude = 3;
+  // required float altitude = 3;
   bool has_altitude() const;
   void clear_altitude();
   static const int kAltitudeFieldNumber = 3;
-  ::google::protobuf::int32 altitude() const;
-  void set_altitude(::google::protobuf::int32 value);
+  float altitude() const;
+  void set_altitude(float value);
 
-  // required sfixed32 bearing = 4;
+  // required float bearing = 4;
   bool has_bearing() const;
   void clear_bearing();
   static const int kBearingFieldNumber = 4;
-  ::google::protobuf::int32 bearing() const;
-  void set_bearing(::google::protobuf::int32 value);
+  float bearing() const;
+  void set_bearing(float value);
 
   // @@protoc_insertion_point(class_scope:TcasReport)
  private:
@@ -148,9 +148,9 @@ class TcasReport : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 range_;
-  ::google::protobuf::int32 altitude_;
-  ::google::protobuf::int32 bearing_;
+  float range_;
+  float altitude_;
+  float bearing_;
   friend void  protobuf_AddDesc_tcas_2eproto();
   friend void protobuf_AssignDesc_tcas_2eproto();
   friend void protobuf_ShutdownFile_tcas_2eproto();
@@ -190,7 +190,7 @@ inline void TcasReport::set_id(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:TcasReport.id)
 }
 
-// required sfixed32 range = 2;
+// required float range = 2;
 inline bool TcasReport::has_range() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -204,17 +204,17 @@ inline void TcasReport::clear_range() {
   range_ = 0;
   clear_has_range();
 }
-inline ::google::protobuf::int32 TcasReport::range() const {
+inline float TcasReport::range() const {
   // @@protoc_insertion_point(field_get:TcasReport.range)
   return range_;
 }
-inline void TcasReport::set_range(::google::protobuf::int32 value) {
+inline void TcasReport::set_range(float value) {
   set_has_range();
   range_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.range)
 }
 
-// required sfixed32 altitude = 3;
+// required float altitude = 3;
 inline bool TcasReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -228,17 +228,17 @@ inline void TcasReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
-inline ::google::protobuf::int32 TcasReport::altitude() const {
+inline float TcasReport::altitude() const {
   // @@protoc_insertion_point(field_get:TcasReport.altitude)
   return altitude_;
 }
-inline void TcasReport::set_altitude(::google::protobuf::int32 value) {
+inline void TcasReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.altitude)
 }
 
-// required sfixed32 bearing = 4;
+// required float bearing = 4;
 inline bool TcasReport::has_bearing() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -252,11 +252,11 @@ inline void TcasReport::clear_bearing() {
   bearing_ = 0;
   clear_has_bearing();
 }
-inline ::google::protobuf::int32 TcasReport::bearing() const {
+inline float TcasReport::bearing() const {
   // @@protoc_insertion_point(field_get:TcasReport.bearing)
   return bearing_;
 }
-inline void TcasReport::set_bearing(::google::protobuf::int32 value) {
+inline void TcasReport::set_bearing(float value) {
   set_has_bearing();
   bearing_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.bearing)

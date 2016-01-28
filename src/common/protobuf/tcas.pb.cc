@@ -80,8 +80,8 @@ void protobuf_AddDesc_tcas_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ntcas.proto\"J\n\nTcasReport\022\n\n\002id\030\001 \002(\017\022\r"
-    "\n\005range\030\002 \002(\017\022\020\n\010altitude\030\003 \002(\017\022\017\n\007beari"
-    "ng\030\004 \002(\017B#\n\033edu.calpoly.capstone.sensorB"
+    "\n\005range\030\002 \002(\002\022\020\n\010altitude\030\003 \002(\002\022\017\n\007beari"
+    "ng\030\004 \002(\002B#\n\033edu.calpoly.capstone.sensorB"
     "\004Tcas", 125);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "tcas.proto", &protobuf_RegisterTypes);
@@ -221,12 +221,12 @@ bool TcasReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 range = 2;
+      // required float range = 2;
       case 2: {
         if (tag == 21) {
          parse_range:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &range_)));
           set_has_range();
         } else {
@@ -236,12 +236,12 @@ bool TcasReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 altitude = 3;
+      // required float altitude = 3;
       case 3: {
         if (tag == 29) {
          parse_altitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &altitude_)));
           set_has_altitude();
         } else {
@@ -251,12 +251,12 @@ bool TcasReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 bearing = 4;
+      // required float bearing = 4;
       case 4: {
         if (tag == 37) {
          parse_bearing:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &bearing_)));
           set_has_bearing();
         } else {
@@ -296,19 +296,19 @@ void TcasReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteSFixed32(1, this->id(), output);
   }
 
-  // required sfixed32 range = 2;
+  // required float range = 2;
   if (has_range()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(2, this->range(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->range(), output);
   }
 
-  // required sfixed32 altitude = 3;
+  // required float altitude = 3;
   if (has_altitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(3, this->altitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->altitude(), output);
   }
 
-  // required sfixed32 bearing = 4;
+  // required float bearing = 4;
   if (has_bearing()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(4, this->bearing(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->bearing(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -326,19 +326,19 @@ void TcasReport::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(1, this->id(), target);
   }
 
-  // required sfixed32 range = 2;
+  // required float range = 2;
   if (has_range()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(2, this->range(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->range(), target);
   }
 
-  // required sfixed32 altitude = 3;
+  // required float altitude = 3;
   if (has_altitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(3, this->altitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->altitude(), target);
   }
 
-  // required sfixed32 bearing = 4;
+  // required float bearing = 4;
   if (has_bearing()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(4, this->bearing(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->bearing(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -358,17 +358,17 @@ int TcasReport::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_range()) {
-    // required sfixed32 range = 2;
+    // required float range = 2;
     total_size += 1 + 4;
   }
 
   if (has_altitude()) {
-    // required sfixed32 altitude = 3;
+    // required float altitude = 3;
     total_size += 1 + 4;
   }
 
   if (has_bearing()) {
-    // required sfixed32 bearing = 4;
+    // required float bearing = 4;
     total_size += 1 + 4;
   }
 
@@ -381,13 +381,13 @@ int TcasReport::ByteSize() const {
     // required sfixed32 id = 1;
     total_size += 1 + 4;
 
-    // required sfixed32 range = 2;
+    // required float range = 2;
     total_size += 1 + 4;
 
-    // required sfixed32 altitude = 3;
+    // required float altitude = 3;
     total_size += 1 + 4;
 
-    // required sfixed32 bearing = 4;
+    // required float bearing = 4;
     total_size += 1 + 4;
 
   } else {
@@ -504,7 +504,7 @@ void TcasReport::clear_id() {
   // @@protoc_insertion_point(field_set:TcasReport.id)
 }
 
-// required sfixed32 range = 2;
+// required float range = 2;
 bool TcasReport::has_range() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -518,17 +518,17 @@ void TcasReport::clear_range() {
   range_ = 0;
   clear_has_range();
 }
- ::google::protobuf::int32 TcasReport::range() const {
+ float TcasReport::range() const {
   // @@protoc_insertion_point(field_get:TcasReport.range)
   return range_;
 }
- void TcasReport::set_range(::google::protobuf::int32 value) {
+ void TcasReport::set_range(float value) {
   set_has_range();
   range_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.range)
 }
 
-// required sfixed32 altitude = 3;
+// required float altitude = 3;
 bool TcasReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -542,17 +542,17 @@ void TcasReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
- ::google::protobuf::int32 TcasReport::altitude() const {
+ float TcasReport::altitude() const {
   // @@protoc_insertion_point(field_get:TcasReport.altitude)
   return altitude_;
 }
- void TcasReport::set_altitude(::google::protobuf::int32 value) {
+ void TcasReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.altitude)
 }
 
-// required sfixed32 bearing = 4;
+// required float bearing = 4;
 bool TcasReport::has_bearing() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -566,11 +566,11 @@ void TcasReport::clear_bearing() {
   bearing_ = 0;
   clear_has_bearing();
 }
- ::google::protobuf::int32 TcasReport::bearing() const {
+ float TcasReport::bearing() const {
   // @@protoc_insertion_point(field_get:TcasReport.bearing)
   return bearing_;
 }
- void TcasReport::set_bearing(::google::protobuf::int32 value) {
+ void TcasReport::set_bearing(float value) {
   set_has_bearing();
   bearing_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.bearing)
