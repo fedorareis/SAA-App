@@ -39,3 +39,8 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
 void TcasSensor::sendData(const TestServerPlane &plane, const TestServerPlane & ownship) {
    this->getEndpoint().getSocket() << TcasSensor::createReport(plane, ownship);
 }
+
+TcasSensor::TcasSensor(SensorEndpoint *endpoint):
+Sensor(endpoint){
+
+}

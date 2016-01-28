@@ -38,8 +38,11 @@ bool TestEnvironment::acceptConnections()
    //std::cout << "Server is accepting ownship socket on " << TestServer::getOwnshipSocket()->getSocket().getPort() << std::endl;
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
+   std::thread t3(acceptNetworkConnection,&this->tcasSensor,TestServer::getTcasSocket());
+
    t1.join();
    t2.join();
+   t3.join();
 
    this->cdtiSocket = std::shared_ptr<ClientSocket>(new ClientSocket());
 
@@ -48,6 +51,7 @@ bool TestEnvironment::acceptConnections()
    try {
       this->ownshipSensor.getEndpoint().getSocket().connectToClient((*cdtiSocket), 6000);
       std::cout << "Successfully connected to client" << std::endl;
+
    }
    catch(SocketException exc)
    {

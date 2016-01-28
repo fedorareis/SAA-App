@@ -12,6 +12,7 @@ class TestServer{
    public:
    static void provideOwnshipEndpoint(SensorEndpoint * endpoint);
    static void provideAdsbEndpoint(SensorEndpoint * endpoint);
+   static void provideTcasEndpoint(SensorEndpoint * endpoint);
    static void shutdown();
    void report();
 
@@ -24,5 +25,6 @@ class TestServer{
    static SensorEndpoint * adsbSocket;
    static SensorEndpoint * tcasSocket;
    static SensorEndpoint * radarSocket;
+
 };
 #endif //SAA_APPLICATION_TESTSERVER_H

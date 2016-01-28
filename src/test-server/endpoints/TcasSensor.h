@@ -13,10 +13,11 @@
 class TcasSensor : public Sensor {
    public:
    TcasSensor(SensorEndpoint * endpoint);
+   static TcasReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
+
    private:
    virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
 
-   static TcasReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
 };
 
 
