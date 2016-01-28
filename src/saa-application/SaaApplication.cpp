@@ -13,6 +13,7 @@
 #include "Decision.h"
 #include <mutex>
 #include <chrono>
+#include <common/protobuf/tcas.pb.h>
 #include "SensorData.h"
 #include "common/Maths.h"
 
@@ -67,12 +68,12 @@ void SaaApplication::shutdown()
 }
 
 /**
- * Takes in an AdsBReport and the OwnshipReport data and returns a vector (a list)
- * containing the adsb data converted to relative position to the ownship in the form of a plane object.
+ * Takes in an adsbReport and the OwnshipReport data and returns the SensorData version of
+ * the adsb data converted to relative position to the ownship.
  */
 SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
-   std::string tailNumber = "Tail Number Here";
+   std::string tailNumber = "Tail Number Here"; //@TODO
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
@@ -83,6 +84,23 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
    SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
    return adsbPlane;
+}
+
+/**
+ * Takes in a TcasReport and the OwnshipReport data and returns the SensorData version of
+ * the tcas data converted to relative position to the ownship.
+ */
+SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship) //@TODO
+{
+   std::string tailNumber = "Tail Number Here";
+   float positionX;
+   float positionY;
+   float positionZ;
+   float velocityX;
+   float velocityY;
+   float velocityZ;
+   SensorData tcasPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas);
+   return tcasPlane;
 }
 
 void SaaApplication::initSocks()
@@ -131,6 +149,25 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
       std::cout << "got an adsb Plane\n";
       mtx.lock();
       planes.push_back(adsbToRelative(adsb, ownship));
+      mtx.unlock();
+   }
+   std::cout << "ADSBThread done\n";
+
+   finished = true;
+}
+
+/*
+ * The thread for the tcas socket data. Reads in a tcas report and adds it to the shared list of planes.
+ */
+void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
+{
+   TcasReport tcas;
+   while(tcasSock.hasData())
+   {
+      tcasSock.operator>>(tcas); //blocking call, waits for server
+      std::cout << "got an tcas Plane\n";
+      mtx.lock();
+      planes.push_back(tcasToRelative(tcas, ownship));
       mtx.unlock();
    }
    std::cout << "ADSBThread done\n";

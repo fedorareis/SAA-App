@@ -8,6 +8,9 @@ float toRadians(float lat) {
     return (float)(lat * M_PI / 180);
 }
 
+/*
+ * Calculates the distance between two latitude/longitude coordinates and returns the distance in nautical miles.
+ */
 float calcDistance(float lat1, float lon1, float lat2, float lon2) {
     float phi1 = toRadians(lat1);
     float phi2 = toRadians(lat2);
