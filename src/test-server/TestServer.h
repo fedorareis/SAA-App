@@ -9,7 +9,7 @@
 #include <test-server/endpoints/SensorEndpoint.h>
 
 class TestServer{
-   public:
+public:
    static void provideOwnshipEndpoint(SensorEndpoint * endpoint);
    static void provideAdsbEndpoint(SensorEndpoint * endpoint);
    static void shutdown();
@@ -19,7 +19,7 @@ class TestServer{
    static SensorEndpoint * getAdsbSocket();
    static SensorEndpoint * getTcasSocket();
    static SensorEndpoint * getRadarSocket();
-   private:
+private:
    static SensorEndpoint * ownshipSocket;
    static SensorEndpoint * adsbSocket;
    static SensorEndpoint * tcasSocket;
