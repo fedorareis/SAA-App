@@ -66,13 +66,13 @@ void TestEnvironment::start(TestCase & tc)
       while(tc.isRunning())
       {
 
-         ownshipSensor.sendData(tc.getOwnship());
+         ownshipSensor.sendData(tc.getOwnship(),tc.getOwnship());
          if(sendADSB)
          {
 
             for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
             {
-               adsbSensor.sendData(*plane);
+               adsbSensor.sendData(*plane,tc.getOwnship() );
             }
          }
          tc.update(1);
