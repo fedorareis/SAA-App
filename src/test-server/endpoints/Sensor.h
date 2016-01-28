@@ -16,6 +16,7 @@ class Sensor {
       if(endpoint != nullptr)
          delete endpoint;
    }
+   void close();
    Sensor(SensorEndpoint * endpoint);
    SensorEndpoint & getEndpoint();
    void setEndpoint(SensorEndpoint * endpoint) {this->endpoint = endpoint;}

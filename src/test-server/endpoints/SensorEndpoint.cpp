@@ -25,3 +25,10 @@ ServerSocket &SensorEndpoint::getSocket() {
    return *socket;
 
 }
+
+void SensorEndpoint::close() {
+   if(socket != nullptr)
+   {
+      socket->close();
+   }
+}

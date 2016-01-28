@@ -218,7 +218,7 @@ Socket::Socket(const Socket &other):
 
 }
 
-bool Socket::hasData() {
+bool Socket::hasData() const {
    char lenBfr;
    return Socket::recv(&lenBfr,1,MSG_PEEK) > 0;
 

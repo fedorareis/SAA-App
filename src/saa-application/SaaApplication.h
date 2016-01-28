@@ -9,7 +9,7 @@
 #include <common/protobuf/cdti.pb.h>
 #include <common/protobuf/ownship.pb.h>
 #include "common/sockets/ServerSocket.h"
-#include "Plane.h"
+#include "SensorData.h"
 
 class SaaApplication
 {

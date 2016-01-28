@@ -39,7 +39,7 @@ AlertMessages::AlertMessages(CDTIEndpoint& socket):cdtiSocket(socket)
 CDTIReport AlertMessages::getMessage()
 {
     cdtiSocket >> report;
-    std::cout << report << std::endl;
+    //std::cout << report << std::endl;
     return report;
 }
 

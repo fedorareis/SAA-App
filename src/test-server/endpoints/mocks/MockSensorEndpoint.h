@@ -16,5 +16,7 @@ class MockSensorEndpoint : public SensorEndpoint
 
    protected:
 
+   public:
+   virtual void close() override;
 };
 #endif //SAA_APPLICATION_MOCKSENSORENDPOINT_H

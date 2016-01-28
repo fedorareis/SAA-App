@@ -8,14 +8,14 @@
 #include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
 
-void Decision::report(std::vector<CDTIPlane *>* list, std::vector<Plane>* planes)
+void Decision::report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* planes)
 {
    //std::cout << "We are making decisions here" << std::endl;
 
    list->clear();
 
    // Iterates over the list and assigns a Severity to it.
-   for (std::vector<Plane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
+   for (std::vector<SensorData>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
       if(it->getPosition().distance(Vector3d(0,0,0)) < 3)

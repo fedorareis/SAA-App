@@ -2,9 +2,9 @@
 // Created by Kyle Reis on 11/19/15.
 //
 
-#include "Plane.h"
+#include "SensorData.h"
 
-CDTIPlane* Plane::getCDTIPlane()
+CDTIPlane*SensorData::getCDTIPlane()
 {
    severity = CDTIPlane::PROXIMATE;
 
@@ -16,7 +16,7 @@ CDTIPlane* Plane::getCDTIPlane()
    return plane;
 }
 
-void Plane::printPos() {
+void SensorData::printPos() {
    //printf("tailNumber %s\n", tailNumber);
    printf("position x %f\n", position->x());
    printf("position y %f\n", position->y());

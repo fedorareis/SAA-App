@@ -1,5 +1,5 @@
 
-<test name="Plane Tracking 1" description="1 Plane flies parallel to UAV" time = "10">
+<test name="Plane Tracking 1" description="1 Plane flies parallel to UAV" time = "120">
    <ownship tag="ABC123">
       <tcas enabled="true" error="1.5"/>
       <radar enabled="false"/>
@@ -16,12 +16,13 @@
          <direction x="800" y="0" z="0"/> <!--Feet/second-->
       </movement>
    </plane>
-   <plane tag="N22121">
+   <plane tag="N82203">
       <ads-b enabled="true"/>
       <movement type="linear">
          <position x="0" y="-10" z="0.3"/> <!--NED in Nautical Miles-->
          <direction x="800" y="0" z="0"/> <!--Feet/second-->
       </movement>
    </plane>
+
 </test>
 
