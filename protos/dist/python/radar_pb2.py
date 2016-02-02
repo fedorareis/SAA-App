@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='radar.proto',
   package='',
   syntax='proto2',
-  serialized_pb=_b('\n\x0bradar.proto\"\xc1\x01\n\x0bRadarReport\x12\x11\n\ttimestamp\x18\x01 \x02(\x10\x12\r\n\x05range\x18\x02 \x02(\x02\x12\x0f\n\x07\x61zimuth\x18\x03 \x02(\x02\x12\x11\n\televation\x18\x04 \x02(\x02\x12\n\n\x02id\x18\x05 \x02(\x0f\x12\r\n\x05north\x18\x06 \x02(\x02\x12\x0c\n\x04\x65\x61st\x18\x07 \x02(\x02\x12\x0c\n\x04\x64own\x18\x08 \x02(\x02\x12\x10\n\x08latitude\x18\t \x02(\x0f\x12\x11\n\tlongitude\x18\n \x02(\x0f\x12\x10\n\x08\x61ltitude\x18\x0b \x02(\x0f\x42$\n\x1b\x65\x64u.calpoly.capstone.sensorB\x05Radar')
+  serialized_pb=_b('\n\x0bradar.proto\"\xd3\x01\n\x0bRadarReport\x12\x11\n\ttimestamp\x18\x01 \x02(\x10\x12\r\n\x05range\x18\x02 \x02(\x02\x12\x0f\n\x07\x61zimuth\x18\x03 \x02(\x02\x12\x11\n\televation\x18\x04 \x02(\x02\x12\n\n\x02id\x18\x05 \x02(\x0f\x12\r\n\x05north\x18\x06 \x02(\x02\x12\x0c\n\x04\x65\x61st\x18\x07 \x02(\x02\x12\x0c\n\x04\x64own\x18\x08 \x02(\x02\x12\x10\n\x08latitude\x18\t \x02(\x0f\x12\x11\n\tlongitude\x18\n \x02(\x0f\x12\x10\n\x08\x61ltitude\x18\x0b \x02(\x0f\x12\x10\n\x08plane_id\x18\x0c \x01(\rB$\n\x1b\x65\x64u.calpoly.capstone.sensorB\x05Radar')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -110,6 +110,13 @@ _RADARREPORT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='plane_id', full_name='RadarReport.plane_id', index=11,
+      number=12, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -123,7 +130,7 @@ _RADARREPORT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=16,
-  serialized_end=209,
+  serialized_end=227,
 )
 
 DESCRIPTOR.message_types_by_name['RadarReport'] = _RADARREPORT

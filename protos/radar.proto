@@ -12,4 +12,5 @@ message RadarReport {
     required sfixed32 latitude = 9; // ownship latitude
     required sfixed32 longitude = 10; // ownship longitude
     required sfixed32 altitude = 11; // ownship GPS altitude
+    optional uint32 plane_id = 12; // plane id used for verification
 }

@@ -32,7 +32,7 @@ void protobuf_AssignDesc_radar_2eproto() {
       "radar.proto");
   GOOGLE_CHECK(file != NULL);
   RadarReport_descriptor_ = file->message_type(0);
-  static const int RadarReport_offsets_[11] = {
+  static const int RadarReport_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, timestamp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, range_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, azimuth_),
@@ -44,6 +44,7 @@ void protobuf_AssignDesc_radar_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, latitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, longitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, altitude_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RadarReport, plane_id_),
   };
   RadarReport_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -86,13 +87,13 @@ void protobuf_AddDesc_radar_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013radar.proto\"\301\001\n\013RadarReport\022\021\n\ttimesta"
+    "\n\013radar.proto\"\323\001\n\013RadarReport\022\021\n\ttimesta"
     "mp\030\001 \002(\020\022\r\n\005range\030\002 \002(\002\022\017\n\007azimuth\030\003 \002(\002"
     "\022\021\n\televation\030\004 \002(\002\022\n\n\002id\030\005 \002(\017\022\r\n\005north"
     "\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030\010 \002(\002\022\020\n\010la"
     "titude\030\t \002(\017\022\021\n\tlongitude\030\n \002(\017\022\020\n\010altit"
-    "ude\030\013 \002(\017B$\n\033edu.calpoly.capstone.sensor"
-    "B\005Radar", 247);
+    "ude\030\013 \002(\017\022\020\n\010plane_id\030\014 \001(\rB$\n\033edu.calpo"
+    "ly.capstone.sensorB\005Radar", 265);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "radar.proto", &protobuf_RegisterTypes);
   RadarReport::default_instance_ = new RadarReport();
@@ -131,6 +132,7 @@ const int RadarReport::kDownFieldNumber;
 const int RadarReport::kLatitudeFieldNumber;
 const int RadarReport::kLongitudeFieldNumber;
 const int RadarReport::kAltitudeFieldNumber;
+const int RadarReport::kPlaneIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RadarReport::RadarReport()
@@ -163,6 +165,7 @@ void RadarReport::SharedCtor() {
   latitude_ = 0;
   longitude_ = 0;
   altitude_ = 0;
+  plane_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -213,7 +216,7 @@ void RadarReport::Clear() {
   if (_has_bits_[0 / 32] & 255u) {
     ZR_(timestamp_, down_);
   }
-  ZR_(latitude_, altitude_);
+  ZR_(latitude_, plane_id_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -394,6 +397,21 @@ bool RadarReport::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(96)) goto parse_plane_id;
+        break;
+      }
+
+      // optional uint32 plane_id = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_plane_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &plane_id_)));
+          set_has_plane_id();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -478,6 +496,11 @@ void RadarReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteSFixed32(11, this->altitude(), output);
   }
 
+  // optional uint32 plane_id = 12;
+  if (has_plane_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->plane_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -541,6 +564,11 @@ void RadarReport::SerializeWithCachedSizes(
   // required sfixed32 altitude = 11;
   if (has_altitude()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(11, this->altitude(), target);
+  }
+
+  // optional uint32 plane_id = 12;
+  if (has_plane_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->plane_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -651,6 +679,13 @@ int RadarReport::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional uint32 plane_id = 12;
+  if (has_plane_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->plane_id());
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -712,6 +747,9 @@ void RadarReport::MergeFrom(const RadarReport& from) {
     if (from.has_altitude()) {
       set_altitude(from.altitude());
     }
+    if (from.has_plane_id()) {
+      set_plane_id(from.plane_id());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -752,6 +790,7 @@ void RadarReport::InternalSwap(RadarReport* other) {
   std::swap(latitude_, other->latitude_);
   std::swap(longitude_, other->longitude_);
   std::swap(altitude_, other->altitude_);
+  std::swap(plane_id_, other->plane_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1030,6 +1069,30 @@ void RadarReport::clear_altitude() {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.altitude)
+}
+
+// optional uint32 plane_id = 12;
+bool RadarReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void RadarReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void RadarReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void RadarReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+ ::google::protobuf::uint32 RadarReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:RadarReport.plane_id)
+  return plane_id_;
+}
+ void RadarReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:RadarReport.plane_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

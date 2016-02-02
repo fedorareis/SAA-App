@@ -32,11 +32,12 @@ void protobuf_AssignDesc_tcas_2eproto() {
       "tcas.proto");
   GOOGLE_CHECK(file != NULL);
   TcasReport_descriptor_ = file->message_type(0);
-  static const int TcasReport_offsets_[4] = {
+  static const int TcasReport_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TcasReport, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TcasReport, range_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TcasReport, altitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TcasReport, bearing_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TcasReport, plane_id_),
   };
   TcasReport_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -79,10 +80,10 @@ void protobuf_AddDesc_tcas_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ntcas.proto\"J\n\nTcasReport\022\n\n\002id\030\001 \002(\017\022\r"
+    "\n\ntcas.proto\"\\\n\nTcasReport\022\n\n\002id\030\001 \002(\017\022\r"
     "\n\005range\030\002 \002(\002\022\020\n\010altitude\030\003 \002(\002\022\017\n\007beari"
-    "ng\030\004 \002(\002B#\n\033edu.calpoly.capstone.sensorB"
-    "\004Tcas", 125);
+    "ng\030\004 \002(\002\022\020\n\010plane_id\030\005 \001(\rB#\n\033edu.calpol"
+    "y.capstone.sensorB\004Tcas", 143);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "tcas.proto", &protobuf_RegisterTypes);
   TcasReport::default_instance_ = new TcasReport();
@@ -114,6 +115,7 @@ const int TcasReport::kIdFieldNumber;
 const int TcasReport::kRangeFieldNumber;
 const int TcasReport::kAltitudeFieldNumber;
 const int TcasReport::kBearingFieldNumber;
+const int TcasReport::kPlaneIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 TcasReport::TcasReport()
@@ -139,6 +141,7 @@ void TcasReport::SharedCtor() {
   range_ = 0;
   altitude_ = 0;
   bearing_ = 0;
+  plane_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -186,7 +189,9 @@ void TcasReport::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(id_, bearing_);
+  if (_has_bits_[0 / 32] & 31u) {
+    ZR_(id_, plane_id_);
+  }
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -262,6 +267,21 @@ bool TcasReport::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_plane_id;
+        break;
+      }
+
+      // optional uint32 plane_id = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_plane_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &plane_id_)));
+          set_has_plane_id();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -311,6 +331,11 @@ void TcasReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->bearing(), output);
   }
 
+  // optional uint32 plane_id = 5;
+  if (has_plane_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->plane_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -339,6 +364,11 @@ void TcasReport::SerializeWithCachedSizes(
   // required float bearing = 4;
   if (has_bearing()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->bearing(), target);
+  }
+
+  // optional uint32 plane_id = 5;
+  if (has_plane_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->plane_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -393,6 +423,13 @@ int TcasReport::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional uint32 plane_id = 5;
+  if (has_plane_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->plane_id());
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -431,6 +468,9 @@ void TcasReport::MergeFrom(const TcasReport& from) {
     if (from.has_bearing()) {
       set_bearing(from.bearing());
     }
+    if (from.has_plane_id()) {
+      set_plane_id(from.plane_id());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -464,6 +504,7 @@ void TcasReport::InternalSwap(TcasReport* other) {
   std::swap(range_, other->range_);
   std::swap(altitude_, other->altitude_);
   std::swap(bearing_, other->bearing_);
+  std::swap(plane_id_, other->plane_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -574,6 +615,30 @@ void TcasReport::clear_bearing() {
   set_has_bearing();
   bearing_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.bearing)
+}
+
+// optional uint32 plane_id = 5;
+bool TcasReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void TcasReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void TcasReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void TcasReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+ ::google::protobuf::uint32 TcasReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:TcasReport.plane_id)
+  return plane_id_;
+}
+ void TcasReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:TcasReport.plane_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

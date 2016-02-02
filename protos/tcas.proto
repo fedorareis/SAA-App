@@ -5,4 +5,5 @@ message TcasReport {
     required float range = 2; // relative distance
     required float altitude = 3; // relative altitude
     required float bearing = 4; // relative heading
+    optional uint32 plane_id = 5; // plane id used for verification
 }

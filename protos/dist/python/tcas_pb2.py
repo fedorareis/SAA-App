@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='tcas.proto',
   package='',
   syntax='proto2',
-  serialized_pb=_b('\n\ntcas.proto\"J\n\nTcasReport\x12\n\n\x02id\x18\x01 \x02(\x0f\x12\r\n\x05range\x18\x02 \x02(\x02\x12\x10\n\x08\x61ltitude\x18\x03 \x02(\x02\x12\x0f\n\x07\x62\x65\x61ring\x18\x04 \x02(\x02\x42#\n\x1b\x65\x64u.calpoly.capstone.sensorB\x04Tcas')
+  serialized_pb=_b('\n\ntcas.proto\"\\\n\nTcasReport\x12\n\n\x02id\x18\x01 \x02(\x0f\x12\r\n\x05range\x18\x02 \x02(\x02\x12\x10\n\x08\x61ltitude\x18\x03 \x02(\x02\x12\x0f\n\x07\x62\x65\x61ring\x18\x04 \x02(\x02\x12\x10\n\x08plane_id\x18\x05 \x01(\rB#\n\x1b\x65\x64u.calpoly.capstone.sensorB\x04Tcas')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -61,6 +61,13 @@ _TCASREPORT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='plane_id', full_name='TcasReport.plane_id', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -74,7 +81,7 @@ _TCASREPORT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=14,
-  serialized_end=88,
+  serialized_end=106,
 )
 
 DESCRIPTOR.message_types_by_name['TcasReport'] = _TCASREPORT

@@ -179,6 +179,13 @@ class RadarReport : public ::google::protobuf::Message {
   ::google::protobuf::int32 altitude() const;
   void set_altitude(::google::protobuf::int32 value);
 
+  // optional uint32 plane_id = 12;
+  bool has_plane_id() const;
+  void clear_plane_id();
+  static const int kPlaneIdFieldNumber = 12;
+  ::google::protobuf::uint32 plane_id() const;
+  void set_plane_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:RadarReport)
  private:
   inline void set_has_timestamp();
@@ -203,6 +210,8 @@ class RadarReport : public ::google::protobuf::Message {
   inline void clear_has_longitude();
   inline void set_has_altitude();
   inline void clear_has_altitude();
+  inline void set_has_plane_id();
+  inline void clear_has_plane_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -221,6 +230,7 @@ class RadarReport : public ::google::protobuf::Message {
   ::google::protobuf::int32 latitude_;
   ::google::protobuf::int32 longitude_;
   ::google::protobuf::int32 altitude_;
+  ::google::protobuf::uint32 plane_id_;
   friend void  protobuf_AddDesc_radar_2eproto();
   friend void protobuf_AssignDesc_radar_2eproto();
   friend void protobuf_ShutdownFile_radar_2eproto();
@@ -498,6 +508,30 @@ inline void RadarReport::set_altitude(::google::protobuf::int32 value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.altitude)
+}
+
+// optional uint32 plane_id = 12;
+inline bool RadarReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void RadarReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void RadarReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void RadarReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+inline ::google::protobuf::uint32 RadarReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:RadarReport.plane_id)
+  return plane_id_;
+}
+inline void RadarReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:RadarReport.plane_id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

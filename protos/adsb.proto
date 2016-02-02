@@ -9,4 +9,5 @@ message AdsBReport {
     required float north = 6; // intruder velocity north
     required float east = 7; // intruder velocity east
     required float down = 8; // intruder velocity down
+    optional uint32 plane_id = 9; // plane id used for verification
 }

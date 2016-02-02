@@ -156,6 +156,23 @@ public final class AdsB {
      * </pre>
      */
     float getDown();
+
+    /**
+     * <code>optional uint32 plane_id = 9;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    boolean hasPlaneId();
+    /**
+     * <code>optional uint32 plane_id = 9;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    int getPlaneId();
   }
   /**
    * Protobuf type {@code AdsBReport}
@@ -177,6 +194,7 @@ public final class AdsB {
       north_ = 0F;
       east_ = 0F;
       down_ = 0F;
+      planeId_ = 0;
     }
 
     @java.lang.Override
@@ -245,6 +263,11 @@ public final class AdsB {
             case 69: {
               bitField0_ |= 0x00000080;
               down_ = input.readFloat();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              planeId_ = input.readUInt32();
               break;
             }
           }
@@ -488,6 +511,29 @@ public final class AdsB {
       return down_;
     }
 
+    public static final int PLANE_ID_FIELD_NUMBER = 9;
+    private int planeId_;
+    /**
+     * <code>optional uint32 plane_id = 9;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public boolean hasPlaneId() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional uint32 plane_id = 9;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public int getPlaneId() {
+      return planeId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -556,6 +602,9 @@ public final class AdsB {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeFloat(8, down_);
       }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeUInt32(9, planeId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -594,6 +643,10 @@ public final class AdsB {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(8, down_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(9, planeId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -723,6 +776,8 @@ public final class AdsB {
         bitField0_ = (bitField0_ & ~0x00000040);
         down_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000080);
+        planeId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -779,6 +834,10 @@ public final class AdsB {
           to_bitField0_ |= 0x00000080;
         }
         result.down_ = down_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.planeId_ = planeId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -820,6 +879,9 @@ public final class AdsB {
         }
         if (other.hasDown()) {
           setDown(other.getDown());
+        }
+        if (other.hasPlaneId()) {
+          setPlaneId(other.getPlaneId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1309,6 +1371,54 @@ public final class AdsB {
         return this;
       }
 
+      private int planeId_ ;
+      /**
+       * <code>optional uint32 plane_id = 9;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public boolean hasPlaneId() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional uint32 plane_id = 9;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public int getPlaneId() {
+        return planeId_;
+      }
+      /**
+       * <code>optional uint32 plane_id = 9;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder setPlaneId(int value) {
+        bitField0_ |= 0x00000100;
+        planeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 plane_id = 9;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder clearPlaneId() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        planeId_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:AdsBReport)
     }
 
@@ -1370,12 +1480,12 @@ public final class AdsB {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nadsb.proto\"\226\001\n\nAdsBReport\022\021\n\ttimestamp" +
+      "\n\nadsb.proto\"\250\001\n\nAdsBReport\022\021\n\ttimestamp" +
       "\030\001 \002(\020\022\020\n\010latitude\030\002 \002(\002\022\021\n\tlongitude\030\003 " +
       "\002(\002\022\020\n\010altitude\030\004 \002(\002\022\023\n\013tail_number\030\005 \002" +
       "(\t\022\r\n\005north\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030" +
-      "\010 \002(\002B#\n\033edu.calpoly.capstone.sensorB\004Ad" +
-      "sB"
+      "\010 \002(\002\022\020\n\010plane_id\030\t \001(\rB#\n\033edu.calpoly.c" +
+      "apstone.sensorB\004AdsB"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1394,7 +1504,7 @@ public final class AdsB {
     internal_static_AdsBReport_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_AdsBReport_descriptor,
-        new java.lang.String[] { "Timestamp", "Latitude", "Longitude", "Altitude", "TailNumber", "North", "East", "Down", });
+        new java.lang.String[] { "Timestamp", "Latitude", "Longitude", "Altitude", "TailNumber", "North", "East", "Down", "PlaneId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
