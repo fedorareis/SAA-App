@@ -1,0 +1,12 @@
+option java_package = "edu.calpoly.capstone.sensor";
+option java_outer_classname = "AdsB";
+message AdsBReport {
+    required sfixed64 timestamp = 1; // time of target report
+    required float latitude = 2; // target latitude
+    required float longitude = 3; // target longitude
+    required float altitude = 4; // geometric altitude (GPS)
+    required string tail_number = 5; // ID of target
+    required float north = 6; // intruder velocity north
+    required float east = 7; // intruder velocity east
+    required float down = 8; // intruder velocity down
+}

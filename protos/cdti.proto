@@ -1,0 +1,51 @@
+option java_package = "edu.calpoly.capstone.sensor";
+option java_outer_classname = "Cdti";
+
+/**
+ * Coordinate System
+ * X: Positive is Right along the CDTI, Negative is Left.
+ * Y: Positive is Up along the CDTI, Negative is Down.
+ * Z: Positive is above the ship in CDTI, Negative is below.
+ */
+message Vector {
+    required float X = 1;
+    required float Y = 2;
+    required float Z = 3;
+}
+
+/**
+ * Represents one plane in the CDTI message.
+ */
+message CDTIPlane {
+    enum Severity {
+        PROXIMATE = 0;
+        TRAFFIC = 1;
+        RESOLUTION = 2;
+    }
+    required string id = 1;       // ID of target
+    required Vector position = 2; // Relative to Ownship. 
+                            // X and Y are in Nautical Miles, Z is in feet
+    
+    required Vector velocity = 3; // North East and Down, in Feet/Second
+    required Severity severity = 4;
+}
+
+
+/**
+ * CDTI Report, sent once a second by the SAA application.
+ * Contains a list of planes, and an optional message.
+ */
+message CDTIReport {
+
+    enum Severity {
+        PROXIMATE = 0;
+        TRAFFIC = 1;
+        RESOLUTION = 2;
+    }
+    
+    required sfixed64 timestamp = 1;     // UTC timestamp
+    required CDTIPlane ownship = 2;      // Ownship id and velocity, position is 0
+    optional string advisoryMessage = 3; // The string to display
+    optional Severity advisoryLevel = 4; // The warning level
+    repeated CDTIPlane planes = 5;       // A list of planes
+}

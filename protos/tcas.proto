@@ -1,0 +1,8 @@
+option java_package = "edu.calpoly.capstone.sensor";
+option java_outer_classname = "Tcas";
+message TcasReport {
+    required sfixed32 id = 1; // ID of target
+    required float range = 2; // relative distance
+    required float altitude = 3; // relative altitude
+    required float bearing = 4; // relative heading
+}
