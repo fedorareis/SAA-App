@@ -1,0 +1,11 @@
+option java_package = "edu.calpoly.capstone.sensor";
+option java_outer_classname = "Ownship";
+message OwnshipReport {
+    required sfixed64 timestamp = 1; // time of report
+    required float ownship_latitude = 2; // ownship latitude
+    required float ownship_longitude = 3; // ownship longitude
+    required float ownship_altitude = 4; // ownship GPS altitude
+    required float north = 5; // ownship velocity north
+    required float east = 6; // ownship velocity east
+    required float down = 7; // ownship velocity down
+}
