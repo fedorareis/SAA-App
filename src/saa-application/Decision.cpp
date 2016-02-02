@@ -8,7 +8,7 @@
 #include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
 
-void Decision::report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* planes)
+void Decision::report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* planes, CDTIPlane::Severity* severity)
 {
    //std::cout << "We are making decisions here" << std::endl;
 
@@ -26,7 +26,7 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* p
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
       }
-      else
+      else if(it->getPosition().distance(Vector3d(0,0,0)) < 10)
       {
          plane->set_severity(CDTIPlane::PROXIMATE);
       }
@@ -36,7 +36,7 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* p
 
 }
 
-CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship)
+CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity)
 {
    //std::cout << "We are generating the cdti report here" << std::endl;
 

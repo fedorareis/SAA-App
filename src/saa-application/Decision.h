@@ -11,7 +11,7 @@
 class Decision
 {
 public:
-   void report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* planes);
-   CDTIReport * generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship);
+   void report(std::vector<CDTIPlane *>* list, std::vector<SensorData>* planes, CDTIPlane::Severity* severity);
+   CDTIReport * generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity);
 };
 #endif //SAA_APPLICATION_DECISION_H
