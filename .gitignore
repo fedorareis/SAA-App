@@ -236,3 +236,5 @@ Testing
 _build*
 .idea
 .idea/*
+
+protos/dist

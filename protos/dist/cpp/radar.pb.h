@@ -158,26 +158,26 @@ class RadarReport : public ::google::protobuf::Message {
   float down() const;
   void set_down(float value);
 
-  // required sfixed32 latitude = 9;
+  // required float latitude = 9;
   bool has_latitude() const;
   void clear_latitude();
   static const int kLatitudeFieldNumber = 9;
-  ::google::protobuf::int32 latitude() const;
-  void set_latitude(::google::protobuf::int32 value);
+  float latitude() const;
+  void set_latitude(float value);
 
-  // required sfixed32 longitude = 10;
+  // required float longitude = 10;
   bool has_longitude() const;
   void clear_longitude();
   static const int kLongitudeFieldNumber = 10;
-  ::google::protobuf::int32 longitude() const;
-  void set_longitude(::google::protobuf::int32 value);
+  float longitude() const;
+  void set_longitude(float value);
 
-  // required sfixed32 altitude = 11;
+  // required float altitude = 11;
   bool has_altitude() const;
   void clear_altitude();
   static const int kAltitudeFieldNumber = 11;
-  ::google::protobuf::int32 altitude() const;
-  void set_altitude(::google::protobuf::int32 value);
+  float altitude() const;
+  void set_altitude(float value);
 
   // optional uint32 plane_id = 12;
   bool has_plane_id() const;
@@ -227,9 +227,9 @@ class RadarReport : public ::google::protobuf::Message {
   float north_;
   float east_;
   float down_;
-  ::google::protobuf::int32 latitude_;
-  ::google::protobuf::int32 longitude_;
-  ::google::protobuf::int32 altitude_;
+  float latitude_;
+  float longitude_;
+  float altitude_;
   ::google::protobuf::uint32 plane_id_;
   friend void  protobuf_AddDesc_radar_2eproto();
   friend void protobuf_AssignDesc_radar_2eproto();
@@ -438,7 +438,7 @@ inline void RadarReport::set_down(float value) {
   // @@protoc_insertion_point(field_set:RadarReport.down)
 }
 
-// required sfixed32 latitude = 9;
+// required float latitude = 9;
 inline bool RadarReport::has_latitude() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -452,17 +452,17 @@ inline void RadarReport::clear_latitude() {
   latitude_ = 0;
   clear_has_latitude();
 }
-inline ::google::protobuf::int32 RadarReport::latitude() const {
+inline float RadarReport::latitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.latitude)
   return latitude_;
 }
-inline void RadarReport::set_latitude(::google::protobuf::int32 value) {
+inline void RadarReport::set_latitude(float value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.latitude)
 }
 
-// required sfixed32 longitude = 10;
+// required float longitude = 10;
 inline bool RadarReport::has_longitude() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -476,17 +476,17 @@ inline void RadarReport::clear_longitude() {
   longitude_ = 0;
   clear_has_longitude();
 }
-inline ::google::protobuf::int32 RadarReport::longitude() const {
+inline float RadarReport::longitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.longitude)
   return longitude_;
 }
-inline void RadarReport::set_longitude(::google::protobuf::int32 value) {
+inline void RadarReport::set_longitude(float value) {
   set_has_longitude();
   longitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.longitude)
 }
 
-// required sfixed32 altitude = 11;
+// required float altitude = 11;
 inline bool RadarReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -500,11 +500,11 @@ inline void RadarReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
-inline ::google::protobuf::int32 RadarReport::altitude() const {
+inline float RadarReport::altitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.altitude)
   return altitude_;
 }
-inline void RadarReport::set_altitude(::google::protobuf::int32 value) {
+inline void RadarReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.altitude)

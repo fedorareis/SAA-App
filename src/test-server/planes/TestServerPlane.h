@@ -45,6 +45,7 @@ class TestServerPlane {
    Vector3d northEastDownVel;
    Vector3d latLongAlt;
 
+
    bool isADSBEnabled;
    bool isTCasEnabled;
    std::string tailNumber;
