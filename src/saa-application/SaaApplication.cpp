@@ -92,10 +92,10 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
  */
 SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship) //@TODO
 {
-   std::string tailNumber = "Tail Number Here";
-   float positionX;
-   float positionY;
-   float positionZ;
+   std::string tailNumber = "" + tcas.id();
+   float positionX = tcas.range() * cos(tcas.bearing());
+   float positionY = tcas.range() * sin(tcas.bearing());
+   float positionZ = tcas.altitude(); // - ownship_altitude();
    float velocityX;
    float velocityY;
    float velocityZ;
