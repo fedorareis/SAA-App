@@ -15,10 +15,10 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CDTIPlane>* pl
    list->clear();
 
    // Iterates over the list and assigns a Severity to it.
-   /*for (std::vector<CDTIPlane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
+   for (std::vector<CDTIPlane>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
-      CDTIPlane* plane = it;
-      if(it->getPosition().distance(Vector3d(0,0,0)) < 3)
+      CDTIPlane* plane = &(*it);
+      /*if(it->getPosition().distance(Vector3d(0,0,0)) < 3)
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
@@ -29,10 +29,12 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CDTIPlane>* pl
       else if(it->getPosition().distance(Vector3d(0,0,0)) < 10)
       {
          plane->set_severity(CDTIPlane::PROXIMATE);
-      }
+      }*/
+
+      plane->set_severity(CDTIPlane::PROXIMATE);
 
       list->push_back(plane);
-   }*/
+   }
 
 }
 
