@@ -12,11 +12,7 @@
 #include "Correlation.h"
 #include "Decision.h"
 #include <mutex>
-#include <chrono>
 #include <common/protobuf/tcas.pb.h>
-#include "SensorData.h"
-#include "common/Maths.h"
-
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
@@ -73,7 +69,7 @@ void SaaApplication::shutdown()
  */
 SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
-   std::string tailNumber = "Tail Number Here"; //@TODO
+   std::string tailNumber = adsb.tail_number();
    float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
@@ -90,12 +86,13 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
  * Takes in a TcasReport and the OwnshipReport data and returns the SensorData version of
  * the tcas data converted to relative position to the ownship.
  */
-SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship) //@TODO
+SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = "" + tcas.id();
-   float positionX = tcas.range() * cos(tcas.bearing());
-   float positionY = tcas.range() * sin(tcas.bearing());
-   float positionZ = tcas.altitude(); // - ownship_altitude();
+   float positionZ = tcas.altitude();
+   float horizRange = (tcas.altitude() * tcas.altitude() - tcas.range() * tcas.range());
+   float positionX = horizRange * cos(bearingToRadians(tcas.bearing()));
+   float positionY = horizRange * sin(bearingToRadians(tcas.bearing()));
    float velocityX;
    float velocityY;
    float velocityZ;
@@ -117,7 +114,7 @@ void SaaApplication::initSocks()
    //t2.join();
    //socks.pop_back();
 
-   processSensors(ownSock, adsbSock);
+   processSensors(ownSock, adsbSock, tcasSock);
 }
 
 /*
@@ -180,7 +177,7 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
  * the main loop for timing when to send data on to the correlation module,
  * then the decision module, and finally onto the cdti and validation server.
  */
-void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
+void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock)
 {
    Correlation cor;
    Decision dec;
@@ -189,10 +186,11 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
 
    try
    {
-      bool adsbFinished = false, ownshipFinished = false;
-      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
+      bool adsbFinished = false, ownshipFinished = false, tcasFinished = false;
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
-      while (!adsbFinished && !ownshipFinished)
+      std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
+      std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
+      while (!adsbFinished && !ownshipFinished && !tcasFinished)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
@@ -207,6 +205,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
          std::cout << "finished one cycle" << std::endl;
       }
       adsbthread.join();
+      tcasthread.join();
       ownshipthread.join();
    }
    catch (SocketException)

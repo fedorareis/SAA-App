@@ -21,7 +21,7 @@ private:
    static void setupSockets(int CdtiSocket);
    std::vector<CDTIPlane *> list;
    static ServerSocket * cdtiSocket;
-   void processSensors(ClientSocket ownSock, ClientSocket adsbSocks);
+   void processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock);
    ServerSocket cdtiOut;
    ServerSocket validationOut;
 };

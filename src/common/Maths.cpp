@@ -26,3 +26,7 @@ float fpsToNmph(float fps) {
     return fps * KNOT_CONVERSION;
 }
 
+float bearingToRadians(float bearing) {
+    return -bearing * M_PI / 180;
+}
+
