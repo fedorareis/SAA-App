@@ -7,7 +7,6 @@
 #include <common/sockets/ClientSocket.h>
 #include <common/sockets/SocketException.h>
 #include <common/protobuf/adsb.pb.h>
-#include <common/protobuf/ownship.pb.h>
 #include "SaaApplication.h"
 #include "Correlation.h"
 #include "Decision.h"
@@ -160,7 +159,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
-         std::vector<SensorData> planesCopy = planes;
+         std::vector<CDTIPlane> planesCopy = planes;
          planes.clear();
          mtx.unlock();
          std::vector<CDTIPlane> planesResult = cor.correlate(planesCopy);

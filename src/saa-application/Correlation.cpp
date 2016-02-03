@@ -23,6 +23,8 @@ void Correlation::report()
 
 std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
 {
+   std::vector<CDTIPlane> correlatedPlanes;
+
    std::vector<double> positions_x;
    std::vector<double> positions_y;
    std::vector<double> positions_z;
@@ -41,7 +43,6 @@ std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
       positions_x.push_back(planes.at(k).getPosition().z);
    }
 
-
    // The dataset we are clustering.
    arma::mat data;
    // The number of clusters we are getting.
@@ -58,5 +59,5 @@ std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
 
    // STILL FIGURING OUT THE THING -- vice versa tho
 
-   return planes;
+   return correlatedPlanes;
 }
