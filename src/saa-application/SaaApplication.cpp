@@ -159,7 +159,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
-         std::vector<CDTIPlane> planesCopy = planes;
+         std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
          std::vector<CDTIPlane> planesResult = cor.correlate(planesCopy);
