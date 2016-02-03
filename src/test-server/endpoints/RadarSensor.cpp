@@ -1,13 +1,18 @@
 //
-// Created by Kyle Piddington on 1/26/16.
+// Created by Kyle Piddington on 2/2/16.
 //
 
-#include "TcasSensor.h"
-#include "common/Maths.h"
 #include <iostream>
-TcasReport TcasSensor::createReport(const TestServerPlane &plane,
-                                    const TestServerPlane &ownship) {
+#include "RadarSensor.h"
 
+RadarSensor::RadarSensor(SensorEndpoint *endpoint):
+Sensor(endpoint)
+{
+
+}
+
+RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestServerPlane &ownship) {
+   RadarReport rept;
    //Create range from position
    float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude());
    float positionX = calcDistance(plane.getLatitude(), ownship.getLatitude(), ownship.getLatitude(),
@@ -22,27 +27,34 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    std::cout << ownship.getNorthVelocity() << "," << ownship.getEastVelocity() << std::endl;
 
    float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
-                                        difference));
+                                                  difference));
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
-   float bearing = 180.f/M_PI * angle * (difference.x > 0 ? -1 : 1);
+   float azimuth = 180.f/M_PI * angle * (difference.x > 0 ? -1 : 1);
+   float elevation = atan2(positionZ,range);
+
+   RadarReport report;
 
 
 
-   TcasReport report;
-   report.set_bearing(bearing);
+   report.set_azimuth(azimuth);
    report.set_altitude(positionZ);
-
+   report.set_elevation(elevation);
    report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
+   report.set_north(plane.getNorthVelocity() - ownship.getNorthVelocity());
+   report.set_east(plane.getEastVelocity() - ownship.getEastVelocity());
+   report.set_down(plane.getDownVelocity() - ownship.getDownVelocity());
+   report.set_longitude(ownship.getLongitude());
+   report.set_latitude(ownship.getLatitude());
+   report.set_altitude(ownship.getAltitude());
+
 
    return report;
 }
 
-void TcasSensor::sendData(const TestServerPlane &plane, const TestServerPlane & ownship) {
-   this->getEndpoint().getSocket() << TcasSensor::createReport(plane, ownship);
-}
 
-TcasSensor::TcasSensor(SensorEndpoint *endpoint):
-Sensor(endpoint){
 
+
+void RadarSensor::sendData(const TestServerPlane &plane, const TestServerPlane &other) {
+   getEndpoint().getSocket() << createReport(plane,other);
 }

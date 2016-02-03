@@ -91,8 +91,8 @@ void protobuf_AddDesc_radar_2eproto() {
     "mp\030\001 \002(\020\022\r\n\005range\030\002 \002(\002\022\017\n\007azimuth\030\003 \002(\002"
     "\022\021\n\televation\030\004 \002(\002\022\n\n\002id\030\005 \002(\017\022\r\n\005north"
     "\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030\010 \002(\002\022\020\n\010la"
-    "titude\030\t \002(\017\022\021\n\tlongitude\030\n \002(\017\022\020\n\010altit"
-    "ude\030\013 \002(\017\022\020\n\010plane_id\030\014 \001(\rB$\n\033edu.calpo"
+    "titude\030\t \002(\002\022\021\n\tlongitude\030\n \002(\002\022\020\n\010altit"
+    "ude\030\013 \002(\002\022\020\n\010plane_id\030\014 \001(\rB$\n\033edu.calpo"
     "ly.capstone.sensorB\005Radar", 265);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "radar.proto", &protobuf_RegisterTypes);
@@ -356,12 +356,12 @@ bool RadarReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 latitude = 9;
+      // required float latitude = 9;
       case 9: {
         if (tag == 77) {
          parse_latitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &latitude_)));
           set_has_latitude();
         } else {
@@ -371,12 +371,12 @@ bool RadarReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 longitude = 10;
+      // required float longitude = 10;
       case 10: {
         if (tag == 85) {
          parse_longitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &longitude_)));
           set_has_longitude();
         } else {
@@ -386,12 +386,12 @@ bool RadarReport::MergePartialFromCodedStream(
         break;
       }
 
-      // required sfixed32 altitude = 11;
+      // required float altitude = 11;
       case 11: {
         if (tag == 93) {
          parse_altitude:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SFIXED32>(
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, &altitude_)));
           set_has_altitude();
         } else {
@@ -481,19 +481,19 @@ void RadarReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->down(), output);
   }
 
-  // required sfixed32 latitude = 9;
+  // required float latitude = 9;
   if (has_latitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(9, this->latitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(9, this->latitude(), output);
   }
 
-  // required sfixed32 longitude = 10;
+  // required float longitude = 10;
   if (has_longitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(10, this->longitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->longitude(), output);
   }
 
-  // required sfixed32 altitude = 11;
+  // required float altitude = 11;
   if (has_altitude()) {
-    ::google::protobuf::internal::WireFormatLite::WriteSFixed32(11, this->altitude(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->altitude(), output);
   }
 
   // optional uint32 plane_id = 12;
@@ -551,19 +551,19 @@ void RadarReport::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->down(), target);
   }
 
-  // required sfixed32 latitude = 9;
+  // required float latitude = 9;
   if (has_latitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(9, this->latitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(9, this->latitude(), target);
   }
 
-  // required sfixed32 longitude = 10;
+  // required float longitude = 10;
   if (has_longitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(10, this->longitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->longitude(), target);
   }
 
-  // required sfixed32 altitude = 11;
+  // required float altitude = 11;
   if (has_altitude()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSFixed32ToArray(11, this->altitude(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->altitude(), target);
   }
 
   // optional uint32 plane_id = 12;
@@ -623,17 +623,17 @@ int RadarReport::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_latitude()) {
-    // required sfixed32 latitude = 9;
+    // required float latitude = 9;
     total_size += 1 + 4;
   }
 
   if (has_longitude()) {
-    // required sfixed32 longitude = 10;
+    // required float longitude = 10;
     total_size += 1 + 4;
   }
 
   if (has_altitude()) {
-    // required sfixed32 altitude = 11;
+    // required float altitude = 11;
     total_size += 1 + 4;
   }
 
@@ -667,13 +667,13 @@ int RadarReport::ByteSize() const {
     // required float down = 8;
     total_size += 1 + 4;
 
-    // required sfixed32 latitude = 9;
+    // required float latitude = 9;
     total_size += 1 + 4;
 
-    // required sfixed32 longitude = 10;
+    // required float longitude = 10;
     total_size += 1 + 4;
 
-    // required sfixed32 altitude = 11;
+    // required float altitude = 11;
     total_size += 1 + 4;
 
   } else {
@@ -999,7 +999,7 @@ void RadarReport::clear_down() {
   // @@protoc_insertion_point(field_set:RadarReport.down)
 }
 
-// required sfixed32 latitude = 9;
+// required float latitude = 9;
 bool RadarReport::has_latitude() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1013,17 +1013,17 @@ void RadarReport::clear_latitude() {
   latitude_ = 0;
   clear_has_latitude();
 }
- ::google::protobuf::int32 RadarReport::latitude() const {
+ float RadarReport::latitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.latitude)
   return latitude_;
 }
- void RadarReport::set_latitude(::google::protobuf::int32 value) {
+ void RadarReport::set_latitude(float value) {
   set_has_latitude();
   latitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.latitude)
 }
 
-// required sfixed32 longitude = 10;
+// required float longitude = 10;
 bool RadarReport::has_longitude() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1037,17 +1037,17 @@ void RadarReport::clear_longitude() {
   longitude_ = 0;
   clear_has_longitude();
 }
- ::google::protobuf::int32 RadarReport::longitude() const {
+ float RadarReport::longitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.longitude)
   return longitude_;
 }
- void RadarReport::set_longitude(::google::protobuf::int32 value) {
+ void RadarReport::set_longitude(float value) {
   set_has_longitude();
   longitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.longitude)
 }
 
-// required sfixed32 altitude = 11;
+// required float altitude = 11;
 bool RadarReport::has_altitude() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1061,11 +1061,11 @@ void RadarReport::clear_altitude() {
   altitude_ = 0;
   clear_has_altitude();
 }
- ::google::protobuf::int32 RadarReport::altitude() const {
+ float RadarReport::altitude() const {
   // @@protoc_insertion_point(field_get:RadarReport.altitude)
   return altitude_;
 }
- void RadarReport::set_altitude(::google::protobuf::int32 value) {
+ void RadarReport::set_altitude(float value) {
   set_has_altitude();
   altitude_ = value;
   // @@protoc_insertion_point(field_set:RadarReport.altitude)
