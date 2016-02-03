@@ -163,7 +163,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock)
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
-         planesCopy = cor.correlate(planesCopy);
+         std::vector<CDTIPlane> planesResult = cor.correlate(planesCopy);
          dec.report(&list, &planesCopy, &severity);
          rep = dec.generateReport(&list, cdtiOwnship, &severity);
          cdtiOut << (*rep);
