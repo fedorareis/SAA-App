@@ -57,11 +57,12 @@ void protobuf_AssignDesc_cdti_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector, _internal_metadata_),
       -1);
   CDTIPlane_descriptor_ = file->message_type(1);
-  static const int CDTIPlane_offsets_[4] = {
+  static const int CDTIPlane_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CDTIPlane, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CDTIPlane, position_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CDTIPlane, velocity_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CDTIPlane, severity_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CDTIPlane, planetags_),
   };
   CDTIPlane_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -134,18 +135,18 @@ void protobuf_AddDesc_cdti_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ncdti.proto\")\n\006Vector\022\t\n\001X\030\001 \002(\002\022\t\n\001Y\030\002"
-    " \002(\002\022\t\n\001Z\030\003 \002(\002\"\254\001\n\tCDTIPlane\022\n\n\002id\030\001 \002("
+    " \002(\002\022\t\n\001Z\030\003 \002(\002\"\277\001\n\tCDTIPlane\022\n\n\002id\030\001 \002("
     "\t\022\031\n\010position\030\002 \002(\0132\007.Vector\022\031\n\010velocity"
     "\030\003 \002(\0132\007.Vector\022%\n\010severity\030\004 \002(\0162\023.CDTI"
-    "Plane.Severity\"6\n\010Severity\022\r\n\tPROXIMATE\020"
-    "\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRESOLUTION\020\002\"\326\001\n\nCDTIR"
-    "eport\022\021\n\ttimestamp\030\001 \002(\020\022\033\n\007ownship\030\002 \002("
-    "\0132\n.CDTIPlane\022\027\n\017advisoryMessage\030\003 \001(\t\022+"
-    "\n\radvisoryLevel\030\004 \001(\0162\024.CDTIReport.Sever"
-    "ity\022\032\n\006planes\030\005 \003(\0132\n.CDTIPlane\"6\n\010Sever"
-    "ity\022\r\n\tPROXIMATE\020\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRESOL"
-    "UTION\020\002B#\n\033edu.calpoly.capstone.sensorB\004"
-    "Cdti", 484);
+    "Plane.Severity\022\021\n\tplaneTags\030\005 \003(\005\"6\n\010Sev"
+    "erity\022\r\n\tPROXIMATE\020\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRES"
+    "OLUTION\020\002\"\326\001\n\nCDTIReport\022\021\n\ttimestamp\030\001 "
+    "\002(\020\022\033\n\007ownship\030\002 \002(\0132\n.CDTIPlane\022\027\n\017advi"
+    "soryMessage\030\003 \001(\t\022+\n\radvisoryLevel\030\004 \001(\016"
+    "2\024.CDTIReport.Severity\022\032\n\006planes\030\005 \003(\0132\n"
+    ".CDTIPlane\"6\n\010Severity\022\r\n\tPROXIMATE\020\000\022\013\n"
+    "\007TRAFFIC\020\001\022\016\n\nRESOLUTION\020\002B#\n\033edu.calpol"
+    "y.capstone.sensorB\004Cdti", 503);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "cdti.proto", &protobuf_RegisterTypes);
   Vector::default_instance_ = new Vector();
@@ -612,6 +613,7 @@ const int CDTIPlane::kIdFieldNumber;
 const int CDTIPlane::kPositionFieldNumber;
 const int CDTIPlane::kVelocityFieldNumber;
 const int CDTIPlane::kSeverityFieldNumber;
+const int CDTIPlane::kPlaneTagsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CDTIPlane::CDTIPlane()
@@ -694,6 +696,7 @@ void CDTIPlane::Clear() {
     }
     severity_ = 0;
   }
+  planetags_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -768,6 +771,25 @@ bool CDTIPlane::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_planeTags;
+        break;
+      }
+
+      // repeated int32 planeTags = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_planeTags:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 40, input, this->mutable_planetags())));
+        } else if (tag == 42) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_planetags())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_planeTags;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -825,6 +847,12 @@ void CDTIPlane::SerializeWithCachedSizes(
       4, this->severity(), output);
   }
 
+  // repeated int32 planeTags = 5;
+  for (int i = 0; i < this->planetags_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      5, this->planetags(i), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -864,6 +892,12 @@ void CDTIPlane::SerializeWithCachedSizes(
   if (has_severity()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->severity(), target);
+  }
+
+  // repeated int32 planeTags = 5;
+  for (int i = 0; i < this->planetags_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(5, this->planetags(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -932,6 +966,16 @@ int CDTIPlane::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // repeated int32 planeTags = 5;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->planetags_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->planetags(i));
+    }
+    total_size += 1 * this->planetags_size() + data_size;
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -957,6 +1001,7 @@ void CDTIPlane::MergeFrom(const ::google::protobuf::Message& from) {
 
 void CDTIPlane::MergeFrom(const CDTIPlane& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  planetags_.MergeFrom(from.planetags_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       set_has_id();
@@ -1010,6 +1055,7 @@ void CDTIPlane::InternalSwap(CDTIPlane* other) {
   std::swap(position_, other->position_);
   std::swap(velocity_, other->velocity_);
   std::swap(severity_, other->severity_);
+  planetags_.UnsafeArenaSwap(&other->planetags_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1188,6 +1234,36 @@ void CDTIPlane::clear_severity() {
   set_has_severity();
   severity_ = value;
   // @@protoc_insertion_point(field_set:CDTIPlane.severity)
+}
+
+// repeated int32 planeTags = 5;
+int CDTIPlane::planetags_size() const {
+  return planetags_.size();
+}
+void CDTIPlane::clear_planetags() {
+  planetags_.Clear();
+}
+ ::google::protobuf::int32 CDTIPlane::planetags(int index) const {
+  // @@protoc_insertion_point(field_get:CDTIPlane.planeTags)
+  return planetags_.Get(index);
+}
+ void CDTIPlane::set_planetags(int index, ::google::protobuf::int32 value) {
+  planetags_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CDTIPlane.planeTags)
+}
+ void CDTIPlane::add_planetags(::google::protobuf::int32 value) {
+  planetags_.Add(value);
+  // @@protoc_insertion_point(field_add:CDTIPlane.planeTags)
+}
+ const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+CDTIPlane::planetags() const {
+  // @@protoc_insertion_point(field_list:CDTIPlane.planeTags)
+  return planetags_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+CDTIPlane::mutable_planetags() {
+  // @@protoc_insertion_point(field_mutable_list:CDTIPlane.planeTags)
+  return &planetags_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

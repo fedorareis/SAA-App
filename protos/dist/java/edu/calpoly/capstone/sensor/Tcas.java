@@ -79,6 +79,23 @@ public final class Tcas {
      * </pre>
      */
     float getBearing();
+
+    /**
+     * <code>optional uint32 plane_id = 5;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    boolean hasPlaneId();
+    /**
+     * <code>optional uint32 plane_id = 5;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    int getPlaneId();
   }
   /**
    * Protobuf type {@code TcasReport}
@@ -96,6 +113,7 @@ public final class Tcas {
       range_ = 0F;
       altitude_ = 0F;
       bearing_ = 0F;
+      planeId_ = 0;
     }
 
     @java.lang.Override
@@ -143,6 +161,11 @@ public final class Tcas {
             case 37: {
               bitField0_ |= 0x00000008;
               bearing_ = input.readFloat();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              planeId_ = input.readUInt32();
               break;
             }
           }
@@ -263,6 +286,29 @@ public final class Tcas {
       return bearing_;
     }
 
+    public static final int PLANE_ID_FIELD_NUMBER = 5;
+    private int planeId_;
+    /**
+     * <code>optional uint32 plane_id = 5;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public boolean hasPlaneId() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional uint32 plane_id = 5;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public int getPlaneId() {
+      return planeId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -303,6 +349,9 @@ public final class Tcas {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeFloat(4, bearing_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt32(5, planeId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -326,6 +375,10 @@ public final class Tcas {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, bearing_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, planeId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -447,6 +500,8 @@ public final class Tcas {
         bitField0_ = (bitField0_ & ~0x00000004);
         bearing_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
+        planeId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -487,6 +542,10 @@ public final class Tcas {
           to_bitField0_ |= 0x00000008;
         }
         result.bearing_ = bearing_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.planeId_ = planeId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -514,6 +573,9 @@ public final class Tcas {
         }
         if (other.hasBearing()) {
           setBearing(other.getBearing());
+        }
+        if (other.hasPlaneId()) {
+          setPlaneId(other.getPlaneId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -747,6 +809,54 @@ public final class Tcas {
         return this;
       }
 
+      private int planeId_ ;
+      /**
+       * <code>optional uint32 plane_id = 5;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public boolean hasPlaneId() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional uint32 plane_id = 5;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public int getPlaneId() {
+        return planeId_;
+      }
+      /**
+       * <code>optional uint32 plane_id = 5;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder setPlaneId(int value) {
+        bitField0_ |= 0x00000010;
+        planeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 plane_id = 5;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder clearPlaneId() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        planeId_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:TcasReport)
     }
 
@@ -808,10 +918,10 @@ public final class Tcas {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\ntcas.proto\"J\n\nTcasReport\022\n\n\002id\030\001 \002(\017\022\r" +
+      "\n\ntcas.proto\"\\\n\nTcasReport\022\n\n\002id\030\001 \002(\017\022\r" +
       "\n\005range\030\002 \002(\002\022\020\n\010altitude\030\003 \002(\002\022\017\n\007beari" +
-      "ng\030\004 \002(\002B#\n\033edu.calpoly.capstone.sensorB" +
-      "\004Tcas"
+      "ng\030\004 \002(\002\022\020\n\010plane_id\030\005 \001(\rB#\n\033edu.calpol" +
+      "y.capstone.sensorB\004Tcas"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -830,7 +940,7 @@ public final class Tcas {
     internal_static_TcasReport_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_TcasReport_descriptor,
-        new java.lang.String[] { "Id", "Range", "Altitude", "Bearing", });
+        new java.lang.String[] { "Id", "Range", "Altitude", "Bearing", "PlaneId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

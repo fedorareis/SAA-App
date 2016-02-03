@@ -149,7 +149,7 @@ public final class Radar {
     float getDown();
 
     /**
-     * <code>required sfixed32 latitude = 9;</code>
+     * <code>required float latitude = 9;</code>
      *
      * <pre>
      * ownship latitude
@@ -157,16 +157,16 @@ public final class Radar {
      */
     boolean hasLatitude();
     /**
-     * <code>required sfixed32 latitude = 9;</code>
+     * <code>required float latitude = 9;</code>
      *
      * <pre>
      * ownship latitude
      * </pre>
      */
-    int getLatitude();
+    float getLatitude();
 
     /**
-     * <code>required sfixed32 longitude = 10;</code>
+     * <code>required float longitude = 10;</code>
      *
      * <pre>
      * ownship longitude
@@ -174,16 +174,16 @@ public final class Radar {
      */
     boolean hasLongitude();
     /**
-     * <code>required sfixed32 longitude = 10;</code>
+     * <code>required float longitude = 10;</code>
      *
      * <pre>
      * ownship longitude
      * </pre>
      */
-    int getLongitude();
+    float getLongitude();
 
     /**
-     * <code>required sfixed32 altitude = 11;</code>
+     * <code>required float altitude = 11;</code>
      *
      * <pre>
      * ownship GPS altitude
@@ -191,13 +191,30 @@ public final class Radar {
      */
     boolean hasAltitude();
     /**
-     * <code>required sfixed32 altitude = 11;</code>
+     * <code>required float altitude = 11;</code>
      *
      * <pre>
      * ownship GPS altitude
      * </pre>
      */
-    int getAltitude();
+    float getAltitude();
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    boolean hasPlaneId();
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    int getPlaneId();
   }
   /**
    * Protobuf type {@code RadarReport}
@@ -219,9 +236,10 @@ public final class Radar {
       north_ = 0F;
       east_ = 0F;
       down_ = 0F;
-      latitude_ = 0;
-      longitude_ = 0;
-      altitude_ = 0;
+      latitude_ = 0F;
+      longitude_ = 0F;
+      altitude_ = 0F;
+      planeId_ = 0;
     }
 
     @java.lang.Override
@@ -293,17 +311,22 @@ public final class Radar {
             }
             case 77: {
               bitField0_ |= 0x00000100;
-              latitude_ = input.readSFixed32();
+              latitude_ = input.readFloat();
               break;
             }
             case 85: {
               bitField0_ |= 0x00000200;
-              longitude_ = input.readSFixed32();
+              longitude_ = input.readFloat();
               break;
             }
             case 93: {
               bitField0_ |= 0x00000400;
-              altitude_ = input.readSFixed32();
+              altitude_ = input.readFloat();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              planeId_ = input.readUInt32();
               break;
             }
           }
@@ -517,9 +540,9 @@ public final class Radar {
     }
 
     public static final int LATITUDE_FIELD_NUMBER = 9;
-    private int latitude_;
+    private float latitude_;
     /**
-     * <code>required sfixed32 latitude = 9;</code>
+     * <code>required float latitude = 9;</code>
      *
      * <pre>
      * ownship latitude
@@ -529,20 +552,20 @@ public final class Radar {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>required sfixed32 latitude = 9;</code>
+     * <code>required float latitude = 9;</code>
      *
      * <pre>
      * ownship latitude
      * </pre>
      */
-    public int getLatitude() {
+    public float getLatitude() {
       return latitude_;
     }
 
     public static final int LONGITUDE_FIELD_NUMBER = 10;
-    private int longitude_;
+    private float longitude_;
     /**
-     * <code>required sfixed32 longitude = 10;</code>
+     * <code>required float longitude = 10;</code>
      *
      * <pre>
      * ownship longitude
@@ -552,20 +575,20 @@ public final class Radar {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>required sfixed32 longitude = 10;</code>
+     * <code>required float longitude = 10;</code>
      *
      * <pre>
      * ownship longitude
      * </pre>
      */
-    public int getLongitude() {
+    public float getLongitude() {
       return longitude_;
     }
 
     public static final int ALTITUDE_FIELD_NUMBER = 11;
-    private int altitude_;
+    private float altitude_;
     /**
-     * <code>required sfixed32 altitude = 11;</code>
+     * <code>required float altitude = 11;</code>
      *
      * <pre>
      * ownship GPS altitude
@@ -575,14 +598,37 @@ public final class Radar {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>required sfixed32 altitude = 11;</code>
+     * <code>required float altitude = 11;</code>
      *
      * <pre>
      * ownship GPS altitude
      * </pre>
      */
-    public int getAltitude() {
+    public float getAltitude() {
       return altitude_;
+    }
+
+    public static final int PLANE_ID_FIELD_NUMBER = 12;
+    private int planeId_;
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public boolean hasPlaneId() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     *
+     * <pre>
+     * plane id used for verification
+     * </pre>
+     */
+    public int getPlaneId() {
+      return planeId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -666,13 +712,16 @@ public final class Radar {
         output.writeFloat(8, down_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeSFixed32(9, latitude_);
+        output.writeFloat(9, latitude_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeSFixed32(10, longitude_);
+        output.writeFloat(10, longitude_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeSFixed32(11, altitude_);
+        output.writeFloat(11, altitude_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeUInt32(12, planeId_);
       }
       unknownFields.writeTo(output);
     }
@@ -716,15 +765,19 @@ public final class Radar {
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSFixed32Size(9, latitude_);
+          .computeFloatSize(9, latitude_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSFixed32Size(10, longitude_);
+          .computeFloatSize(10, longitude_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSFixed32Size(11, altitude_);
+          .computeFloatSize(11, altitude_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(12, planeId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -854,12 +907,14 @@ public final class Radar {
         bitField0_ = (bitField0_ & ~0x00000040);
         down_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000080);
-        latitude_ = 0;
+        latitude_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000100);
-        longitude_ = 0;
+        longitude_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000200);
-        altitude_ = 0;
+        altitude_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000400);
+        planeId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -928,6 +983,10 @@ public final class Radar {
           to_bitField0_ |= 0x00000400;
         }
         result.altitude_ = altitude_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.planeId_ = planeId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -976,6 +1035,9 @@ public final class Radar {
         }
         if (other.hasAltitude()) {
           setAltitude(other.getAltitude());
+        }
+        if (other.hasPlaneId()) {
+          setPlaneId(other.getPlaneId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1422,9 +1484,9 @@ public final class Radar {
         return this;
       }
 
-      private int latitude_ ;
+      private float latitude_ ;
       /**
-       * <code>required sfixed32 latitude = 9;</code>
+       * <code>required float latitude = 9;</code>
        *
        * <pre>
        * ownship latitude
@@ -1434,30 +1496,30 @@ public final class Radar {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>required sfixed32 latitude = 9;</code>
+       * <code>required float latitude = 9;</code>
        *
        * <pre>
        * ownship latitude
        * </pre>
        */
-      public int getLatitude() {
+      public float getLatitude() {
         return latitude_;
       }
       /**
-       * <code>required sfixed32 latitude = 9;</code>
+       * <code>required float latitude = 9;</code>
        *
        * <pre>
        * ownship latitude
        * </pre>
        */
-      public Builder setLatitude(int value) {
+      public Builder setLatitude(float value) {
         bitField0_ |= 0x00000100;
         latitude_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required sfixed32 latitude = 9;</code>
+       * <code>required float latitude = 9;</code>
        *
        * <pre>
        * ownship latitude
@@ -1465,14 +1527,14 @@ public final class Radar {
        */
       public Builder clearLatitude() {
         bitField0_ = (bitField0_ & ~0x00000100);
-        latitude_ = 0;
+        latitude_ = 0F;
         onChanged();
         return this;
       }
 
-      private int longitude_ ;
+      private float longitude_ ;
       /**
-       * <code>required sfixed32 longitude = 10;</code>
+       * <code>required float longitude = 10;</code>
        *
        * <pre>
        * ownship longitude
@@ -1482,30 +1544,30 @@ public final class Radar {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>required sfixed32 longitude = 10;</code>
+       * <code>required float longitude = 10;</code>
        *
        * <pre>
        * ownship longitude
        * </pre>
        */
-      public int getLongitude() {
+      public float getLongitude() {
         return longitude_;
       }
       /**
-       * <code>required sfixed32 longitude = 10;</code>
+       * <code>required float longitude = 10;</code>
        *
        * <pre>
        * ownship longitude
        * </pre>
        */
-      public Builder setLongitude(int value) {
+      public Builder setLongitude(float value) {
         bitField0_ |= 0x00000200;
         longitude_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required sfixed32 longitude = 10;</code>
+       * <code>required float longitude = 10;</code>
        *
        * <pre>
        * ownship longitude
@@ -1513,14 +1575,14 @@ public final class Radar {
        */
       public Builder clearLongitude() {
         bitField0_ = (bitField0_ & ~0x00000200);
-        longitude_ = 0;
+        longitude_ = 0F;
         onChanged();
         return this;
       }
 
-      private int altitude_ ;
+      private float altitude_ ;
       /**
-       * <code>required sfixed32 altitude = 11;</code>
+       * <code>required float altitude = 11;</code>
        *
        * <pre>
        * ownship GPS altitude
@@ -1530,30 +1592,30 @@ public final class Radar {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>required sfixed32 altitude = 11;</code>
+       * <code>required float altitude = 11;</code>
        *
        * <pre>
        * ownship GPS altitude
        * </pre>
        */
-      public int getAltitude() {
+      public float getAltitude() {
         return altitude_;
       }
       /**
-       * <code>required sfixed32 altitude = 11;</code>
+       * <code>required float altitude = 11;</code>
        *
        * <pre>
        * ownship GPS altitude
        * </pre>
        */
-      public Builder setAltitude(int value) {
+      public Builder setAltitude(float value) {
         bitField0_ |= 0x00000400;
         altitude_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required sfixed32 altitude = 11;</code>
+       * <code>required float altitude = 11;</code>
        *
        * <pre>
        * ownship GPS altitude
@@ -1561,7 +1623,55 @@ public final class Radar {
        */
       public Builder clearAltitude() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        altitude_ = 0;
+        altitude_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private int planeId_ ;
+      /**
+       * <code>optional uint32 plane_id = 12;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public boolean hasPlaneId() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional uint32 plane_id = 12;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public int getPlaneId() {
+        return planeId_;
+      }
+      /**
+       * <code>optional uint32 plane_id = 12;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder setPlaneId(int value) {
+        bitField0_ |= 0x00000800;
+        planeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 plane_id = 12;</code>
+       *
+       * <pre>
+       * plane id used for verification
+       * </pre>
+       */
+      public Builder clearPlaneId() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        planeId_ = 0;
         onChanged();
         return this;
       }
@@ -1627,13 +1737,13 @@ public final class Radar {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013radar.proto\"\301\001\n\013RadarReport\022\021\n\ttimesta" +
+      "\n\013radar.proto\"\323\001\n\013RadarReport\022\021\n\ttimesta" +
       "mp\030\001 \002(\020\022\r\n\005range\030\002 \002(\002\022\017\n\007azimuth\030\003 \002(\002" +
       "\022\021\n\televation\030\004 \002(\002\022\n\n\002id\030\005 \002(\017\022\r\n\005north" +
       "\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030\010 \002(\002\022\020\n\010la" +
-      "titude\030\t \002(\017\022\021\n\tlongitude\030\n \002(\017\022\020\n\010altit" +
-      "ude\030\013 \002(\017B$\n\033edu.calpoly.capstone.sensor" +
-      "B\005Radar"
+      "titude\030\t \002(\002\022\021\n\tlongitude\030\n \002(\002\022\020\n\010altit" +
+      "ude\030\013 \002(\002\022\020\n\010plane_id\030\014 \001(\rB$\n\033edu.calpo" +
+      "ly.capstone.sensorB\005Radar"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1652,7 +1762,7 @@ public final class Radar {
     internal_static_RadarReport_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RadarReport_descriptor,
-        new java.lang.String[] { "Timestamp", "Range", "Azimuth", "Elevation", "Id", "North", "East", "Down", "Latitude", "Longitude", "Altitude", });
+        new java.lang.String[] { "Timestamp", "Range", "Azimuth", "Elevation", "Id", "North", "East", "Down", "Latitude", "Longitude", "Altitude", "PlaneId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

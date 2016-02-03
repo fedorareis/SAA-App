@@ -28,6 +28,7 @@ message CDTIPlane {
     
     required Vector velocity = 3; // North East and Down, in Feet/Second
     required Severity severity = 4;
+    repeated int32 planeTags = 5; //Unique Plane ID tag for correlation verification
 }
 
 

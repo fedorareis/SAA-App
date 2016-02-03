@@ -163,6 +163,13 @@ class AdsBReport : public ::google::protobuf::Message {
   float down() const;
   void set_down(float value);
 
+  // optional uint32 plane_id = 9;
+  bool has_plane_id() const;
+  void clear_plane_id();
+  static const int kPlaneIdFieldNumber = 9;
+  ::google::protobuf::uint32 plane_id() const;
+  void set_plane_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:AdsBReport)
  private:
   inline void set_has_timestamp();
@@ -181,6 +188,8 @@ class AdsBReport : public ::google::protobuf::Message {
   inline void clear_has_east();
   inline void set_has_down();
   inline void clear_has_down();
+  inline void set_has_plane_id();
+  inline void clear_has_plane_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -196,6 +205,7 @@ class AdsBReport : public ::google::protobuf::Message {
   float north_;
   float east_;
   float down_;
+  ::google::protobuf::uint32 plane_id_;
   friend void  protobuf_AddDesc_adsb_2eproto();
   friend void protobuf_AssignDesc_adsb_2eproto();
   friend void protobuf_ShutdownFile_adsb_2eproto();
@@ -430,6 +440,30 @@ inline void AdsBReport::set_down(float value) {
   set_has_down();
   down_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.down)
+}
+
+// optional uint32 plane_id = 9;
+inline bool AdsBReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void AdsBReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void AdsBReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void AdsBReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+inline ::google::protobuf::uint32 AdsBReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:AdsBReport.plane_id)
+  return plane_id_;
+}
+inline void AdsBReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:AdsBReport.plane_id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

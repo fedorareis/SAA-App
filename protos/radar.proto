@@ -9,7 +9,8 @@ message RadarReport {
     required float north = 6; // intruder velocity north
     required float east = 7; // intruder velocity east
     required float down = 8; // intruder velocity down
-    required sfixed32 latitude = 9; // ownship latitude
-    required sfixed32 longitude = 10; // ownship longitude
-    required sfixed32 altitude = 11; // ownship GPS altitude
+    required float latitude = 9; // ownship latitude
+    required float longitude = 10; // ownship longitude
+    required float altitude = 11; // ownship GPS altitude
+    optional uint32 plane_id = 12; // plane id used for verification
 }

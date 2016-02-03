@@ -32,7 +32,7 @@ void protobuf_AssignDesc_adsb_2eproto() {
       "adsb.proto");
   GOOGLE_CHECK(file != NULL);
   AdsBReport_descriptor_ = file->message_type(0);
-  static const int AdsBReport_offsets_[8] = {
+  static const int AdsBReport_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, timestamp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, latitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, longitude_),
@@ -41,6 +41,7 @@ void protobuf_AssignDesc_adsb_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, north_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, east_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, down_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AdsBReport, plane_id_),
   };
   AdsBReport_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -83,12 +84,12 @@ void protobuf_AddDesc_adsb_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\nadsb.proto\"\226\001\n\nAdsBReport\022\021\n\ttimestamp"
+    "\n\nadsb.proto\"\250\001\n\nAdsBReport\022\021\n\ttimestamp"
     "\030\001 \002(\020\022\020\n\010latitude\030\002 \002(\002\022\021\n\tlongitude\030\003 "
     "\002(\002\022\020\n\010altitude\030\004 \002(\002\022\023\n\013tail_number\030\005 \002"
     "(\t\022\r\n\005north\030\006 \002(\002\022\014\n\004east\030\007 \002(\002\022\014\n\004down\030"
-    "\010 \002(\002B#\n\033edu.calpoly.capstone.sensorB\004Ad"
-    "sB", 202);
+    "\010 \002(\002\022\020\n\010plane_id\030\t \001(\rB#\n\033edu.calpoly.c"
+    "apstone.sensorB\004AdsB", 220);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "adsb.proto", &protobuf_RegisterTypes);
   AdsBReport::default_instance_ = new AdsBReport();
@@ -124,6 +125,7 @@ const int AdsBReport::kTailNumberFieldNumber;
 const int AdsBReport::kNorthFieldNumber;
 const int AdsBReport::kEastFieldNumber;
 const int AdsBReport::kDownFieldNumber;
+const int AdsBReport::kPlaneIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AdsBReport::AdsBReport()
@@ -154,6 +156,7 @@ void AdsBReport::SharedCtor() {
   north_ = 0;
   east_ = 0;
   down_ = 0;
+  plane_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -209,6 +212,7 @@ void AdsBReport::Clear() {
       tail_number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
+  plane_id_ = 0u;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -346,6 +350,21 @@ bool AdsBReport::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(72)) goto parse_plane_id;
+        break;
+      }
+
+      // optional uint32 plane_id = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_plane_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &plane_id_)));
+          set_has_plane_id();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -420,6 +439,11 @@ void AdsBReport::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(8, this->down(), output);
   }
 
+  // optional uint32 plane_id = 9;
+  if (has_plane_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->plane_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -474,6 +498,11 @@ void AdsBReport::SerializeWithCachedSizes(
   // required float down = 8;
   if (has_down()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(8, this->down(), target);
+  }
+
+  // optional uint32 plane_id = 9;
+  if (has_plane_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->plane_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -564,6 +593,13 @@ int AdsBReport::ByteSize() const {
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional uint32 plane_id = 9;
+  if (has_plane_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->plane_id());
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -616,6 +652,11 @@ void AdsBReport::MergeFrom(const AdsBReport& from) {
       set_down(from.down());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_plane_id()) {
+      set_plane_id(from.plane_id());
+    }
+  }
   if (from._internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->MergeFrom(from.unknown_fields());
   }
@@ -652,6 +693,7 @@ void AdsBReport::InternalSwap(AdsBReport* other) {
   std::swap(north_, other->north_);
   std::swap(east_, other->east_);
   std::swap(down_, other->down_);
+  std::swap(plane_id_, other->plane_id_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -887,6 +929,30 @@ void AdsBReport::clear_down() {
   set_has_down();
   down_ = value;
   // @@protoc_insertion_point(field_set:AdsBReport.down)
+}
+
+// optional uint32 plane_id = 9;
+bool AdsBReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void AdsBReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void AdsBReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void AdsBReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+ ::google::protobuf::uint32 AdsBReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:AdsBReport.plane_id)
+  return plane_id_;
+}
+ void AdsBReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:AdsBReport.plane_id)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

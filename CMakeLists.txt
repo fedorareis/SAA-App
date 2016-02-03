@@ -51,6 +51,10 @@ message("Proto libs at: " ${protobuf_BINARY_DIR})
 ENDIF()
 message("libs search path: " ${CMAKE_LIBRARY_PATH})
 add_subdirectory(lib/googletest)
+
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
+
 add_subdirectory(src)
 add_subdirectory(app)
 add_subdirectory(test)

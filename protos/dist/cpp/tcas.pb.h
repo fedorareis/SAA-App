@@ -130,6 +130,13 @@ class TcasReport : public ::google::protobuf::Message {
   float bearing() const;
   void set_bearing(float value);
 
+  // optional uint32 plane_id = 5;
+  bool has_plane_id() const;
+  void clear_plane_id();
+  static const int kPlaneIdFieldNumber = 5;
+  ::google::protobuf::uint32 plane_id() const;
+  void set_plane_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:TcasReport)
  private:
   inline void set_has_id();
@@ -140,6 +147,8 @@ class TcasReport : public ::google::protobuf::Message {
   inline void clear_has_altitude();
   inline void set_has_bearing();
   inline void clear_has_bearing();
+  inline void set_has_plane_id();
+  inline void clear_has_plane_id();
 
   // helper for ByteSize()
   int RequiredFieldsByteSizeFallback() const;
@@ -151,6 +160,7 @@ class TcasReport : public ::google::protobuf::Message {
   float range_;
   float altitude_;
   float bearing_;
+  ::google::protobuf::uint32 plane_id_;
   friend void  protobuf_AddDesc_tcas_2eproto();
   friend void protobuf_AssignDesc_tcas_2eproto();
   friend void protobuf_ShutdownFile_tcas_2eproto();
@@ -260,6 +270,30 @@ inline void TcasReport::set_bearing(float value) {
   set_has_bearing();
   bearing_ = value;
   // @@protoc_insertion_point(field_set:TcasReport.bearing)
+}
+
+// optional uint32 plane_id = 5;
+inline bool TcasReport::has_plane_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void TcasReport::set_has_plane_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void TcasReport::clear_has_plane_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void TcasReport::clear_plane_id() {
+  plane_id_ = 0u;
+  clear_has_plane_id();
+}
+inline ::google::protobuf::uint32 TcasReport::plane_id() const {
+  // @@protoc_insertion_point(field_get:TcasReport.plane_id)
+  return plane_id_;
+}
+inline void TcasReport::set_plane_id(::google::protobuf::uint32 value) {
+  set_has_plane_id();
+  plane_id_ = value;
+  // @@protoc_insertion_point(field_set:TcasReport.plane_id)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
