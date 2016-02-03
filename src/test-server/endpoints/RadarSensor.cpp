@@ -10,7 +10,9 @@ Sensor(endpoint)
 {
 
 }
-
+/**
+ * create a radar report from two planes,
+ */
 RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestServerPlane &ownship) {
    RadarReport rept;
    //Create range from position

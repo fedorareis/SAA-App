@@ -9,14 +9,19 @@
 #include "common/protobuf/tcas.pb.h"
 #include "SensorEndpoint.h"
 #include "Sensor.h"
+#include <gtest/gtest.h>
 
 class TcasSensor : public Sensor {
    public:
    TcasSensor(SensorEndpoint * endpoint);
-   static TcasReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
+   virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
 
    private:
-   virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
+   static TcasReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
+
+   FRIEND_TEST(TCAS,createTcasMessage);
+   FRIEND_TEST(TCAS,testAltitudeDistance);
+
 
 };
 
