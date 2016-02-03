@@ -11,6 +11,7 @@
 SensorEndpoint * TestServer::ownshipSocket = nullptr;
 SensorEndpoint * TestServer::adsbSocket = nullptr;
 SensorEndpoint * TestServer::tcasSocket = nullptr;
+
 SensorEndpoint * TestServer::getOwnshipSocket()
 {
     return ownshipSocket;
