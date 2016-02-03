@@ -32,6 +32,8 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData
          plane->set_severity(CDTIPlane::PROXIMATE);
       }
 
+      plane->set_severity(CDTIPlane::PROXIMATE);
+
       list->push_back(plane);
        */
    }

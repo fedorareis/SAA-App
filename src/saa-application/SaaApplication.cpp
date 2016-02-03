@@ -80,7 +80,7 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
+   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
    return adsbPlane;
 }
 
@@ -110,7 +110,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
       std::cout << "got ownship data\n";
-      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship);
+      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
    std::cout << "Ownship Thread done\n";
