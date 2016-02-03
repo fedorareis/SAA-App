@@ -4,15 +4,8 @@
 
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
-#include <common/sockets/SocketException.h>
 #include <mlpack/methods/kmeans/kmeans.hpp>
-#include <armadillo>
-
 #include "Correlation.h"
-#include "common/protobuf/adsb.pb.h"
-#include "common/protobuf/ownship.pb.h"
-#include "common/protobuf/radar.pb.h"
-#include "common/protobuf/tcas.pb.h"
 
 using namespace mlpack::kmeans;
 
