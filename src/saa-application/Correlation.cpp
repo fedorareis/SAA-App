@@ -36,7 +36,7 @@ std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
    // The centroids will be stored in this matrix.
    arma::mat pos_x_cen, pos_y_cen, pos_z_cen, vel_x_cen, vel_y_cen, vel_z_cen;
    // Initialize with the default arguments.
-   KMeans<> k;
+   KMeans<> km;
 
    // Add individual sensor info (positions and velocities) into respective lists
    for (i = 0; i < planes.size(); i++)
@@ -60,12 +60,12 @@ std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
    vel_y_data = arma::mat(velocities_y);
    vel_z_data = arma::mat(velocities_z);
 
-   k.Cluster(pos_x_data, clusters, pos_x_assign, pos_x_cen);
-   k.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
-   k.Cluster(pos_z_data, clusters, pos_z_assign, pos_z_cen);
-   k.Cluster(vel_x_data, clusters, vel_x_assign, vel_x_cen);
-   k.Cluster(vel_y_data, clusters, vel_y_assign, vel_y_cen);
-   k.Cluster(vel_z_data, clusters, vel_z_assign, vel_z_cen);
+   km.Cluster(pos_x_data, clusters, pos_x_assign, pos_x_cen);
+   km.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
+   km.Cluster(pos_z_data, clusters, pos_z_assign, pos_z_cen);
+   km.Cluster(vel_x_data, clusters, vel_x_assign, vel_x_cen);
+   km.Cluster(vel_y_data, clusters, vel_y_assign, vel_y_cen);
+   km.Cluster(vel_z_data, clusters, vel_z_assign, vel_z_cen);
 
    // STILL FIGURING OUT THE THING -- vice versa tho
 
