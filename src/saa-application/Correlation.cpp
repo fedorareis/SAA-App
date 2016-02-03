@@ -21,7 +21,7 @@ void Correlation::report()
    std::cout << "We are correlating some stuff" << std::endl;
 }
 
-std::vector<SensorData> Correlation::correlate(std::vector<SensorData> planes)
+std::vector<CDTIPlane> Correlation::correlate(std::vector<SensorData> planes)
 {
    std::vector<double> positions_x;
    std::vector<double> positions_y;

@@ -4,7 +4,7 @@
 
 #include "SensorData.h"
 
-CDTIPlane*SensorData::getCDTIPlane()
+CDTIPlane* SensorData::getCDTIPlane()
 {
    severity = CDTIPlane::PROXIMATE;
 

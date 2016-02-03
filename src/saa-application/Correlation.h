@@ -6,12 +6,13 @@
 #define SAA_APPLICATION_CORRELATION_H
 
 #include "SensorData.h"
+#include "common/protobuf/cdti.pb.h"
 
 class Correlation
 {
    public:
       void report();
       //void addPlane(/* When we have a plane class pass one in here*/);
-      virtual std::vector<SensorData> correlate(std::vector<SensorData> planes);
+      virtual std::vector<CDTIPlane> correlate(std::vector<SensorData> planes);
 };
 #endif //SAA_APPLICATION_CORRELATION_H

@@ -5,8 +5,8 @@
  * relative to the Ownship.
 */
 
-#ifndef SAA_APPLICATION_PLANE_H
-#define SAA_APPLICATION_PLANE_H
+#ifndef SAA_APPLICATION_SENSORDATA_H
+#define SAA_APPLICATION_SENSORDATA_H
 
 #include <string>
 #include <common/Maths.h>
@@ -61,4 +61,4 @@ private:
    CDTIPlane::Severity severity;
 };
 
-#endif //SAA_APPLICATION_PLANE_H
+#endif //SAA_APPLICATION_SENSORDATA_H
