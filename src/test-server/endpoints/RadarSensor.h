@@ -26,6 +26,7 @@ class RadarSensor : public Sensor {
 
    FRIEND_TEST(RadarSensorTest, testBasicReport);
    FRIEND_TEST(RadarSensorTest, testVelocity);
+   FRIEND_TEST(RadarSensorTest, testElevation);
 };
 
 
