@@ -51,6 +51,11 @@ public:
       return Vector3d(position->x(),position->y(),position->z());
    }
 
+   Vector3d  getVelocity()
+   {
+      return Vector3d(velocity->x(),velocity->y(),velocity->z());
+   }
+
 
 private:
    Sensor sensor;
