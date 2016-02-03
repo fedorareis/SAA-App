@@ -40,6 +40,37 @@ struct Vector3d
 
 };
 
+struct Vector2d
+{
+   Vector2d():
+      x(0),
+      y(0)
+   {}
+
+   Vector2d(double x,double y):
+         x(x),
+         y(y)
+   {}
+
+   Vector2d normalized()
+   {
+      double recipLen = 1/sqrt(x*x+y*y);
+      return Vector2d(x*recipLen, y*recipLen);
+   }
+   double length()
+   {
+      return sqrt(x*x+y*y);
+   }
+
+   static double Dot(Vector2d a, Vector2d b)
+   {
+      return a.x*b.x + a.y*b.y;
+   }
+   double x, y;
+
+};
+
+Vector3d getDifference(Vector3d latLongAlt1, Vector3d latLongAlt2);
 float calcDistance(float lat1, float lon1, float lat2, float lon2);
 
 float fpsToNmph(float fps);

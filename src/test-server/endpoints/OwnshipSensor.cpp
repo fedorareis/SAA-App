@@ -17,7 +17,11 @@ Sensor(endpoint){
     required float east = 6; // ownship velocity east
     required float down = 7; // ownship velocity down
  */
-void OwnshipSensor::sendData(const TestServerPlane & plane)
+/**
+ * Bit of a strange interface, since both planes are ownship.
+ * @TODO Refactor this!
+ */
+void OwnshipSensor::sendData(const TestServerPlane & plane, const TestServerPlane & ownship)
 {
    OwnshipReport report;
    report.set_timestamp((long)plane.getTimestamp());

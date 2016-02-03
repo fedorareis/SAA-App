@@ -27,6 +27,7 @@ class TestServerPlane {
    void setTailNumber(std::string name);
    void setLatLongAlt(Vector3d latLongAlt);
    void setNorthEastDownVelocity(Vector3d ned);
+
    float getLatitude() const;
    float getLongitude() const;
    float getAltitude() const;

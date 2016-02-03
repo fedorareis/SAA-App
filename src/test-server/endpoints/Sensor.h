@@ -22,7 +22,7 @@ class Sensor {
    void setEndpoint(SensorEndpoint * endpoint) {this->endpoint = endpoint;}
    private:
    SensorEndpoint * endpoint;
-   virtual void sendData(const TestServerPlane & plane) = 0;
+   virtual void sendData(const TestServerPlane & plane, const TestServerPlane & other) = 0;
 };
 
 

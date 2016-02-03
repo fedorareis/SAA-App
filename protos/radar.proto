@@ -1,0 +1,16 @@
+option java_package = "edu.calpoly.capstone.sensor";
+option java_outer_classname = "Radar";
+message RadarReport {
+    required sfixed64 timestamp = 1; // time of target report
+    required float range = 2; // intruder relative distance
+    required float  azimuth = 3; // intruder horizontal angle
+    required float elevation = 4; // intruder vertical angle
+    required sfixed32 id = 5; // intruder ID
+    required float north = 6; // intruder velocity north
+    required float east = 7; // intruder velocity east
+    required float down = 8; // intruder velocity down
+    required sfixed32 latitude = 9; // ownship latitude
+    required sfixed32 longitude = 10; // ownship longitude
+    required sfixed32 altitude = 11; // ownship GPS altitude
+    optional uint32 plane_id = 12; // plane id used for verification
+}
