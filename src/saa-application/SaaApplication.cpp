@@ -15,6 +15,8 @@
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
+float FEET_PER_NAUT = 6076.12; //@TODO get rid of this
+
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex mtx;
@@ -108,11 +110,12 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = "" + radar.id();
-   float horizRange = 0;
+   float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
+   float vertRange = positionZ / FEET_PER_NAUT; //@TODO change to the one Kyle P. defined
+   float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);
 
-   float positionZ = 0;
-   float positionX = 0;
-   float positionY = 0;
+   float positionX = horizRange * cos(radar.azimuth());
+   float positionY = horizRange * sin(radar.azimuth());
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
