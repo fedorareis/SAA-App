@@ -38,3 +38,15 @@ bool operator==(const Vector3d& lhs, const Vector3d& rhs)
            lhs.z == rhs.z;
 }
 
+Vector3d getDifference(Vector3d latLongAlt1, Vector3d latLongAlt2) {
+   float positionX = calcDistance(plane.getLatitude(), ownship.getLatitude(), ownship.getLatitude(),
+                                  ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1);
+   float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
+                                  ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
+
+   float positionZ = plane.getAltitude()-ownship.getAltitude();
+
+   return Vector3d(positionX,positionY,positionZ);
+
+
+}
