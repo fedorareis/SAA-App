@@ -38,8 +38,8 @@ struct Vector3d
    double x;
    double y;
    double z;
-
 };
+bool operator==(Vector3d lhs, Vector3d rhs);
 
 struct Vector2d
 {

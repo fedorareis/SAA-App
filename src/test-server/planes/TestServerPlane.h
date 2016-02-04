@@ -49,7 +49,7 @@ class TestServerPlane {
    void setTcasId(int tc);
    void setRadarId(int rd);
 
-   private:
+private:
    double t;
    Motion * motionPtr;
    Vector3d northEastDownVel;

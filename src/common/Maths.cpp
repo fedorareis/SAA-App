@@ -30,3 +30,11 @@ float bearingToRadians(float bearing) {
     return -bearing * M_PI / 180;
 }
 
+
+bool operator==(const Vector3d& lhs, const Vector3d& rhs)
+{
+    return lhs.x == rhs.x &&
+           lhs.y == rhs.y &&
+           lhs.z == rhs.z;
+}
+

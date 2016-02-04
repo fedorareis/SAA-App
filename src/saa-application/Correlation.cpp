@@ -91,15 +91,15 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
          CorrelatedData data = correlatedPlanes.at(innerNdx);
 
          if ((fabs(data.getPosition().x - pos_x_assign(ndx)) < 0.01) &&
-               (fabs(data.getPosition().y - pos_y_assign(ndx)) < 0.01) &&
-               (fabs(data.getPosition().z - pos_z_assign(ndx)) < 0.01) &&
-               (fabs(data.getVelocity().x - vel_x_assign(ndx)) < 0.01) &&
-               (fabs(data.getVelocity().y - vel_y_assign(ndx)) < 0.01) &&
-               (fabs(data.getVelocity().z - vel_z_assign(ndx)) < 0.01))
+             (fabs(data.getPosition().y - pos_y_assign(ndx)) < 0.01) &&
+             (fabs(data.getPosition().z - pos_z_assign(ndx)) < 0.01) &&
+             (fabs(data.getVelocity().x - vel_x_assign(ndx)) < 0.01) &&
+             (fabs(data.getVelocity().y - vel_y_assign(ndx)) < 0.01) &&
+             (fabs(data.getVelocity().z - vel_z_assign(ndx)) < 0.01))
          {
             break;
          }
-         // If assignment does not exist, create new CorrelatedData
+            // If assignment does not exist, create new CorrelatedData
          else
          {
             correlatedPlanes.push_back(CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
@@ -110,7 +110,7 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
       {
          correlatedPlanes.push_back(CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
       }
-      // Size won't change if assignment exists in vector<CorrelatedData>
+         // Size won't change if assignment exists in vector<CorrelatedData>
       else if(originalSize == correlatedPlanes.size())
       {
          // If sensor does not exist, add sensor flag

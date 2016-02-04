@@ -30,14 +30,16 @@ include_directories (${PROJECT_SOURCE_DIR}/test)
 
 
 #Add all the tests
-add_executable (saa_test  ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
+add_executable (test_all  ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
+add_executable(test_testserver ${MOCKS_SOURCES} ${TEST_SERVER_TEST_SOURCES})
 #Link all of the sources
-target_link_libraries (saa_test cdti-sources common-sources
+target_link_libraries (test_all cdti-sources common-sources
                        saa-application-sources test-server-sources
                        protobuf mlpack gtest gmock gtest_main)
+target_link_libraries(test_testserver common-sources test-server-sources gtest gmock gtest_main)
 
-set_property(TARGET saa_test PROPERTY FOLDER "executables")
+set_property(TARGET test_all PROPERTY FOLDER "executables")
 
 # Adds logic to INSTALL.vcproj to copy saa_test.exe to destination directory
-install (TARGETS saa_test
+install (TARGETS test_all
 		 RUNTIME DESTINATION ${PROJECT_BINARY_DIR}/bin)
