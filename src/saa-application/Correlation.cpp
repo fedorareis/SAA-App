@@ -7,6 +7,7 @@
 #include <common/sockets/SocketException.h>
 #include <mlpack/methods/kmeans/kmeans.hpp>
 #include <armadillo>
+#include <math.h>
 
 #include "Correlation.h"
 #include "common/protobuf/adsb.pb.h"
