@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "math.h"
 #include <common/Maths.h>
 #include "Decision.h"
 
@@ -16,25 +17,31 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData
    // Iterates over the list and assigns a Severity to it.
    for (std::vector<CorrelatedData>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
-      /*
       CDTIPlane* plane = it->getCDTIPlane();
-      if(it->getPosition().distance(Vector3d(0,0,0)) < 3)
+      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50)
+      {
+         // Should be AIR
+         plane->set_severity(CDTIPlane::RESOLUTION);
+      }
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300)
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
-      else if(it->getPosition().distance(Vector3d(0,0,0)) < 5)
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500)
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
       }
-      else if(it->getPosition().distance(Vector3d(0,0,0)) < 10)
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 10 && fabs(it->getPosition().z) < 1000)
       {
          plane->set_severity(CDTIPlane::PROXIMATE);
       }
-
-      plane->set_severity(CDTIPlane::PROXIMATE);
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 20 && fabs(it->getPosition().z) < 2000)
+      {
+         // Should be CRASH
+         plane->set_severity(CDTIPlane::PROXIMATE);
+      }
 
       list->push_back(plane);
-       */
    }
 
 }
