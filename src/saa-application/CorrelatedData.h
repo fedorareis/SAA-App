@@ -55,7 +55,8 @@ public:
       plane->set_allocated_velocity(velocity);
 
       for(int ndx = 0; ndx < planeTags.size(); ndx++) {
-         plane->set_planetags(ndx, planeTags.at(ndx));
+         plane->add_planetags(planeTags.at(ndx));
+         //plane->set_planetags(ndx, planeTags.at(ndx));
       }
 
       return plane;
