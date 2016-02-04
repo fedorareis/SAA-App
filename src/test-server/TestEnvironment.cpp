@@ -67,27 +67,25 @@ void TestEnvironment::start(TestCase & tc)
 {
    bool sendADSB = tc.getOwnship().getADSBEnabled();
    bool sendRadar = tc.getOwnship().getRadarEnabled();
+   bool sendTcas = tc.getOwnship().getTcasEnabled();
    Validator validator(tc, this->cdtiSocket);
    try{
-      while(tc.isRunning())
-      {
+      while(tc.isRunning()) {
 
-         ownshipSensor.sendData(tc.getOwnship(),tc.getOwnship());
+         ownshipSensor.sendData(tc.getOwnship(), tc.getOwnship());
 
-
-            for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
-               if (sendAdsb && plane->getADSBEnabled()) {
-                  adsbSensor.sendData(*plane, tc.getOwnship());
-               }
-               if (true){//plane->getTcasEnabled()) {
-                  tcasSensor.sendData(*plane, tc.getOwnship());
-               }
-               if (true)
-               {
-                  radarSensor.sendData(*plane, tc.getOwnship());
-               }
+         for (auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
+            if (sendADSB && plane->getADSBEnabled()) {
+               adsbSensor.sendData(*plane, tc.getOwnship());
+            }
+            if (plane->getTcasEnabled() && sendTcas) {
+               tcasSensor.sendData(*plane, tc.getOwnship());
+            }
+            if (sendRadar) {
+               radarSensor.sendData(*plane, tc.getOwnship());
             }
          }
+
          tc.update(1);
          sleep(1); //sleep for one second before sending next data batch.
       }

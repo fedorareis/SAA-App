@@ -127,6 +127,7 @@ latLongAlt(other.latLongAlt),
 northEastDownVel(other.northEastDownVel),
 isADSBEnabled(other.isADSBEnabled),
 isTCasEnabled(other.isTCasEnabled),
+isRadarEnabled(other.isRadarEnabled),
 motionPtr(nullptr)
 {
    if(other.motionPtr != nullptr)
@@ -156,11 +157,13 @@ TestServerPlane &TestServerPlane::operator=(const TestServerPlane &rhs) {
    this->northEastDownVel = rhs.northEastDownVel;
    this->isADSBEnabled = rhs.isADSBEnabled;
    this->isTCasEnabled = rhs.isTCasEnabled;
+   this->isRadarEnabled = rhs.isRadarEnabled;
    this->tailNumber = rhs.tailNumber;
    if(this->motionPtr)
       delete motionPtr;
    this->motionPtr = rhs.motionPtr->clone();
    this->t = rhs.t;
+
    return *this;
 }
 
