@@ -39,10 +39,11 @@ bool TestEnvironment::acceptConnections()
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    std::thread t3(acceptNetworkConnection,&this->tcasSensor,TestServer::getTcasSocket());
-
+   std::thread t4(acceptNetworkConnection, &this->radarSensor,TestServer::getRadarSocket());
    t1.join();
    t2.join();
    t3.join();
+   t4.join();
 
    this->cdtiSocket = std::shared_ptr<ClientSocket>(new ClientSocket());
 
@@ -65,18 +66,26 @@ bool TestEnvironment::acceptConnections()
 void TestEnvironment::start(TestCase & tc)
 {
    bool sendADSB = tc.getOwnship().getADSBEnabled();
+   bool sendRadar = tc.getOwnship().getRadarEnabled();
    Validator validator(tc, this->cdtiSocket);
    try{
       while(tc.isRunning())
       {
 
          ownshipSensor.sendData(tc.getOwnship(),tc.getOwnship());
-         if(sendADSB)
-         {
 
-            for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
-            {
-               adsbSensor.sendData(*plane,tc.getOwnship() );
+
+            for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
+               if (sendAdsb && plane->getADSBEnabled()) {
+                  adsbSensor.sendData(*plane, tc.getOwnship());
+               }
+               if (true){//plane->getTcasEnabled()) {
+                  tcasSensor.sendData(*plane, tc.getOwnship());
+               }
+               if (true)
+               {
+                  radarSensor.sendData(*plane, tc.getOwnship());
+               }
             }
          }
          tc.update(1);
@@ -84,6 +93,8 @@ void TestEnvironment::start(TestCase & tc)
       }
       adsbSensor.close();
       ownshipSensor.close();
+      tcasSensor.close();
+      radarSensor.close();
    }
    catch(SocketException exc)
    {

@@ -181,6 +181,7 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane & aircraft)
          if (isAttribute(sensor, "enabled")) {
             if(!std::strcmp(sensor->first_attribute("enabled")->value(),"true")) {
                aircraft.setTcasEnabled(true);
+               aircraft.setTcasId(test.getNextTcasId());
             }
             else {
                aircraft.setTcasEnabled(false);
@@ -201,12 +202,14 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane & aircraft)
       xml_node<> *sensor = node->first_node("radar");
       // checks that sensor exists
       if (sensor) {
-         /*
+
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
-            std::cout << "   Radar = " << sensor->first_attribute("enabled")->value()<<std::endl;
+            aircraft.setRadarEnabled(true);
+            aircraft.setRadarId(test.getNextRadarId());
          }
          // checks if error value is specified
+         /*
          if (isAttribute(sensor, "error")) {
             std::cout << "      radar error = " << sensor->first_attribute("error")->value() << std::endl;
          }
