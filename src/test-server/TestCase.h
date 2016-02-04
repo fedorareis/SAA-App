@@ -43,11 +43,20 @@ public:
 
    bool isRunning();
 
+
+   int getNextTcasId();
+   int getNextRadarId();
+
    private:
    float t;
    TestServerPlane ownship;
    std::vector<TestServerPlane> otherPlanes;
    std::string name;
+
+
+
+   int radarId;
+   int tcasId;
 };
 
 

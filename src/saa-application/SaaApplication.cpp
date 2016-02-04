@@ -91,7 +91,7 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
  */
 SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
-   std::string tailNumber = "" + tcas.id();
+   std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
    float horizRange = sqrt(tcas.altitude() * tcas.altitude() - tcas.range() * tcas.range());
    float positionX = (float)(horizRange * cos(bearingToRadians(tcas.bearing())));
@@ -109,7 +109,7 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
  */
 SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
-   std::string tailNumber = "" + radar.id();
+   std::string tailNumber = std::to_string(radar.id());
    float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
    float vertRange = positionZ / FEET_PER_NAUT; //@TODO change to the one Kyle P. defined
    float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);

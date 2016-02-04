@@ -48,6 +48,8 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    report.set_longitude(ownship.getLongitude());
    report.set_latitude(ownship.getLatitude());
    report.set_altitude(ownship.getAltitude());
+   report.set_id(plane.getRadarId());
+   report.set_timestamp(plane.getTimestamp());
 
 
    return report;

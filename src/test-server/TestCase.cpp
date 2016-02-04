@@ -7,7 +7,9 @@
 #include "TestCase.h"
 #include "common/Maths.h"
 TestCase::TestCase() :
-ownship(TestServerPlane())
+ownship(TestServerPlane()),
+radarId(0),
+tcasId(0)
 {
 
 }
@@ -67,4 +69,13 @@ void TestCase::setTotalTime(float totalTime) {
 
 bool TestCase::isRunning() {
    return t > 0;
+}
+
+int TestCase::getNextTcasId()
+{
+   return tcasId++;
+}
+int TestCase::getNextRadarId()
+{
+   return radarId++;
 }
