@@ -5,7 +5,6 @@
 #ifndef SAA_APPLICATION_DECISION_H
 #define SAA_APPLICATION_DECISION_H
 
-#include "common/protobuf/cdti.pb.h"
 #include "CorrelatedData.h"
 
 class Decision

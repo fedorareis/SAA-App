@@ -5,7 +5,6 @@
 #include <iostream>
 #include <fstream>
 #include <common/Maths.h>
-#include "common/protobuf/cdti.pb.h"
 #include "Decision.h"
 
 void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes, CDTIPlane::Severity* severity)

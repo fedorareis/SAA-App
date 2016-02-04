@@ -7,7 +7,6 @@
 
 #include "SensorData.h"
 #include "CorrelatedData.h"
-#include "common/protobuf/cdti.pb.h"
 
 class Correlation
 {
