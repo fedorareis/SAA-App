@@ -11,6 +11,7 @@
 class CorrelatedData {
 
 public:
+   // constructor that takes in position and velocity
    CorrelatedData (float positionX, float positionY, float positionZ,
                    float velocityX, float velocityY, float velocityZ)
    {
@@ -24,20 +25,26 @@ public:
       velocity->set_z(velocityZ);
    }
 
-   void addSensor(Sensor sensor) {
-      sensors.push_back(sensor);
-   }
-
-   void setPlanTag(int planeId)
+   // adds sensor and its planetag to the vector
+   void addSensor(Sensor sensor, int planeId)
    {
-      planeTag=planeId;
+      sensors.push_back(sensor);
+      planeTags.push_back(planeId);
    }
 
+   // setter for time stamp
+   void setTimeStamp(double stamp)
+   {
+      timeStamp = stamp;
+   }
+
+   // gets the list of sensors
    std::vector<Sensor> getSensor()
    {
       return sensors;
    }
 
+   // returns the CDTIPlane
    CDTIPlane* getCDTIPlane()
    {
       severity = CDTIPlane::PROXIMATE;
@@ -46,24 +53,29 @@ public:
       plane->set_severity(severity);
       plane->set_allocated_position(position);
       plane->set_allocated_velocity(velocity);
-      plane->set_planetags(0, planeTag);
+
+      for(int ndx = 0; ndx < planeTags.size(); ndx++) {
+         plane->set_planetags(ndx, planeTags.at(ndx));
+      }
 
       return plane;
    }
 
+   // returns the position
    Vector3d  getPosition()
    {
       return Vector3d(position->x(),position->y(),position->z());
    }
 
+   // returns the velocity
    Vector3d  getVelocity()
    {
       return Vector3d(velocity->x(),velocity->y(),velocity->z());
    }
 
-   int getPlaneTag()
+   std::vector<int> getPlaneTags()
    {
-      return planeTag;
+      return planeTags;
    }
 
    double getTimeStamp()
@@ -72,13 +84,13 @@ public:
    }
 
 private:
-   std::vector<Sensor> sensors; // list of sensor!
+   std::vector<Sensor> sensors; // list of sensors that were used to correlate this plane
+   std::vector<int> planeTags; // list of planeTags from each of the sensors
    std::string tailNumber;
    Vector *velocity;
    Vector *position;
    CDTIPlane *plane = new CDTIPlane();
    CDTIPlane::Severity severity;
-   int planeTag;
    double timeStamp;
 };
 
