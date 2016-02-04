@@ -13,6 +13,7 @@
 #include "TestCase.h"
 #include <memory>
 #include <test-server/endpoints/TcasSensor.h>
+#include <test-server/endpoints/RadarSensor.h>
 
 class TestEnvironment {
    public:
@@ -24,9 +25,9 @@ class TestEnvironment {
       AdsbSensor adsbSensor = AdsbSensor(new SocketSensorEndpoint());
       OwnshipSensor ownshipSensor = OwnshipSensor(new SocketSensorEndpoint());
       TcasSensor tcasSensor = TcasSensor(new SocketSensorEndpoint());
+      RadarSensor radarSensor = RadarSensor(new SocketSensorEndpoint());
+
       std::shared_ptr<ClientSocket> cdtiSocket;
-
-
 
 
 };

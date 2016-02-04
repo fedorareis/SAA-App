@@ -34,7 +34,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    report.set_altitude(positionZ);
 
    report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
-
+   report.set_id(plane.getTcasId());
    return report;
 }
 
