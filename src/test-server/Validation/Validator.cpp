@@ -3,9 +3,8 @@
 //
 
 #include "Validator.h"
-#include "test-server/Validation/errors/PlaneCorrelationError.h"
 
-
+std::vector<std::shared_ptr<VerificationTest>> Validator::testers = {};
 
 Validator::Validator(const TestCase tc, std::shared_ptr<ClientSocket> receptionSocket):
 tc(tc)
@@ -22,13 +21,20 @@ void Validator::endSimulation()
 {
    reportThread.join();
    unsigned long expectedPlanes = tc.getPlanes().size();
-   for (auto result : results) {
-
-      if(result.getPlanes().size() != expectedPlanes)
+   for (auto result : results)
+   {
+      for (auto tester: testers)
       {
-         errors.push_back(std::shared_ptr<PlaneCorrelationError> (new PlaneCorrelationError(tc.getPlanes().size(),
-                                                    result.getPlanes().size(), result.getTime())));
+         if (!tester->verify(result))
+         {
+            errors.push_back(tester->getError());
+         }
       }
+//      if(result.getPlanes().size() != expectedPlanes)
+//      {
+//         errors.push_back(std::shared_ptr<PlaneCorrelationError> (new PlaneCorrelationError(tc.getPlanes().size(),
+//                                                    result.getPlanes().size(), result.getTime())));
+//      }
    }
 }
 
@@ -60,4 +66,9 @@ void Validator::ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSock
 bool Validator::hasReceivedResults() const
 {
    return this->gotResults;
+}
+
+void Validator::addTester(std::shared_ptr<VerificationTest> tester)
+{
+   testers.push_back(tester);
 }

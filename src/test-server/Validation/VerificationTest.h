@@ -15,8 +15,8 @@ public:
     VerificationTest(std::shared_ptr<TestCase> tc): tc(tc){}
     virtual bool verify(TestCaseResult& result) = 0;
 
-    TestCaseError &getError()
-    { return *error; }
+    std::shared_ptr<TestCaseError> getError()
+    { return error; }
 
    protected:
       const std::shared_ptr<TestCase> tc;
