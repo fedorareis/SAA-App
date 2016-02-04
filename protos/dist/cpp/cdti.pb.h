@@ -319,18 +319,6 @@ class CDTIPlane : public ::google::protobuf::Message {
   ::CDTIPlane_Severity severity() const;
   void set_severity(::CDTIPlane_Severity value);
 
-  // repeated int32 planeTags = 5;
-  int planetags_size() const;
-  void clear_planetags();
-  static const int kPlaneTagsFieldNumber = 5;
-  ::google::protobuf::int32 planetags(int index) const;
-  void set_planetags(int index, ::google::protobuf::int32 value);
-  void add_planetags(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      planetags() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_planetags();
-
   // @@protoc_insertion_point(class_scope:CDTIPlane)
  private:
   inline void set_has_id();
@@ -351,7 +339,6 @@ class CDTIPlane : public ::google::protobuf::Message {
   ::google::protobuf::internal::ArenaStringPtr id_;
   ::Vector* position_;
   ::Vector* velocity_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > planetags_;
   int severity_;
   friend void  protobuf_AddDesc_cdti_2eproto();
   friend void protobuf_AssignDesc_cdti_2eproto();
@@ -773,36 +760,6 @@ inline void CDTIPlane::set_severity(::CDTIPlane_Severity value) {
   set_has_severity();
   severity_ = value;
   // @@protoc_insertion_point(field_set:CDTIPlane.severity)
-}
-
-// repeated int32 planeTags = 5;
-inline int CDTIPlane::planetags_size() const {
-  return planetags_.size();
-}
-inline void CDTIPlane::clear_planetags() {
-  planetags_.Clear();
-}
-inline ::google::protobuf::int32 CDTIPlane::planetags(int index) const {
-  // @@protoc_insertion_point(field_get:CDTIPlane.planeTags)
-  return planetags_.Get(index);
-}
-inline void CDTIPlane::set_planetags(int index, ::google::protobuf::int32 value) {
-  planetags_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CDTIPlane.planeTags)
-}
-inline void CDTIPlane::add_planetags(::google::protobuf::int32 value) {
-  planetags_.Add(value);
-  // @@protoc_insertion_point(field_add:CDTIPlane.planeTags)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-CDTIPlane::planetags() const {
-  // @@protoc_insertion_point(field_list:CDTIPlane.planeTags)
-  return planetags_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-CDTIPlane::mutable_planetags() {
-  // @@protoc_insertion_point(field_mutable_list:CDTIPlane.planeTags)
-  return &planetags_;
 }
 
 // -------------------------------------------------------------------

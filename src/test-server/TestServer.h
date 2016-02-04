@@ -20,6 +20,9 @@ class TestServer{
    static SensorEndpoint * getAdsbSocket();
    static SensorEndpoint * getTcasSocket();
    static SensorEndpoint * getRadarSocket();
+
+   static void provideRadarEndpoint(SensorEndpoint *endpoint);
+
    private:
    static SensorEndpoint * ownshipSocket;
    static SensorEndpoint * adsbSocket;

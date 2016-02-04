@@ -14,6 +14,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
                                   ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1);
    float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
                                   ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
+
    float positionZ = plane.getAltitude()-ownship.getAltitude();
 
    Vector2d difference = Vector2d(positionX,positionY).normalized();
@@ -24,15 +25,16 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
                                         difference));
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
-   float bearing = 180/M_PI * angle * (difference.x > 0 ? -1 : 1);
+   float bearing = 180.f/M_PI * angle * (difference.x > 0 ? -1 : 1);
 
 
 
    TcasReport report;
    report.set_bearing(bearing);
    report.set_altitude(positionZ);
-   report.set_range(range);
 
+   report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
+   report.set_id(plane.getTcasId());
    return report;
 }
 

@@ -9,6 +9,7 @@
 
 #define EARTH_RADIUS 3440.0
 #define KNOT_CONVERSION 0.592484
+#define NAUT_MILES_TO_FEET 6076.12
 
 struct Vector3d
 {
