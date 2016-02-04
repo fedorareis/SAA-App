@@ -1,6 +1,7 @@
-//
-// Created by Kyle Piddington on 11/15/15.
-//
+/*
+ * Created by Kyle Piddington on 11/15/15.
+ * Main Author: Jacob Hardi
+ */
 
 #include <iostream>
 #include <vector>
