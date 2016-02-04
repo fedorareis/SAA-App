@@ -90,12 +90,12 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
       {
          CorrelatedData data = correlatedPlanes.at(innerNdx);
 
-         if ((fabs(data.getPosition().x - pos_x_assign) < 0.01) &&
-               (fabs(data.getPosition().y - pos_y_assign) < 0.01) &&
-               (fabs(data.getPosition().z - pos_z_assign) < 0.01) &&
-               (fabs(data.getVelocity().x - vel_x_assign) < 0.01) &&
-               (fabs(data.getVelocity().y - vel_y_assign) < 0.01) &&
-               (fabs(data.getVelocity().z - vel_z_assign) < 0.01))
+         if ((fabs(data.getPosition().x - pos_x_assign(ndx)) < 0.01) &&
+               (fabs(data.getPosition().y - pos_y_assign(ndx)) < 0.01) &&
+               (fabs(data.getPosition().z - pos_z_assign(ndx)) < 0.01) &&
+               (fabs(data.getVelocity().x - vel_x_assign(ndx)) < 0.01) &&
+               (fabs(data.getVelocity().y - vel_y_assign(ndx)) < 0.01) &&
+               (fabs(data.getVelocity().z - vel_z_assign(ndx)) < 0.01))
          {
             break;
          }
