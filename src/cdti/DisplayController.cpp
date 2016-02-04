@@ -7,6 +7,7 @@ void DisplayController::run()
 {
     display.setupLayout();
     std::cout << "DISPLAY RUNNING!" << std::endl;
+    display.show();
     socketThread = new std::thread(std::thread( [this] { this->listenOnSocket(); } ));
 }
 

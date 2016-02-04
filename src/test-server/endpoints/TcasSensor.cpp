@@ -36,6 +36,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
 
    report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
    report.set_id(plane.getTcasId());
+
    std::cout << "TCAS:" << range << "," << bearing << "," << positionZ << std::endl;
    return report;
 }
