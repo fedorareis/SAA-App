@@ -20,12 +20,13 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    Vector2d difference = Vector2d(positionX,positionY).normalized();
    std::cout << difference.x << "," << difference.y << std::endl;
    std::cout << ownship.getNorthVelocity() << "," << ownship.getEastVelocity() << std::endl;
-
+   Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
    float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
                                         difference));
+   bool negBearing = Vector2d::Dot(leftVec,difference) <= 0;
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
-   float bearing = 180.f/M_PI * angle * (difference.x > 0 ? -1 : 1);
+   float bearing = 180.f/M_PI * angle * (negBearing ? -1 : 1);
 
 
 
@@ -35,6 +36,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
 
    report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
    report.set_id(plane.getTcasId());
+   std::cout << "TCAS:" << range << "," << bearing << "," << positionZ << std::endl;
    return report;
 }
 

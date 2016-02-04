@@ -95,7 +95,8 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
-   float horizRange = sqrt(tcas.altitude() * tcas.altitude() - tcas.range() * tcas.range());
+   float horizRange = sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude() );
+   //@TODO: Add in velocity to fix this. Will be using flat x movement for demo.
    float positionX = (float)(horizRange * cos(bearingToRadians(tcas.bearing())));
    float positionY = (float)(horizRange * sin(bearingToRadians(tcas.bearing())));
    float velocityX = 0;
@@ -150,7 +151,6 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    while(ownSock.hasData())
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
-      std::cout << "got ownship data\n";
       SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
@@ -168,7 +168,6 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      std::cout << "got an adsb Plane\n";
       mtx.lock();
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
@@ -187,7 +186,6 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      std::cout << "got an tcas Plane\n";
       mtx.lock();
       planes.push_back(tcasToRelative(tcas, ownship));
       mtx.unlock();
@@ -206,7 +204,6 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      std::cout << "got an radar Plane\n";
       mtx.lock();
       planes.push_back(radarToRelative(radar, ownship));
       mtx.unlock();

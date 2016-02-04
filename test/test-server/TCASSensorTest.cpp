@@ -25,7 +25,7 @@ TEST(TCAS,createTcasMessage)
 
    ownship.setNorthEastDownVelocity(Vector3d(1,-1,0));
    report = TcasSensor::createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(-45,report.bearing());
+   ASSERT_FLOAT_EQ(45,report.bearing());
 
 }
 
@@ -48,6 +48,6 @@ TEST(TCAS,testAltitudeDistance)
 
    ownship.setNorthEastDownVelocity(Vector3d(1,-1,0));
    report = TcasSensor::createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(-45,report.bearing());
+   ASSERT_FLOAT_EQ(45,report.bearing());
 
 }
