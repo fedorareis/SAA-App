@@ -11,7 +11,8 @@
 #include <common/sockets/ClientSocket.h>
 #include <thread>
 #include "TestCaseResult.h"
-#include "TestCaseError.h"
+#include "test-server/Validation/errors/TestCaseError.h"
+#include "VerificationTest.h"
 
 /**
  * The Validator takes in a test case, and a socket to accept
@@ -31,12 +32,16 @@ public:
    const std::vector<std::shared_ptr<TestCaseError>> & getErrors()const;
    bool hasReceivedResults() const;
    bool hasErrors()const;
-   private:
+
+    static void addTester(std::shared_ptr<VerificationTest> tester);
+
+private:
 
    std::thread reportThread;
    //Results sorted by timestamp
    const TestCase tc;
    std::vector<TestCaseResult> results;
+    static std::vector<std::shared_ptr<VerificationTest>> testers;
    std::vector<std::shared_ptr<TestCaseError> > errors;
    bool gotResults;
    static void ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSocket> sock);
