@@ -5,8 +5,8 @@
  * relative to the Ownship.
 */
 
-#ifndef SAA_APPLICATION_PLANE_H
-#define SAA_APPLICATION_PLANE_H
+#ifndef SAA_APPLICATION_SENSORDATA_H
+#define SAA_APPLICATION_SENSORDATA_H
 
 #include <string>
 #include <common/Maths.h>
@@ -24,7 +24,7 @@ class SensorData
 {
 public:
    SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
-              float velocityZ, Sensor sensor) :
+              float velocityZ, Sensor sensor, int planeId, double time) :
          tailNumber(tailNumber), sensor(sensor)
    {
       velocity = new Vector();
@@ -35,6 +35,8 @@ public:
       position->set_x(positionX);
       position->set_y(positionY);
       position->set_z(positionZ);
+      planeTag = planeId;
+      timeStamp = time;
    }
 
    void printPos();
@@ -51,6 +53,21 @@ public:
       return Vector3d(position->x(),position->y(),position->z());
    }
 
+   Vector3d  getVelocity()
+   {
+      return Vector3d(velocity->x(),velocity->y(),velocity->z());
+   }
+
+   int getPlaneTag()
+   {
+      return planeTag;
+   }
+
+   double getTimeStamp()
+   {
+      return timeStamp;
+   }
+
 
 private:
    Sensor sensor;
@@ -59,6 +76,8 @@ private:
    Vector *position;
    CDTIPlane *plane = new CDTIPlane();
    CDTIPlane::Severity severity;
+   int planeTag;
+   double timeStamp;
 };
 
-#endif //SAA_APPLICATION_PLANE_H
+#endif //SAA_APPLICATION_SENSORDATA_H
