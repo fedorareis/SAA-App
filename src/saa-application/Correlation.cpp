@@ -25,12 +25,14 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
 {
    std::vector<CorrelatedData> correlatedPlanes;
    std::vector<double> positions_x, positions_y, positions_z, velocities_x, velocities_y, velocities_z;
-   int i, j, k, l, m, n;
+   int i, j, k, l, m, n, ndx, innerNdx;
+   int size = planes.size(), originalSize;
+   CorrelatedData data;
 
    // The dataset(s) we are clustering.
    arma::mat pos_x_data, pos_y_data, pos_z_data, vel_x_data, vel_y_data, vel_z_data;
    // The number of clusters we are getting.
-   size_t clusters = planes.size();
+   size_t clusters = size;
    // The assignments will be stored in this vector.
    arma::Col<size_t> pos_x_assign, pos_y_assign, pos_z_assign, vel_x_assign, vel_y_assign, vel_z_assign;
    // The centroids will be stored in this matrix.
@@ -39,18 +41,30 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    KMeans<> km;
 
    // Add individual sensor info (positions and velocities) into respective lists
-   for (i = 0; i < planes.size(); i++)
+   for (i = 0; i < size; i++)
+   {
       positions_x.push_back(planes.at(i).getPosition().x);
-   for (j = 0; j < planes.size(); j++)
+   }
+   for (j = 0; j < size; j++)
+   {
       positions_y.push_back(planes.at(j).getPosition().y);
-   for (k = 0; k < planes.size(); k++)
+   }
+   for (k = 0; k < size; k++)
+   {
       positions_z.push_back(planes.at(k).getPosition().z);
-   for (l = 0; l < planes.size(); l++)
+   }
+   for (l = 0; l < size; l++)
+   {
       velocities_x.push_back(planes.at(l).getVelocity().x);
-   for (m = 0; m < planes.size(); m++)
+   }
+   for (m = 0; m < size; m++)
+   {
       velocities_y.push_back(planes.at(m).getVelocity().y);
-   for (n = 0; n < planes.size(); n++)
+   }
+   for (n = 0; n < size; n++)
+   {
       velocities_z.push_back(planes.at(n).getVelocity().z);
+   }
 
    // Array to matrix conversion
    pos_x_data = arma::mat(positions_x);
@@ -67,15 +81,48 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    km.Cluster(vel_y_data, clusters, vel_y_assign, vel_y_cen);
    km.Cluster(vel_z_data, clusters, vel_z_assign, vel_z_cen);
 
-   // STILL FIGURING OUT THE THING -- vice versa tho
+   // Creating list of CorrelatedData
+   for(ndx = 0; ndx < size; ndx++)
+   {
+      originalSize = correlatedPlanes.size();
 
-   // Convert either assignments or centroids into vectors
+      for(innerNdx = 0; innerNdx < originalSize; innerNdx++)
+      {
+         data = correlatedPlanes.at(innerNdx);
 
-   // If centroid exists in vector<CDTIPlane>
-   //    If sensor does not exist
-   //       Add sensor flag
-   // If centroid does not exist
-   //    Create new CDTIPlane
+         if (abs(data.getPosition().x - pos_x_assign) < 0.01 &&
+               abs(data.getPosition().y - pos_y_assign) < 0.01 &&
+               abs(data.getPosition().z - pos_z_assign) < 0.01 &&
+               abs(data.getVelocity().x - vel_x_assign) < 0.01 &&
+               abs(data.getVelocity().y - vel_y_assign) < 0.01 &&
+               abs(data.getVelocity().z - vel_z_assign) < 0.01)
+         {
+            break;
+         }
+         // If assignment does not exist, create new CorrelatedData
+         else
+         {
+            correlatedPlanes.push_back(new CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
+         }
+      }
+      // First iteration
+      if(originalSize == 0)
+      {
+         correlatedPlanes.push_back(new CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
+      }
+      // Size won't change if assignment exists in vector<CorrelatedData>
+      else if(originalSize == correlatedPlanes.size())
+      {
+         // If sensor does not exist, add sensor flag
+         std::vector<Sensor> sensors = data.getSensor();
+         Sensor sensor = planes.at(ndx).getSensor();
+
+         if ( std::find( sensors.begin(), sensors.end(), sensor ) != sensors.end())
+         {
+            correlatedPlanes.at(ndx).addSensor(sensor);
+         }
+      }
+   }
 
    return correlatedPlanes;
 }
