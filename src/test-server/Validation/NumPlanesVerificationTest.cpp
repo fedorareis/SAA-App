@@ -6,5 +6,5 @@
 
 bool NumPlanesVerificationTest::verify(TestCaseResult &result)
 {
-    return tc->getPlanes.size() == result.getPlanes().size();''
+    return tc->getPlanes().size() == result.getPlanes().size();
 }

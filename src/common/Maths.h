@@ -39,13 +39,7 @@ struct Vector3d
    double y;
    double z;
 };
-
-bool operator==(const Vector3d& lhs, const Vector3d& rhs)
-{
-   return lhs.x == rhs.x &&
-          lhs.y == rhs.y &&
-          lhs.z == rhs.z;
-}
+bool operator==(Vector3d lhs, Vector3d rhs);
 
 struct Vector2d
 {

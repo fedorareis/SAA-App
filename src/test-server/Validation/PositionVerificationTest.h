@@ -11,7 +11,7 @@ class PositionVerificationTest: public VerificationTest
 {
 
 public:
-    PositionVerificationTest(const std::shared_ptr &tc) : VerificationTest(tc)
+    PositionVerificationTest(const std::shared_ptr<TestCase> &tc) : VerificationTest(tc)
     { }
 
     bool verify(TestCaseResult& result);

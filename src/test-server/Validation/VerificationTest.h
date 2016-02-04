@@ -6,6 +6,7 @@
 #define SAA_APPLICATION_VERIFICATIONTEST_H
 
 #include "TestCaseResult.h"
+#include "../TestCase.h"
 
 class VerificationTest
 {

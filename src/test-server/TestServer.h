@@ -13,6 +13,8 @@ public:
    static void provideOwnshipEndpoint(SensorEndpoint * endpoint);
    static void provideAdsbEndpoint(SensorEndpoint * endpoint);
    static void provideTcasEndpoint(SensorEndpoint * endpoint);
+    static void provideRadarEndpoint(SensorEndpoint * endpoint);
+
    static void shutdown();
    void report();
 

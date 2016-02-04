@@ -11,7 +11,7 @@ class NumPlanesVerificationTest: public VerificationTest
 {
 
 public:
-    NumPlanesVerificationTest(const std::shared_ptr &tc) : VerificationTest(tc)
+    NumPlanesVerificationTest(const std::shared_ptr<TestCase> &tc) : VerificationTest(tc)
     { }
 
     bool verify(TestCaseResult& result);
