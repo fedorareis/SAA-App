@@ -20,6 +20,7 @@ public:
    static SensorEndpoint * getAdsbSocket();
    static SensorEndpoint * getTcasSocket();
    static SensorEndpoint * getRadarSocket();
+
 private:
    static SensorEndpoint * ownshipSocket;
    static SensorEndpoint * adsbSocket;

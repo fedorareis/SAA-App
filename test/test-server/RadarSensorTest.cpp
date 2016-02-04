@@ -51,7 +51,19 @@ TEST(RadarSensorTest, testVelocity)
    ASSERT_FLOAT_EQ(0,rept.north());
    ASSERT_FLOAT_EQ(2,rept.east());
    ASSERT_FLOAT_EQ(3,rept.down());
+}
 
-
+TEST(RadarSensorTest, testElevation)
+{
+   TestServerPlane plane;
+   TestServerPlane ownship;
+   ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
+   ownship.setLatLongAlt(Vector3d(50,0,2000));
+   plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
+   RadarReport rept = RadarSensor::createReport(plane,ownship);
+   ASSERT_FLOAT_EQ(9.456378, rept.elevation());
+   plane.setLatLongAlt(Vector3d(50.1,0,2000 - NAUT_MILES_TO_FEET));
+   rept = RadarSensor::createReport(plane,ownship);
+   ASSERT_FLOAT_EQ(-9.456378, rept.elevation());
 
 }

@@ -52,6 +52,7 @@ class ResultPlane
    CDTIPlane_Severity severity;
 
 };
+
 class TestCaseResult {
 
    public:

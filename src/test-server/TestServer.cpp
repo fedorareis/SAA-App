@@ -11,6 +11,7 @@
 SensorEndpoint * TestServer::ownshipSocket = nullptr;
 SensorEndpoint * TestServer::adsbSocket = nullptr;
 SensorEndpoint * TestServer::tcasSocket = nullptr;
+SensorEndpoint * TestServer::radarSocket = nullptr;
 
 SensorEndpoint * TestServer::getOwnshipSocket()
 {
@@ -33,6 +34,10 @@ void TestServer::provideAdsbEndpoint(SensorEndpoint *endpoint)
 
 }
 
+void TestServer::provideRadarEndpoint(SensorEndpoint * endpoint)
+{
+    TestServer::radarSocket = endpoint;
+}
 void TestServer::provideTcasEndpoint(SensorEndpoint * endpoint)
 {
     TestServer::tcasSocket = endpoint;
@@ -44,8 +49,17 @@ void TestServer::shutdown()
         delete ownshipSocket;
     if(adsbSocket != nullptr)
         delete adsbSocket;
+    if(tcasSocket != nullptr)
+        delete tcasSocket;
+    if(radarSocket != nullptr)
+        delete radarSocket;
+
 }
 
 SensorEndpoint *TestServer::getTcasSocket() {
     return tcasSocket;
+}
+
+SensorEndpoint *TestServer::getRadarSocket() {
+    return radarSocket;
 }
