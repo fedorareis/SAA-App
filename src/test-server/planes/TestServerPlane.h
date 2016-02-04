@@ -37,6 +37,8 @@ class TestServerPlane {
    float getNorthVelocity() const;
    float getEastVelocity() const;
    float getDownVelocity() const;
+
+    const Vector3d &getLatLongAlt() const;
    bool getRadarEnabled() const;
    bool getADSBEnabled() const;
    bool getTcasEnabled() const;
@@ -53,7 +55,7 @@ private:
    double t;
    Motion * motionPtr;
    Vector3d northEastDownVel;
-   Vector3d latLongAlt;
+    Vector3d latLongAlt;
 
    int tcasID;
    int radarID;

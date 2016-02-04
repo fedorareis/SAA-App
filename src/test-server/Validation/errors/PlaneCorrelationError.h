@@ -5,7 +5,7 @@
 #ifndef SAA_APPLICATION_PLANECORRELATIONERROR_H
 #define SAA_APPLICATION_PLANECORRELATIONERROR_H
 
-#include "TestCaseError.h"
+#include "test-server/Validation/errors/TestCaseError.h"
 class PlaneCorrelationError : public TestCaseError {
 
    public:

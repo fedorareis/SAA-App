@@ -11,7 +11,7 @@
 #include <common/sockets/ClientSocket.h>
 #include <thread>
 #include "TestCaseResult.h"
-#include "TestCaseError.h"
+#include "test-server/Validation/errors/TestCaseError.h"
 
 /**
  * The Validator takes in a test case, and a socket to accept
