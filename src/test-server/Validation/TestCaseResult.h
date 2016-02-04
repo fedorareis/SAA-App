@@ -29,21 +29,21 @@ class ResultPlane
     * Get the ownship-ned position of the plane
     * @return a position (in miles) relative to the ownship's world position
     */
-   Vector3d getPosition();
+   Vector3d getPosition() const ;
 
    /**
     * Get the velocity of the plane, in ned coordinates
     * @return a velocity vector
     */
-   Vector3d getVelocity();
+   Vector3d getVelocity() const;
    /**
     * Get the plane's tag
     */
-   std::string getTag();
+   std::string getTag() const;
    /**
     * Get the plane severity
     */
-   CDTIPlane_Severity getSeverity();
+   CDTIPlane_Severity getSeverity() const;
 
    private:
    Vector3d relativePosition;
@@ -58,7 +58,7 @@ class TestCaseResult {
    const std::vector<ResultPlane> & getPlanes(){return planes;}
    static TestCaseResult fromGoogleProtobuf(const CDTIReport & msg);
 
-   long getTime();
+   long getTime() const;
 
    private:
 

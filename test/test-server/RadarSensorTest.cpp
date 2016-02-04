@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <test-server/planes/TestServerPlane.h>
-#include <common/maths.h>
+#include <common/Maths.h>
 #include <test-server/endpoints/RadarSensor.h>
 
 TEST(RadarSensorTest, testBasicReport)

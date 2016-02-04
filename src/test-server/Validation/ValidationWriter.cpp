@@ -8,7 +8,7 @@
 void ValidationWriter::writeErrors(std::ostream &str, const Validator & v) {
    if(v.hasErrors())
    {
-      if(!v.recievedResults())
+      if(!v.hasReceivedResults())
       {
          str << "No correlations recieved!";
       }

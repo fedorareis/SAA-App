@@ -10,7 +10,7 @@
 class VerificationTest
 {
 public:
-    VerificationTest(std::shared_ptr<TestCase> tc);
+    VerificationTest(std::shared_ptr<TestCase> tc): tc(tc){}
     virtual bool verify(TestCaseResult& result) = 0;
 
    protected:

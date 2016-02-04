@@ -18,9 +18,9 @@
  * client results on. the validator waits for all results,
  * and then performs a final verification step.
  */
-class Validator {
-   public:
-
+class Validator
+{
+public:
    Validator(const TestCase  tc, std::shared_ptr<ClientSocket> receptionSocket);
    ~Validator();
    /**
@@ -29,7 +29,7 @@ class Validator {
     */
    void endSimulation();
    const std::vector<std::shared_ptr<TestCaseError>> & getErrors()const;
-   bool recievedResults() const;
+   bool hasReceivedResults() const;
    bool hasErrors()const;
    private:
 

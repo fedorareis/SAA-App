@@ -16,8 +16,8 @@ TEST(TestVerifier,testMock)
 {
     TestCase testCase1, testCase2, testCase3;
 
-    VerificationTest_test* verificationTest = new VerificationTest_test(testCase1);
-    EXPECT_CALL(*verificationTest,verify(_)).WillOnce(::testing::Return(true));
+    VerificationTest* verificationTest = new VerificationTest_test(std::make_shared<TestCase>(testCase1));
+    //EXPECT_CALL(*verificationTest,verify(_)).WillOnce(::testing::Return(true));
     CDTIReport report;
     TestCaseResult testCaseResult = TestCaseResult::fromGoogleProtobuf(report);
     bool result = verificationTest->verify(testCaseResult);

@@ -19,7 +19,8 @@ TestCaseResult TestCaseResult::fromGoogleProtobuf(const CDTIReport &msg) {
    return result;
 }
 
-long TestCaseResult::getTime() {
+long TestCaseResult::getTime() const
+{
    return time;
 }
 
@@ -32,19 +33,23 @@ ResultPlane ResultPlane::fromGoogleProtobuf(const CDTIPlane &msg) {
    return resultPlane;
 }
 
-Vector3d ResultPlane::getVelocity() {
+Vector3d ResultPlane::getVelocity() const
+{
    return nedVelocity;
 }
 
-Vector3d ResultPlane::getPosition() {
+Vector3d ResultPlane::getPosition() const
+{
    return relativePosition;
 }
 
-std::string ResultPlane::getTag() {
+std::string ResultPlane::getTag() const
+{
    return tag;
 }
 
-CDTIPlane_Severity ResultPlane::getSeverity() {
+CDTIPlane_Severity ResultPlane::getSeverity() const
+{
    return CDTIPlane_Severity_TRAFFIC;
 }
 

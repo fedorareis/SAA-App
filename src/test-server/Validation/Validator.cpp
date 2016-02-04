@@ -18,7 +18,8 @@ Validator::~Validator() {
 
 }
 
-void Validator::endSimulation() {
+void Validator::endSimulation()
+{
    reportThread.join();
    unsigned long expectedPlanes = tc.getPlanes().size();
    for (auto result : results) {
@@ -36,7 +37,7 @@ const std::vector<std::shared_ptr<TestCaseError>> & Validator::getErrors()const 
 }
 
 bool Validator::hasErrors()const {
-   return errors.size() > 0 || !recievedResults();
+   return errors.size() > 0 || !hasReceivedResults();
 }
 
 void Validator::ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSocket> sock) {
@@ -56,6 +57,7 @@ void Validator::ValidatorThreadRoutine(Validator * v, std::shared_ptr<ClientSock
    }
 }
 
-bool Validator::recievedResults() const {
+bool Validator::hasReceivedResults() const
+{
    return this->gotResults;
 }
