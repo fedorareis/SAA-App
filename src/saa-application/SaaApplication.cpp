@@ -17,7 +17,6 @@
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
-float FEET_PER_NAUT = 6076.12; //@TODO get rid of this
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
@@ -114,7 +113,7 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
    float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
-   float vertRange = positionZ / FEET_PER_NAUT; //@TODO change to the one Kyle P. defined
+   float vertRange = positionZ / NAUT_MILES_TO_FEET;
    float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);
 
    float positionX = horizRange * cos(radar.azimuth());
@@ -255,7 +254,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    catch (SocketException)
    {
       std::cout << "got a socket exception... exiting" << std::endl;
-      //run = false;
       exit(-1);
    }
 
