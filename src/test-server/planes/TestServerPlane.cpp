@@ -29,7 +29,9 @@ TestServerPlane::TestServerPlane():
       t(0),
       latLongAlt(0,0,0),
       northEastDownVel(0,0,0),
-      motionPtr(nullptr)
+      motionPtr(nullptr),
+      tcasID(-1),
+      radarID(-1)
 
 {
 
@@ -57,7 +59,9 @@ void TestServerPlane::setAdsbEnabled(bool adsb) {
 void TestServerPlane::setTcasEnabled(bool tcas) {
    this->isTCasEnabled = tcas;
 }
-
+void TestServerPlane::setRadarEnabled(bool radar){
+   this->isRadarEnabled = radar;
+}
 void TestServerPlane::setMotion(const Motion & m) {
    if(motionPtr != nullptr)
       delete  motionPtr;
@@ -95,7 +99,10 @@ bool TestServerPlane::getADSBEnabled() const {
 bool TestServerPlane::getTcasEnabled() const {
    return this->isTCasEnabled;
 }
-
+bool TestServerPlane::getRadarEnabled() const
+{
+   return this->isRadarEnabled;
+}
 TestServerPlane::~TestServerPlane() {
    if(motionPtr != nullptr)
    {
@@ -120,6 +127,7 @@ latLongAlt(other.latLongAlt),
 northEastDownVel(other.northEastDownVel),
 isADSBEnabled(other.isADSBEnabled),
 isTCasEnabled(other.isTCasEnabled),
+isRadarEnabled(other.isRadarEnabled),
 motionPtr(nullptr)
 {
    if(other.motionPtr != nullptr)
@@ -149,10 +157,27 @@ TestServerPlane &TestServerPlane::operator=(const TestServerPlane &rhs) {
    this->northEastDownVel = rhs.northEastDownVel;
    this->isADSBEnabled = rhs.isADSBEnabled;
    this->isTCasEnabled = rhs.isTCasEnabled;
+   this->isRadarEnabled = rhs.isRadarEnabled;
    this->tailNumber = rhs.tailNumber;
    if(this->motionPtr)
       delete motionPtr;
    this->motionPtr = rhs.motionPtr->clone();
    this->t = rhs.t;
+
    return *this;
+}
+
+int TestServerPlane::getTcasId() const {
+   return tcasID;
+}
+int TestServerPlane::getRadarId() const
+{
+   return radarID;
+}
+void TestServerPlane::setTcasId(int tc) {
+   this->tcasID = tc;
+}
+void TestServerPlane::setRadarId(int rd)
+{
+   this->radarID = rd;
 }

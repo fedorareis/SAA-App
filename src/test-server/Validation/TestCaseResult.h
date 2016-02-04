@@ -13,6 +13,7 @@ class ResultPlane
 
 
 };
+
 class TestCaseResult {
 
    public:

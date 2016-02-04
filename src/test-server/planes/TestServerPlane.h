@@ -23,10 +23,13 @@ class TestServerPlane {
 
    void setAdsbEnabled(bool adsb);
    void setTcasEnabled(bool tcas);
+   void setRadarEnabled(bool radar);
    void setMotion(const Motion & m);
+
    void setTailNumber(std::string name);
    void setLatLongAlt(Vector3d latLongAlt);
    void setNorthEastDownVelocity(Vector3d ned);
+
 
    float getLatitude() const;
    float getLongitude() const;
@@ -34,21 +37,34 @@ class TestServerPlane {
    float getNorthVelocity() const;
    float getEastVelocity() const;
    float getDownVelocity() const;
+   bool getRadarEnabled() const;
    bool getADSBEnabled() const;
    bool getTcasEnabled() const;
    double getTimestamp() const;
    Motion * getMotion();
    std::string getTailNumber() const;
+
+   int getTcasId() const;
+   int getRadarId() const;
+   void setTcasId(int tc);
+   void setRadarId(int rd);
+
    private:
    double t;
    Motion * motionPtr;
    Vector3d northEastDownVel;
    Vector3d latLongAlt;
 
+   int tcasID;
+   int radarID;
 
    bool isADSBEnabled;
    bool isTCasEnabled;
+   bool isRadarEnabled;
+
    std::string tailNumber;
+
+
 };
 
 

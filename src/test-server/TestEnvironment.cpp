@@ -39,10 +39,11 @@ bool TestEnvironment::acceptConnections()
    std::thread t1(acceptNetworkConnection,&this->adsbSensor,TestServer::getAdsbSocket());
    std::thread t2(acceptNetworkConnection,&this->ownshipSensor,TestServer::getOwnshipSocket());
    std::thread t3(acceptNetworkConnection,&this->tcasSensor,TestServer::getTcasSocket());
-
+   std::thread t4(acceptNetworkConnection, &this->radarSensor,TestServer::getRadarSocket());
    t1.join();
    t2.join();
    t3.join();
+   t4.join();
 
    this->cdtiSocket = std::shared_ptr<ClientSocket>(new ClientSocket());
 
@@ -65,25 +66,33 @@ bool TestEnvironment::acceptConnections()
 void TestEnvironment::start(TestCase & tc)
 {
    bool sendADSB = tc.getOwnship().getADSBEnabled();
+   bool sendRadar = tc.getOwnship().getRadarEnabled();
+   bool sendTcas = tc.getOwnship().getTcasEnabled();
    Validator validator(tc, this->cdtiSocket);
    try{
-      while(tc.isRunning())
-      {
+      while(tc.isRunning()) {
 
-         ownshipSensor.sendData(tc.getOwnship(),tc.getOwnship());
-         if(sendADSB)
-         {
+         ownshipSensor.sendData(tc.getOwnship(), tc.getOwnship());
 
-            for(auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++)
-            {
-               adsbSensor.sendData(*plane,tc.getOwnship() );
+         for (auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
+            if (sendADSB && plane->getADSBEnabled()) {
+               adsbSensor.sendData(*plane, tc.getOwnship());
+            }
+            if (plane->getTcasEnabled() && sendTcas) {
+               tcasSensor.sendData(*plane, tc.getOwnship());
+            }
+            if (sendRadar) {
+               radarSensor.sendData(*plane, tc.getOwnship());
             }
          }
+
          tc.update(1);
          sleep(1); //sleep for one second before sending next data batch.
       }
       adsbSensor.close();
       ownshipSensor.close();
+      tcasSensor.close();
+      radarSensor.close();
    }
    catch(SocketException exc)
    {
