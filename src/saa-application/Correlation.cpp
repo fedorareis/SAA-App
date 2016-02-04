@@ -88,7 +88,7 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
 
       for(innerNdx = 0; innerNdx < originalSize; innerNdx++)
       {
-         data = correlatedPlanes.at(innerNdx);
+         CorrelatedData data = correlatedPlanes.at(innerNdx);
 
          if (abs(data.getPosition().x - pos_x_assign) < 0.01 &&
                abs(data.getPosition().y - pos_y_assign) < 0.01 &&
@@ -102,24 +102,24 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
          // If assignment does not exist, create new CorrelatedData
          else
          {
-            correlatedPlanes.push_back(new CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
+            correlatedPlanes.push_back(CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
          }
       }
       // First iteration
       if(originalSize == 0)
       {
-         correlatedPlanes.push_back(new CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
+         correlatedPlanes.push_back(CorrelatedData(pos_x_assign(ndx), pos_y_assign(ndx), pos_z_assign(ndx), vel_x_assign(ndx), vel_y_assign(ndx), vel_z_assign(ndx)));
       }
       // Size won't change if assignment exists in vector<CorrelatedData>
       else if(originalSize == correlatedPlanes.size())
       {
          // If sensor does not exist, add sensor flag
-         std::vector<Sensor> sensors = data.getSensor();
+         std::vector<Sensor> sensors = correlatedPlanes.at(innerNdx).getSensor();
          Sensor sensor = planes.at(ndx).getSensor();
 
          if ( std::find( sensors.begin(), sensors.end(), sensor ) != sensors.end())
          {
-            correlatedPlanes.at(ndx).addSensor(sensor);
+            correlatedPlanes.at(ndx).addSensor(sensor, planes.at(ndx).getPlaneTag());
          }
       }
    }
