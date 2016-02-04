@@ -12,7 +12,7 @@ CDTIPlane* SensorData::getCDTIPlane()
    plane->set_severity(severity);
    plane->set_allocated_position(position);
    plane->set_allocated_velocity(velocity);
-   plane->set_planetags(0, planeTag);
+   plane->add_planetags(planeTag);
 
    return plane;
 }
