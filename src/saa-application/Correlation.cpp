@@ -27,7 +27,6 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    std::vector<double> positions_x, positions_y, positions_z, velocities_x, velocities_y, velocities_z;
    int i, j, k, l, m, n, ndx, innerNdx;
    int size = planes.size(), originalSize;
-   CorrelatedData data;
 
    // The dataset(s) we are clustering.
    arma::mat pos_x_data, pos_y_data, pos_z_data, vel_x_data, vel_y_data, vel_z_data;
