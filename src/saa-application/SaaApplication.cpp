@@ -8,15 +8,15 @@
 #include <common/sockets/ClientSocket.h>
 #include <common/sockets/SocketException.h>
 #include <common/protobuf/adsb.pb.h>
-#include <common/protobuf/ownship.pb.h>
 #include "SaaApplication.h"
 #include "Correlation.h"
 #include "Decision.h"
 #include <mutex>
+#include <chrono>
+#include "common/Maths.h"
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
-float FEET_PER_NAUT = 6076.12; //@TODO get rid of this
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
@@ -82,7 +82,7 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
    float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb);
+   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
    return adsbPlane;
 }
 
@@ -94,13 +94,14 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
-   float horizRange = sqrt(tcas.altitude() * tcas.altitude() - tcas.range() * tcas.range());
+   float horizRange = sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude() );
+   //@TODO: Add in velocity to fix this. Will be using flat x movement for demo.
    float positionX = (float)(horizRange * cos(bearingToRadians(tcas.bearing())));
    float positionY = (float)(horizRange * sin(bearingToRadians(tcas.bearing())));
    float velocityX = 0;
    float velocityY = 0;
    float velocityZ = 0;
-   SensorData tcasPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas);
+   SensorData tcasPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
    return tcasPlane;
 }
 
@@ -112,7 +113,7 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
    float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
-   float vertRange = positionZ / FEET_PER_NAUT; //@TODO change to the one Kyle P. defined
+   float vertRange = positionZ / NAUT_MILES_TO_FEET;
    float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);
 
    float positionX = horizRange * cos(radar.azimuth());
@@ -120,7 +121,7 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
-   SensorData radarPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::radar);
+   SensorData radarPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
@@ -149,8 +150,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    while(ownSock.hasData())
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
-      std::cout << "got ownship data\n";
-      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship);
+      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
       cdtiOwnship = ownshipPlane.getCDTIPlane();
    }
    std::cout << "Ownship Thread done\n";
@@ -167,7 +167,6 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      std::cout << "got an adsb Plane\n";
       mtx.lock();
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
@@ -186,7 +185,6 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      std::cout << "got an tcas Plane\n";
       mtx.lock();
       planes.push_back(tcasToRelative(tcas, ownship));
       mtx.unlock();
@@ -205,7 +203,6 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      std::cout << "got an radar Plane\n";
       mtx.lock();
       planes.push_back(radarToRelative(radar, ownship));
       mtx.unlock();
@@ -230,6 +227,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    try
    {
       bool adsbFinished = false, ownshipFinished = false, tcasFinished = false, radarFinished = false;
+      CDTIPlane::Severity severity;
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
@@ -241,9 +239,9 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
-         planesCopy = cor.correlate(planesCopy);
-         dec.report(&list, &planesCopy);
-         rep = dec.generateReport(&list, cdtiOwnship);
+         std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
+         dec.report(&list, &planesResult, &severity);
+         rep = dec.generateReport(&list, cdtiOwnship, &severity);
          cdtiOut << (*rep);
          //validationOut << (*rep);
          std::cout << "finished one cycle" << std::endl;
@@ -256,7 +254,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    catch (SocketException)
    {
       std::cout << "got a socket exception... exiting" << std::endl;
-      //run = false;
       exit(-1);
    }
 

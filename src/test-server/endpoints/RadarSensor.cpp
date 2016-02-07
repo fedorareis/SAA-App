@@ -51,7 +51,7 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    report.set_id(plane.getRadarId());
    report.set_timestamp(plane.getTimestamp());
 
-
+   std::cout << range << "," << azimuth <<  "," << elevation << std::endl;
    return report;
 }
 

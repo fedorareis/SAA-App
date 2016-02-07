@@ -4,7 +4,7 @@
 
 #include "SensorData.h"
 
-CDTIPlane*SensorData::getCDTIPlane()
+CDTIPlane* SensorData::getCDTIPlane()
 {
    severity = CDTIPlane::PROXIMATE;
 
@@ -12,6 +12,7 @@ CDTIPlane*SensorData::getCDTIPlane()
    plane->set_severity(severity);
    plane->set_allocated_position(position);
    plane->set_allocated_velocity(velocity);
+   plane->add_planetags(planeTag);
 
    return plane;
 }

@@ -4,6 +4,8 @@
 
 #include "AdsbSensor.h"
 #include <common/protobuf/adsb.pb.h>
+#include <iostream>
+
 //@TODO add configuration data for error here
 AdsbSensor::AdsbSensor(SensorEndpoint * endpoint):
 Sensor(endpoint)
@@ -26,6 +28,7 @@ void AdsbSensor::sendData(const TestServerPlane & plane, const TestServerPlane &
    report.set_north(plane.getNorthVelocity());
    report.set_east(plane.getEastVelocity());
    report.set_down(plane.getDownVelocity());
+
    (this->getEndpoint().getSocket().operator<<(report));
 
 }
