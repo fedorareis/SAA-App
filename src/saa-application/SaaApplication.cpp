@@ -94,10 +94,11 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
-   float horizRange = sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude() );
-   //@TODO: Add in velocity to fix this. Will be using flat x movement for demo.
-   float positionX = (float)(horizRange * cos(bearingToRadians(tcas.bearing())));
-   float positionY = (float)(horizRange * sin(bearingToRadians(tcas.bearing())));
+   float horizRange = (float)(sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude()));
+   // theta = bearing of intruder + heading of ownship
+   float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
+   float positionX = (float)(horizRange * cos(theta));
+   float positionY = (float)(horizRange * sin(theta));
    float velocityX = 0;
    float velocityY = 0;
    float velocityZ = 0;
@@ -112,12 +113,13 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
-   float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
-   float vertRange = positionZ / NAUT_MILES_TO_FEET;
-   float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);
-
-   float positionX = horizRange * cos(radar.azimuth());
-   float positionY = horizRange * sin(radar.azimuth());
+   float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
+   float vertRange = (float)(positionZ / NAUT_MILES_TO_FEET);
+   float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
+   // theta = bearing of intruder + heading of ownship
+   float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
+   float positionX = (float)(horizRange * cos(theta));
+   float positionY = (float)(horizRange * sin(theta));
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
