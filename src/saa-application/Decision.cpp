@@ -69,3 +69,8 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
 
    return report;
 }
+
+void calculateCPA(CorrelatedData plane)
+{
+
+}
