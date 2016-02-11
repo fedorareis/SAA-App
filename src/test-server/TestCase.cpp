@@ -5,7 +5,7 @@
 #include <math.h>
 #include <iostream>
 #include "TestCase.h"
-#include "common/Maths.h"
+
 TestCase::TestCase() :
 ownship(TestServerPlane()),
 radarId(0),
@@ -78,4 +78,15 @@ int TestCase::getNextTcasId()
 int TestCase::getNextRadarId()
 {
    return radarId++;
+}
+
+TestCase::TestCase(const TestCase &otherTestCase) :
+        t(otherTestCase.t),
+        name(otherTestCase.name),
+        radarId(otherTestCase.radarId),
+        tcasId(otherTestCase.tcasId)
+{
+   ownship = TestServerPlane(otherTestCase.ownship);
+   for (auto plane: otherTestCase.otherPlanes)
+      otherPlanes.push_back(plane);
 }

@@ -8,7 +8,8 @@
 #include <common/Maths.h>
 #include "Decision.h"
 
-void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes, CDTIPlane::Severity* severity)
+void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
+                      CDTIPlane::Severity* severity, SensorData* ownship)
 {
    //std::cout << "We are making decisions here" << std::endl;
 
@@ -68,4 +69,9 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    }
 
    return report;
+}
+
+void calculateCPA(CorrelatedData plane)
+{
+
 }
