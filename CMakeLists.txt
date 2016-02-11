@@ -7,6 +7,7 @@ IF(APPLE)
     set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1")
 endif()
 
+option(PROFILE "Turn on code-profile options" OFF)
 option(BUILD_PROTOBUF "Build the protobuf library" ON)
     # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
@@ -33,13 +34,7 @@ set(protobuf_BUILD_SHARED_LIBS OFF)
 set(protobuf_DEBUG_POSTFIX "")
 project (SAA_Application)
 
-
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -pthread -D__DIR__=\\\"${PROJECT_BINARY_DIR}\\\"")
-message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
-
-
-#SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
-
+add_subdirectory(lib/googletest)
 
 if(BUILD_PROTOBUF)
 add_subdirectory(lib/protobuf/cmake)
@@ -50,10 +45,21 @@ message("Proto is at: " ${protobuf_SOURCE_DIR})
 message("Proto libs at: " ${protobuf_BINARY_DIR})
 ENDIF()
 message("libs search path: " ${CMAKE_LIBRARY_PATH})
-add_subdirectory(lib/googletest)
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -pthread -D__DIR__=\\\"${PROJECT_BINARY_DIR}\\\"")
+
+if(PROFILE)
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+ENDIF()
+message ("cxx Flags: " ${CMAKE_CXX_FLAGS})
+
+
+#SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
+
+
 
 add_subdirectory(src)
 add_subdirectory(app)

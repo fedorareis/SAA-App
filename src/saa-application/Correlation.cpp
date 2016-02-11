@@ -31,7 +31,7 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
 
 
    // The number of clusters we are getting.
-   size_t clusters = 2; //potentially empty clusters.
+   size_t clusters = 2;
    // The assignments will be stored in this vector.
    arma::Col<size_t> groupings;
    // The centroids will be stored in this matrix.
@@ -77,8 +77,6 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    }
 
    auto dataMtx = arma::Mat<double>(&data[0],3,planes.size());
-
-
    km.Cluster(dataMtx, clusters, groupings,centroids);
    /*
       km.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
@@ -98,7 +96,6 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    {
       correlatedPlanes[groupings.at(i)].addSensor(planes[i].getSensor(),planes[i].getPlaneTag());
    }
-
 
    // Creating list of CorrelatedData
    /*
