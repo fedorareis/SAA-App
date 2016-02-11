@@ -10,7 +10,8 @@
 class Decision
 {
 public:
-   void report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes, CDTIPlane::Severity* severity);
+   void calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
+               CDTIPlane::Severity* severity, SensorData* ownship);
    CDTIReport * generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity);
 };
 #endif //SAA_APPLICATION_DECISION_H
