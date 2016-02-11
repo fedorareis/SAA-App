@@ -5,12 +5,12 @@
 
 void DisplayController::run()
 {
-    display.setupLayout();
+    display.init();
     std::cout << "DISPLAY RUNNING!" << std::endl;
     socketThread = new std::thread(std::thread( [this] { this->listenOnSocket(); } ));
 }
 
-DisplayController::DisplayController(Display& display):display(display)
+DisplayController::DisplayController(Display & display): display(display)
 {
     //set up socket
     try
@@ -31,28 +31,27 @@ DisplayController::DisplayController(Display& display):display(display)
 
 void DisplayController::listenOnSocket()
 {
-    display.show();
     while(socket->isRunning())
     {
        CDTIReport report = messages->getMessage();
-        for(int i = 0; i < report.planes_size(); i++)
-        {
-            if(i >= display.getNumPlanes())
-            {
-                Aircraft* aircraft = new Aircraft(report.planes(i));
-                std::cout << "Planes added!" << std::endl;
-                display.addPlane(aircraft);
-            }
-            else
-            {
-                Aircraft* aircraft = display.getPlane(i);
-                aircraft->setPosition(report.planes(i).position());
-                aircraft->setVelocity(report.planes(i).velocity());
-                aircraft->setSeverity(report.planes(i).severity());
-            }
-        }
+//        for(int i = 0; i < report.planes_size(); i++)
+//        {
+//            if(i >= display.getNumPlanes())
+//            {
+//                Aircraft* aircraft = new Aircraft(report.planes(i));
+//                std::cout << "Planes added!" << std::endl;
+//                display.addPlane(aircraft);
+//            }
+//            else
+//            {
+//                Aircraft* aircraft = display.getPlane(i);
+//                aircraft->setPosition(report.planes(i).position());
+//                aircraft->setVelocity(report.planes(i).velocity());
+//                aircraft->setSeverity(report.planes(i).severity());
+//            }
+//        }
 
-        display.update();
+        display.renderReport(report);
         sleep(1);
     }
 }
