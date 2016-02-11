@@ -4,16 +4,9 @@
 
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
-#include <common/sockets/SocketException.h>
 #include <mlpack/methods/kmeans/kmeans.hpp>
-#include <armadillo>
-#include <math.h>
 
 #include "Correlation.h"
-#include "common/protobuf/adsb.pb.h"
-#include "common/protobuf/ownship.pb.h"
-#include "common/protobuf/radar.pb.h"
-#include "common/protobuf/tcas.pb.h"
 
 using namespace mlpack::kmeans;
 
@@ -42,15 +35,15 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    // Add individual sensor info (positions and velocities) into respective lists
    for (i = 0; i < size; i++)
    {
-      positions_x.push_back(planes.at(i).getPosition().x);
+      positions_x.push_back(planes.at(i).getPurePosition().x);
    }
    for (j = 0; j < size; j++)
    {
-      positions_y.push_back(planes.at(j).getPosition().y);
+      positions_y.push_back(planes.at(j).getPurePosition().y);
    }
    for (k = 0; k < size; k++)
    {
-      positions_z.push_back(planes.at(k).getPosition().z);
+      positions_z.push_back(planes.at(k).getPurePosition().z);
    }
    for (l = 0; l < size; l++)
    {
@@ -112,7 +105,7 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
 
          if ((fabs(data.getPosition().x - pos_x_assign(ndx)) < 0.01) &&
              (fabs(data.getPosition().y - pos_y_assign(ndx)) < 0.01) &&
-             (fabs(data.getPosition().z - pos_z_assign(ndx)) < 0.01) &&
+             (fabs(data.getPurePosition().z - pos_z_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().x - vel_x_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().y - vel_y_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().z - vel_z_assign(ndx)) < 0.01))
