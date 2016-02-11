@@ -1,0 +1,22 @@
+<test name="One Plane in Airspace, Scrambled Sensors"
+      description="Sensor data is scrambled according to tolerance measurements in the SRS"
+      time = "120">
+   <ownship tag="ABC123">
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="800" y="0" z="0"/>
+      </movement>
+   </ownship>
+   <plane tag="N11111">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+         <direction x="200" y="200" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>
+

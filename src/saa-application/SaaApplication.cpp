@@ -21,7 +21,7 @@
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex mtx;
-CDTIPlane* cdtiOwnship;
+SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
@@ -150,8 +150,8 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    while(ownSock.hasData())
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
-      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
-      cdtiOwnship = ownshipPlane.getCDTIPlane();
+      // TODO: Switch to actual ownship data for use by Decision
+      ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
    }
    std::cout << "Ownship Thread done\n";
 
@@ -240,8 +240,8 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          planes.clear();
          mtx.unlock();
          std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
-         dec.report(&list, &planesResult, &severity);
-         rep = dec.generateReport(&list, cdtiOwnship, &severity);
+         dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
+         rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
          cdtiOut << (*rep);
          //validationOut << (*rep);
          std::cout << "finished one cycle" << std::endl;
