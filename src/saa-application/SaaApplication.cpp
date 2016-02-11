@@ -232,6 +232,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
       std::thread radarthread(processRadar, std::ref(radarSock), std::ref(ownship), std::ref(radarFinished));
+
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -246,6 +247,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }
+
       adsbthread.join();
       tcasthread.join();
       radarthread.join();
