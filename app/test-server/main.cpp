@@ -5,8 +5,9 @@
 #include <iosfwd>
 #include <string>
 #include <test-server/TestEnvironment.h>
-#include <test-server/endpoints/mocks/MockSensorEndpoint.h>
-#include <test-server/planes/LinearMotion.h>
+#include <test-server/Validation/PositionVerificationTest.h>
+#include <test-server/Validation/NumPlanesVerificationTest.h>
+#include <test-server/Validation/Validator.h>
 #include "test-server/TestServer.h"
 #include "test-server/TestFileParser.h"
 int main(int argC, const char* argV[])
@@ -28,7 +29,10 @@ int main(int argC, const char* argV[])
    if(parser.load(s))
    {
       TestCase testCase = parser.GetTestCase();
-
+       PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
+       NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
+       Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
+       Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
       TestEnvironment environment;
       environment.acceptConnections();
       environment.start(testCase);

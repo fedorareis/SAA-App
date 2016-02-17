@@ -8,7 +8,21 @@
 #include <common/Maths.h>
 #include "Decision.h"
 
-void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes, CDTIPlane::Severity* severity)
+float calculateTAU(CorrelatedData plane)
+{
+   Vector2d planePos = Vector2d(plane.getPosition().x, plane.getPosition().y);
+   Vector2d planeVel = Vector2d(plane.getVelocity().x, plane.getVelocity().y);
+
+   float dot = Vector2d::Dot(planePos, planeVel);
+   float magnitude = planePos.length();
+
+   // TODO: Upgrade to TCASII algorithm
+   return -(dot/(magnitude * magnitude));
+
+}
+
+void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
+                            CDTIPlane::Severity* severity, SensorData* ownship)
 {
    //std::cout << "We are making decisions here" << std::endl;
 
@@ -18,16 +32,19 @@ void Decision::report(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData
    for (std::vector<CorrelatedData>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
-      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50)
+      float tau = calculateTAU(*it);
+      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 && tau < 5)
       {
          // Should be AIR
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
-      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300)
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300
+              && tau < 30)
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
-      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500)
+      else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500
+              && tau < 60)
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
       }
@@ -69,3 +86,4 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
 
    return report;
 }
+

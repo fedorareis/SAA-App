@@ -12,17 +12,14 @@
 #include "Correlation.h"
 #include "Decision.h"
 #include <mutex>
-#include <chrono>
-#include "common/Maths.h"
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
-float FEET_PER_NAUT = 6076.12; //@TODO get rid of this
 
 ServerSocket *SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex mtx;
-CDTIPlane* cdtiOwnship;
+SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
@@ -60,6 +57,23 @@ void SaaApplication::setupSockets(int cdtiPort)
    std::cout << "cdtiSocket initialized" << std::endl;
 }
 
+void SaaApplication::initSocks()
+{
+   //Set up server sockets
+   setupSockets(6000);
+   std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
+   //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
+
+   //set up client sockets
+   ClientSocket radarSock, tcasSock, adsbSock, ownSock;
+   SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
+   t1.join();
+   //t2.join();
+   //socks.pop_back();
+
+   processSensors(ownSock, adsbSock, tcasSock, radarSock);
+}
+
 void SaaApplication::shutdown()
 {
    if (cdtiSocket != nullptr)
@@ -95,9 +109,11 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
-   float horizRange = sqrt(tcas.altitude() * tcas.altitude() - tcas.range() * tcas.range());
-   float positionX = (float)(horizRange * cos(bearingToRadians(tcas.bearing())));
-   float positionY = (float)(horizRange * sin(bearingToRadians(tcas.bearing())));
+   float horizRange = (float)(sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude()));
+   // theta = bearing of intruder + heading of ownship
+   float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
+   float positionX = (float)(horizRange * cos(theta));
+   float positionY = (float)(horizRange * sin(theta));
    float velocityX = 0;
    float velocityY = 0;
    float velocityZ = 0;
@@ -112,12 +128,13 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
-   float positionZ = radar.range() * sin(-bearingToRadians(radar.elevation()));
-   float vertRange = positionZ / FEET_PER_NAUT; //@TODO change to the one Kyle P. defined
-   float horizRange = sqrt(radar.range() * radar.range() - vertRange * vertRange);
-
-   float positionX = horizRange * cos(radar.azimuth());
-   float positionY = horizRange * sin(radar.azimuth());
+   float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
+   float vertRange = (float)(positionZ / NAUT_MILES_TO_FEET);
+   float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
+   // theta = bearing of intruder + heading of ownship
+   float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
+   float positionX = (float)(horizRange * cos(theta));
+   float positionY = (float)(horizRange * sin(theta));
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
@@ -125,34 +142,16 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    return radarPlane;
 }
 
-void SaaApplication::initSocks()
-{
-   //Set up server sockets
-   setupSockets(6000);
-   std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
-   //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
-
-   //set up client sockets
-   ClientSocket radarSock, tcasSock, adsbSock, ownSock;
-   SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
-   t1.join();
-   //t2.join();
-   //socks.pop_back();
-
-   processSensors(ownSock, adsbSock, tcasSock, radarSock);
-}
-
 /*
- * Thread for the ownship socket data. Reads in an ownship report and updates the shared ownship data.
+ * Thread for the ownship socket data. Reads in an ownship reports and updates the shared ownship data.
  */
 void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finished)
 {
    while(ownSock.hasData())
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
-      std::cout << "got ownship data\n";
-      SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
-      cdtiOwnship = ownshipPlane.getCDTIPlane();
+      // TODO: Switch to actual ownship data for use by Decision
+      ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
    }
    std::cout << "Ownship Thread done\n";
 
@@ -160,7 +159,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
 }
 
 /*
- * The thread for the adsb socket data. Reads in an adsb report and adds it to the shared list of planes.
+ * The thread for the adsb socket data. Reads in a adsb reports and adds them to the shared list of planes.
  */
 void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
 {
@@ -168,7 +167,6 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      std::cout << "got an adsb Plane\n";
       mtx.lock();
       planes.push_back(adsbToRelative(adsb, ownship));
       mtx.unlock();
@@ -179,7 +177,7 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
 }
 
 /*
- * The thread for the tcas socket data. Reads in a tcas report and adds it to the shared list of planes.
+ * The thread for the tcas socket data. Reads in a tcas reports and adds them to the shared list of planes.
  */
 void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
 {
@@ -187,7 +185,6 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      std::cout << "got an tcas Plane\n";
       mtx.lock();
       planes.push_back(tcasToRelative(tcas, ownship));
       mtx.unlock();
@@ -198,7 +195,7 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
 }
 
 /*
- * The thread for the radar socket data. Reads in a radar report and adds it to the shared list of planes.
+ * The thread for the radar socket data. Reads in a radar reports and adds them to the shared list of planes.
  */
 void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finished)
 {
@@ -206,7 +203,6 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      std::cout << "got an radar Plane\n";
       mtx.lock();
       planes.push_back(radarToRelative(radar, ownship));
       mtx.unlock();
@@ -236,6 +232,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
       std::thread radarthread(processRadar, std::ref(radarSock), std::ref(ownship), std::ref(radarFinished));
+
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
          std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -244,12 +241,13 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          planes.clear();
          mtx.unlock();
          std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
-         dec.report(&list, &planesResult, &severity);
-         rep = dec.generateReport(&list, cdtiOwnship, &severity);
+         dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
+         rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
          cdtiOut << (*rep);
-         //validationOut << (*rep);
+         //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }
+
       adsbthread.join();
       tcasthread.join();
       radarthread.join();
@@ -258,8 +256,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    catch (SocketException)
    {
       std::cout << "got a socket exception... exiting" << std::endl;
-      //run = false;
-      exit(-1);
+      exit(-1); //TODO write shutdown function
    }
 
    delete rep;

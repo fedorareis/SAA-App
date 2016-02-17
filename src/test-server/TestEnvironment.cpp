@@ -71,7 +71,7 @@ void TestEnvironment::start(TestCase & tc)
    Validator validator(tc, this->cdtiSocket);
    try{
       while(tc.isRunning()) {
-
+         tc.update(1);
          ownshipSensor.sendData(tc.getOwnship(), tc.getOwnship());
 
          for (auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
@@ -86,7 +86,6 @@ void TestEnvironment::start(TestCase & tc)
             }
          }
 
-         tc.update(1);
          sleep(1); //sleep for one second before sending next data batch.
       }
       adsbSensor.close();

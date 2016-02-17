@@ -14,6 +14,8 @@ class TestCase {
 
 public:
    TestCase();
+
+    TestCase(const TestCase &otherTestCase);
    /**
     * Set the name of the test case
     */

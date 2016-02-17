@@ -1608,7 +1608,7 @@ public final class Cdti {
         if (positionBuilder_ == null) {
           positionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               edu.calpoly.capstone.sensor.Cdti.Vector, edu.calpoly.capstone.sensor.Cdti.Vector.Builder, edu.calpoly.capstone.sensor.Cdti.VectorOrBuilder>(
-                  getPosition(),
+                  getPurePosition(),
                   getParentForChildren(),
                   isClean());
           position_ = null;

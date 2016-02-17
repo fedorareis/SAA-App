@@ -7,6 +7,7 @@
 
 #include "TestCaseResult.h"
 #include "../TestCase.h"
+#include "test-server/Validation/errors/TestCaseError.h"
 
 class VerificationTest
 {
@@ -14,8 +15,12 @@ public:
     VerificationTest(std::shared_ptr<TestCase> tc): tc(tc){}
     virtual bool verify(TestCaseResult& result) = 0;
 
+    std::shared_ptr<TestCaseError> getError()
+    { return error; }
+
    protected:
       const std::shared_ptr<TestCase> tc;
+    std::shared_ptr<TestCaseError> error;
 
 };
 

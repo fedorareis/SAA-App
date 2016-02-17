@@ -4,16 +4,9 @@
 
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
-#include <common/sockets/SocketException.h>
 #include <mlpack/methods/kmeans/kmeans.hpp>
-#include <armadillo>
-#include <math.h>
 
 #include "Correlation.h"
-#include "common/protobuf/adsb.pb.h"
-#include "common/protobuf/ownship.pb.h"
-#include "common/protobuf/radar.pb.h"
-#include "common/protobuf/tcas.pb.h"
 
 using namespace mlpack::kmeans;
 
@@ -29,29 +22,28 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    int i, j, k, l, m, n, ndx, innerNdx;
    int size = planes.size(), originalSize;
 
-   // The dataset(s) we are clustering.
-   arma::mat pos_x_data, pos_y_data, pos_z_data, vel_x_data, vel_y_data, vel_z_data;
+
    // The number of clusters we are getting.
-   size_t clusters = size;
+   size_t clusters = 2; //potentially empty clusters.
    // The assignments will be stored in this vector.
-   arma::Col<size_t> pos_x_assign, pos_y_assign, pos_z_assign, vel_x_assign, vel_y_assign, vel_z_assign;
+   arma::Col<size_t> groupings;
    // The centroids will be stored in this matrix.
-   arma::mat pos_x_cen, pos_y_cen, pos_z_cen, vel_x_cen, vel_y_cen, vel_z_cen;
+   arma::mat centroids;
    // Initialize with the default arguments.
    KMeans<> km;
 
    // Add individual sensor info (positions and velocities) into respective lists
    for (i = 0; i < size; i++)
    {
-      positions_x.push_back(planes.at(i).getPosition().x);
+      positions_x.push_back(planes.at(i).getPurePosition().x);
    }
    for (j = 0; j < size; j++)
    {
-      positions_y.push_back(planes.at(j).getPosition().y);
+      positions_y.push_back(planes.at(j).getPurePosition().y);
    }
    for (k = 0; k < size; k++)
    {
-      positions_z.push_back(planes.at(k).getPosition().z);
+      positions_z.push_back(planes.at(k).getPurePosition().z);
    }
    for (l = 0; l < size; l++)
    {
@@ -67,21 +59,42 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    }
 
    // Array to matrix conversion
-   pos_x_data = arma::mat(positions_x);
-   pos_y_data = arma::mat(positions_y);
-   pos_z_data = arma::mat(positions_z);
-   vel_x_data = arma::mat(velocities_x);
-   vel_y_data = arma::mat(velocities_y);
-   vel_z_data = arma::mat(velocities_z);
+   //Need to be column major
+   std::vector<double> data;
+   data.reserve(positions_x.size() + positions_y.size() + positions_z.size());
+   for(int i = 0; i < size; i++)
+   {
+      data.push_back(positions_x[i]);
+      data.push_back(positions_y[i]);
+      data.push_back(positions_z[i]);
+   }
 
-   km.Cluster(pos_x_data, clusters, pos_x_assign, pos_x_cen);
-   km.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
-   km.Cluster(pos_z_data, clusters, pos_z_assign, pos_z_cen);
-   km.Cluster(vel_x_data, clusters, vel_x_assign, vel_x_cen);
-   km.Cluster(vel_y_data, clusters, vel_y_assign, vel_y_cen);
-   km.Cluster(vel_z_data, clusters, vel_z_assign, vel_z_cen);
+   auto dataMtx = arma::Mat<double>(&data[0],3,planes.size());
+
+
+   km.Cluster(dataMtx, clusters, groupings,centroids);
+   /*
+      km.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
+      km.Cluster(pos_z_data, clusters, pos_z_assign, pos_z_cen);
+      km.Cluster(vel_x_data, clusters, vel_x_assign, vel_x_cen);
+      km.Cluster(vel_y_data, clusters, vel_y_assign, vel_y_cen);
+      km.Cluster(vel_z_data, clusters, vel_z_assign, vel_z_cen);
+    */
+
+   //@TODO Correlated size should be different
+   correlatedPlanes.reserve(clusters);
+   for(int i = 0; i < clusters; i++)
+   {
+      correlatedPlanes.push_back(CorrelatedData(centroids.at(0,i),centroids.at(1,i),centroids.at(2,i),0,0,0));
+   }
+   for(int i = 0; i < size; i++)
+   {
+      correlatedPlanes[groupings.at(i)].addSensor(planes[i].getSensor(),planes[i].getPlaneTag());
+   }
+
 
    // Creating list of CorrelatedData
+   /*
    for(ndx = 0; ndx < size; ndx++)
    {
       originalSize = correlatedPlanes.size();
@@ -92,7 +105,7 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
 
          if ((fabs(data.getPosition().x - pos_x_assign(ndx)) < 0.01) &&
              (fabs(data.getPosition().y - pos_y_assign(ndx)) < 0.01) &&
-             (fabs(data.getPosition().z - pos_z_assign(ndx)) < 0.01) &&
+             (fabs(data.getPurePosition().z - pos_z_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().x - vel_x_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().y - vel_y_assign(ndx)) < 0.01) &&
              (fabs(data.getVelocity().z - vel_z_assign(ndx)) < 0.01))
@@ -123,6 +136,6 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
          }
       }
    }
-
+   */
    return correlatedPlanes;
 }

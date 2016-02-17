@@ -10,6 +10,7 @@
 
 #include <string>
 #include <common/Maths.h>
+#include <common/Randomizer.h>
 #include "common/protobuf/cdti.pb.h"
 
 enum Sensor
@@ -22,6 +23,10 @@ enum Sensor
 
 class SensorData
 {
+private:
+    Randomizer *adsbNoise;
+    Randomizer *tcasNoise;
+    Randomizer *radarNoise;
 public:
    SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
               float velocityZ, Sensor sensor, int planeId, double time) :
@@ -37,6 +42,12 @@ public:
       position->set_z(positionZ);
       planeTag = planeId;
       timeStamp = time;
+
+      //add 3rd parameter is you want to put in a seed
+      //todo: lookup ranges to put into this, possibly make up to 3 randomizers per sensor
+      adsbNoise = new Randomizer(0, 0);
+      tcasNoise = new Randomizer(0, 0);
+      radarNoise = new Randomizer(0, 0);
    }
 
    void printPos();
@@ -48,7 +59,7 @@ public:
 
    CDTIPlane* getCDTIPlane();
 
-   Vector3d  getPosition()
+    Vector3d getPurePosition()
    {
       return Vector3d(position->x(),position->y(),position->z());
    }

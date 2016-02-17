@@ -5,6 +5,7 @@
 #ifndef SAA_APPLICATION_TESTCASEERROR_H
 #define SAA_APPLICATION_TESTCASEERROR_H
 
+#include <string>
 
 class TestCaseError {
    public:
