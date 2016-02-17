@@ -16,11 +16,31 @@ cd covInfo
 find . -name "*.gc*" -print0 | xargs -0 -I{} echo mv {} {} | sed 's/\.cpp//2' | bash
 COVFILES=$(find . -name "*.cpp")
 xcrun llvm-cov gcov $COVFILES
-touch cov.txt
+touch cov.txt cov.csv
+echo "" > cov.txt
+echo "" > cov.csv
 for cov in $COVFILES
 do
+	if [ -s $cov.gcov ]; then
 	echo "===========\nFILE: $cov\n" >> cov.txt
+	LINES=$(expr $( wc -l < $cov.gcov ) - 5) 
+	COVERED=$(expr $LINES - $(grep -c "#####:" $cov.gcov))
+	
+	PCT=$(echo "100 * ($COVERED/($LINES))" | bc -l | cut -b 1-5 )
+	echo "$cov : ($COVERED/$LINES) covered. ($PCT %)"
+	echo "$cov : ($COVERED/$LINES) covered ($PCT %)" >> cov.txt
+	echo $cov,$PCT, >> cov.csv
+	
 	cat $cov.gcov >> cov.txt
+	else
+		LINES=$(wc -l < $cov)
+		COVERED=0
+		PCT=0
+
+		echo "$cov : ($COVERED/$LINES) covered. ($PCT %)"
+		echo "$cov : ($COVERED/$LINES) covered ($PCT %)" >> cov.txt
+		echo $cov,$PCT, >> cov.csv
+	fi
 done
 vim cov.txt
 
