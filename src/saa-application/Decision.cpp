@@ -7,6 +7,7 @@
 #include "math.h"
 #include <common/Maths.h>
 #include "Decision.h"
+time_t Decision::time0 = 0;
 
 float calculateTAUMod(CorrelatedData plane, int DMOD)
 {
@@ -70,7 +71,7 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    report->set_advisorylevel(CDTIReport::PROXIMATE);
    report->set_advisorymessage("Move out of the way");
    report->set_allocated_ownship(ownship);
-   report->set_timestamp(time(0));
+   report->set_timestamp(time(0) - Decision::time0);
 
    // Iterates over the list adding planes to the Report for the CDTI
    for (std::vector<CDTIPlane *>::iterator it = (*list).begin(); it != (*list).end(); ++it)
@@ -85,3 +86,6 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    return report;
 }
 
+void Decision::setTime0(time_t time) {
+   time0 = time;
+}

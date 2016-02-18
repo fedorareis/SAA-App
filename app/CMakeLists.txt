@@ -5,7 +5,7 @@ include_directories("/usr/local/include")
 link_directories("/usr/local/lib")
 
 if( NOT DEFINED protobuf_BINARY_DIR )
-	message( FATAL_ERROR "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
+	message( "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
 endif()
 
 #Script for building the CDTI sources

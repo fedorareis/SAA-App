@@ -110,7 +110,6 @@ class Socket
  private:
 
   int m_sock;
-
    protected:
    int port;
    sockaddr_in m_addr;

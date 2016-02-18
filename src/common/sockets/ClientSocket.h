@@ -65,6 +65,10 @@ public:
 
    virtual bool hasData() const;
 
+   virtual void close()
+   {
+      Socket::close();
+   }
 private:
    /**
     * Read the length of the protocol buffer, from the header

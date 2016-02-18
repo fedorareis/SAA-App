@@ -16,7 +16,7 @@ file (GLOB_RECURSE MOCKS_SOURCES
 		"mocks/*.cpp")
 
 if( NOT DEFINED protobuf_BINARY_DIR )
-	message( FATAL_ERROR "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
+	message( "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
 endif()
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})

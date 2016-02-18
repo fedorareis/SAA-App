@@ -10,7 +10,7 @@ bool NumPlanesVerificationTest::verify(TestCaseResult &result)
     bool correct = tc->getPlanes().size() == result.getPlanes().size();
     if (!correct)
     {
-        error = std::make_shared<NumPlanesTestCaseError>(NumPlanesTestCaseError(-1));
+        error = std::make_shared<NumPlanesTestCaseError>(NumPlanesTestCaseError(result.getTime()));
     }
 
     return correct;

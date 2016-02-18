@@ -30,6 +30,10 @@ ResultPlane ResultPlane::fromGoogleProtobuf(const CDTIPlane &msg) {
    resultPlane.nedVelocity = Vector3d(msg.velocity().x(),msg.velocity().y(),msg.velocity().z());
    resultPlane.tag = msg.id();
    resultPlane.severity = msg.severity();
+   for(int i = 0; i < msg.planetags_size(); i++)
+   {
+      resultPlane.planeTags.push_back(msg.planetags(i));
+   }
    return resultPlane;
 }
 

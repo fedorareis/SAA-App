@@ -11,19 +11,21 @@
 #include "SaaApplication.h"
 #include "Correlation.h"
 #include "Decision.h"
+#include "ServerConnectionManager.h"
 #include <mutex>
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
 
-ServerSocket *SaaApplication::cdtiSocket = nullptr;
+std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
+std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex mtx;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
-void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
+void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
 {
-   bindingSocket->accept(*acceptingSocket);
+   mgr->accept();
    std::cout << "Server has accepted cdti socket" << std::endl;
 }
 
@@ -48,12 +50,13 @@ void SocketSetup(ClientSocket &radarSock, ClientSocket &tcasSock, ClientSocket &
 
 ServerSocket *SaaApplication::getCdtiSocket()
 {
-   return cdtiSocket;
+   return nullptr;
+   //return cdtiSocket;
 }
 
 void SaaApplication::setupSockets(int cdtiPort)
 {
-   cdtiSocket = new ServerSocket(cdtiPort);
+   cdtiSocket = std::make_shared<ServerSocket>(cdtiPort);
    std::cout << "cdtiSocket initialized" << std::endl;
 }
 
@@ -61,25 +64,26 @@ void SaaApplication::initSocks()
 {
    //Set up server sockets
    setupSockets(6000);
-   std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
+   this->connectionManager = std::make_shared<ServerConnectionManager>();
+   this->connectionManager->init(cdtiSocket);
+   std::thread t1(acceptNetworkConnection, connectionManager);
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
 
    //set up client sockets
    ClientSocket radarSock, tcasSock, adsbSock, ownSock;
    SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
    t1.join();
+   //Let the conection manager get any additional conections (like a CDTI)
+   connectionManager->monitor();
    //t2.join();
    //socks.pop_back();
-
+   Decision::setTime0(time(0));
    processSensors(ownSock, adsbSock, tcasSock, radarSock);
 }
 
 void SaaApplication::shutdown()
 {
-   if (cdtiSocket != nullptr)
-   {
-      delete cdtiSocket;
-   }
+   connectionManager->shutdown();
 }
 
 /**
@@ -89,15 +93,15 @@ void SaaApplication::shutdown()
 SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = adsb.tail_number();
-   float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+   float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
-   float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
+   float positionE = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
-   float positionZ = adsb.altitude() - ownship.ownship_altitude();
-   float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
-   float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
-   float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
+   float positionD = adsb.altitude() - ownship.ownship_altitude();
+   float velocityN = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
+   float velocityE = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
+   float velocityD = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
+   SensorData adsbPlane(tailNumber, positionN, positionE, positionD, velocityN, velocityE, velocityD, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
    return adsbPlane;
 }
 
@@ -112,12 +116,12 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
    float horizRange = (float)(sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude()));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
-   float positionX = (float)(horizRange * cos(theta));
-   float positionY = (float)(horizRange * sin(theta));
+   float positionE = (float)(horizRange * cos(theta));
+   float positionN = (float)(horizRange * sin(theta));
    float velocityX = 0;
    float velocityY = 0;
    float velocityZ = 0;
-   SensorData tcasPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
+   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
    return tcasPlane;
 }
 
@@ -133,12 +137,12 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
-   float positionX = (float)(horizRange * cos(theta));
-   float positionY = (float)(horizRange * sin(theta));
+   float positionE = (float)(horizRange * cos(theta));
+   float positionN = (float)(horizRange * sin(theta));
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
-   SensorData radarPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
+   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
@@ -243,7 +247,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
          dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
          rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
-         cdtiOut << (*rep);
+         connectionManager->sendMessage(*rep);
          //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }
