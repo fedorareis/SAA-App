@@ -23,8 +23,8 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    int size = planes.size(), originalSize;
 
 
-   // The number of clusters we are getting.
-   size_t clusters = 2; //potentially empty clusters.
+   // The number of clusters we are getting. (Correlation Disabled)
+   size_t clusters = planes.size(); //potentially empty clusters.
    // The assignments will be stored in this vector.
    arma::Col<size_t> groupings;
    // The centroids will be stored in this matrix.
