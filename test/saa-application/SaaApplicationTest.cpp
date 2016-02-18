@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 #include <common/protobuf/adsb.pb.h>
 #include <common/protobuf/cdti.pb.h>
+#include <common/protobuf/ownship.pb.h>
 
 
 TEST(saa_Test, adsbToRel) {
