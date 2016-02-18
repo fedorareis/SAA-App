@@ -46,8 +46,8 @@ add_subdirectory(lib/protobuf/cmake)
 include_directories(${protobuf_SOURCE_DIR}/../src)
 link_directories(${protobuf_BINARY_DIR})
 link_directories(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-message("Proto is at: " ${protobuf_SOURCE_DIR})
-message("Proto libs at: " ${protobuf_BINARY_DIR})
+message("WANRING Proto is at: " ${protobuf_SOURCE_DIR})
+message("WARNING Proto libs at: " ${protobuf_BINARY_DIR})
 ENDIF()
 message("libs search path: " ${CMAKE_LIBRARY_PATH})
 add_subdirectory(lib/googletest)
@@ -60,6 +60,7 @@ add_subdirectory(app)
 add_subdirectory(test)
 
 #Copy resources to output dir
+#TODO: THIS NO WORK...
 file(GLOB_RECURSE RESOURCES
         "resources/*"
         )
