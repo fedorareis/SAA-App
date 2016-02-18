@@ -10,6 +10,7 @@
 #include <common/protobuf/ownship.pb.h>
 #include "common/sockets/ServerSocket.h"
 #include "SensorData.h"
+#include "ServerConnectionManager.h"
 
 class SaaApplication
 {
@@ -20,9 +21,8 @@ public:
 private:
    static void setupSockets(int CdtiSocket);
    std::vector<CDTIPlane *> list;
-   static ServerSocket * cdtiSocket;
+   static std::shared_ptr<ServerSocket>  cdtiSocket;
    void processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock);
-   ServerSocket cdtiOut;
-   ServerSocket validationOut;
+   static std::shared_ptr<ServerConnectionManager> connectionManager;
 };
 #endif //SAA_APPLICATION_SAAAPPLICATION_H
