@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module map-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="1" level="0" />
+<coupling_between_objects value="36" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>map</name>
+<client_module>
+<name>AccessorEnumFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="88" />
+</extent>
+<name>AccessorPrimitiveFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="92" />
+</extent>
+<name>Context</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="88" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="89" />
+</extent>
+<name>EnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_enum_field.h" line="69" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="65" />
+</extent>
+<name>FieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="90" />
+</extent>
+<name>FieldGeneratorBase</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_field_base.h" line="67" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_field_base.h" line="74" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_field_base.h" line="90" />
+</extent>
+<name>ImmutableEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="85" />
+</extent>
+<name>ImmutableEnumFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="84" />
+</extent>
+<name>ImmutableMapFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_map_field.h" line="70" />
+</extent>
+<name>ImmutableMapFieldLiteGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_map_field_lite.h" line="69" />
+</extent>
+<name>ImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="85" />
+</extent>
+<name>ImmutableMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="84" />
+</extent>
+<name>ImmutablePrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="85" />
+</extent>
+<name>ImmutablePrimitiveFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="87" />
+</extent>
+<name>ImmutableStringFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="86" />
+</extent>
+<name>ImmutableStringFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="85" />
+</extent>
+<name>MapFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_map_field.h" line="67" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_map_field.h" line="61" />
+</extent>
+<name>MessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="71" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="78" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="65" />
+</extent>
+<name>MessageOneofFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="105" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="88" />
+</extent>
+<name>PrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_primitive_field.h" line="69" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="68" />
+</extent>
+<name>PrimitiveOneofFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="114" />
+</extent>
+<name>RepeatedEnumFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_enum_field.h" line="115" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="115" />
+</extent>
+<name>RepeatedImmutableEnumFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="146" />
+</extent>
+<name>RepeatedImmutableEnumFieldLiteGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="145" />
+</extent>
+<name>RepeatedImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="151" />
+</extent>
+<name>RepeatedImmutableMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="142" />
+</extent>
+<name>RepeatedImmutablePrimitiveFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="146" />
+</extent>
+<name>RepeatedImmutablePrimitiveFieldLiteGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="149" />
+</extent>
+<name>RepeatedImmutableStringFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="146" />
+</extent>
+<name>RepeatedImmutableStringFieldLiteGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="144" />
+</extent>
+<name>RepeatedMessageFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="140" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="111" />
+</extent>
+<name>RepeatedPrimitiveFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_primitive_field.h" line="116" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="140" />
+</extent>
+<name>RepeatedStringFieldGenerator</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_string_field.h" line="122" />
+</extent>
+<name>ScopedMemoryLog</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/testing/googletest.h" line="88" />
+</extent>
+<name>StringFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_string_field.h" line="74" />
+</extent>
+<name>hash_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/hash.h" line="205" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

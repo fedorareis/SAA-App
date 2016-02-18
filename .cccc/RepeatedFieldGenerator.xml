@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module RepeatedFieldGenerator-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="13" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="8" level="0" />
+<weighted_methods_per_class_visibility value="4" level="0" />
+<depth_of_inheritance_tree value="3" level="0" />
+<number_of_children value="4" level="0" />
+<coupling_between_objects value="7" level="0" />
+<IF4 value="144" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="144" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="16" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="128" />
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>FinishInitialization(void)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="139" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RepeatedFieldGenerator)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="143" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateFieldStorageDeclaration(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="132" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GeneratePropertyDeclaration(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="133" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GeneratePropertyImplementation(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="135" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RepeatedFieldGenerator(const FieldDescriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="138" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>WantsHasProperty(void)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="140" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~RepeatedFieldGenerator()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="130" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>RepeatedFieldGenerator</name>
+<client_module>
+<name>MapFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_map_field.h" line="43" />
+</extent>
+<name>RepeatedEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_enum_field.h" line="60" />
+</extent>
+<name>RepeatedMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_message_field.h" line="58" />
+</extent>
+<name>RepeatedPrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_primitive_field.h" line="65" />
+</extent>
+</client_module>
+<supplier_module>
+<name>FieldDescriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="138" />
+</extent>
+<name>ObjCObjFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="128" />
+</extent>
+<name>Printer</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="132" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="133" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/objectivec/objectivec_field.h" line="135" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

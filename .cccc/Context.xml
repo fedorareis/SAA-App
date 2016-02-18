@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module Context-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="39" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="26" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.500" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="9" level="0" />
+<weighted_methods_per_class_visibility value="5" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="41" level="0" />
+<IF4 value="56644" level="2" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="28900" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="64" />
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_lite.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_extension.h" line="48" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_field.h" line="53" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_file.h" line="55" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_generator_factory.h" line="48" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field.h" line="45" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field_lite.h" line="45" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_builder.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_builder_lite.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="46" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_service.h" line="45" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="47" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="47" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>Context(const FileDescriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="66" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(Context)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="90" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GetFieldGeneratorInfo(const FieldDescriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="74" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GetNameResolver()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="71" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GetOneofGeneratorInfo(const OneofDescriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="78" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>InitializeFieldGeneratorInfo(const FileDescriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="82" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>InitializeFieldGeneratorInfoForFields(const vector &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="84" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>InitializeFieldGeneratorInfoForMessage(const Descriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="83" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~Context()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="67" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>Context</name>
+<client_module>
+<name>ImmutableEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="88" />
+</extent>
+<name>ImmutableEnumFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="87" />
+</extent>
+<name>ImmutableEnumOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="99" />
+</extent>
+<name>ImmutableEnumOneofFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="99" />
+</extent>
+<name>ImmutableGeneratorFactory</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_generator_factory.h" line="78" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_generator_factory.h" line="91" />
+</extent>
+<name>ImmutableLazyMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field.h" line="59" />
+</extent>
+<name>ImmutableLazyMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field_lite.h" line="59" />
+</extent>
+<name>ImmutableLazyMessageOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field.h" line="82" />
+</extent>
+<name>ImmutableLazyMessageOneofFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field_lite.h" line="80" />
+</extent>
+<name>ImmutableMapFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_map_field.h" line="45" />
+</extent>
+<name>ImmutableMapFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_map_field_lite.h" line="45" />
+</extent>
+<name>ImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="88" />
+</extent>
+<name>ImmutableMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="87" />
+</extent>
+<name>ImmutableMessageLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_lite.h" line="51" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_lite.h" line="79" />
+</extent>
+<name>ImmutableMessageOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="107" />
+</extent>
+<name>ImmutableMessageOneofFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="99" />
+</extent>
+<name>ImmutablePrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="88" />
+</extent>
+<name>ImmutablePrimitiveFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="61" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="90" />
+</extent>
+<name>ImmutablePrimitiveOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="100" />
+</extent>
+<name>ImmutablePrimitiveOneofFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="102" />
+</extent>
+<name>ImmutableStringFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="61" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="89" />
+</extent>
+<name>ImmutableStringFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="61" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="88" />
+</extent>
+<name>ImmutableStringOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="101" />
+</extent>
+<name>ImmutableStringOneofFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="100" />
+</extent>
+<name>RepeatedImmutableEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="120" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="149" />
+</extent>
+<name>RepeatedImmutableEnumFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="120" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field_lite.h" line="148" />
+</extent>
+<name>RepeatedImmutableLazyMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field.h" line="102" />
+</extent>
+<name>RepeatedImmutableLazyMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_lazy_message_field_lite.h" line="99" />
+</extent>
+<name>RepeatedImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="126" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="154" />
+</extent>
+<name>RepeatedImmutableMessageFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="118" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field_lite.h" line="145" />
+</extent>
+<name>RepeatedImmutablePrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="120" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="149" />
+</extent>
+<name>RepeatedImmutablePrimitiveFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="122" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field_lite.h" line="152" />
+</extent>
+<name>RepeatedImmutableStringFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="120" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="149" />
+</extent>
+<name>RepeatedImmutableStringFieldLiteGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="119" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field_lite.h" line="147" />
+</extent>
+</client_module>
+<supplier_module>
+<name>Descriptor</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="83" />
+</extent>
+<name>FieldDescriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="75" />
+</extent>
+<name>FileDescriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="66" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="82" />
+</extent>
+<name>OneofDescriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="79" />
+</extent>
+<name>map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="88" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="89" />
+</extent>
+<name>scoped_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="87" />
+</extent>
+<name>vector</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_context.h" line="85" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

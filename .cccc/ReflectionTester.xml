@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module ReflectionTester-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="52" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="10" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="5.200" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="22" level="0" />
+<weighted_methods_per_class_visibility value="17" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="6" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="135" />
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="25.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>ExpectAllFieldsSetViaReflection(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="146" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectAllFieldsSetViaReflection1(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="201" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectAllFieldsSetViaReflection2(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="202" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectAllFieldsSetViaReflection3(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="203" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectClearViaReflection(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="147" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectMessagesReleasedViaReflection(Message *,MessageReleaseState)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="169" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectOneofSetViaReflection(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="175" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectPackedClearViaReflection(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="152" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectPackedFieldsSetViaReflection(const Message &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="151" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>F(const string &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="178" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ReflectionTester)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="205" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ModifyPackedFieldsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="150" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ModifyRepeatedFieldsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="145" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ReflectionTester(const Descriptor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="142" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ReleaseLastRepeatedsViaReflection(Message *,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="155" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RemoveLastRepeatedsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="154" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SetAllFieldsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="144" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SetAllocatedOptionalMessageFieldsToMessageViaReflection(Message *,Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="160" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SetAllocatedOptionalMessageFieldsToNullViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="158" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SetOneofViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="174" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SetPackedFieldsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="149" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SwapRepeatedsViaReflection(Message *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="157" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>ReflectionTester</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>Descriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="142" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="180" />
+</extent>
+<name>EnumValueDescriptor</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="189" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="190" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="191" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="192" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="193" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="194" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="195" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="196" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="197" />
+</extent>
+<name>FieldDescriptor</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="182" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="183" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="184" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="185" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="186" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="187" />
+</extent>
+<name>Message</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="144" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="145" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="146" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="147" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="149" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="150" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="151" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="152" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="154" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="156" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="157" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="159" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="161" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="162" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="170" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="174" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="175" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="201" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="202" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="203" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="156" />
+</extent>
+<name>string</name>
+<visible>false</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/test_util.h" line="178" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
