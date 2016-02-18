@@ -11,19 +11,21 @@
 #include "SaaApplication.h"
 #include "Correlation.h"
 #include "Decision.h"
+#include "ServerConnectionManager.h"
 #include <mutex>
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
 
 
-ServerSocket *SaaApplication::cdtiSocket = nullptr;
+std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
+std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex mtx;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
-void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
+void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
 {
-   bindingSocket->   accept(*acceptingSocket);
+   mgr->accept();
    std::cout << "Server has accepted cdti socket" << std::endl;
 }
 
@@ -48,12 +50,13 @@ void SocketSetup(ClientSocket &radarSock, ClientSocket &tcasSock, ClientSocket &
 
 ServerSocket *SaaApplication::getCdtiSocket()
 {
-   return cdtiSocket;
+   return nullptr;
+   //return cdtiSocket;
 }
 
 void SaaApplication::setupSockets(int cdtiPort)
 {
-   cdtiSocket = new ServerSocket(cdtiPort);
+   cdtiSocket = std::make_shared<ServerSocket>(cdtiPort);
    std::cout << "cdtiSocket initialized" << std::endl;
 }
 
@@ -61,13 +64,17 @@ void SaaApplication::initSocks()
 {
    //Set up server sockets
    setupSockets(6000);
-   std::thread t1(acceptNetworkConnection, &this->cdtiOut, getCdtiSocket());
+   this->connectionManager = std::make_shared<ServerConnectionManager>();
+   this->connectionManager->init(cdtiSocket);
+   std::thread t1(acceptNetworkConnection, connectionManager);
    //std::thread t2(acceptNetworkConnection,&this->validationOut, getCdtiSocket());
 
    //set up client sockets
    ClientSocket radarSock, tcasSock, adsbSock, ownSock;
    SocketSetup(radarSock, tcasSock, adsbSock, ownSock);
    t1.join();
+   //Let the conection manager get any additional conections (like a CDTI)
+   connectionManager->monitor();
    //t2.join();
    //socks.pop_back();
 
@@ -76,10 +83,7 @@ void SaaApplication::initSocks()
 
 void SaaApplication::shutdown()
 {
-   if (cdtiSocket != nullptr)
-   {
-      delete cdtiSocket;
-   }
+   connectionManager->shutdown();
 }
 
 /**
@@ -243,7 +247,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
          dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
          rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
-         cdtiOut << (*rep);
+         connectionManager->sendMessage(*rep);
          //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }

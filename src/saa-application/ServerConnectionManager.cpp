@@ -60,7 +60,10 @@ void ServerConnectionManager::sendMessage(google::protobuf::Message &msg) {
    for(auto sock = acceptedSockets.begin();
        sock != acceptedSockets.end(); ++sock) {
       try {
-         *(*sock) << msg;
+         if ((*sock) != nullptr)
+         {
+            *(*sock) << msg;
+         }
       }
       catch (SocketException exc) {
          removeList.push_back(sock);
