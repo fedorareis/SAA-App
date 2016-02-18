@@ -6,5 +6,5 @@
 
 std::string NumPlanesTestCaseError::description()
 {
- return "Wrong number of planes, Yo!";
+ return "PLANE COUNT ERROR: expetected " + expected + " planes but received " + actual + " planes.";
 }
