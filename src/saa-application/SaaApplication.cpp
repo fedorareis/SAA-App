@@ -23,7 +23,7 @@ SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(ServerSocket *acceptingSocket, ServerSocket *bindingSocket)
 {
-   bindingSocket->accept(*acceptingSocket);
+   bindingSocket->   accept(*acceptingSocket);
    std::cout << "Server has accepted cdti socket" << std::endl;
 }
 
