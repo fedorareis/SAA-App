@@ -5,19 +5,19 @@
 #include <common/sockets/ClientSocket.h>
 #include <cdti/endpoints/mocks/CDTIMockEndpoint.h>
 #include <thread>
-#include "Display.h"
+#include "CDTIGUIDisplay.h"
 #include "AlertMessages.h"
 
 class DisplayController
 {
 private:
-    Display& display;
+    Display & display;
     CDTIEndpoint* socket;
     AlertMessages* messages;
     std::thread* socketThread;
 public:
     /**
-     * constructs a Display controller with the configured display
+     * constructs a CDTIGUIDisplay controller with the configured display
      *
      * @param display: the display that the controller manages
      */

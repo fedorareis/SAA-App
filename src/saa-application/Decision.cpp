@@ -7,8 +7,9 @@
 #include "math.h"
 #include <common/Maths.h>
 #include "Decision.h"
+time_t Decision::time0 = 0;
 
-float calculateTAU(CorrelatedData plane)
+float calculateTAUMod(CorrelatedData plane, int DMOD)
 {
    Vector2d planePos = Vector2d(plane.getPosition().x, plane.getPosition().y);
    Vector2d planeVel = Vector2d(plane.getVelocity().x, plane.getVelocity().y);
@@ -17,14 +18,13 @@ float calculateTAU(CorrelatedData plane)
    float magnitude = planePos.length();
 
    // TODO: Upgrade to TCASII algorithm
-   return -(dot/(magnitude * magnitude));
+   return ((DMOD * DMOD) - (magnitude * magnitude))/ dot;
 
 }
 
 void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
                             CDTIPlane::Severity* severity, SensorData* ownship)
 {
-   //std::cout << "We are making decisions here" << std::endl;
 
    list->clear();
 
@@ -32,19 +32,19 @@ void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<Correlat
    for (std::vector<CorrelatedData>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
-      float tau = calculateTAU(*it);
-      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 && tau < 5)
+      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 &&
+         calculateTAUMod(*it, .5) < 5)
       {
          // Should be AIR
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300
-              && tau < 30)
+              && calculateTAUMod(*it, 2) < 30)
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
       }
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500
-              && tau < 60)
+              && calculateTAUMod(*it, 5) < 60)
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
       }
@@ -65,14 +65,13 @@ void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<Correlat
 
 CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity)
 {
-   //std::cout << "We are generating the cdti report here" << std::endl;
 
    CDTIReport * report = new CDTIReport;
 
    report->set_advisorylevel(CDTIReport::PROXIMATE);
    report->set_advisorymessage("Move out of the way");
    report->set_allocated_ownship(ownship);
-   report->set_timestamp(time(0));
+   report->set_timestamp(time(0) - Decision::time0);
 
    // Iterates over the list adding planes to the Report for the CDTI
    for (std::vector<CDTIPlane *>::iterator it = (*list).begin(); it != (*list).end(); ++it)
@@ -87,3 +86,6 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    return report;
 }
 
+void Decision::setTime0(time_t time) {
+   time0 = time;
+}

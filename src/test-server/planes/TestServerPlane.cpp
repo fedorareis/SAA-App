@@ -10,9 +10,9 @@ Vector3d addToLatitudeLongitude(Vector3d latLongAlt, Vector3d translation)
    const double R = 20.9e6; //Radius of earth in feet.
    const double ft2Deg = 2*M_PI*R/360.0;
    //Convert N and E into angle rotations
-   double dLat = translation.x;
-   double dLong = translation.y;
-   double dAlt = -translation.z;
+   double dLat = translation.x; //N
+   double dLong = translation.y; //E
+   double dAlt = -translation.z; //D
    Vector3d finalVector = latLongAlt;
    finalVector.z += dAlt; //Already in feet
    finalVector.x += dLat / ft2Deg; //(in ft, convert to angle)

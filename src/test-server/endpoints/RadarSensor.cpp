@@ -17,26 +17,29 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    RadarReport rept;
    //Create range from position
    float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude());
-   float positionX = calcDistance(plane.getLatitude(), ownship.getLatitude(), ownship.getLatitude(),
-                                  ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1);
+   float positionX = calcDistance(plane.getLatitude(), ownship.getLongitude(), ownship.getLatitude(),
+                                  ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1); //Difference N
    float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
-                                  ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
+                                  ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1); //Difference E
 
    float positionZ = plane.getAltitude()-ownship.getAltitude();
 
    Vector2d difference = Vector2d(positionX,positionY).normalized();
+   Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
 
    float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
                                                   difference));
+   bool negBearing = Vector2d::Dot(leftVec,difference) <= 0;
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
-   float azimuth = 180.f/M_PI * angle * (difference.x > 0 ? -1 : 1);
+   float azimuth = 180.f/M_PI * angle * (negBearing ? -1 : 1);
+
    float elevation = 180.f/M_PI * atan2(positionZ/NAUT_MILES_TO_FEET,range);
    range = (float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET));
 
    RadarReport report;
 
-
+   std::cout << "RDR" << azimuth << "," << elevation << "," << range << std::endl;
 
    report.set_azimuth(azimuth);
    report.set_altitude(positionZ);

@@ -10,7 +10,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
 
    //Create range from position
    float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude());
-   float positionX = calcDistance(plane.getLatitude(), ownship.getLatitude(), ownship.getLatitude(),
+   float positionX = calcDistance(plane.getLatitude(), ownship.getLongitude(), ownship.getLatitude(),
                                   ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1);
    float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
                                   ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
@@ -18,8 +18,6 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    float positionZ = plane.getAltitude()-ownship.getAltitude();
 
    Vector2d difference = Vector2d(positionX,positionY).normalized();
-   std::cout << difference.x << "," << difference.y << std::endl;
-   std::cout << ownship.getNorthVelocity() << "," << ownship.getEastVelocity() << std::endl;
    Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
    float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
                                         difference));
@@ -36,6 +34,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
 
    report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
    report.set_id(plane.getTcasId());
+
    std::cout << "TCAS:" << range << "," << bearing << "," << positionZ << std::endl;
    return report;
 }

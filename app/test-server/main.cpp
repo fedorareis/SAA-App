@@ -21,13 +21,20 @@ int main(int argC, const char* argV[])
    TestServer::provideAdsbEndpoint(new SocketSensorEndpoint(5001));
    TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
-   std::cout<<"\n----Test File 1----"<<std::endl;
    //__DIR__ is injected in compile time
-   std::string s(__DIR__"/resources/TestCaseExample2Planes.xml");
+   std::string test = "/resources/TestPlan_1.xml";
+   if(argC > 1)
+   {
+      test = std::string(argV[1]);
+   }
+
+   std::string s(__DIR__+test);
    TestFileParser parser;
    // true if building test case is successful
    if(parser.load(s))
    {
+      std::cout<<s<<std::endl;
+
       TestCase testCase = parser.GetTestCase();
        PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
        NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));

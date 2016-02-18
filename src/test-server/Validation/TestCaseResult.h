@@ -9,9 +9,11 @@
 #include <common/protobuf/cdti.pb.h>
 #include <common/Maths.h>
 
+
 /**
  * A ResultPlane contains easier to access information from a CDTI plane message
  */
+
 class ResultPlane
 {
    public:
@@ -48,6 +50,7 @@ class ResultPlane
    private:
    Vector3d relativePosition;
    Vector3d nedVelocity;
+   std::vector<int> planeTags;
    std::string tag;
    CDTIPlane_Severity severity;
 

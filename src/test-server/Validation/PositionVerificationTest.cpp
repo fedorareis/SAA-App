@@ -28,7 +28,9 @@ bool PositionVerificationTest::verify(TestCaseResult &result)
         {
 
             Vector3d resultPlanePos = result.getPlanes()[resultPlaneIndex].getPosition();
-            Vector3d distance = getDifference(testServerPlane.getLatLongAlt(), resultPlanePos);
+            Vector3d distance =
+                  getDifference(testServerPlane.getLatLongAlt(), tc->getOwnship().getLatLongAlt()) -
+                  resultPlanePos;
             bool correctLat = fabs(distance.x) < THRESHOLD;
             bool correctLong = fabs(distance.y) < THRESHOLD;
             bool correctAlt = fabs(distance.z) < THRESHOLD;
@@ -41,7 +43,7 @@ bool PositionVerificationTest::verify(TestCaseResult &result)
 
     if (!correct)
     {
-        error = std::make_shared<PositionTestCaseError>(PositionTestCaseError(-1));
+        error = std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTime()));
     }
     return correct;
 }
