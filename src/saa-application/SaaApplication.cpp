@@ -77,7 +77,7 @@ void SaaApplication::initSocks()
    connectionManager->monitor();
    //t2.join();
    //socks.pop_back();
-
+   Decision::setTime0(time(0));
    processSensors(ownSock, adsbSock, tcasSock, radarSock);
 }
 

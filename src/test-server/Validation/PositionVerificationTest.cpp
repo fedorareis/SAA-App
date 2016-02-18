@@ -43,7 +43,7 @@ bool PositionVerificationTest::verify(TestCaseResult &result)
 
     if (!correct)
     {
-        error = std::make_shared<PositionTestCaseError>(PositionTestCaseError(-1));
+        error = std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTime()));
     }
     return correct;
 }
