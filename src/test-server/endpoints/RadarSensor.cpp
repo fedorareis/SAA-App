@@ -26,6 +26,7 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
 
    Vector2d difference = Vector2d(positionX,positionY).normalized();
    Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
+
    float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
                                                   difference));
    bool negBearing = Vector2d::Dot(leftVec,difference) <= 0;

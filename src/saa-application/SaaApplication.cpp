@@ -93,15 +93,15 @@ void SaaApplication::shutdown()
 SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = adsb.tail_number();
-   float positionX = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+   float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
-   float positionY = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
+   float positionE = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
                                   ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
-   float positionZ = adsb.altitude() - ownship.ownship_altitude();
-   float velocityX = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
-   float velocityY = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
-   float velocityZ = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
+   float positionD = adsb.altitude() - ownship.ownship_altitude();
+   float velocityN = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
+   float velocityE = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
+   float velocityD = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
+   SensorData adsbPlane(tailNumber, positionN, positionE, positionD, velocityN, velocityE, velocityD, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
    return adsbPlane;
 }
 
@@ -116,12 +116,12 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
    float horizRange = (float)(sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude()));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
-   float positionX = (float)(horizRange * cos(theta));
-   float positionY = (float)(horizRange * sin(theta));
+   float positionE = (float)(horizRange * cos(theta));
+   float positionN = (float)(horizRange * sin(theta));
    float velocityX = 0;
    float velocityY = 0;
    float velocityZ = 0;
-   SensorData tcasPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
+   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
    return tcasPlane;
 }
 
@@ -137,12 +137,12 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
-   float positionX = (float)(horizRange * cos(theta));
-   float positionY = (float)(horizRange * sin(theta));
+   float positionE = (float)(horizRange * cos(theta));
+   float positionN = (float)(horizRange * sin(theta));
    float velocityX = fpsToNmph(radar.north());
    float velocityY = fpsToNmph(radar.east());
    float velocityZ = fpsToNmph(radar.down());
-   SensorData radarPlane(tailNumber, positionX, positionY, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
+   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
