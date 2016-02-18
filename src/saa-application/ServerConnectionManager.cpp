@@ -1,17 +1,23 @@
 #include <common/sockets/SocketException.h>
 #include "ServerConnectionManager.h"
-
+#include <iostream>
 
 void handleMonitor(ServerConnectionManager * mntr)
 {
    while(mntr->getIsMonitoring())
    {
-      std::shared_ptr<ServerSocket> newSock = std::make_shared<ServerSocket>();
-      mntr->getBindingSocket()->accept(*newSock);
-      mntr->addClient(newSock);
+      try{
+         std::shared_ptr<ServerSocket> newSock = std::make_shared<ServerSocket>();
+         mntr->getBindingSocket()->accept(*newSock);
+         mntr->addClient(newSock);
+      }
+      catch(SocketException exc)
+      {
+         std::cout << "Socket exception in monitor loop" << std::endl;
+      }
 
    }
-
+ 
 }
 
 /**
@@ -55,17 +61,21 @@ void ServerConnectionManager::shutdown() {
 
 void ServerConnectionManager::sendMessage(google::protobuf::Message &msg) {
    std::lock_guard<std::mutex>(this->connectionManagerMutex);
-
    std::vector<std::vector<std::shared_ptr<ServerSocket>>::iterator> removeList;
    for(auto sock = acceptedSockets.begin();
        sock != acceptedSockets.end(); ++sock) {
       try {
          if ((*sock) != nullptr)
          {
-            *(*sock) << msg;
+            google::protobuf::Message * uniqueMsg;
+            uniqueMsg = msg.New();
+            uniqueMsg->CopyFrom(msg);
+            *(*sock) << *uniqueMsg;
+            delete uniqueMsg;
          }
       }
       catch (SocketException exc) {
+
          removeList.push_back(sock);
       }
    }

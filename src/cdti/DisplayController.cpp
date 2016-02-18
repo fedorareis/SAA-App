@@ -35,6 +35,7 @@ void DisplayController::listenOnSocket()
     while(socket->isRunning())
     {
        CDTIReport report = messages->getMessage();
+
 //        for(int i = 0; i < report.planes_size(); i++)
 //        {
 //            if(i >= display.getNumPlanes())
