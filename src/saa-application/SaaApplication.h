@@ -8,6 +8,7 @@
 #include <vector>
 #include <common/protobuf/cdti.pb.h>
 #include <common/protobuf/ownship.pb.h>
+#include <common/protobuf/adsb.pb.h>
 #include "common/sockets/ServerSocket.h"
 #include "SensorData.h"
 #include "ServerConnectionManager.h"
@@ -18,6 +19,7 @@ public:
    void initSocks();
    static ServerSocket * getCdtiSocket();
    static void shutdown();
+   static SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship);
 private:
    static void setupSockets(int CdtiSocket);
    std::vector<CDTIPlane *> list;

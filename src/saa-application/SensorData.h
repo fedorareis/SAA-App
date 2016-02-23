@@ -34,12 +34,12 @@ public:
    {
       velocity = new Vector();
       position = new Vector();
-      velocity->set_x(velocityX);
-      velocity->set_y(velocityY);
-      velocity->set_z(velocityZ);
-      position->set_x(positionX);
-      position->set_y(positionY);
-      position->set_z(positionZ);
+      velocity->set_x(velocityX); // north
+      velocity->set_y(velocityY); // east
+      velocity->set_z(velocityZ); // down
+      position->set_x(positionX); // north
+      position->set_y(positionY); // east
+      position->set_z(positionZ); // down
       planeTag = planeId;
       timeStamp = time;
 

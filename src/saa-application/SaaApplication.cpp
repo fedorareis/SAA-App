@@ -90,7 +90,7 @@ void SaaApplication::shutdown()
  * Takes in an adsbReport and the OwnshipReport data and returns the SensorData version of
  * the adsb data converted to relative position to the ownship.
  */
-SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
+SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = adsb.tail_number();
    float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
@@ -172,7 +172,7 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
       mtx.lock();
-      planes.push_back(adsbToRelative(adsb, ownship));
+      planes.push_back(SaaApplication::adsbToRelative(adsb, ownship));
       mtx.unlock();
    }
    std::cout << "ADSBThread done\n";
