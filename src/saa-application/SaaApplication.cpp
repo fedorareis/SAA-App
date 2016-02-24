@@ -109,7 +109,7 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
  * Takes in a TcasReport and the OwnshipReport data and returns the SensorData version of
  * the tcas data converted to relative position to the ownship.
  */
-SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
+SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
@@ -118,10 +118,10 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
    float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));
    float positionN = (float)(horizRange * sin(theta));
-   float velocityX = 0;
-   float velocityY = 0;
-   float velocityZ = 0;
-   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
+   float velocityN = 0;
+   float velocityE = 0;
+   float velocityD = 0;
+   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::tcas, tcas.plane_id(), 0);
    return tcasPlane;
 }
 
@@ -129,7 +129,7 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
  * Takes in a RadarReport and the OwnshipReport data and returns the SensorData version of
  * the radar data converted to relative position to the ownship.
  */
-SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
+SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
    float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
@@ -139,10 +139,10 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));
    float positionN = (float)(horizRange * sin(theta));
-   float velocityX = fpsToNmph(radar.north());
-   float velocityY = fpsToNmph(radar.east());
-   float velocityZ = fpsToNmph(radar.down());
-   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
+   float velocityN = fpsToNmph(radar.north());
+   float velocityE = fpsToNmph(radar.east());
+   float velocityD = fpsToNmph(radar.down());
+   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
@@ -190,7 +190,7 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
       mtx.lock();
-      planes.push_back(tcasToRelative(tcas, ownship));
+      planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
       mtx.unlock();
    }
    std::cout << "TCASThread done\n";
@@ -208,7 +208,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    {
       radarSock.operator>>(radar); //blocking call, waits for server
       mtx.lock();
-      planes.push_back(radarToRelative(radar, ownship));
+      planes.push_back(SaaApplication::radarToRelative(radar, ownship));
       mtx.unlock();
    }
    std::cout << "RadarThread done\n";
