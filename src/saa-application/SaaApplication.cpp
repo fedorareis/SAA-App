@@ -260,7 +260,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    catch (SocketException)
    {
       std::cout << "got a socket exception... exiting" << std::endl;
-      exit(-1); //TODO write shutdown function
+      exit(-1);
    }
 
    delete rep;

@@ -4,8 +4,8 @@
 
 #include "CorrectSensorVerificationTest.h"
 //@TODO: Implement
-bool CorrectSensorVerificationTest::verify(TestCaseResult &result) {
- return false;
+std::vector<std::shared_ptr<TestCaseError>> CorrectSensorVerificationTest::verify(TestCaseResult &result) {
+ return std::vector<std::shared_ptr<TestCaseError>>();
 }
 
 

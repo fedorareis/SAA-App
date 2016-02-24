@@ -4,6 +4,9 @@
 
 #include "Maths.h"
 
+
+using namespace std;
+
 float toRadians(float lat) {
     return (float)(lat * M_PI / 180);
 }
@@ -50,4 +53,9 @@ Vector3d getDifference(Vector3d plane, Vector3d ownship)
    return Vector3d(positionX,positionY,positionZ);
 
 
+}
+
+double Vector3d::getMagnitude()
+{
+    return sqrt(x * x + y * y + z * z);
 }
