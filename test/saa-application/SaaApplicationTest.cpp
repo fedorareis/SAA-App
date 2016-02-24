@@ -10,7 +10,8 @@
 #include <saa-application/SaaApplication.h>
 
 
-TEST(saa_Test, adsbToRel) {
+TEST(saa_Test, adsbToRel)
+{
    AdsBReport adsb;
    OwnshipReport ownship;
 
@@ -36,7 +37,7 @@ TEST(saa_Test, adsbToRel) {
    assert(result.getVelocity().x == 0);
    assert(result.getVelocity().y == 0);
    assert(result.getVelocity().z == 0);
-   assert(result.getPurePosition().x >= 30.0216 - .05 && result.getPurePosition().x <= 30.0216 + .05);
+   assert(result.getPurePosition().x >= 30.02 - .05 && result.getPurePosition().x <= 30.02 + .05);
    assert(result.getPurePosition().y == 0);
    assert(result.getPurePosition().z == 0);
 
@@ -46,5 +47,15 @@ TEST(saa_Test, adsbToRel) {
 
    result = SaaApplication::adsbToRelative(adsb, ownship);
 
-   assert(result.getPurePosition().y >= 10.399568 - .05 && result.getPurePosition().y <= 10.399568 + .05);
+   assert(result.getVelocity().x == 0);
+   assert(result.getVelocity().y == 0);
+   assert(result.getVelocity().z == 0);
+   assert(result.getPurePosition().x == 0);
+   assert(result.getPurePosition().y >= 10.39 - .05 && result.getPurePosition().y <= 10.39 + .05);
+   assert(result.getPurePosition().z == 0);
+}
+
+TEST(saaTest, tcasToRel)
+{
+
 }
