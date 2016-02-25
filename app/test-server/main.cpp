@@ -36,10 +36,10 @@ int main(int argC, const char* argV[])
       std::cout<<s<<std::endl;
 
       TestCase testCase = parser.GetTestCase();
-       PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
-       NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
-       Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
-       Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
+      PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
+      NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
+      Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
+      Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
       TestEnvironment environment;
       environment.acceptConnections();
       environment.start(testCase);
