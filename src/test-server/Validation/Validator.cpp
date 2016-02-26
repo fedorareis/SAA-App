@@ -25,9 +25,10 @@ void Validator::endSimulation()
    {
       for (auto tester: testers)
       {
-         if (!tester->verify(result))
+
+         for(auto error: tester->verify(result))
          {
-            errors.push_back(tester->getError());
+            errors.push_back(error);
          }
       }
 //      if(result.getPlanes().size() != expectedPlanes)

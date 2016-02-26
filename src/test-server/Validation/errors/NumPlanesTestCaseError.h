@@ -9,8 +9,13 @@
 
 class NumPlanesTestCaseError : public TestCaseError
 {
+private:
+    int actual,expected;
 public:
-    NumPlanesTestCaseError(long timestamp) : TestCaseError(timestamp)
+    NumPlanesTestCaseError(long timestamp,int numPLanesExpeted, int numPlanesActual) :
+            TestCaseError(timestamp),
+            actual(numPlanesActual),
+            expected(numPLanesExpeted)
     { }
 
     std::string description();

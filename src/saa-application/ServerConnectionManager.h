@@ -3,6 +3,7 @@
 
 #include <common/sockets/ServerSocket.h>
 #include <google/protobuf/message.h>
+#include <mutex>
 
 /**
  * ServerConnectionmanager provides a convinent way
