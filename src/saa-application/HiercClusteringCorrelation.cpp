@@ -4,19 +4,14 @@
 
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
-#include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp>
+//#include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp>
+#include "HiercClusteringCorrelation.h"
+#include "SensorData.h"
+#include "CorrelatedData.h"
 
-#include "Correlation.h"
-
-using namespace mlpack::naive_bayes;
-
-void Correlation::report()
-{
-   std::cout << "We are correlating some stuff" << std::endl;
-}
 
 //TODO: replace all kmenas stuff into bayes classifier or whatever we choose to do
-std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> planes)
+std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<SensorData> planes)
 {
    std::vector<CorrelatedData> correlatedPlanes;
    std::vector<double> positions_x, positions_y, positions_z, velocities_x, velocities_y, velocities_z;
@@ -27,9 +22,9 @@ std::vector<CorrelatedData> Correlation::correlate(std::vector<SensorData> plane
    // The number of clusters we are getting.
    size_t clusters = 2; //potentially empty clusters.
    // The assignments will be stored in this vector.
-   arma::Col<size_t> groupings;
+  // arma::Col<size_t> groupings;
    // The centroids will be stored in this matrix.
-   arma::mat centroids;
+  // arma::mat centroids;
    // Initialize with the default arguments.
    //KMeans<> km;
 
