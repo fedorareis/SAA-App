@@ -14,7 +14,7 @@ public:
     PositionVerificationTest(const std::shared_ptr<TestCase> &tc) : VerificationTest(tc)
     { }
 
-    bool verify(TestCaseResult& result);
+    std::vector<std::shared_ptr<TestCaseError>> verify(TestCaseResult& result);
 };
 
 #endif //SAA_APPLICATION_POSITIONVERIFICATIONTEST_H

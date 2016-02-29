@@ -5,7 +5,8 @@
 #ifndef SAA_APPLICATION_MATHS_H
 #define SAA_APPLICATION_MATHS_H
 
-#include <math.h>
+#include <cmath>
+#include <string>
 
 #define EARTH_RADIUS 3440.0
 #define KNOT_CONVERSION 0.592484
@@ -38,6 +39,12 @@ struct Vector3d
    double x;
    double y;
    double z;
+
+   double getMagnitude();
+   std::string toString()
+   {
+       return "(" + std::to_string(x) + "," + std::to_string(y) + "," + "," + std::to_string(z) + ")";
+   }
 };
 bool operator==(Vector3d lhs, Vector3d rhs);
 

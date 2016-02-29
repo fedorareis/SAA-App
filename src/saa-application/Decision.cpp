@@ -1,5 +1,5 @@
 //
-// Created by jacrushar on 11/17/15.
+// Created by Kyle Reis on 11/17/15.
 //
 
 #include <iostream>
@@ -70,7 +70,9 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
 
    report->set_advisorylevel(CDTIReport::PROXIMATE);
    report->set_advisorymessage("Move out of the way");
-   report->set_allocated_ownship(ownship);
+   CDTIPlane * plane = new CDTIPlane();
+   plane->CopyFrom(*ownship);
+   report->set_allocated_ownship(plane);
    report->set_timestamp(time(0) - Decision::time0);
 
    // Iterates over the list adding planes to the Report for the CDTI

@@ -6,5 +6,5 @@
 
 std::string PositionTestCaseError::description()
 {
-  return "position is wrong, yo.";
+  return "POSITION ERROR: expected position of " + expected.toString() + " but closest plane was" + actual.toString();
 }

@@ -35,7 +35,7 @@ add_executable(test_testserver ${MOCKS_SOURCES} ${TEST_SERVER_TEST_SOURCES})
 #Link all of the sources
 target_link_libraries (test_all cdti-sources common-sources
                        saa-application-sources test-server-sources
-                       protobuf mlpack gtest gmock gtest_main)
+                       protobuf mlpack armadillo gtest gmock gtest_main)
 target_link_libraries(test_testserver common-sources test-server-sources gtest gmock gtest_main)
 
 set_property(TARGET test_all PROPERTY FOLDER "executables")

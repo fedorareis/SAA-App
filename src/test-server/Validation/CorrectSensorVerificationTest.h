@@ -13,7 +13,7 @@ class CorrectSensorVerificationTest : public VerificationTest {
    public:
    CorrectSensorVerificationTest(const std::shared_ptr<TestCase> &tc) : VerificationTest(tc) { }
 
-   virtual bool verify(TestCaseResult &result) ;
+   virtual std::vector<std::shared_ptr<TestCaseError>> verify(TestCaseResult &result) ;
 
    virtual std::shared_ptr<TestCaseError> getError() ;
 
