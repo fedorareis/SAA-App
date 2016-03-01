@@ -3,7 +3,7 @@
 #include <iostream>
 #include "CDTIGUIDisplay.h"
 
-Proximate* CDTIGUIDisplay::proximateImage = nullptr;
+Proximate* CDTIGUIDisplay::proxfimateImage = nullptr;
 Resolution* CDTIGUIDisplay::resolutionImage = nullptr;
 Traffic* CDTIGUIDisplay::trafficImage = nullptr;
 Ownship* CDTIGUIDisplay::ownshipImage = nullptr;
@@ -82,7 +82,8 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             }
             //render planes here
             if(currentImage)
-                currentImage->draw(this,width / 2.0f + report.position().x() * 20.0f,height / 2.0f - report.position().y() * 20.0f);
+                //Positions are NED relative
+                currentImage->draw(this,width / 2.0f - report.position().y() * 20.0f,height / 2.0f - report.position().y() * 20.0f);
         }
     }
 }

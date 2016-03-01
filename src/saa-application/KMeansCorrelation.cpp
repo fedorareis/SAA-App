@@ -23,13 +23,18 @@ std::vector<CorrelatedData> KMeansCorrelation::correlate(std::vector<SensorData>
    std::cout << "Beginning KMeans" << std::endl;
 
    // The number of clusters we are getting. (Correlation Disabled)
-   size_t clusters = 2; //potentially empty clusters.
+   if(planes.size() == 0)
+   {
+      return correlatedPlanes;
+   }
+
+   size_t clusters = planes.size(); //potentially empty clusters.
    // The assignments will be stored in this vector.
-   arma::Col<size_t> groupings;
+   arma::Row<size_t> groupings;
    // The centroids will be stored in this matrix.
    arma::mat centroids;
    // Initialize with the default arguments.
-   KMeans<> km;
+   KMeans<> km(300);
 
    // Add individual sensor info (positions and velocities) into respective lists
    for (i = 0; i < size; i++) {
@@ -64,7 +69,7 @@ std::vector<CorrelatedData> KMeansCorrelation::correlate(std::vector<SensorData>
    auto dataMtx = arma::Mat<double>(&data[0], 3, planes.size());
 
 
-   //km.Cluster(dataMtx, clusters, groupings,centroids);
+   km.Cluster(dataMtx, clusters, groupings,centroids);
    /*
       km.Cluster(pos_y_data, clusters, pos_y_assign, pos_y_cen);
       km.Cluster(pos_z_data, clusters, pos_z_assign, pos_z_cen);
