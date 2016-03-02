@@ -13,8 +13,8 @@ class NumPlanesVerificationTest: public VerificationTest
 public:
     NumPlanesVerificationTest(const std::shared_ptr<TestCase> &tc) : VerificationTest(tc)
     { }
+   std::vector<std::shared_ptr<TestCaseError>> verify(TestCaseResult &result);
 
-    bool verify(TestCaseResult& result);
 };
 
 #endif //SAA_APPLICATION_NUMPLANESVERIFICATIONTEST_H
