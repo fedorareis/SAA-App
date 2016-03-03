@@ -13,7 +13,7 @@
 
 class TcasSensor : public Sensor {
    public:
-   TcasSensor(SensorEndpoint * endpoint);
+   TcasSensor(SensorEndpoint * endpoint, bool jitter = false);
    virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
 
    private:

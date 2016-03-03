@@ -43,7 +43,9 @@ void TcasSensor::sendData(const TestServerPlane &plane, const TestServerPlane & 
    this->getEndpoint().getSocket() << TcasSensor::createReport(plane, ownship);
 }
 
-TcasSensor::TcasSensor(SensorEndpoint *endpoint):
-Sensor(endpoint){
+TcasSensor(SensorEndpoint *endpoint, bool jitter):
+Sensor(endpoint),
+jitter(jitter)
+{
 
 }

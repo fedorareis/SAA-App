@@ -6,8 +6,8 @@
 #include <common/protobuf/adsb.pb.h>
 
 //@TODO add configuration data for error here
-AdsbSensor::AdsbSensor(SensorEndpoint * endpoint):
-Sensor(endpoint)
+AdsbSensor::AdsbSensor(SensorEndpoint * endpoint, bool jitter):
+Sensor(endpoint,jitter)
 {
 
 
