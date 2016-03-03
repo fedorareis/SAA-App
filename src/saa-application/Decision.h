@@ -18,9 +18,9 @@ private:
    static time_t time0;
 
    // The Sensativity Level (SL) based on altitude.
-   static int sensitivity;
-   static double tau;
-   static double tCOA;
+   int sensitivity;
+   double tau;
+   double tCOA;
 
    /**
     * Calculates the Sensitivity Level as described page 10 of
