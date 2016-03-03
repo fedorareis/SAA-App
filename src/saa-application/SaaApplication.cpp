@@ -156,7 +156,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
       // TODO: Switch to actual ownship data for use by Decision
-      ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
+      ownshipPlane = SensorData("Ownship", 0, 0, ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
    }
    std::cout << "Ownship Thread done\n";
 
@@ -233,6 +233,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    {
       bool adsbFinished = false, ownshipFinished = false, tcasFinished = false, radarFinished = false;
       CDTIPlane::Severity severity;
+
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
@@ -248,7 +249,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          planes.clear();
          mtx.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
-         dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
+         severity = dec.calcAdvisory(&list, &planesResult, &ownshipPlane);
          rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
          connectionManager->sendMessage(*rep);
          std::cout << "finished one cycle" << std::endl;
