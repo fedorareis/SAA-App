@@ -17,7 +17,8 @@ public:
             VerificationTest(testCase)
     {
     };
-    bool verify(TestCaseResult& result){return true;}
+   std::vector<std::shared_ptr<TestCaseError>> verify(TestCaseResult &result)
+    {return std::vector<std::shared_ptr<TestCaseError>>();}
 };
 
 #endif //SAA_APPLICATION_MOCKVERIFICATIONTEST_H

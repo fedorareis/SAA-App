@@ -9,13 +9,13 @@
 #include "Decision.h"
 time_t Decision::time0 = 0;
 
-float calculateTAUMod(CorrelatedData plane, int DMOD)
+double calculateTAUMod(CorrelatedData plane, double DMOD)
 {
    Vector2d planePos = Vector2d(plane.getPosition().x, plane.getPosition().y);
    Vector2d planeVel = Vector2d(plane.getVelocity().x, plane.getVelocity().y);
 
-   float dot = Vector2d::Dot(planePos, planeVel);
-   float magnitude = planePos.length();
+   double dot = Vector2d::Dot(planePos, planeVel);
+   double magnitude = planePos.length();
 
    // TODO: Upgrade to TCASII algorithm
    return ((DMOD * DMOD) - (magnitude * magnitude))/ dot;
@@ -33,7 +33,7 @@ void Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<Correlat
    {
       CDTIPlane* plane = it->getCDTIPlane();
       if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 &&
-         calculateTAUMod(*it, .5) < 5)
+         calculateTAUMod(*it, 0.5) < 5)
       {
          // Should be AIR
          plane->set_severity(CDTIPlane::RESOLUTION);
@@ -70,7 +70,9 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
 
    report->set_advisorylevel(CDTIReport::PROXIMATE);
    report->set_advisorymessage("Move out of the way");
-   report->set_allocated_ownship(ownship);
+   CDTIPlane * plane = new CDTIPlane();
+   plane->CopyFrom(*ownship);
+   report->set_allocated_ownship(plane);
    report->set_timestamp(time(0) - Decision::time0);
 
    // Iterates over the list adding planes to the Report for the CDTI

@@ -2,6 +2,7 @@
 // Created by Kyle Piddington on 1/19/16.
 //
 
+#include <iostream>
 #include "Validator.h"
 
 std::vector<std::shared_ptr<VerificationTest>> Validator::testers = {};
@@ -21,13 +22,16 @@ void Validator::endSimulation()
 {
    reportThread.join();
    unsigned long expectedPlanes = tc.getPlanes().size();
+   int numResults = results.size();
+   int numSuccesses = 0;
    for (auto result : results)
    {
       for (auto tester: testers)
       {
-         if (!tester->verify(result))
+
+         for(auto error: tester->verify(result))
          {
-            errors.push_back(tester->getError());
+            errors.push_back(error);
          }
       }
 //      if(result.getPlanes().size() != expectedPlanes)
@@ -36,6 +40,7 @@ void Validator::endSimulation()
 //                                                    result.getPlanes().size(), result.getTime())));
 //      }
    }
+  std::cout << "Final Results:  " << errors.size() << "Errors, " << numResults << std::endl;
 }
 
 const std::vector<std::shared_ptr<TestCaseError>> & Validator::getErrors()const {

@@ -55,9 +55,14 @@ std::vector<std::shared_ptr<TestCaseError>> PositionVerificationTest::verify(Tes
         }
         if(!match && closestPosition)
         {
-            errors.push_back(std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTime(),testServerPlane.getLatLongAlt(),*closestPosition)));
+            errors.push_back(std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTimestamp(),testServerPlane.getLatLongAlt(),*closestPosition)));
         }
     }
 
-    return errors;
+
+    if (!correct)
+    {
+        error = std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTime()));
+    }
+    return correct;
 }

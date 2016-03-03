@@ -35,7 +35,8 @@ void TestCase::update(float dt)
       i->update(dt);
    }
 }
-const TestServerPlane & TestCase::getOwnship() {
+const TestServerPlane & TestCase::getOwnship()const
+{
    return ownship;
 }
 
