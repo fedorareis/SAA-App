@@ -12,12 +12,12 @@
 #include <gtest/gtest.h>
 
 class TcasSensor : public Sensor {
-   public:
+public:
    TcasSensor(SensorEndpoint * endpoint, bool jitter = false);
    virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
 
-   private:
-   static TcasReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
+private:
+    TcasReport createReport(const TestServerPlane &plane, const TestServerPlane &ownship);
 
    FRIEND_TEST(TCAS,createTcasMessage);
    FRIEND_TEST(TCAS,testAltitudeDistance);

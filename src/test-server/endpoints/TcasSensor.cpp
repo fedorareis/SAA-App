@@ -3,8 +3,8 @@
 //
 
 #include "TcasSensor.h"
-#include "common/Maths.h"
-#include <iostream>
+#include <test-server/TestServer.h>
+
 TcasReport TcasSensor::createReport(const TestServerPlane &plane,
                                     const TestServerPlane &ownship) {
 
@@ -26,13 +26,20 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    //if 'difference' is to the left, use negabive bearings.
    float bearing = 180.f/M_PI * angle * (negBearing ? -1 : 1);
 
-
+   //tuple of the position to send to report. is in format (range,bearing,altitude)
+   Vector3d finalPosition(range, bearing, positionZ);
+   if (jitter)
+   {
+      finalPosition = TestServer::scrambleTCAS(finalPosition);
+   }
 
    TcasReport report;
-   report.set_bearing(bearing);
-   report.set_altitude(positionZ);
+   report.set_bearing((float) finalPosition.x);
+   report.set_altitude((float) finalPosition.z);
 
-   report.set_range((float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET)));
+   report.set_range(
+           (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (NAUT_MILES_TO_FEET *
+                                                                                                 NAUT_MILES_TO_FEET)));
    report.set_id(plane.getTcasId());
 
    std::cout << "TCAS:" << range << "," << bearing << "," << positionZ << std::endl;
@@ -43,9 +50,12 @@ void TcasSensor::sendData(const TestServerPlane &plane, const TestServerPlane & 
    this->getEndpoint().getSocket() << TcasSensor::createReport(plane, ownship);
 }
 
-TcasSensor(SensorEndpoint *endpoint, bool jitter):
-Sensor(endpoint),
-jitter(jitter)
+TcasSensor::TcasSensor(SensorEndpoint *endpoint, bool jitter) :
+        Sensor(endpoint, jitter)
 {
 
 }
+
+
+
+

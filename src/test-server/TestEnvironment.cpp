@@ -70,32 +70,16 @@ void TestEnvironment::start(TestCase & tc)
          ownshipSensor.sendData(tc.getOwnship(), tc.getOwnship());
 
          for (auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
-            Vector3d truePosition = plane->getLatLongAlt();
             if (sendADSB && plane->getADSBEnabled())
             {
-               if (TestServer::hasNoise())
-               {
-                  Vector3d noisePosition = TestServer::scrambleADSB(truePosition);
-                  plane->setLatLongAlt(noisePosition);
-               }
                adsbSensor.sendData(*plane, tc.getOwnship());
             }
             if (plane->getTcasEnabled() && sendTcas)
             {
-               if (TestServer::hasNoise())
-               {
-                  Vector3d noisePosition = TestServer::scrambleTCAS(truePosition);
-                  plane->setLatLongAlt(noisePosition);
-               }
                tcasSensor.sendData(*plane, tc.getOwnship());
             }
             if (sendRadar)
             {
-               if (TestServer::hasNoise())
-               {
-                  Vector3d noisePosition = TestServer::scrambleRadar(truePosition);
-                  plane->setLatLongAlt(noisePosition);
-               }
                radarSensor.sendData(*plane, tc.getOwnship());
             }
          }
