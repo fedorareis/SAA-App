@@ -1,5 +1,5 @@
 //
-// Created by Hae Ri Hwang on 3/3/16.
+// Created by Helen Hwang on 3/3/16.
 //
 #include <gtest/gtest.h>
 #include <mlpack/methods/emst/dtb.hpp>

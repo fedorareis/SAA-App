@@ -1,5 +1,5 @@
 //
-// Created by Hae Ri Hwang on 2/29/16.
+// Created by Helen Hwang on 2/29/16.
 //
 
 #ifndef SAA_APPLICATION_HIERCCLUSTERINGCORRELATION_H
