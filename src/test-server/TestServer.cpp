@@ -2,9 +2,7 @@
 // Created by Kyle Piddington on 11/15/15.
 //
 
-#include <iostream>
 #include <test-server/endpoints/AdsbSensor.h>
-#include <test-server/endpoints/OwnshipSensor.h>
 #include "TestServer.h"
 
 
@@ -12,6 +10,14 @@ SensorEndpoint * TestServer::ownshipSocket = nullptr;
 SensorEndpoint * TestServer::adsbSocket = nullptr;
 SensorEndpoint * TestServer::tcasSocket = nullptr;
 SensorEndpoint * TestServer::radarSocket = nullptr;
+
+//todo figure out what numbers to put here
+Randomizer *TestServer::adsbNoise = new Randomizer(-2, 2);
+Randomizer *TestServer::tcasNoise = new Randomizer(-2, 2);
+Randomizer *TestServer::radarNoise = new Randomizer(-2, 2);
+
+bool TestServer::noiseEnabled = false;
+
 
 SensorEndpoint * TestServer::getOwnshipSocket()
 {
@@ -63,3 +69,49 @@ SensorEndpoint *TestServer::getTcasSocket() {
 SensorEndpoint *TestServer::getRadarSocket() {
     return radarSocket;
 }
+
+void TestServer::useNoise(bool noise)
+{
+    noiseEnabled = noise;
+}
+
+bool TestServer::hasNoise()
+{
+    return noiseEnabled;
+}
+
+Vector3d TestServer::scrambleADSB(Vector3d position)
+{
+    Vector3d newPosition(0, 0, 0);
+    newPosition.x = adsbNoise->getRandom((float) position.x);
+    newPosition.y = adsbNoise->getRandom((float) position.y);
+    newPosition.z = adsbNoise->getRandom((float) position.z);
+
+    return newPosition;
+}
+
+Vector3d TestServer::scrambleTCAS(Vector3d position)
+{
+    Vector3d newPosition(0, 0, 0);
+    newPosition.x = tcasNoise->getRandom((float) position.x);
+    newPosition.y = tcasNoise->getRandom((float) position.y);
+    newPosition.z = tcasNoise->getRandom((float) position.z);
+
+    return newPosition;
+}
+
+Vector3d TestServer::scrambleRadar(Vector3d position)
+{
+    Vector3d newPosition(0, 0, 0);
+    newPosition.x = radarNoise->getRandom((float) position.x);
+    newPosition.y = radarNoise->getRandom((float) position.y);
+    newPosition.z = radarNoise->getRandom((float) position.z);
+
+    return newPosition;
+}
+
+
+
+
+
+
