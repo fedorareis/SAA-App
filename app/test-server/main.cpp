@@ -22,7 +22,7 @@ int main(int argC, const char* argV[])
    TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
    //__DIR__ is injected in compile time
-   std::string test = "/resources/TestPlan_1.xml";
+   std::string test = "/resources/TestPlan_2.xml";
    if(argC > 1)
    {
       test = std::string(argV[1]);

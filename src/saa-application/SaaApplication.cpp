@@ -9,6 +9,7 @@
 #include <common/sockets/SocketException.h>
 #include <common/protobuf/adsb.pb.h>
 #include "SaaApplication.h"
+#include "MeanShiftCorrelation.h"
 #include "KMeansCorrelation.h"
 #include "Decision.h"
 #include "ServerConnectionManager.h"
@@ -223,7 +224,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
  */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock)
 {
-   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new KMeansCorrelation());
+   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new MeanShiftCorrelation());
    Decision dec;
    CDTIReport *rep = nullptr;
    OwnshipReport ownship;
