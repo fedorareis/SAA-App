@@ -4,19 +4,32 @@
 
 #include <iostream>
 #include <common/sockets/ClientSocket.h>
-//#include <mlpack/methods/naive_bayes/naive_bayes_classifier.hpp>
+#include <mlpack/methods/det/dtree.hpp>
 #include "HiercClusteringCorrelation.h"
 #include "SensorData.h"
 #include "CorrelatedData.h"
 
-
-//TODO: replace all kmenas stuff into bayes classifier or whatever we choose to do
+/**
+ * Implements single-linkage hierarchical clustering using euclidean minimum spanning tree (EMST)
+ */
 std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<SensorData> planes)
 {
    std::vector<CorrelatedData> correlatedPlanes;
    std::vector<double> positions_x, positions_y, positions_z, velocities_x, velocities_y, velocities_z;
    int i, j, k, l, m, n, ndx, innerNdx;
    int size = planes.size(), originalSize;
+
+
+   // euclidean distance = just between 2 points, dimention doesn't matter supposedly
+
+   /*
+    // general use of tree
+    extern arma::mat data; // We want to find the MST of this dataset.
+    DualTreeBoruvka<> dtb(data); // Create the tree with default options.
+    // Find the MST.
+    arma::mat mstResults;
+    dtb.ComputeMST(mstResults);
+    */
 
 
    // The number of clusters we are getting.
