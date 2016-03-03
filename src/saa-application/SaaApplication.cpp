@@ -9,7 +9,8 @@
 #include <common/sockets/SocketException.h>
 #include <common/protobuf/adsb.pb.h>
 #include "SaaApplication.h"
-#include "Correlation.h"
+#include "MeanShiftCorrelation.h"
+#include "KMeansCorrelation.h"
 #include "Decision.h"
 #include "ServerConnectionManager.h"
 #include <mutex>
@@ -223,7 +224,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
  */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock)
 {
-   Correlation cor;
+   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new MeanShiftCorrelation());
    Decision dec;
    CDTIReport *rep = nullptr;
    OwnshipReport ownship;
@@ -240,16 +241,17 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
 
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
+         std::cout << "Starting one cycle" << std::endl;
+
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
-         std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
+         std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          severity = dec.calcAdvisory(&list, &planesResult, &ownshipPlane);
          rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
          connectionManager->sendMessage(*rep);
-         //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }
 
