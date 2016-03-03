@@ -64,6 +64,7 @@ CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane*
    CDTIReport * report = new CDTIReport;
 
    report->set_advisorylevel(CDTIReport::Severity(severity));
+   // TODO: Implement meaningful messages
    report->set_advisorymessage("Move out of the way");
    CDTIPlane * plane = new CDTIPlane();
    plane->CopyFrom(*ownship);
