@@ -12,7 +12,7 @@ time_t Decision::time0 = 0;
 CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
                                            SensorData* ownship)
 {
-   int sensitivity = Decision::SensativityLevel(ownship);
+   Decision::sensitivityLevel(ownship);
    CDTIPlane::Severity severity = CDTIPlane::PROXIMATE;
 
    list->clear();
@@ -22,7 +22,7 @@ CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::
    {
       CDTIPlane* plane = it->getCDTIPlane();
       if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 &&
-         calculateTAUMod(*it, true, sensitivity) < 5)
+         tcasiiRA(*it, true, 0.2))
       {
          // Should be CRASH
          // TODO: Implement CRASH enum in cdti proto
@@ -30,13 +30,13 @@ CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
       }
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300
-              && calculateTAUMod(*it, true, sensitivity) < 30)
+              && tcasiiRA(*it, true, 0.5))
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
       }
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500
-              && calculateTAUMod(*it, false, sensitivity) < 60)
+              && tcasiiRA(*it, false, 1))
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::TRAFFIC ? CDTIPlane::TRAFFIC : severity);
@@ -87,7 +87,41 @@ void Decision::setTime0(time_t time) {
    time0 = time;
 }
 
-double Decision::calculateTAUMod(CorrelatedData plane, bool RA, int SL)
+void Decision::sensitivityLevel(SensorData* ownship)
+{
+
+   // Based on table on page 10 of https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing
+   if (ownship->getPurePosition().z > 42000)
+   {
+      sensitivity = 7;
+   }
+   else if(ownship->getPurePosition().z > 20000)
+   {
+      sensitivity = 7;
+   }
+   else if(ownship->getPurePosition().z > 10000)
+   {
+      sensitivity = 6;
+   }
+   else if(ownship->getPurePosition().z > 5000)
+   {
+      sensitivity = 5;
+   }
+   else if(ownship->getPurePosition().z > 2350)
+   {
+      sensitivity = 4;
+   }
+   else if(ownship->getPurePosition().z > 1000)
+   {
+      sensitivity = 3;
+   }
+   else
+   {
+      sensitivity = 2;
+   }
+}
+
+double Decision::calculateTAUMod(CorrelatedData plane, bool RA)
 {
    Vector2d planePos = Vector2d(plane.getPosition().x, plane.getPosition().y);
    Vector2d planeVel = Vector2d(plane.getVelocity().x, plane.getVelocity().y);
@@ -96,52 +130,66 @@ double Decision::calculateTAUMod(CorrelatedData plane, bool RA, int SL)
 
    if (RA)
    {
-      DMOD = DMOD_RA[SL];
+      DMOD = DMOD_RA[sensitivity];
    }
    else
    {
-      DMOD = DMOD_TA[SL];
+      DMOD = DMOD_TA[sensitivity];
    }
 
    double dot = Vector2d::Dot(planePos, planeVel);
    double magnitude = planePos.length();
 
+   // DMOD is only 0 in cases where a RA shouldn't be issued or if the sensitivity is invalid.
+   if (!DMOD)
+   {
+      return 0;
+   }
+
    return ((DMOD * DMOD) - (magnitude * magnitude))/ dot;
 }
 
-int Decision::SensativityLevel(SensorData* ownship)
+double Decision::calculateTCOA(CorrelatedData plane)
 {
-   int sensativity;
+   return -1 * (plane.getPosition().z / plane.getVelocity().z);
+}
 
-   // Based on table on page 10 of https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing
-   if (ownship->getPurePosition().z > 42000)
+bool Decision::horizontalRA(CorrelatedData plane, bool RA)
+{
+   double dot = Vector3d::Dot(plane.getPosition(), plane.getVelocity());
+   tau = calculateTAUMod(plane, RA);
+
+   if (RA)
    {
-      sensativity = 7;
-   }
-   else if(ownship->getPurePosition().z > 20000)
-   {
-      sensativity = 7;
-   }
-   else if(ownship->getPurePosition().z > 10000)
-   {
-      sensativity = 6;
-   }
-   else if(ownship->getPurePosition().z > 5000)
-   {
-      sensativity = 5;
-   }
-   else if(ownship->getPurePosition().z > 2350)
-   {
-      sensativity = 4;
-   }
-   else if(ownship->getPurePosition().z > 1000)
-   {
-      sensativity = 3;
-   }
-   else
-   {
-      sensativity = 2;
+      return (dot < 0 && tau <= TAU_RA[sensitivity]);
    }
 
-   return sensativity;
+   return (dot < 0 && tau <= TAU_TA[sensitivity]);
+}
+
+bool Decision::verticalRA(CorrelatedData plane, bool RA)
+{
+   double product = plane.getPosition().z * plane.getVelocity().z;
+   tCOA = calculateTCOA(plane);
+
+   if (RA)
+   {
+      return (product < 0 && tCOA <= TAU_RA[sensitivity]);
+   }
+
+   return (product < 0 && tCOA <= TAU_TA[sensitivity]);
+}
+
+bool Decision::tcasiiRA(CorrelatedData plane, bool RA, double cpaRange)
+{
+   bool vert = verticalRA(plane, RA);
+   bool horz = horizontalRA(plane, RA);
+
+   // treating the horizontal and vert time to CPA as the x and y of a right triangle and using the hypotenuse as the actual time to CPA
+   double hypTime = sqrt((tau * tau) + (tCOA * tCOA));
+
+   // I'm not sure if the physics/math on this are sound. d = tv but I am not sure how that works in 3d space with v as a vector
+   double CPA = (plane.getVelocity() * hypTime).getMagnitude();
+
+   return (vert || horz) && (CPA < cpaRange);
 }
