@@ -9,7 +9,8 @@
 #include <common/sockets/SocketException.h>
 #include <common/protobuf/adsb.pb.h>
 #include "SaaApplication.h"
-#include "Correlation.h"
+#include "MeanShiftCorrelation.h"
+#include "KMeansCorrelation.h"
 #include "Decision.h"
 #include "ServerConnectionManager.h"
 #include <mutex>
@@ -155,7 +156,7 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    {
       ownSock.operator>>(ownship); //blocking call, waits for server
       // TODO: Switch to actual ownship data for use by Decision
-      ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
+      ownshipPlane = SensorData("Ownship", 0, 0, ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
    }
    std::cout << "Ownship Thread done\n";
 
@@ -223,7 +224,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
  */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock)
 {
-   Correlation cor;
+   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new MeanShiftCorrelation());
    Decision dec;
    CDTIReport *rep = nullptr;
    OwnshipReport ownship;
@@ -232,6 +233,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    {
       bool adsbFinished = false, ownshipFinished = false, tcasFinished = false, radarFinished = false;
       CDTIPlane::Severity severity;
+
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
@@ -239,16 +241,17 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
 
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
+         std::cout << "Starting one cycle" << std::endl;
+
          std::this_thread::sleep_for(std::chrono::seconds(1));
          mtx.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
          mtx.unlock();
-         std::vector<CorrelatedData> planesResult = cor.correlate(planesCopy);
-         dec.calcAdvisory(&list, &planesResult, &severity, &ownshipPlane);
+         std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
+         severity = dec.calcAdvisory(&list, &planesResult, &ownshipPlane);
          rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
          connectionManager->sendMessage(*rep);
-         //validationOut << (*rep); // send back to validation module
          std::cout << "finished one cycle" << std::endl;
       }
 
