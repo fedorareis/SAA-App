@@ -232,7 +232,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    try
    {
       bool adsbFinished = false, ownshipFinished = false, tcasFinished = false, radarFinished = false;
-      CDTIPlane::Severity severity;
 
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
@@ -249,8 +248,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          planes.clear();
          mtx.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
-         severity = dec.calcAdvisory(&list, &planesResult, &ownshipPlane);
-         rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
+         rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
          std::cout << "finished one cycle" << std::endl;
       }

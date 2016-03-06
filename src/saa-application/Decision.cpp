@@ -9,18 +9,19 @@
 #include "Decision.h"
 time_t Decision::time0 = 0;
 
-CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
-                                           SensorData* ownship)
+CDTIReport* Decision::calcAdvisory(std::vector<CorrelatedData>* planes, SensorData* ownship)
 {
-   Decision::sensitivityLevel(ownship);
+   Decision::setSensitivityLevel(ownship);
    CDTIPlane::Severity severity = CDTIPlane::PROXIMATE;
 
-   list->clear();
+   std::vector<CDTIPlane *> list;
 
    // Iterates over the list and assigns a Severity to it.
    for (std::vector<CorrelatedData>::iterator it = (*planes).begin(); it != (*planes).end(); ++it)
    {
       CDTIPlane* plane = it->getCDTIPlane();
+
+      // Range < .5nmi and Elevation < +/-50ft and a Resolution Advisory is thrown
       if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 &&
          tcasiiRA(*it, true, 0.2))
       {
@@ -29,23 +30,27 @@ CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::
          plane->set_severity(CDTIPlane::RESOLUTION);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
       }
+      // Range < 2nmi and Elevation < +/-300ft and a Resolution Advisory is thrown
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300
               && tcasiiRA(*it, true, 0.5))
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
       }
+      // Range < 5nmi and Elevation < +/-500ft and a Traffic Advisory is thrown
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500
               && tcasiiRA(*it, false, 1))
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::TRAFFIC ? CDTIPlane::TRAFFIC : severity);
       }
+      // Range < 10nmi and Elevation < +/-1000ft
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 10 && fabs(it->getPosition().z) < 1000)
       {
          plane->set_severity(CDTIPlane::PROXIMATE);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::PROXIMATE ? CDTIPlane::PROXIMATE : severity);
       }
+      // Range < 20nmi and Elevation < +/-2000ft
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 20 && fabs(it->getPosition().z) < 2000)
       {
          // Should be AIR
@@ -53,12 +58,14 @@ CDTIPlane::Severity Decision::calcAdvisory(std::vector<CDTIPlane *>* list, std::
          plane->set_severity(CDTIPlane::PROXIMATE);
       }
 
-      list->push_back(plane);
+      list.push_back(plane);
    }
+
+   return generateReport(&list, ownship->getCDTIPlane(), &severity);
 
 }
 
-CDTIReport * Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity)
+CDTIReport* Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity)
 {
 
    CDTIReport * report = new CDTIReport;
@@ -88,7 +95,7 @@ void Decision::setTime0(time_t time) {
    time0 = time;
 }
 
-void Decision::sensitivityLevel(SensorData* ownship)
+void Decision::setSensitivityLevel(SensorData* ownship)
 {
 
    // Based on table on page 10 of https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing

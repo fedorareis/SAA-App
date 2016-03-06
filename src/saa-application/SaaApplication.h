@@ -20,7 +20,6 @@ public:
    static void shutdown();
 private:
    static void setupSockets(int CdtiSocket);
-   std::vector<CDTIPlane *> list;
    static std::shared_ptr<ServerSocket>  cdtiSocket;
    void processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock);
    static std::shared_ptr<ServerConnectionManager> connectionManager;
