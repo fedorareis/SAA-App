@@ -7,8 +7,9 @@
 
 #include "SensorData.h"
 #include "CorrelatedData.h"
+#include "CorrelationStrategy.h"
 
-class Correlation
+class KMeansCorrelation : public CorrelationStrategy
 {
    public:
       void report();

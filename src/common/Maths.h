@@ -45,6 +45,11 @@ struct Vector3d
    {
        return "(" + std::to_string(x) + "," + std::to_string(y) + "," + "," + std::to_string(z) + ")";
    }
+
+   static double Dot(Vector3d a, Vector3d b)
+   {
+      return a.x*b.x + a.y*b.y + a.z*b.z;
+   }
 };
 bool operator==(Vector3d lhs, Vector3d rhs);
 
