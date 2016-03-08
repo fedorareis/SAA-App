@@ -48,9 +48,18 @@ private:
     static SensorEndpoint *tcasSocket;
     static SensorEndpoint *radarSocket;
 
-    static Randomizer *tcasNoise;
-    static Randomizer *adsbNoise;
-    static Randomizer *radarNoise;
+    //ALL lenght randomizers are in feet, angle-based in degrees
+    static Randomizer *tcasRangeNoise;
+    static Randomizer *tcasAltitudeNoise;
+    static Randomizer *tcasBearingNoise;
+
+    static Randomizer *adsbLatNoise;
+    static Randomizer *adsbLongNoise;
+    static Randomizer *adsbAltNoise;
+
+    static Randomizer *radarRangeNoise;
+    static Randomizer *radarAzimuthNoise;
+    static Randomizer *radarElevationNoise;
 
     static bool noiseEnabled;
 };

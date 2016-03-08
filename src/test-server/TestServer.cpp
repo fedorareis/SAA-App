@@ -12,9 +12,17 @@ SensorEndpoint * TestServer::tcasSocket = nullptr;
 SensorEndpoint * TestServer::radarSocket = nullptr;
 
 //todo figure out what numbers to put here
-Randomizer *TestServer::adsbNoise = new Randomizer(-2, 2);
-Randomizer *TestServer::tcasNoise = new Randomizer(-2, 2);
-Randomizer *TestServer::radarNoise = new Randomizer(-2, 2);
+Randomizer *TestServer::tcasRangeNoise = new Randomizer(-100, 100);
+Randomizer *TestServer::tcasAltitudeNoise = new Randomizer(-125, 125);
+Randomizer *TestServer::tcasBearingNoise = new Randomizer(-10, 10);
+
+Randomizer *TestServer::adsbLatNoise = new Randomizer(-0.0001, 0.0001);
+Randomizer *TestServer::adsbLongNoise = new Randomizer(-0.0001, 0.0001);;
+Randomizer *TestServer::adsbAltNoise = new Randomizer(-50, 50);
+
+Randomizer *TestServer::radarRangeNoise = new Randomizer(-0.0001, 0.0001);
+Randomizer *TestServer::radarAzimuthNoise = new Randomizer(-0.0001, 0.0001);
+Randomizer *TestServer::radarElevationNoise = new Randomizer(-50, 50);
 
 bool TestServer::noiseEnabled = false;
 
@@ -83,9 +91,9 @@ bool TestServer::hasNoise()
 Vector3d TestServer::scrambleADSB(Vector3d position)
 {
     Vector3d newPosition(0, 0, 0);
-    newPosition.x = adsbNoise->getRandom((float) position.x);
-    newPosition.y = adsbNoise->getRandom((float) position.y);
-    newPosition.z = adsbNoise->getRandom((float) position.z);
+    newPosition.x = adsbLatNoise->getRandom((float) position.x);
+    newPosition.y = adsbLongNoise->getRandom((float) position.y);
+    newPosition.z = adsbAltNoise->getRandom((float) position.z);
 
     return newPosition;
 }
@@ -93,9 +101,9 @@ Vector3d TestServer::scrambleADSB(Vector3d position)
 Vector3d TestServer::scrambleTCAS(Vector3d position)
 {
     Vector3d newPosition(0, 0, 0);
-    newPosition.x = tcasNoise->getRandom((float) position.x);
-    newPosition.y = tcasNoise->getRandom((float) position.y);
-    newPosition.z = tcasNoise->getRandom((float) position.z);
+    newPosition.x = tcasRangeNoise->getRandom((float) position.x);
+    newPosition.y = tcasBearingNoise->getRandom((float) position.y);
+    newPosition.z = tcasAltitudeNoise->getRandom((float) position.z);
 
     return newPosition;
 }
@@ -103,9 +111,9 @@ Vector3d TestServer::scrambleTCAS(Vector3d position)
 Vector3d TestServer::scrambleRadar(Vector3d position)
 {
     Vector3d newPosition(0, 0, 0);
-    newPosition.x = radarNoise->getRandom((float) position.x);
-    newPosition.y = radarNoise->getRandom((float) position.y);
-    newPosition.z = radarNoise->getRandom((float) position.z);
+    newPosition.x = radarRangeNoise->getRandom((float) position.x);
+    newPosition.y = radarAzimuthNoise->getRandom((float) position.y);
+    newPosition.z = radarElevationNoise->getRandom((float) position.z);
 
     return newPosition;
 }
