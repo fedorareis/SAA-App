@@ -21,6 +21,11 @@ public:
    void initSocks();
    static ServerSocket * getCdtiSocket();
    static void shutdown();
+
+   /**
+    * These three functions take in a sensor report and the OwnshipReport data and
+    * returns the SensorData version of the data converted to relative position to the ownship.
+    */
    static SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship);
    static SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship);
    static SensorData radarToRelative(RadarReport radar, OwnshipReport ownship);

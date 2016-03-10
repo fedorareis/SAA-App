@@ -21,7 +21,7 @@
 std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
 std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
-std::mutex mtx;
+std::mutex sensorDataMutex;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
@@ -172,9 +172,9 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      mtx.lock();
+      sensorDataMutex.lock();
       planes.push_back(SaaApplication::adsbToRelative(adsb, ownship));
-      mtx.unlock();
+      sensorDataMutex.unlock();
    }
    std::cout << "ADSBThread done\n";
 
@@ -190,9 +190,9 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      mtx.lock();
+      sensorDataMutex.lock();
       planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
-      mtx.unlock();
+      sensorDataMutex.unlock();
    }
    std::cout << "TCASThread done\n";
 
@@ -208,9 +208,9 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      mtx.lock();
+      sensorDataMutex.lock();
       planes.push_back(SaaApplication::radarToRelative(radar, ownship));
-      mtx.unlock();
+      sensorDataMutex.unlock();
    }
    std::cout << "RadarThread done\n";
 
@@ -238,15 +238,20 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
       std::thread radarthread(processRadar, std::ref(radarSock), std::ref(ownship), std::ref(radarFinished));
 
+      /*
+       * This is the main loop that runs once per second, data that was collected over the last cycle is
+       * sent to the correlation module and then onto the decision module before being sent onto the CDTI
+       * and back to the test server.
+       */
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
          std::cout << "Starting one cycle" << std::endl;
 
          std::this_thread::sleep_for(std::chrono::seconds(1));
-         mtx.lock();
+         sensorDataMutex.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
-         mtx.unlock();
+         sensorDataMutex.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
