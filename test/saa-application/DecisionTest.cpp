@@ -10,13 +10,38 @@
 
 TEST(DecisionTest, testCalAdvisory)
 {
-   std::vector<CDTIPlane *> list;
    std::vector<CorrelatedData> planes;
    SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
    Decision dec;
+   CorrelatedData plane1(50, 10, 5000, 100, 100, 0);
+   planes.push_back(plane1);
+   CDTIReport* result = dec.calcAdvisory(&planes, &ownship);
 
+   // TODO: switch to AIR once AIR is implemented in proto
+   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::PROXIMATE);
+   ASSERT_EQ(result->advisorylevel(), CDTIReport::PROXIMATE);
 
-   dec.calcAdvisory(&list, &planes, &ownship);
+   // Proximate
+   CorrelatedData plane2(9, 0, 900, 100, 100, 0);
+   planes.push_back(plane2);
+   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::PROXIMATE);
+   ASSERT_EQ(result->advisorylevel(), CDTIReport::PROXIMATE);
 
-   ASSERT_EQ(0, 1);
+   // Traffic
+   CorrelatedData plane3(4, 0, 0, -10, 0, 0);
+   planes.push_back(plane3);
+   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::TRAFFIC);
+   ASSERT_EQ(result->advisorylevel(), CDTIReport::TRAFFIC);
+
+   // Resolution
+   CorrelatedData plane4(1, 0, 0, -10, 0, 0);
+   planes.push_back(plane4);
+   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::RESOLUTION);
+   ASSERT_EQ(result->advisorylevel(), CDTIReport::RESOLUTION);
+
+   // Crash TODO: switch to CRASH once CRASH is implemented in proto
+   CorrelatedData plane5(.4, 0, 0, -10, 0, 0);
+   planes.push_back(plane5);
+   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::RESOLUTION);
+   ASSERT_EQ(result->advisorylevel(), CDTIReport::RESOLUTION);
 }
