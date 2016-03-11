@@ -22,9 +22,10 @@ echo "" > cov.csv
 for cov in $COVFILES
 do
 	if [ -s $cov.gcov ]; then
+	sed 's/\s*-:\s\d+:\/\*EOF\*\/.*//' $cov.gcov > $cov.stripped
 	echo "===========\nFILE: $cov\n" >> cov.txt
-	LINES=$(expr $( wc -l < $cov.gcov ) - 5) 
-	COVERED=$(expr $LINES - $(grep -c "#####:" $cov.gcov))
+	LINES=$(expr $( wc -l < $cov.stripped ) - 5) 
+	COVERED=$(expr $LINES - $(grep -c "#####:" $cov.stripped))
 	
 	PCT=$(echo "100 * ($COVERED/($LINES))" | bc -l | cut -b 1-5 )
 	echo "$cov : ($COVERED/$LINES) covered. ($PCT %)"
