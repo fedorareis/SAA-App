@@ -1,6 +1,13 @@
-//
-// Created by Kyle Piddington on 11/15/15.
-//
+/*
+ * Created by Kyle Piddington on 11/15/15.
+ * Main Author: Jacob Hardi
+ *
+ * This module is where the main connections between the test server and CDTI happen.
+ * It takes in the data from the test server and passes it to the correlation module,
+ * then to the decision module, and then onto the CDTI as well as back to the test
+ * server for validation.
+ */
+
 
 #ifndef SAA_APPLICATION_SAAAPPLICATION_H
 #define SAA_APPLICATION_SAAAPPLICATION_H

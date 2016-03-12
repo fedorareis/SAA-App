@@ -54,8 +54,3 @@ TEST(saa_Test, adsbToRel)
    assert(result.getPurePosition().y >= 10.39 - .05 && result.getPurePosition().y <= 10.39 + .05);
    assert(result.getPurePosition().z == 0);
 }
-
-TEST(saaTest, tcasToRel)
-{
-
-}

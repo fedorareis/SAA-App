@@ -1,6 +1,11 @@
 /*
  * Created by Kyle Piddington on 11/15/15.
  * Main Author: Jacob Hardi
+ *
+ * This module is where the main connections between the test server and CDTI happen.
+ * It takes in the data from the test server and passes it to the correlation module,
+ * then to the decision module, and then onto the CDTI as well as back to the test
+ * server for validation.
  */
 
 #include <iostream>
@@ -21,7 +26,7 @@
 std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
 std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
-std::mutex sensorDataMutex;
+std::mutex planeMutex;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
@@ -172,9 +177,9 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      sensorDataMutex.lock();
+      planeMutex.lock();
       planes.push_back(SaaApplication::adsbToRelative(adsb, ownship));
-      sensorDataMutex.unlock();
+      planeMutex.unlock();
    }
    std::cout << "ADSBThread done\n";
 
@@ -190,9 +195,9 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      sensorDataMutex.lock();
+      planeMutex.lock();
       planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
-      sensorDataMutex.unlock();
+      planeMutex.unlock();
    }
    std::cout << "TCASThread done\n";
 
@@ -208,9 +213,9 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      sensorDataMutex.lock();
+      planeMutex.lock();
       planes.push_back(SaaApplication::radarToRelative(radar, ownship));
-      sensorDataMutex.unlock();
+      planeMutex.unlock();
    }
    std::cout << "RadarThread done\n";
 
@@ -248,10 +253,10 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::cout << "Starting one cycle" << std::endl;
 
          std::this_thread::sleep_for(std::chrono::seconds(1));
-         sensorDataMutex.lock();
+         planeMutex.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
-         sensorDataMutex.unlock();
+         planeMutex.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
