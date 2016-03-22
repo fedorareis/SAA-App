@@ -66,6 +66,7 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    std::vector<int> mergedNdx(planes.size(), -1);
 
    // default option, might have to add bool for native
+   // unsure if this is smart pointer or not
    mlpack::emst::DualTreeBoruvka<> dtb(planesMtx);
    arma::mat distanceMtx;
 
@@ -86,7 +87,8 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    std::cout<<" "<<plane2.getPurePosition().y<<" "<< plane2.getPurePosition().z<<std::endl;
 
    // sensor can't be same!
-   if(plane1.getSensor()!= plane2.getSensor()) {
+   if(plane1.getSensor()!= plane2.getSensor())
+   {
       std::cout<<"sensor not same; able to merge!"<<std::endl;
       std::cout<<"merged data is ";
       Vector3d merged = mergeTwoVectors(plane1.getPurePosition(), plane2.getPurePosition());
@@ -101,17 +103,21 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
 
    // merge closest together into cluster
   // if(lessThanThreeSensors(mergedNdx, lessNdx)) {
-      // update index -> If count == 3, DON'T MERGE and merge the next closest together
-   // HOW TO MERGE vector? Is it just average???
-
-   if(!lessThanThreeSensors(mergedNdx, lessNdx)) {
-      std::cout<<"sensor can't be merged!"<<std::endl;
-   }
+   // update index -> If count == 3, DON'T MERGE and merge the next closest together
+   if(lessThanThreeSensors(mergedNdx, lessNdx))
+   {
       // updates the ndx
-      while(mergedNdx[lessNdx] != -1) {
+      while(mergedNdx[lessNdx] != -1)
+      {
          lessNdx = mergedNdx[lessNdx];
       }
       mergedNdx[lessNdx] = grtrNdx;
+   }
+   else
+   {
+      std::cout<<"can't merge these; merge the next closest together"<<std::endl;
+   }
+
 
    // TODO: merge == basically addition and division
    SensorData merged = SensorData("", 0, 4, 0, 0, 0, 0, adsb, 1, 0);
@@ -124,7 +130,9 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    std::cout<<"new plane list has "<<planes.size()<<" items"<<std::endl;
    planesMtx = initializeMtx(planes);
 
-   delete dtb;
+   // deletes the tree
+   // TODO: calling deconstructor vs using delete? Or are those same? Or are they even necessary?
+   dtb.~DualTreeBoruvka();
 
    mlpack::emst::DualTreeBoruvka<> dt(planesMtx);
 
@@ -153,8 +161,16 @@ std::vector<CorrelatedData> traverseMerged (std::vector<int> mergedNdx, std::vec
    std::vector<CorrelatedData> correlatedData;
    // -1 means it's not merged with any
    // else, follow the index and mark as done
-   // calculate "centroid"
-   // calculating centroid : sum/num for all
+   // calculate "centroid": sum/num for all -> use mergeTwoVectors
+   std::vector<bool> visited(planes.size(), false);
+   // for each index, while not visited, traverse and merge
+   /* correlatedPlanes.reserve(centroids.n_cols);
+   for (int i = 0; i < centroids.n_cols; i++) {
+      correlatedPlanes.push_back(CorrelatedData(centroids.at(0, i), centroids.at(1, i), centroids.at(2, i), 0, 0, 0));
+   }
+   for (int i = 0; i < planes.size(); i++) {
+      correlatedPlanes[assignments.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag());
+   } */
 
    return correlatedData;
 }
