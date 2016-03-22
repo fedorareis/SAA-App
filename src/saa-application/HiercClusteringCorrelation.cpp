@@ -8,20 +8,12 @@
 #include <mlpack/methods/emst/dtb.hpp>
 #include "HiercClusteringCorrelation.h"
 
-
 /**
- * Implements single-linkage hierarchical clustering using euclidean minimum spanning tree (EMST)
+ * Initializes and returns matrix with positions data
  */
-std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<SensorData> planes)
+arma::Mat<double> initializeMtx(std::vector<SensorData> planes)
 {
-   std::vector<CorrelatedData> correlatedPlanes;
-   int size = planes.size();
-
    std::vector<double> data;
-   if(planes.size() == 0)
-   {
-      return correlatedPlanes;
-   }
 
    // put data into matrix for clustering algorithm to use
    for(int i = 0 ; i < planes.size(); i++){
@@ -33,61 +25,149 @@ std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<Se
       data.push_back(plane.getPurePosition().z);
    }
 
-   auto dataMtx = arma::Mat<double>(&data[0],3,size);
+   // initializes the matrix
+   return arma::Mat<double>(&data[0], 3, planes.size());
+}
+
+/**
+ * Traverses the mergedNdx to check there's less than 3 sensors in cluster
+ */
+bool canMerge(std::vector<int> mergedNdx, int ndx) {
+   int counter = 0;
+   std::cout<<"in canMerge with ndx "<<ndx<<std::endl;
+
+   // traverses the ndx
+   while(mergedNdx[ndx] != -1) {
+      std::cout<<ndx<<" is merged with ";
+
+      ndx = mergedNdx[ndx];
+      counter++;
+
+      std::cout<<ndx<<" and count is now at "<<counter<<std::endl;
+   }
+
+   std::cout<<"new ndx is "<<ndx<<" and count is "<<counter<<std::endl;
+   // if there's less than 3 sensor, you can still cluster
+   return counter < 3 ? true : false;
+}
+
+/*
+ * Clusters data till there's only 1 cluster or no longer able to cluster
+ */
+std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> planesMtx) {
+   // keeps the merged planes
+   std::vector<int> mergedNdx(planes.size(), -1);
 
    // default option, might have to add bool for native
-   mlpack::emst::DualTreeBoruvka<> dtb(dataMtx);
-   arma::mat mstResults;
+   mlpack::emst::DualTreeBoruvka<> dtb(planesMtx);
+   arma::mat distanceMtx;
 
-   dtb.ComputeMST(mstResults);
+   // computes the distance planesMtx
+   dtb.ComputeMST(distanceMtx);
 
-   //TODO: NOT IMPLEMENTED YET
+   // prints the planesMtx
+   std::cout << distanceMtx.t() << std::endl;
 
-   // prints the matrix
-   std::cout<<"hc-result matrix contains "<< mstResults.n_rows<<" row elements"<<std::endl;
-   std::cout<<"hc-result matrix contains "<< mstResults.n_cols<<" col elements"<<std::endl;
-   std::cout<<"<index    >index      distance"<<std::endl;
-   std::cout<<mstResults.t()<<std::endl;
-   // indices refers back to the vector that was used to created
-   // and the matrix is ordered by the minimum distance
-   /* A single-linkage clustering can be obtained from the EMST by deleting all edges longer than a given cluster length. */
-   std::cout<<"hc-result matrix has max "<< mstResults.max()<<" and min "<< mstResults.min()<<std::endl;
-   std::cout<<"hc-result matrix index 0 has connection to: " <<std::endl;
+   std::cout << "hc-distanceMtx.at(0) is " << distanceMtx.at(0) << std::endl;
+   SensorData plane1 = planes[(int) distanceMtx.at(0)];
+   std::cout<<"hc-plane at row 0 col 0 has "<<plane1.getPurePosition().x;
+   std::cout<<" "<<plane1.getPurePosition().y<<" "<< plane1.getPurePosition().z<<std::endl;
+   std::cout << "hc-distanceMtx.at(1) is " << distanceMtx.at(1) << std::endl;
+   SensorData plane2 = planes[(int) distanceMtx.at(1)];
+   std::cout<<"hc-plane at row 0 col 1 has ";
+   std::cout<<"hc-plane at row 0 col 0 has "<<plane2.getPurePosition().x;
+   std::cout<<" "<<plane2.getPurePosition().y<<" "<< plane2.getPurePosition().z<<std::endl;
 
-   /* Helen's observation
-    *
-    * Few useful functions
-    * Printing .t() prints the values in table format
-    * .n_rows actually gives the number of columns which is 3 all the time
-    * .n_cols gives the number of rows, which I think is size-1?
-    * min() returns the minimum distance, max() returns the maximum distance
-    * So calling this computeMST() returns the "iteration"
-    *
-    * so the matrix is ordered by the minimum distance
-    * First column is the lesser of the index, second column is the greater index, and the third column is the distance
-    *
+   // sensor can't be same!
+   if(plane1.getSensor()!= plane2.getSensor()) {
+      std::cout<<"sensor not same; able to merge!"<<std::endl;
+   }
 
-   // This is the "steps" for single linked hierarchical clustering
-   // This is computed by calling computeMST()
-   Step 1. Construct the distance matrix from the given pattern matrix
+   // and can't be more than 3 sensors in 1 cluster
 
-    // there's a cor(x, y) function in arma
-    // as long as it's in same dimension, arma can correlate vector or matrix.
-   Step 2. Assign each pattern to a cluster
+   // how distance matrix is organized
+   int lessNdx = distanceMtx.at(0);
+   int grtrNdx = distanceMtx.at(1);
 
-    // I think you can merge by calling cor(x, y) with vector returns the correlated vector
-    // that contains the dot product
-   Step 3. Determine the smallest entry in the distance matrix D, say D(c1, c2) and merge the
-            two clusters c1 and c2
+   // merge closest together into cluster
+  // if(canMerge(mergedNdx, lessNdx)) {
+      // update index -> If count == 3, DON'T MERGE and merge the next closest together
+   // HOW TO MERGE vector? Is it just average???
 
-   Step 4. Update the distance matrix D, by deleting the row and column corresponding to
-             the cluster c2, and rename row c1 and column c1 to (c1, c2).
-            Assign the min[D(c3, c1), D(c3, c2)] to D(c3, (c1, c2)) and D((c1, c2), c3) for all c3’s
+   if(!canMerge(mergedNdx, lessNdx)) {
+      std::cout<<"sensor can't be merged!"<<std::endl;
+   }
+      // updates the ndx
+      while(mergedNdx[lessNdx] != -1) {
+         lessNdx = mergedNdx[lessNdx];
+      }
+      mergedNdx[lessNdx] = grtrNdx;
 
-   Step 5. If only one cluster is left, stop. Else, go to Step 3
+   // TODO: find out how to merge vector...
+   SensorData merged = SensorData("", 0, 4, 0, 0, 0, 0, adsb, 1, 0);
+      // create new SensorData by merging both values via vector product
 
-    * */
+   planes.erase(planes.begin()+1); // erases the index 1
+   planes.erase(planes.begin()+2); // erases the idnex "3"
+   planes.push_back(merged); // adds the new merged planes
 
-   return correlatedPlanes;
+   std::cout<<"new plane list has "<<planes.size()<<" items"<<std::endl;
+   planesMtx = initializeMtx(planes);
+   // default option, might have to add bool for native
+   dtb.~DualTreeBoruvka();
+
+   mlpack::emst::DualTreeBoruvka<> dt(planesMtx);
+
+   // computes the distance planesMtx
+   dt.ComputeMST(distanceMtx);
+
+   // prints the planesMtx
+   std::cout << distanceMtx.t() << std::endl;
+
+      // update planes matrix by calling planesMtx = initialize() with new planes vector
+
+      // calculate distance matrix
+      // merge till there's only 1 cluster or no longer able to cluster = no change in distanceMtx
+      // 1 cluster = col element == 1
+  // } else {
+      // merge the next available closest together
+  // }
+
+   return mergedNdx;
+}
+
+/**
+ * traverses mergedNdx and creates correlated planes
+ */
+std::vector<CorrelatedData> traverseMerged (std::vector<int> mergedNdx, std::vector<SensorData> planes) {
+   std::vector<CorrelatedData> correlatedData;
+   // -1 means it's not merged with any
+   // else, follow the index and mark as done
+   // calculate "centroid"
+
+   return correlatedData;
+}
+
+/**
+ * Implements single-linkage hierarchical clustering using euclidean minimum spanning tree (EMST)
+ */
+std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<SensorData> planes)
+{
+   std::vector<CorrelatedData> pointer;
+   // checks whether there are planes or not
+   if(planes.size() == 0)
+   {
+      //TODO: refactor to nullptr later on the SaaApplication.cpp?
+      return pointer;
+   }
+
+   // initializes the matrix
+   auto toCorrelateMtx = initializeMtx(planes);
+
+   // returns the hierarchical clustered "tree"
+   std::vector<int> clustered = cluster(planes, toCorrelateMtx);
+
+   // returns the list of correlated data
+   return traverseMerged(clustered, planes);
 }
 

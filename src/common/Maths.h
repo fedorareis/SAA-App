@@ -50,6 +50,7 @@ struct Vector3d
    {
       return a.x*b.x + a.y*b.y + a.z*b.z;
    }
+
 };
 bool operator==(Vector3d lhs, Vector3d rhs);
 
