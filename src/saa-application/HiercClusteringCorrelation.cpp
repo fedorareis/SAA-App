@@ -30,11 +30,11 @@ arma::Mat<double> initializeMtx(std::vector<SensorData> planes)
 }
 
 /**
- * Traverses the mergedNdx to check there's less than 3 sensors in cluster
+ * Traverses the mergedNdx to check there's no more than 3 sensors in cluster
  */
-bool canMerge(std::vector<int> mergedNdx, int ndx) {
+bool lessThanThreeSensors(std::vector<int> mergedNdx, int ndx) {
    int counter = 0;
-   std::cout<<"in canMerge with ndx "<<ndx<<std::endl;
+   std::cout<<"in lessThanThreeSensors with ndx "<<ndx<<std::endl;
 
    // traverses the ndx
    while(mergedNdx[ndx] != -1) {
@@ -49,6 +49,13 @@ bool canMerge(std::vector<int> mergedNdx, int ndx) {
    std::cout<<"new ndx is "<<ndx<<" and count is "<<counter<<std::endl;
    // if there's less than 3 sensor, you can still cluster
    return counter < 3 ? true : false;
+}
+
+/**
+ * Merges 2 vectors and returns the result
+ */
+Vector3d mergeTwoVectors(Vector3d v1, Vector3d v2) {
+   return Vector3d((int)((v1.x + v2.x)/2), (int)((v1.y + v2.y)/2), (int)((v1.z + v2.z)/2));
 }
 
 /*
@@ -81,6 +88,9 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    // sensor can't be same!
    if(plane1.getSensor()!= plane2.getSensor()) {
       std::cout<<"sensor not same; able to merge!"<<std::endl;
+      std::cout<<"merged data is ";
+      Vector3d merged = mergeTwoVectors(plane1.getPurePosition(), plane2.getPurePosition());
+      std::cout<<merged.x<<" "<<merged.y<<" "<<merged.z<<std::endl;
    }
 
    // and can't be more than 3 sensors in 1 cluster
@@ -90,11 +100,11 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    int grtrNdx = distanceMtx.at(1);
 
    // merge closest together into cluster
-  // if(canMerge(mergedNdx, lessNdx)) {
+  // if(lessThanThreeSensors(mergedNdx, lessNdx)) {
       // update index -> If count == 3, DON'T MERGE and merge the next closest together
    // HOW TO MERGE vector? Is it just average???
 
-   if(!canMerge(mergedNdx, lessNdx)) {
+   if(!lessThanThreeSensors(mergedNdx, lessNdx)) {
       std::cout<<"sensor can't be merged!"<<std::endl;
    }
       // updates the ndx
@@ -103,18 +113,18 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
       }
       mergedNdx[lessNdx] = grtrNdx;
 
-   // TODO: find out how to merge vector...
+   // TODO: merge == basically addition and division
    SensorData merged = SensorData("", 0, 4, 0, 0, 0, 0, adsb, 1, 0);
-      // create new SensorData by merging both values via vector product
+      // create new SensorData by merging both values
 
    planes.erase(planes.begin()+1); // erases the index 1
-   planes.erase(planes.begin()+2); // erases the idnex "3"
+   planes.erase(planes.begin()+2); // erases the index "3"
    planes.push_back(merged); // adds the new merged planes
 
    std::cout<<"new plane list has "<<planes.size()<<" items"<<std::endl;
    planesMtx = initializeMtx(planes);
-   // default option, might have to add bool for native
-   dtb.~DualTreeBoruvka();
+
+   delete dtb;
 
    mlpack::emst::DualTreeBoruvka<> dt(planesMtx);
 
@@ -144,6 +154,7 @@ std::vector<CorrelatedData> traverseMerged (std::vector<int> mergedNdx, std::vec
    // -1 means it's not merged with any
    // else, follow the index and mark as done
    // calculate "centroid"
+   // calculating centroid : sum/num for all
 
    return correlatedData;
 }

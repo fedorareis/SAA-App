@@ -33,9 +33,6 @@ TEST(HiercClustering, TestSetup)
    // calls correlation
    HiercClusteringCorrelation corr;
    std::vector<CorrelatedData> result = corr.correlate(planes);
-   // The first row = the lesser index of the edge;
-   // The second row = the greater index of the edge;
-   // The third row will contain the distance between the two edges.
 
    ASSERT_EQ(0,result.size());
 
