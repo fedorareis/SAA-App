@@ -76,6 +76,7 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    // prints the planesMtx
    std::cout << distanceMtx.t() << std::endl;
 
+   //TODO: combine all the printing thing, sensor checking, and numMerge checking
    std::cout << "hc-distanceMtx.at(0) is " << distanceMtx.at(0) << std::endl;
    SensorData plane1 = planes[(int) distanceMtx.at(0)];
    std::cout<<"hc-plane at row 0 col 0 has "<<plane1.getPurePosition().x;
@@ -85,6 +86,7 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    std::cout<<"hc-plane at row 0 col 1 has ";
    std::cout<<"hc-plane at row 0 col 0 has "<<plane2.getPurePosition().x;
    std::cout<<" "<<plane2.getPurePosition().y<<" "<< plane2.getPurePosition().z<<std::endl;
+
 
    // sensor can't be same!
    if(plane1.getSensor()!= plane2.getSensor())
@@ -131,7 +133,7 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    planesMtx = initializeMtx(planes);
 
    // deletes the tree
-   // TODO: calling deconstructor vs using delete? Or are those same? Or are they even necessary?
+   // Question? calling deconstructor vs using delete? Or are those same? Or are they even necessary?
    dtb.~DualTreeBoruvka();
 
    mlpack::emst::DualTreeBoruvka<> dt(planesMtx);
@@ -142,6 +144,7 @@ std::vector<int> cluster(std::vector<SensorData> planes, arma::Mat<double> plane
    // prints the planesMtx
    std::cout << distanceMtx.t() << std::endl;
 
+   //TODO: implement the following
       // update planes matrix by calling planesMtx = initialize() with new planes vector
 
       // calculate distance matrix
@@ -163,6 +166,8 @@ std::vector<CorrelatedData> traverseMerged (std::vector<int> mergedNdx, std::vec
    // else, follow the index and mark as done
    // calculate "centroid": sum/num for all -> use mergeTwoVectors
    std::vector<bool> visited(planes.size(), false);
+
+   //TODO: implement the following
    // for each index, while not visited, traverse and merge
    /* correlatedPlanes.reserve(centroids.n_cols);
    for (int i = 0; i < centroids.n_cols; i++) {
