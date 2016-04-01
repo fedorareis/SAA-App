@@ -9,6 +9,7 @@
 #include "../TestCase.h"
 #include "test-server/Validation/errors/TestCaseError.h"
 #include <vector>
+#include <common/Randomizer.h>
 
 class VerificationTest
 {
@@ -16,9 +17,8 @@ public:
     VerificationTest(std::shared_ptr<TestCase> tc): tc(tc){}
     virtual std::vector<std::shared_ptr<TestCaseError>> verify(TestCaseResult& result) = 0;
 
-   protected:
-      const std::shared_ptr<TestCase> tc;
-
+protected:
+    const std::shared_ptr<TestCase> tc;
 };
 
 #endif //SAA_APPLICATION_VERIFICATIONTEST_H

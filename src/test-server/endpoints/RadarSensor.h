@@ -18,11 +18,11 @@
  */
 class RadarSensor : public Sensor {
    public:
-   RadarSensor(SensorEndpoint * endpoint);
+    RadarSensor(SensorEndpoint *endpoint, bool jitter = false);
    virtual void sendData(const TestServerPlane &plane, const TestServerPlane & other);
 
    private:
-   static RadarReport createReport(const TestServerPlane & plane, const TestServerPlane & ownship);
+    RadarReport createReport(const TestServerPlane &plane, const TestServerPlane &ownship);
 
    FRIEND_TEST(RadarSensorTest, testBasicReport);
    FRIEND_TEST(RadarSensorTest, testVelocity);

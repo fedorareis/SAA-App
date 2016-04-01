@@ -1,6 +1,9 @@
-//
-// Created by jacrushar on 11/17/15.
-//
+/**
+ * The Decision class takes in all of the Correlated planes, determines the severity for each plane, and outputs a list
+ * of all of the planes and their relevant data as a CDTIReport Protocal Buffer.
+ *
+ * @Author Kyle Reis 11/17/15
+ */
 
 #ifndef SAA_APPLICATION_DECISION_H
 #define SAA_APPLICATION_DECISION_H
@@ -10,9 +13,16 @@
 class Decision
 {
 public:
-   CDTIPlane::Severity calcAdvisory(std::vector<CDTIPlane *>* list, std::vector<CorrelatedData>* planes,
-                                    SensorData* ownship);
-   CDTIReport * generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity);
+   /**
+    * Calculates the Advisory for every plane in the airspace and returns the CDTIReport for all of them.
+    * Advisory Levels: AIR, PROXIMATE, TRAFFIC, RESOLUTION, and CRASH
+    *
+    * @param planes The list of CorrelatedData that is passed from the Correlation module.
+    * @param ownship The ownship.
+    * @return The CDTIReport for all of the planes in planes.
+    */
+   CDTIReport* calcAdvisory(std::vector<CorrelatedData>* planes, SensorData* ownship);
+
    static void setTime0(time_t time);
 private:
    static time_t time0;
@@ -23,12 +33,22 @@ private:
    double tCOA;
 
    /**
+    * Generates the CDTIReport to be sent to the CDTI and Validation.
+    *
+    * @param list The list of planes with their advisories set.
+    * @param ownship The CDTIPlane version of the ownship.
+    * @param severity The maximum severity for the planes in list.
+    * @return The CDTIReport for all of the planes in planes.
+    */
+   CDTIReport* generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity);
+
+   /**
     * Calculates the Sensitivity Level as described page 10 of
     * https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing
     *
     * @param ownship The ownship data so that it can be used in calculating the sensitivity level.
     */
-   void sensitivityLevel(SensorData* ownship);
+   void setSensitivityLevel(SensorData* ownship);
 
    /**
     * Calculates the Modified Tau as described in http://shemesh.larc.nasa.gov/people/cam/publications/gnc2013-draft.pdf
@@ -68,6 +88,7 @@ private:
 
    /**
     * Determines if an Advisory should be issued as described(mostly) in http://shemesh.larc.nasa.gov/people/cam/publications/gnc2013-draft.pdf
+    * Read As: TCASII RA (TCAS 2 RA)
     *
     * @param plane The plane that we are calculating the Tau for.
     * @param RA Whether or not it is a Resolution Advisory (RA).
@@ -77,9 +98,11 @@ private:
    bool tcasiiRA(CorrelatedData plane, bool RA, double cpaRange);
 
    // Values for both arrays come from table on page 10 of https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing
-   // Sensitivity levels start at 2 so array was padded with 0 for indeces 0 and 1.
+   // Sensitivity levels start at 2 so arrays are padded with 0 for indeces 0 and 1.
+   // DMOD is the Horizontal Threshold
    double DMOD_TA[9] = {0, 0, 0.30, 0.33, 0.48, 0.75, 1.00, 1.30, 1.30};
    double DMOD_RA[9] = {0, 0, 0, 0.20, 0.35, 0.55, 0.80, 1.10, 1.10};
+   // TAU is the Time Threshold
    double TAU_TA[9] = {0, 0, 20, 25, 30, 40, 45, 48, 48};
    double TAU_RA[9] = {0, 0, 0, 15, 20, 25, 30, 35, 35};
 

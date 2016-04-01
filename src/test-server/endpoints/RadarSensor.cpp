@@ -3,10 +3,11 @@
 //
 
 #include <iostream>
+#include <test-server/TestServer.h>
 #include "RadarSensor.h"
 
-RadarSensor::RadarSensor(SensorEndpoint *endpoint):
-Sensor(endpoint)
+RadarSensor::RadarSensor(SensorEndpoint *endpoint, bool jitter) :
+        Sensor(endpoint, jitter)
 {
 
 }
@@ -35,14 +36,26 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    float azimuth = 180.f/M_PI * angle * (negBearing ? -1 : 1);
 
    float elevation = 180.f/M_PI * atan2(positionZ/NAUT_MILES_TO_FEET,range);
-   range = (float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET));
 
    RadarReport report;
 
+   //tuple of the position to send to report. is in format (range,azimuth,altitude)
+   Vector3d finalPosition(range, azimuth, positionZ);
+   if (jitter)
+   {
+      finalPosition = TestServer::scrambleRadar(finalPosition);
+   }
+
+   range = (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (NAUT_MILES_TO_FEET *
+                                                                                                 NAUT_MILES_TO_FEET));
+
+   report.set_altitude((float) finalPosition.z);
+   report.set_range(range);
+   report.set_azimuth(finalPosition.y);
+
    std::cout << "RDR" << azimuth << "," << elevation << "," << range << std::endl;
 
-   report.set_azimuth(azimuth);
-   report.set_altitude(positionZ);
+   report.set_altitude(finalPosition.z);
    report.set_elevation(elevation);
    report.set_range(range);
    report.set_north(plane.getNorthVelocity() - ownship.getNorthVelocity());

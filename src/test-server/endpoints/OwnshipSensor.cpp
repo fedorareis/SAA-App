@@ -5,7 +5,8 @@
 #include "OwnshipSensor.h"
 #include "common/protobuf/ownship.pb.h"
 OwnshipSensor::OwnshipSensor(SensorEndpoint * endpoint):
-Sensor(endpoint){
+        Sensor(endpoint, false)
+{
 
 }
 /**

@@ -19,10 +19,10 @@ CDTIPlane* SensorData::getCDTIPlane()
 
 void SensorData::printPos() {
    //printf("tailNumber %s\n", tailNumber);
-   printf("position x %f\n", position->x());
-   printf("position y %f\n", position->y());
-   printf("position z %f\n", position->z());
-   printf("velocity x %f\n", velocity->x());
-   printf("velocity y %f\n", velocity->y());
-   printf("velocity z %f\n", velocity->z());
+   printf("position x %f\n", position->x()); // north
+   printf("position y %f\n", position->y()); // east
+   printf("position z %f\n", position->z()); // down
+   printf("velocity x %f\n", velocity->x()); // north
+   printf("velocity y %f\n", velocity->y()); // east
+   printf("velocity z %f\n", velocity->z()); // down
 }

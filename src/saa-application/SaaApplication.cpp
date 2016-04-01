@@ -1,6 +1,11 @@
 /*
  * Created by Kyle Piddington on 11/15/15.
  * Main Author: Jacob Hardi
+ *
+ * This module is where the main connections between the test server and CDTI happen.
+ * It takes in the data from the test server and passes it to the correlation module,
+ * then to the decision module, and then onto the CDTI as well as back to the test
+ * server for validation.
  */
 
 #include <iostream>
@@ -21,7 +26,7 @@
 std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
 std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
-std::mutex mtx;
+std::mutex planeMutex;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
 
 void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
@@ -91,7 +96,7 @@ void SaaApplication::shutdown()
  * Takes in an adsbReport and the OwnshipReport data and returns the SensorData version of
  * the adsb data converted to relative position to the ownship.
  */
-SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
+SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
 {
    std::string tailNumber = adsb.tail_number();
    float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
@@ -110,7 +115,7 @@ SensorData adsbToRelative(AdsBReport adsb, OwnshipReport ownship)
  * Takes in a TcasReport and the OwnshipReport data and returns the SensorData version of
  * the tcas data converted to relative position to the ownship.
  */
-SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
+SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
@@ -119,10 +124,10 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
    float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));
    float positionN = (float)(horizRange * sin(theta));
-   float velocityX = 0;
-   float velocityY = 0;
-   float velocityZ = 0;
-   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::tcas, tcas.plane_id(), 0);
+   float velocityN = 0;
+   float velocityE = 0;
+   float velocityD = 0;
+   SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::tcas, tcas.plane_id(), 0);
    return tcasPlane;
 }
 
@@ -130,7 +135,7 @@ SensorData tcasToRelative(TcasReport tcas, OwnshipReport ownship)
  * Takes in a RadarReport and the OwnshipReport data and returns the SensorData version of
  * the radar data converted to relative position to the ownship.
  */
-SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
+SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
    float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
@@ -140,10 +145,10 @@ SensorData radarToRelative(RadarReport radar, OwnshipReport ownship)
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));
    float positionN = (float)(horizRange * sin(theta));
-   float velocityX = fpsToNmph(radar.north());
-   float velocityY = fpsToNmph(radar.east());
-   float velocityZ = fpsToNmph(radar.down());
-   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityX, velocityY, velocityZ, Sensor::radar, radar.plane_id(), radar.timestamp());
+   float velocityN = fpsToNmph(radar.north());
+   float velocityE = fpsToNmph(radar.east());
+   float velocityD = fpsToNmph(radar.down());
+   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
@@ -172,9 +177,9 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    while(adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
-      mtx.lock();
-      planes.push_back(adsbToRelative(adsb, ownship));
-      mtx.unlock();
+      planeMutex.lock();
+      planes.push_back(SaaApplication::adsbToRelative(adsb, ownship));
+      planeMutex.unlock();
    }
    std::cout << "ADSBThread done\n";
 
@@ -190,9 +195,9 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
    while(tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
-      mtx.lock();
-      planes.push_back(tcasToRelative(tcas, ownship));
-      mtx.unlock();
+      planeMutex.lock();
+      planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
+      planeMutex.unlock();
    }
    std::cout << "TCASThread done\n";
 
@@ -208,9 +213,9 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    while(radarSock.hasData())
    {
       radarSock.operator>>(radar); //blocking call, waits for server
-      mtx.lock();
-      planes.push_back(radarToRelative(radar, ownship));
-      mtx.unlock();
+      planeMutex.lock();
+      planes.push_back(SaaApplication::radarToRelative(radar, ownship));
+      planeMutex.unlock();
    }
    std::cout << "RadarThread done\n";
 
@@ -232,25 +237,28 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
    try
    {
       bool adsbFinished = false, ownshipFinished = false, tcasFinished = false, radarFinished = false;
-      CDTIPlane::Severity severity;
 
       std::thread ownshipthread(processOwnship, std::ref(ownSock), std::ref(ownship), std::ref(ownshipFinished));
       std::thread adsbthread(processAdsb, std::ref(adsbSock), std::ref(ownship), std::ref(adsbFinished));
       std::thread tcasthread(processTcas, std::ref(tcasSock), std::ref(ownship), std::ref(tcasFinished));
       std::thread radarthread(processRadar, std::ref(radarSock), std::ref(ownship), std::ref(radarFinished));
 
+      /*
+       * This is the main loop that runs once per second, data that was collected over the last cycle is
+       * sent to the correlation module and then onto the decision module before being sent onto the CDTI
+       * and back to the test server.
+       */
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
          std::cout << "Starting one cycle" << std::endl;
 
          std::this_thread::sleep_for(std::chrono::seconds(1));
-         mtx.lock();
+         planeMutex.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
-         mtx.unlock();
+         planeMutex.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
-         severity = dec.calcAdvisory(&list, &planesResult, &ownshipPlane);
-         rep = dec.generateReport(&list, ownshipPlane.getCDTIPlane(), &severity);
+         rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
          std::cout << "finished one cycle" << std::endl;
       }

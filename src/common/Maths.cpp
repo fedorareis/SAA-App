@@ -59,3 +59,13 @@ double Vector3d::getMagnitude()
 {
     return sqrt(x * x + y * y + z * z);
 }
+
+inline float feetToNauticalMiles(float feet)
+{
+    return feet * 1.0f / NAUT_MILES_TO_FEET;
+}
+
+inline float nauticalMilesToFeet(float miles)
+{
+    return miles * NAUT_MILES_TO_FEET;
+}

@@ -34,11 +34,6 @@ void Validator::endSimulation()
             errors.push_back(error);
          }
       }
-//      if(result.getPlanes().size() != expectedPlanes)
-//      {
-//         errors.push_back(std::shared_ptr<PlaneCorrelationError> (new PlaneCorrelationError(tc.getPlanes().size(),
-//                                                    result.getPlanes().size(), result.getTime())));
-//      }
    }
   std::cout << "Final Results:  " << errors.size() << "Errors, " << numResults << std::endl;
 }

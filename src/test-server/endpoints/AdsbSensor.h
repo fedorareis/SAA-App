@@ -9,7 +9,7 @@
 
 class AdsbSensor : public Sensor {
    public:
-   AdsbSensor(SensorEndpoint * endpoint);
+   AdsbSensor(SensorEndpoint * endpoint,bool jitter = false);
    virtual void sendData(const TestServerPlane & plane, const TestServerPlane & ownship) override;
 
 };
