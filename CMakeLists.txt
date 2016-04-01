@@ -4,7 +4,7 @@ IF(WIN32)
 ENDIF()
 
 IF(APPLE)
-    set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1")
+    set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1;/usr/local/Cellar/qt5/5.6.0")
 endif()
 
 option(PROFILE "Turn on code-profile options" OFF)
