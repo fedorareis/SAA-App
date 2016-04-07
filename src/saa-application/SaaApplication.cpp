@@ -159,9 +159,11 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
 {
    while(ownSock.hasData())
    {
+      planeMutex.lock();
       ownSock.operator>>(ownship); //blocking call, waits for server
       // TODO: Switch to actual ownship data for use by Decision
       ownshipPlane = SensorData("Ownship", 0, 0, ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
+      planeMutex.unlock();
    }
    std::cout << "Ownship Thread done\n";
 
@@ -256,6 +258,7 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          planeMutex.lock();
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
+         ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
          planeMutex.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          rep = dec.calcAdvisory(&planesResult, &ownshipPlane);

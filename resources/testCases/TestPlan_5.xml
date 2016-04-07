@@ -1,0 +1,48 @@
+<test name="Two Planes Crossing"
+      description="The two planes approach each other, but remain seperate correlations"
+      time = "120"
+      sensorError="false">
+
+    <ownship tag="ABC123">
+        <tcas enabled="true" error="1.5"/>
+        <radar enabled="true"/>
+        <ads-b enabled="true" error="0.2"/>
+        <movement type="linear">
+            <position x="0" y="0" z="0"/>
+            <direction x="200" y="0" z="0"/>
+        </movement>
+    </ownship>
+    <plane tag="N11111">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <movement type="linear">
+            <position x="-2" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="N22222">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <movement type="linear">
+            <position x="2" y="14" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="-800" y="300" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="N33333">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <movement type="linear">
+            <position x="-2" y="-11" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="N55555">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <movement type="linear">
+            <position x="0" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="800" y="-300" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+</test>
+
