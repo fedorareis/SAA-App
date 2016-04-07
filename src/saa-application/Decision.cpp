@@ -12,7 +12,7 @@ time_t Decision::time0 = 0;
 CDTIReport* Decision::calcAdvisory(std::vector<CorrelatedData>* planes, SensorData* ownship)
 {
    Decision::setSensitivityLevel(ownship);
-   CDTIPlane::Severity severity = CDTIPlane::PROXIMATE;
+   CDTIPlane::Severity severity = CDTIPlane::AIR;
 
    std::vector<CDTIPlane *> list;
 
@@ -22,24 +22,22 @@ CDTIReport* Decision::calcAdvisory(std::vector<CorrelatedData>* planes, SensorDa
       CDTIPlane* plane = it->getCDTIPlane();
 
       // Range < .5nmi and Elevation < +/-50ft and a Resolution Advisory is thrown
-      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50 &&
-         tcasiiRA(*it, true, 0.2))
+      if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < .5 && fabs(it->getPosition().z) < 50
+         /*&& tcasiiRA(*it, true, 0.2)*/)
       {
-         // Should be CRASH
-         // TODO: Implement CRASH enum in cdti proto
-         plane->set_severity(CDTIPlane::RESOLUTION);
-         severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
+         plane->set_severity(CDTIPlane::CRASH);
+         severity = (CDTIPlane::Severity) (severity < CDTIPlane::CRASH ? CDTIPlane::CRASH : severity);
       }
       // Range < 2nmi and Elevation < +/-300ft and a Resolution Advisory is thrown
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 2 && fabs(it->getPosition().z) < 300
-              && tcasiiRA(*it, true, 0.5))
+              /*&& tcasiiRA(*it, true, 0.5)*/)
       {
          plane->set_severity(CDTIPlane::RESOLUTION);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::RESOLUTION ? CDTIPlane::RESOLUTION : severity);
       }
       // Range < 5nmi and Elevation < +/-500ft and a Traffic Advisory is thrown
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 5 && fabs(it->getPosition().z) < 500
-              && tcasiiRA(*it, false, 1))
+              /*&& tcasiiRA(*it, false, 1)*/)
       {
          plane->set_severity(CDTIPlane::TRAFFIC);
          severity = (CDTIPlane::Severity) (severity < CDTIPlane::TRAFFIC ? CDTIPlane::TRAFFIC : severity);
@@ -53,9 +51,7 @@ CDTIReport* Decision::calcAdvisory(std::vector<CorrelatedData>* planes, SensorDa
       // Range < 20nmi and Elevation < +/-2000ft
       else if(it->getPosition().distance(Vector3d(0,0,it->getPosition().z)) < 20 && fabs(it->getPosition().z) < 2000)
       {
-         // Should be AIR
-         // TODO: Implement AIR enum in cdti proto
-         plane->set_severity(CDTIPlane::PROXIMATE);
+         plane->set_severity(CDTIPlane::AIR);
       }
 
       list.push_back(plane);
