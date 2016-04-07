@@ -1,3 +1,5 @@
+syntax = "proto2";
+
 option java_package = "edu.calpoly.capstone.sensor";
 option java_outer_classname = "Cdti";
 
@@ -7,7 +9,8 @@ option java_outer_classname = "Cdti";
  * Y: Positive is Up along the CDTI, Negative is Down.
  * Z: Positive is above the ship in CDTI, Negative is below.
  */
-message Vector {
+message Vector
+{
     required float X = 1;
     required float Y = 2;
     required float Z = 3;
@@ -16,11 +19,15 @@ message Vector {
 /**
  * Represents one plane in the CDTI message.
  */
-message CDTIPlane {
-    enum Severity {
-        PROXIMATE = 0;
-        TRAFFIC = 1;
-        RESOLUTION = 2;
+message CDTIPlane
+{
+    enum Severity
+    {
+        AIR = 0;
+        PROXIMATE = 1;
+        TRAFFIC = 2;
+        RESOLUTION = 3;
+        CRASH = 4;
     }
     required string id = 1;       // ID of target
     required Vector position = 2; // Relative to Ownship. 
@@ -36,12 +43,15 @@ message CDTIPlane {
  * CDTI Report, sent once a second by the SAA application.
  * Contains a list of planes, and an optional message.
  */
-message CDTIReport {
-
-    enum Severity {
-        PROXIMATE = 0;
-        TRAFFIC = 1;
-        RESOLUTION = 2;
+message CDTIReport
+{
+    enum Severity
+    {
+        AIR = 0;
+        PROXIMATE = 1;
+        TRAFFIC = 2;
+        RESOLUTION = 3;
+        CRASH = 4;
     }
     
     required sfixed64 timestamp = 1;     // UTC timestamp

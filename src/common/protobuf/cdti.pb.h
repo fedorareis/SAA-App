@@ -40,13 +40,15 @@ class CDTIReport;
 class Vector;
 
 enum CDTIPlane_Severity {
-  CDTIPlane_Severity_PROXIMATE = 0,
-  CDTIPlane_Severity_TRAFFIC = 1,
-  CDTIPlane_Severity_RESOLUTION = 2
+  CDTIPlane_Severity_AIR = 0,
+  CDTIPlane_Severity_PROXIMATE = 1,
+  CDTIPlane_Severity_TRAFFIC = 2,
+  CDTIPlane_Severity_RESOLUTION = 3,
+  CDTIPlane_Severity_CRASH = 4
 };
 bool CDTIPlane_Severity_IsValid(int value);
-const CDTIPlane_Severity CDTIPlane_Severity_Severity_MIN = CDTIPlane_Severity_PROXIMATE;
-const CDTIPlane_Severity CDTIPlane_Severity_Severity_MAX = CDTIPlane_Severity_RESOLUTION;
+const CDTIPlane_Severity CDTIPlane_Severity_Severity_MIN = CDTIPlane_Severity_AIR;
+const CDTIPlane_Severity CDTIPlane_Severity_Severity_MAX = CDTIPlane_Severity_CRASH;
 const int CDTIPlane_Severity_Severity_ARRAYSIZE = CDTIPlane_Severity_Severity_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CDTIPlane_Severity_descriptor();
@@ -60,13 +62,15 @@ inline bool CDTIPlane_Severity_Parse(
     CDTIPlane_Severity_descriptor(), name, value);
 }
 enum CDTIReport_Severity {
-  CDTIReport_Severity_PROXIMATE = 0,
-  CDTIReport_Severity_TRAFFIC = 1,
-  CDTIReport_Severity_RESOLUTION = 2
+  CDTIReport_Severity_AIR = 0,
+  CDTIReport_Severity_PROXIMATE = 1,
+  CDTIReport_Severity_TRAFFIC = 2,
+  CDTIReport_Severity_RESOLUTION = 3,
+  CDTIReport_Severity_CRASH = 4
 };
 bool CDTIReport_Severity_IsValid(int value);
-const CDTIReport_Severity CDTIReport_Severity_Severity_MIN = CDTIReport_Severity_PROXIMATE;
-const CDTIReport_Severity CDTIReport_Severity_Severity_MAX = CDTIReport_Severity_RESOLUTION;
+const CDTIReport_Severity CDTIReport_Severity_Severity_MIN = CDTIReport_Severity_AIR;
+const CDTIReport_Severity CDTIReport_Severity_Severity_MAX = CDTIReport_Severity_CRASH;
 const int CDTIReport_Severity_Severity_ARRAYSIZE = CDTIReport_Severity_Severity_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CDTIReport_Severity_descriptor();
@@ -256,9 +260,11 @@ class CDTIPlane : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef CDTIPlane_Severity Severity;
+  static const Severity AIR = CDTIPlane_Severity_AIR;
   static const Severity PROXIMATE = CDTIPlane_Severity_PROXIMATE;
   static const Severity TRAFFIC = CDTIPlane_Severity_TRAFFIC;
   static const Severity RESOLUTION = CDTIPlane_Severity_RESOLUTION;
+  static const Severity CRASH = CDTIPlane_Severity_CRASH;
   static inline bool Severity_IsValid(int value) {
     return CDTIPlane_Severity_IsValid(value);
   }
@@ -425,9 +431,11 @@ class CDTIReport : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef CDTIReport_Severity Severity;
+  static const Severity AIR = CDTIReport_Severity_AIR;
   static const Severity PROXIMATE = CDTIReport_Severity_PROXIMATE;
   static const Severity TRAFFIC = CDTIReport_Severity_TRAFFIC;
   static const Severity RESOLUTION = CDTIReport_Severity_RESOLUTION;
+  static const Severity CRASH = CDTIReport_Severity_CRASH;
   static inline bool Severity_IsValid(int value) {
     return CDTIReport_Severity_IsValid(value);
   }
