@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module TestCase-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="92" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="21" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="4.381" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.429" level="0" />
+<weighted_methods_per_class_unity value="13" level="0" />
+<weighted_methods_per_class_visibility value="2" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="6" level="0" />
+<IF4 value="81" level="0" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="36" level="1" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="36" level="1" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.h" line="13" />
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>TestCase()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="9" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="16" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>TestCase(const TestCase &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="83" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="18" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>addPlane(const TestServerPlane &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="25" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="32" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>complete()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="46" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="44" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getNextRadarId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="78" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="50" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getNextTcasId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="74" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="49" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getOwnship()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="38" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="38" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getPlanes()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="42" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="42" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>isRunning()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="70" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="46" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setName(const string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="17" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="22" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setOwnship(const TestServerPlane &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="21" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="28" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setTotalTime(float)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="66" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="24" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>update(float)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./test-server/TestCase.cpp" line="29" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./test-server/TestCase.h" line="36" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>TestCase</name>
+<client_module>
+<name>TestEnvironment</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestEnvironment.cpp" line="66" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestEnvironment.h" line="22" />
+</extent>
+<name>TestFileParser</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./test-server/TestFileParser.h" line="57" />
+</extent>
+<name>Validator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./test-server/Validation/Validator.cpp" line="9" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./test-server/Validation/Validator.h" line="25" />
+</extent>
+</client_module>
+<supplier_module>
+<name>TestServerPlane</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestCase.cpp" line="21" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestCase.cpp" line="25" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestCase.h" line="28" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./test-server/TestCase.h" line="32" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./test-server/TestCase.h" line="54" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./test-server/TestCase.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./test-server/TestCase.h" line="22" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./test-server/TestCase.h" line="56" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./test-server/TestCase.h" line="55" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

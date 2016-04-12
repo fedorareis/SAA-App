@@ -59,7 +59,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
     */
    catch(std::invalid_argument e)
    {
-      std::cout << "Invalid argument exception" << std::endl;
+      std::cout << "Invalid argument exception: " << e.what() <<  std::endl;
       correlationFailed = true;
    }
 

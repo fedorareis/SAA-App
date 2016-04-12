@@ -1,0 +1,2067 @@
+CCCC_Module@AdsBReport@class@
+CCCC_ModExt@AdsBReport@class@./common/protobuf/adsb.pb.h@37@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@AdsBReport@class@./common/protobuf/adsb.pb.h@41@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@AdsBService@class@
+CCCC_ModExt@AdsBService@class@./saa-application/ConnectionServices/AdsBService.h@9@definition@F??T2@LOC:2 COM:3 MVG:0@2@d@
+CCCC_Module@AdsbSensor@class@
+CCCC_ModExt@AdsbSensor@class@./test-server/endpoints/AdsbSensor.h@10@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@Advisory@class@
+CCCC_ModExt@Advisory@class@./cdti/Advisory.h@3@definition@????2@LOC:3 COM:0 MVG:0@2@d@
+CCCC_Module@AlertMessages@class@
+CCCC_ModExt@AlertMessages@class@./cdti/AlertMessages.h@9@definition@F???2@LOC:7 COM:0 MVG:0@2@d@
+CCCC_Module@CDTIEndpoint@class@
+CCCC_ModExt@CDTIEndpoint@class@./cdti/endpoints/CDTIEndpoint.h@9@definition@T??T2@LOC:4 COM:2 MVG:0@2@d@
+CCCC_Module@CDTIGUIDisplay@class@
+CCCC_ModExt@CDTIGUIDisplay@class@./cdti/CDTIGUIDisplay.h@11@definition@????0@LOC:18 COM:0 MVG:0@0@d@
+CCCC_Module@CDTIMockEndpoint@class@
+CCCC_ModExt@CDTIMockEndpoint@class@./cdti/endpoints/mocks/CDTIMockEndpoint.h@9@definition@F???0@LOC:7 COM:2 MVG:0@0@d@
+CCCC_Module@CDTIPlane@class@
+CCCC_ModExt@CDTIPlane@class@./common/protobuf/cdti.pb.h@38@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@CDTIPlane@class@./common/protobuf/cdti.pb.h@196@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@CDTIPlane_Severity@enum@
+CCCC_ModExt@CDTIPlane_Severity@enum@./common/protobuf/cdti.pb.h@42@definition@F???2@LOC:0 COM:0 MVG:0@2@d@
+CCCC_Module@CDTIReport@class@
+CCCC_ModExt@CDTIReport@class@./common/protobuf/cdti.pb.h@39@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@CDTIReport@class@./common/protobuf/cdti.pb.h@365@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@CDTIReport_Severity@enum@
+CCCC_ModExt@CDTIReport_Severity@enum@./common/protobuf/cdti.pb.h@62@definition@F???2@LOC:0 COM:0 MVG:0@2@d@
+CCCC_Module@CDTISocketEndpoint@class@
+CCCC_ModExt@CDTISocketEndpoint@class@./cdti/endpoints/CDTISocketEndpoint.h@10@definition@T???0@LOC:6 COM:2 MVG:0@0@d@
+CCCC_Module@Cdti@class@
+CCCC_ModExt@Cdti@class@./cdti/CDTI.h@10@definition@F???2@LOC:6 COM:2 MVG:0@2@d@
+CCCC_Module@ClientSocket@class@
+CCCC_ModExt@ClientSocket@class@./common/sockets/ClientSocket.h@16@definition@T??T2@LOC:8 COM:20 MVG:0@2@d@
+CCCC_Module@Common@class@
+CCCC_ModExt@Common@class@./common/Common.h@7@definition@F???2@LOC:4 COM:2 MVG:0@2@d@
+CCCC_Module@ConnectionInfo@struct@
+CCCC_ModExt@ConnectionInfo@struct@./saa-application/ConnectionServices/ConnectionInfo.h@7@definition@????0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_ModExt@ConnectionInfo@struct@./test-server/endpoints/ConnectionInfo.h@10@definition@F???0@LOC:6 COM:2 MVG:0@0@d@
+CCCC_Module@CorrectSensorError@class@
+CCCC_ModExt@CorrectSensorError@class@./test-server/Validation/errors/CorrectSensorError.h@11@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@CorrectSensorVerificationTest@class@
+CCCC_ModExt@CorrectSensorVerificationTest@class@./test-server/Validation/CorrectSensorVerificationTest.h@11@definition@F??T0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@CorrelatedData@class@
+CCCC_ModExt@CorrelatedData@class@./saa-application/CorrelatedData.h@11@definition@F???2@LOC:12 COM:4 MVG:0@2@d@
+CCCC_Module@Correlation@class@
+CCCC_ModExt@Correlation@class@./saa-application/Correlation.h@11@definition@F??T2@LOC:4 COM:2 MVG:0@2@d@
+CCCC_Module@Decision@class@
+CCCC_ModExt@Decision@class@./saa-application/Decision.h@10@definition@F???2@LOC:4 COM:2 MVG:0@2@d@
+CCCC_Module@Display@class@
+CCCC_ModExt@Display@class@./cdti/Display.h@10@definition@F??T2@LOC:4 COM:2 MVG:0@2@d@
+CCCC_Module@DisplayController@class@
+CCCC_ModExt@DisplayController@class@./cdti/DisplayController.h@11@definition@F???2@LOC:9 COM:0 MVG:0@2@d@
+CCCC_Module@DistanceIndicator@class@
+CCCC_ModExt@DistanceIndicator@class@./cdti/DistanceIndicator.h@3@definition@????2@LOC:3 COM:0 MVG:0@2@d@
+CCCC_Module@ErrorCode@enum@
+CCCC_ModExt@ErrorCode@enum@./test-server/TestFileParser.h@19@definition@?????@LOC:0 COM:0 MVG:0@?@d@
+CCCC_Module@LinearMotion@class@
+CCCC_ModExt@LinearMotion@class@./test-server/planes/LinearMotion.h@11@definition@F??T0@LOC:10 COM:2 MVG:0@0@d@
+CCCC_Module@MockSensorEndpoint@class@
+CCCC_ModExt@MockSensorEndpoint@class@./test-server/endpoints/mocks/MockSensorEndpoint.h@10@definition@F??T0@LOC:7 COM:2 MVG:0@0@d@
+CCCC_Module@MockServerSocket@class@
+CCCC_ModExt@MockServerSocket@class@./common/sockets/mocks/MockServerSocket.h@11@definition@F??T0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@Motion@class@
+CCCC_ModExt@Motion@class@./test-server/planes/Motion.h@10@definition@T??T2@LOC:3 COM:2 MVG:0@2@d@
+CCCC_Module@Msg@class@
+CCCC_ModExt@Msg@class@./common/sockets/Message.pb.h@39@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@Msg@class@./common/sockets/Message.pb.h@43@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@NumPlanesTestCaseError@class@
+CCCC_ModExt@NumPlanesTestCaseError@class@./test-server/Validation/errors/NumPlanesTestCaseError.h@10@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@NumPlanesVerificationTest@class@
+CCCC_ModExt@NumPlanesVerificationTest@class@./test-server/Validation/NumPlanesVerificationTest.h@10@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@Ownship@class@
+CCCC_ModExt@Ownship@class@./cdti/Ownship.h@7@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Module@OwnshipReport@class@
+CCCC_ModExt@OwnshipReport@class@./common/protobuf/ownship.pb.h@37@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@OwnshipReport@class@./common/protobuf/ownship.pb.h@41@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@OwnshipSensor@class@
+CCCC_ModExt@OwnshipSensor@class@./test-server/endpoints/OwnshipSensor.h@9@definition@F??T0@LOC:3 COM:2 MVG:0@0@d@
+CCCC_Module@PlaneCorrelationError@class@
+CCCC_ModExt@PlaneCorrelationError@class@./test-server/Validation/errors/PlaneCorrelationError.h@9@definition@F???0@LOC:6 COM:2 MVG:0@0@d@
+CCCC_Module@PlaneImage@class@
+CCCC_ModExt@PlaneImage@class@./cdti/PlaneImage.h@11@definition@F???2@LOC:9 COM:3 MVG:0@2@d@
+CCCC_Module@PositionTestCaseError@class@
+CCCC_ModExt@PositionTestCaseError@class@./test-server/Validation/errors/PositionTestCaseError.h@10@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@PositionVerificationTest@class@
+CCCC_ModExt@PositionVerificationTest@class@./test-server/Validation/PositionVerificationTest.h@10@definition@F???0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@ProtobufSocketSerializer@class@
+CCCC_ModExt@ProtobufSocketSerializer@class@./common/sockets/ProtobufSocketSerializer.h@9@definition@FT??2@LOC:4 COM:4 MVG:0@2@d@
+CCCC_Module@Proximate@class@
+CCCC_ModExt@Proximate@class@./cdti/Proximate.h@6@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Module@QBrush@@
+CCCC_Module@QImage@@
+CCCC_Module@QMainWindow@@
+CCCC_Module@QPaintDevice@@
+CCCC_Module@QPaintEvent@@
+CCCC_Module@QPainter@@
+CCCC_Module@QPen@@
+CCCC_Module@RadarReport@class@
+CCCC_ModExt@RadarReport@class@./common/protobuf/radar.pb.h@37@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@RadarReport@class@./common/protobuf/radar.pb.h@41@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@RadarSensor@class@
+CCCC_ModExt@RadarSensor@class@./test-server/endpoints/RadarSensor.h@19@definition@FT?T0@LOC:4 COM:6 MVG:0@0@d@
+CCCC_Module@RadarSensorTest@@
+CCCC_Module@Randomizer@class@
+CCCC_ModExt@Randomizer@class@./common/Randomizer.h@11@definition@FT??2@LOC:10 COM:2 MVG:0@2@d@
+CCCC_Module@Resolution@class@
+CCCC_ModExt@Resolution@class@./cdti/Resolution.h@6@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Module@ResultPlane@class@
+CCCC_ModExt@ResultPlane@class@./test-server/Validation/TestCaseResult.h@15@definition@TT??2@LOC:9 COM:5 MVG:0@2@d@
+CCCC_Module@SaaApplication@class@
+CCCC_ModExt@SaaApplication@class@./saa-application/SaaApplication.h@14@definition@FT??2@LOC:9 COM:2 MVG:0@2@d@
+CCCC_Module@Sensor@enum@
+CCCC_ModExt@Sensor@enum@./saa-application/SensorData.h@16@definition@?????@LOC:0 COM:0 MVG:0@?@d@
+CCCC_ModExt@Sensor@enum@./test-server/endpoints/Sensor.h@11@definition@F??T2@LOC:6 COM:2 MVG:0@2@d@
+CCCC_Module@SensorData@class@
+CCCC_ModExt@SensorData@class@./saa-application/SensorData.h@24@definition@F???2@LOC:17 COM:0 MVG:0@2@d@
+CCCC_Module@SensorEndpoint@class@
+CCCC_ModExt@SensorEndpoint@class@./test-server/endpoints/SensorEndpoint.h@11@definition@F??T2@LOC:4 COM:3 MVG:0@2@d@
+CCCC_Module@ServerSocket@class@
+CCCC_ModExt@ServerSocket@class@./common/sockets/ServerSocket.h@18@definition@F??T2@LOC:7 COM:17 MVG:0@2@d@
+CCCC_Module@Severity@@
+CCCC_Module@Socket@class@
+CCCC_ModExt@Socket@class@./common/sockets/Socket.h@20@definition@F??T2@LOC:9 COM:0 MVG:0@2@d@
+CCCC_Module@SocketException@class@
+CCCC_ModExt@SocketException@class@./common/sockets/SocketException.h@12@definition@F???2@LOC:8 COM:5 MVG:0@2@d@
+CCCC_Module@SocketSensorEndpoint@class@
+CCCC_ModExt@SocketSensorEndpoint@class@./test-server/endpoints/SocketSensorEndpoint.h@8@definition@F???0@LOC:5 COM:2 MVG:0@0@d@
+CCCC_Module@TCAS@@
+CCCC_Module@TcasReport@class@
+CCCC_ModExt@TcasReport@class@./common/protobuf/tcas.pb.h@37@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@TcasReport@class@./common/protobuf/tcas.pb.h@41@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@TcasSensor@class@
+CCCC_ModExt@TcasSensor@class@./test-server/endpoints/TcasSensor.h@14@definition@FT?T0@LOC:4 COM:2 MVG:0@0@d@
+CCCC_Module@TestCase@class@
+CCCC_ModExt@TestCase@class@./test-server/TestCase.h@13@definition@F???2@LOC:10 COM:2 MVG:0@2@d@
+CCCC_Module@TestCaseError@class@
+CCCC_ModExt@TestCaseError@class@./test-server/Validation/errors/TestCaseError.h@10@definition@F??T2@LOC:6 COM:2 MVG:0@2@d@
+CCCC_Module@TestCaseResult@class@
+CCCC_ModExt@TestCaseResult@class@./test-server/Validation/TestCaseResult.h@56@definition@TT??2@LOC:7 COM:0 MVG:0@2@d@
+CCCC_Module@TestEnvironment@class@
+CCCC_ModExt@TestEnvironment@class@./test-server/TestEnvironment.h@18@definition@F???2@LOC:9 COM:2 MVG:0@2@d@
+CCCC_Module@TestFileParser@class@
+CCCC_ModExt@TestFileParser@class@./test-server/TestFileParser.h@47@definition@FT??2@LOC:9 COM:11 MVG:1@2@d@
+CCCC_Module@TestServer@class@
+CCCC_ModExt@TestServer@class@./test-server/TestServer.h@11@definition@FT??2@LOC:8 COM:2 MVG:0@2@d@
+CCCC_Module@TestServerPlane@class@
+CCCC_ModExt@TestServerPlane@class@./test-server/planes/TestServerPlane.h@12@definition@F???2@LOC:14 COM:2 MVG:0@2@d@
+CCCC_Module@Traffic@class@
+CCCC_ModExt@Traffic@class@./cdti/Traffic.h@5@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Module@ValidationWriter@class@
+CCCC_ModExt@ValidationWriter@class@./test-server/Validation/ValidationWriter.h@13@definition@FT??2@LOC:3 COM:2 MVG:0@2@d@
+CCCC_Module@Validator@class@
+CCCC_ModExt@Validator@class@./test-server/Validation/Validator.h@22@definition@F???2@LOC:16 COM:8 MVG:0@2@d@
+CCCC_Module@Vector@class@
+CCCC_ModExt@Vector@class@./common/protobuf/cdti.pb.h@40@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_ModExt@Vector@class@./common/protobuf/cdti.pb.h@84@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Module@Vector2d@struct@
+CCCC_ModExt@Vector2d@struct@./common/Maths.h@44@definition@FT??0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Module@Vector3d@struct@
+CCCC_ModExt@Vector3d@struct@./common/Maths.h@14@definition@F???0@LOC:6 COM:2 MVG:0@0@d@
+CCCC_Module@VerificationTest@class@
+CCCC_ModExt@VerificationTest@class@./test-server/Validation/VerificationTest.h@12@definition@F??T2@LOC:7 COM:2 MVG:0@2@d@
+CCCC_Module@anonymous@@
+CCCC_Module@bool@@
+CCCC_Module@char@builtin@
+CCCC_ModExt@char@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@createTcasMessage@@
+CCCC_Module@default_random_engine@@
+CCCC_Module@double@builtin@
+CCCC_ModExt@double@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@float@builtin@
+CCCC_ModExt@float@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@function@@
+CCCC_Module@int@builtin@
+CCCC_ModExt@int@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@long@builtin@
+CCCC_ModExt@long@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@ostream@@
+CCCC_Module@shared_ptr@@
+CCCC_Module@size_t@@
+CCCC_Module@sockaddr_in@@
+CCCC_Module@string@@
+CCCC_Module@testAltitudeDistance@@
+CCCC_Module@testBasicReport@@
+CCCC_Module@testElevation@@
+CCCC_Module@testVelocity@@
+CCCC_Module@thread@@
+CCCC_Module@uniform_real_distribution@@
+CCCC_Module@vector@@
+CCCC_Module@void@builtin@
+CCCC_ModExt@void@builtin@<nofile>@0@builtin definition@d?????@@0@d@
+CCCC_Module@xml_document@@
+CCCC_Module@xml_node@@
+CCCC_Member@AdsBReport@altitude@@()@
+CCCC_MemExt@AdsBReport@altitude@@()@./common/protobuf/adsb.pb.h@310@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@clear_altitude@@()@
+CCCC_MemExt@AdsBReport@clear_altitude@@()@./common/protobuf/adsb.pb.h@306@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_down@@()@
+CCCC_MemExt@AdsBReport@clear_down@@()@./common/protobuf/adsb.pb.h@431@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_east@@()@
+CCCC_MemExt@AdsBReport@clear_east@@()@./common/protobuf/adsb.pb.h@407@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_altitude@@()@
+CCCC_MemExt@AdsBReport@clear_has_altitude@@()@./common/protobuf/adsb.pb.h@303@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_down@@()@
+CCCC_MemExt@AdsBReport@clear_has_down@@()@./common/protobuf/adsb.pb.h@428@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_east@@()@
+CCCC_MemExt@AdsBReport@clear_has_east@@()@./common/protobuf/adsb.pb.h@404@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_latitude@@()@
+CCCC_MemExt@AdsBReport@clear_has_latitude@@()@./common/protobuf/adsb.pb.h@255@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_longitude@@()@
+CCCC_MemExt@AdsBReport@clear_has_longitude@@()@./common/protobuf/adsb.pb.h@279@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_north@@()@
+CCCC_MemExt@AdsBReport@clear_has_north@@()@./common/protobuf/adsb.pb.h@380@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_plane_id@@()@
+CCCC_MemExt@AdsBReport@clear_has_plane_id@@()@./common/protobuf/adsb.pb.h@452@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_tail_number@@()@
+CCCC_MemExt@AdsBReport@clear_has_tail_number@@()@./common/protobuf/adsb.pb.h@327@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_has_timestamp@@()@
+CCCC_MemExt@AdsBReport@clear_has_timestamp@@()@./common/protobuf/adsb.pb.h@231@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_latitude@@()@
+CCCC_MemExt@AdsBReport@clear_latitude@@()@./common/protobuf/adsb.pb.h@258@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_longitude@@()@
+CCCC_MemExt@AdsBReport@clear_longitude@@()@./common/protobuf/adsb.pb.h@282@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_north@@()@
+CCCC_MemExt@AdsBReport@clear_north@@()@./common/protobuf/adsb.pb.h@383@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_plane_id@@()@
+CCCC_MemExt@AdsBReport@clear_plane_id@@()@./common/protobuf/adsb.pb.h@455@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_tail_number@@()@
+CCCC_MemExt@AdsBReport@clear_tail_number@@()@./common/protobuf/adsb.pb.h@330@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@clear_timestamp@@()@
+CCCC_MemExt@AdsBReport@clear_timestamp@@()@./common/protobuf/adsb.pb.h@234@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@down@@()@
+CCCC_MemExt@AdsBReport@down@@()@./common/protobuf/adsb.pb.h@435@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@east@@()@
+CCCC_MemExt@AdsBReport@east@@()@./common/protobuf/adsb.pb.h@411@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_altitude@@()@
+CCCC_MemExt@AdsBReport@has_altitude@@()@./common/protobuf/adsb.pb.h@297@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_down@@()@
+CCCC_MemExt@AdsBReport@has_down@@()@./common/protobuf/adsb.pb.h@422@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_east@@()@
+CCCC_MemExt@AdsBReport@has_east@@()@./common/protobuf/adsb.pb.h@398@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_latitude@@()@
+CCCC_MemExt@AdsBReport@has_latitude@@()@./common/protobuf/adsb.pb.h@249@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_longitude@@()@
+CCCC_MemExt@AdsBReport@has_longitude@@()@./common/protobuf/adsb.pb.h@273@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_north@@()@
+CCCC_MemExt@AdsBReport@has_north@@()@./common/protobuf/adsb.pb.h@374@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_plane_id@@()@
+CCCC_MemExt@AdsBReport@has_plane_id@@()@./common/protobuf/adsb.pb.h@446@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_tail_number@@()@
+CCCC_MemExt@AdsBReport@has_tail_number@@()@./common/protobuf/adsb.pb.h@321@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@has_timestamp@@()@
+CCCC_MemExt@AdsBReport@has_timestamp@@()@./common/protobuf/adsb.pb.h@225@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@AdsBReport@latitude@@()@
+CCCC_MemExt@AdsBReport@latitude@@()@./common/protobuf/adsb.pb.h@262@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@longitude@@()@
+CCCC_MemExt@AdsBReport@longitude@@()@./common/protobuf/adsb.pb.h@286@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@mutable_tail_number@@()@
+CCCC_MemExt@AdsBReport@mutable_tail_number@@()@./common/protobuf/adsb.pb.h@354@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@north@@()@
+CCCC_MemExt@AdsBReport@north@@()@./common/protobuf/adsb.pb.h@387@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@plane_id@@()@
+CCCC_MemExt@AdsBReport@plane_id@@()@./common/protobuf/adsb.pb.h@459@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@release_tail_number@@()@
+CCCC_MemExt@AdsBReport@release_tail_number@@()@./common/protobuf/adsb.pb.h@359@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@AdsBReport@set_allocated_tail_number@@(...)@
+CCCC_MemExt@AdsBReport@set_allocated_tail_number@@(...)@./common/protobuf/adsb.pb.h@363@definition@F????@LOC:8 COM:1 MVG:1@?@d@
+CCCC_Member@AdsBReport@set_altitude@@(float)@
+CCCC_MemExt@AdsBReport@set_altitude@@(float)@./common/protobuf/adsb.pb.h@314@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_down@@(float)@
+CCCC_MemExt@AdsBReport@set_down@@(float)@./common/protobuf/adsb.pb.h@439@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_east@@(float)@
+CCCC_MemExt@AdsBReport@set_east@@(float)@./common/protobuf/adsb.pb.h@415@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_altitude@@()@
+CCCC_MemExt@AdsBReport@set_has_altitude@@()@./common/protobuf/adsb.pb.h@300@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_down@@()@
+CCCC_MemExt@AdsBReport@set_has_down@@()@./common/protobuf/adsb.pb.h@425@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_east@@()@
+CCCC_MemExt@AdsBReport@set_has_east@@()@./common/protobuf/adsb.pb.h@401@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_latitude@@()@
+CCCC_MemExt@AdsBReport@set_has_latitude@@()@./common/protobuf/adsb.pb.h@252@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_longitude@@()@
+CCCC_MemExt@AdsBReport@set_has_longitude@@()@./common/protobuf/adsb.pb.h@276@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_north@@()@
+CCCC_MemExt@AdsBReport@set_has_north@@()@./common/protobuf/adsb.pb.h@377@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_plane_id@@()@
+CCCC_MemExt@AdsBReport@set_has_plane_id@@()@./common/protobuf/adsb.pb.h@449@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_tail_number@@()@
+CCCC_MemExt@AdsBReport@set_has_tail_number@@()@./common/protobuf/adsb.pb.h@324@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_has_timestamp@@()@
+CCCC_MemExt@AdsBReport@set_has_timestamp@@()@./common/protobuf/adsb.pb.h@228@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_latitude@@(float)@
+CCCC_MemExt@AdsBReport@set_latitude@@(float)@./common/protobuf/adsb.pb.h@266@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_longitude@@(float)@
+CCCC_MemExt@AdsBReport@set_longitude@@(float)@./common/protobuf/adsb.pb.h@290@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_north@@(float)@
+CCCC_MemExt@AdsBReport@set_north@@(float)@./common/protobuf/adsb.pb.h@391@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_plane_id@@(...)@
+CCCC_MemExt@AdsBReport@set_plane_id@@(...)@./common/protobuf/adsb.pb.h@463@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_tail_number@@(...)@
+CCCC_MemExt@AdsBReport@set_tail_number@@(...)@./common/protobuf/adsb.pb.h@338@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_tail_number@@(const char *)@
+CCCC_MemExt@AdsBReport@set_tail_number@@(const char *)@./common/protobuf/adsb.pb.h@343@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_tail_number@@(const char *,size_t)@
+CCCC_MemExt@AdsBReport@set_tail_number@@(const char *,size_t)@./common/protobuf/adsb.pb.h@348@definition@F????@LOC:5 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBReport@set_timestamp@@(...)@
+CCCC_MemExt@AdsBReport@set_timestamp@@(...)@./common/protobuf/adsb.pb.h@242@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@AdsBService@init@@(const ConnectionInfo &)@
+CCCC_MemExt@AdsBService@init@@(const ConnectionInfo &)@./saa-application/ConnectionServices/AdsBService.h@10@declaration@F??T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@AdsBService@sendData@@(AdsBReport)@
+CCCC_MemExt@AdsBService@sendData@@(AdsBReport)@./saa-application/ConnectionServices/AdsBService.h@11@declaration@F??T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@AdsbSensor@AdsbSensor@@(SensorEndpoint *)@
+CCCC_MemExt@AdsbSensor@AdsbSensor@@(SensorEndpoint *)@./test-server/endpoints/AdsbSensor.cpp@10@definition@F????@LOC:4 COM:3 MVG:0@?@d@
+CCCC_MemExt@AdsbSensor@AdsbSensor@@(SensorEndpoint *)@./test-server/endpoints/AdsbSensor.h@12@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@AdsbSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@AdsbSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/AdsbSensor.cpp@20@definition@F????@LOC:13 COM:4 MVG:0@?@d@
+CCCC_Member@AlertMessages@AlertMessages@@(CDTIEndpoint &)@
+CCCC_MemExt@AlertMessages@AlertMessages@@(CDTIEndpoint &)@./cdti/AlertMessages.cpp@34@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@AlertMessages@AlertMessages@@(CDTIEndpoint &)@./cdti/AlertMessages.h@15@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@AlertMessages@getMessage@@()@
+CCCC_MemExt@AlertMessages@getMessage@@()@./cdti/AlertMessages.cpp@39@definition@F????@LOC:5 COM:1 MVG:1@?@d@
+CCCC_MemExt@AlertMessages@getMessage@@()@./cdti/AlertMessages.h@16@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIEndpoint@isRunning@@()@
+CCCC_MemExt@CDTIEndpoint@isRunning@@()@./cdti/endpoints/CDTIEndpoint.h@13@declaration@T??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIEndpoint@operator >>@@(...)@
+CCCC_MemExt@CDTIEndpoint@operator >>@@(...)@./cdti/endpoints/CDTIEndpoint.h@12@declaration@T??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIGUIDisplay@CDTIGUIDisplay@@()@
+CCCC_MemExt@CDTIGUIDisplay@CDTIGUIDisplay@@()@./cdti/CDTIGUIDisplay.cpp@21@definition@F????@LOC:6 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIGUIDisplay@CDTIGUIDisplay@@(int,int)@
+CCCC_MemExt@CDTIGUIDisplay@CDTIGUIDisplay@@(int,int)@./cdti/CDTIGUIDisplay.cpp@11@definition@F????@LOC:8 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIGUIDisplay@init@@()@
+CCCC_MemExt@CDTIGUIDisplay@init@@()@./cdti/CDTIGUIDisplay.cpp@90@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIGUIDisplay@paintEvent@@(QPaintEvent *)@
+CCCC_MemExt@CDTIGUIDisplay@paintEvent@@(QPaintEvent *)@./cdti/CDTIGUIDisplay.cpp@37@definition@F????@LOC:39 COM:8 MVG:9@?@d@
+CCCC_Member@CDTIGUIDisplay@renderReport@@(CDTIReport &)@
+CCCC_MemExt@CDTIGUIDisplay@renderReport@@(CDTIReport &)@./cdti/CDTIGUIDisplay.cpp@96@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIGUIDisplay@setupLayout@@()@
+CCCC_MemExt@CDTIGUIDisplay@setupLayout@@()@./cdti/CDTIGUIDisplay.cpp@28@definition@F????@LOC:7 COM:1 MVG:0@?@d@
+CCCC_Member@CDTIMockEndpoint@CDTIMockEndpoint@@()@
+CCCC_MemExt@CDTIMockEndpoint@CDTIMockEndpoint@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@43@definition@F????@LOC:20 COM:1 MVG:0@?@d@
+CCCC_MemExt@CDTIMockEndpoint@CDTIMockEndpoint@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.h@15@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIMockEndpoint@isRunning@@()@
+CCCC_MemExt@CDTIMockEndpoint@isRunning@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@96@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@CDTIMockEndpoint@isRunning@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.h@17@declaration@T???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIMockEndpoint@operator >>@@(...)@
+CCCC_MemExt@CDTIMockEndpoint@operator >>@@(...)@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@90@definition@T????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@CDTIMockEndpoint@operator >>@@(...)@./cdti/endpoints/mocks/CDTIMockEndpoint.h@16@declaration@T???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIMockEndpoint@step@@()@
+CCCC_MemExt@CDTIMockEndpoint@step@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@69@definition@F????@LOC:17 COM:0 MVG:1@?@d@
+CCCC_MemExt@CDTIMockEndpoint@step@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.h@18@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CDTIPlane@clear_has_id@@()@
+CCCC_MemExt@CDTIPlane@clear_has_id@@()@./common/protobuf/cdti.pb.h@621@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@clear_has_position@@()@
+CCCC_MemExt@CDTIPlane@clear_has_position@@()@./common/protobuf/cdti.pb.h@674@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@clear_has_velocity@@()@
+CCCC_MemExt@CDTIPlane@clear_has_velocity@@()@./common/protobuf/cdti.pb.h@717@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@clear_id@@()@
+CCCC_MemExt@CDTIPlane@clear_id@@()@./common/protobuf/cdti.pb.h@624@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@clear_position@@()@
+CCCC_MemExt@CDTIPlane@clear_position@@()@./common/protobuf/cdti.pb.h@677@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@CDTIPlane@clear_velocity@@()@
+CCCC_MemExt@CDTIPlane@clear_velocity@@()@./common/protobuf/cdti.pb.h@720@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@CDTIPlane@has_id@@()@
+CCCC_MemExt@CDTIPlane@has_id@@()@./common/protobuf/cdti.pb.h@615@definition@T????@LOC:3 COM:3 MVG:1@?@d@
+CCCC_Member@CDTIPlane@has_position@@()@
+CCCC_MemExt@CDTIPlane@has_position@@()@./common/protobuf/cdti.pb.h@668@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@CDTIPlane@has_velocity@@()@
+CCCC_MemExt@CDTIPlane@has_velocity@@()@./common/protobuf/cdti.pb.h@711@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@CDTIPlane@mutable_id@@()@
+CCCC_MemExt@CDTIPlane@mutable_id@@()@./common/protobuf/cdti.pb.h@648@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@CDTIPlane@release_id@@()@
+CCCC_MemExt@CDTIPlane@release_id@@()@./common/protobuf/cdti.pb.h@653@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@CDTIPlane@set_allocated_id@@(...)@
+CCCC_MemExt@CDTIPlane@set_allocated_id@@(...)@./common/protobuf/cdti.pb.h@657@definition@F????@LOC:8 COM:1 MVG:1@?@d@
+CCCC_Member@CDTIPlane@set_allocated_position@@(...)@
+CCCC_MemExt@CDTIPlane@set_allocated_position@@(...)@./common/protobuf/cdti.pb.h@699@definition@F????@LOC:9 COM:1 MVG:1@?@d@
+CCCC_Member@CDTIPlane@set_has_id@@()@
+CCCC_MemExt@CDTIPlane@set_has_id@@()@./common/protobuf/cdti.pb.h@618@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@set_has_position@@()@
+CCCC_MemExt@CDTIPlane@set_has_position@@()@./common/protobuf/cdti.pb.h@671@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@set_has_velocity@@()@
+CCCC_MemExt@CDTIPlane@set_has_velocity@@()@./common/protobuf/cdti.pb.h@714@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@CDTIPlane@set_id@@(...)@
+CCCC_MemExt@CDTIPlane@set_id@@(...)@./common/protobuf/cdti.pb.h@632@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@CDTIPlane@set_id@@(const char *)@
+CCCC_MemExt@CDTIPlane@set_id@@(const char *)@./common/protobuf/cdti.pb.h@637@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@CDTIPlane@set_id@@(const char *,size_t)@
+CCCC_MemExt@CDTIPlane@set_id@@(const char *,size_t)@./common/protobuf/cdti.pb.h@642@definition@F????@LOC:5 COM:1 MVG:0@?@d@
+CCCC_Member@CDTISocketEndpoint@CDTISocketEndpoint@@(string,int)@
+CCCC_MemExt@CDTISocketEndpoint@CDTISocketEndpoint@@(string,int)@./cdti/endpoints/CDTISocketEndpoint.cpp@7@definition@F????@LOC:4 COM:2 MVG:0@?@d@
+CCCC_MemExt@CDTISocketEndpoint@CDTISocketEndpoint@@(string,int)@./cdti/endpoints/CDTISocketEndpoint.h@15@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@CDTISocketEndpoint@isRunning@@()@
+CCCC_MemExt@CDTISocketEndpoint@isRunning@@()@./cdti/endpoints/CDTISocketEndpoint.cpp@18@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@CDTISocketEndpoint@isRunning@@()@./cdti/endpoints/CDTISocketEndpoint.h@17@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@CDTISocketEndpoint@operator >>@@(...)@
+CCCC_MemExt@CDTISocketEndpoint@operator >>@@(...)@./cdti/endpoints/CDTISocketEndpoint.cpp@12@definition@T????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@CDTISocketEndpoint@operator >>@@(...)@./cdti/endpoints/CDTISocketEndpoint.h@16@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Cdti@report@@()@
+CCCC_MemExt@Cdti@report@@()@./cdti/CDTI.cpp@9@definition@F????@LOC:4 COM:2 MVG:0@?@d@
+CCCC_MemExt@Cdti@report@@()@./cdti/CDTI.h@15@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ClientSocket@ClientSocket@@()@
+CCCC_MemExt@ClientSocket@ClientSocket@@()@./common/sockets/ClientSocket.cpp@34@definition@F????@LOC:6 COM:0 MVG:1@?@d@
+CCCC_MemExt@ClientSocket@ClientSocket@@()@./common/sockets/ClientSocket.h@30@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@ClientSocket@@(const ClientSocket &)@
+CCCC_MemExt@ClientSocket@ClientSocket@@(const ClientSocket &)@./common/sockets/ClientSocket.h@28@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@ClientSocket@@(const sockaddr_in)@
+CCCC_MemExt@ClientSocket@ClientSocket@@(const sockaddr_in)@./common/sockets/ClientSocket.cpp@25@definition@F????@LOC:8 COM:0 MVG:1@?@d@
+CCCC_MemExt@ClientSocket@ClientSocket@@(const sockaddr_in)@./common/sockets/ClientSocket.h@26@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@ClientSocket@@(string,int)@
+CCCC_MemExt@ClientSocket@ClientSocket@@(string,int)@./common/sockets/ClientSocket.cpp@15@definition@F????@LOC:8 COM:0 MVG:1@?@d@
+CCCC_MemExt@ClientSocket@ClientSocket@@(string,int)@./common/sockets/ClientSocket.h@24@declaration@F????@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@ClientSocket@connect@@(const sockaddr_in)@
+CCCC_MemExt@ClientSocket@connect@@(const sockaddr_in)@./common/sockets/ClientSocket.h@37@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@connect@@(string,int)@
+CCCC_MemExt@ClientSocket@connect@@(string,int)@./common/sockets/ClientSocket.h@36@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@hasData@@()@
+CCCC_MemExt@ClientSocket@hasData@@()@./common/sockets/ClientSocket.h@66@declaration@T??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ClientSocket@operator <<@@(...)@
+CCCC_MemExt@ClientSocket@operator <<@@(...)@./common/sockets/ClientSocket.cpp@61@definition@T????@LOC:11 COM:0 MVG:2@?@d@
+CCCC_MemExt@ClientSocket@operator <<@@(...)@./common/sockets/ClientSocket.h@58@declaration@T??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@ClientSocket@operator <<@@(const string &)@
+CCCC_MemExt@ClientSocket@operator <<@@(const string &)@./common/sockets/ClientSocket.cpp@44@definition@T????@LOC:8 COM:0 MVG:2@?@d@
+CCCC_MemExt@ClientSocket@operator <<@@(const string &)@./common/sockets/ClientSocket.h@46@declaration@T??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@ClientSocket@operator >>@@(...)@
+CCCC_MemExt@ClientSocket@operator >>@@(...)@./common/sockets/ClientSocket.h@64@declaration@T??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@ClientSocket@operator >>@@(string &)@
+CCCC_MemExt@ClientSocket@operator >>@@(string &)@./common/sockets/ClientSocket.cpp@52@definition@T????@LOC:8 COM:0 MVG:2@?@d@
+CCCC_MemExt@ClientSocket@operator >>@@(string &)@./common/sockets/ClientSocket.h@52@declaration@T??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@ClientSocket@~ClientSocket@@()@
+CCCC_MemExt@ClientSocket@~ClientSocket@@()@./common/sockets/ClientSocket.h@34@definition@F??T?@LOC:0 COM:0 MVG:0@?@d@
+CCCC_Member@Common@report@@()@
+CCCC_MemExt@Common@report@@()@./common/Common.cpp@8@definition@F????@LOC:4 COM:2 MVG:0@?@d@
+CCCC_MemExt@Common@report@@()@./common/Common.h@10@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ConnectionInfo@ConnectionInfo@@(int)@
+CCCC_MemExt@ConnectionInfo@ConnectionInfo@@(int)@./test-server/endpoints/ConnectionInfo.cpp@7@definition@F????@LOC:5 COM:2 MVG:0@?@d@
+CCCC_MemExt@ConnectionInfo@ConnectionInfo@@(int)@./test-server/endpoints/ConnectionInfo.h@12@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ConnectionInfo@ConnectionInfo@@(string,int)@
+CCCC_MemExt@ConnectionInfo@ConnectionInfo@@(string,int)@./test-server/endpoints/ConnectionInfo.cpp@12@definition@F????@LOC:6 COM:0 MVG:0@?@d@
+CCCC_MemExt@ConnectionInfo@ConnectionInfo@@(string,int)@./test-server/endpoints/ConnectionInfo.h@13@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@CorrectSensorError@CorrectSensorError@@(long)@
+CCCC_MemExt@CorrectSensorError@CorrectSensorError@@(long)@./test-server/Validation/errors/CorrectSensorError.cpp@7@definition@F????@LOC:2 COM:2 MVG:0@?@d@
+CCCC_MemExt@CorrectSensorError@CorrectSensorError@@(long)@./test-server/Validation/errors/CorrectSensorError.h@14@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@CorrectSensorError@description@@()@
+CCCC_MemExt@CorrectSensorError@description@@()@./test-server/Validation/errors/CorrectSensorError.cpp@12@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_Member@CorrectSensorVerificationTest@CorrectSensorVerificationTest@@(const shared_ptr &)@
+CCCC_MemExt@CorrectSensorVerificationTest@CorrectSensorVerificationTest@@(const shared_ptr &)@./test-server/Validation/CorrectSensorVerificationTest.h@14@definition@F????@LOC:1 COM:0 MVG:0@?@d@
+CCCC_Member@CorrectSensorVerificationTest@getError@@()@
+CCCC_MemExt@CorrectSensorVerificationTest@getError@@()@./test-server/Validation/CorrectSensorVerificationTest.h@18@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@CorrectSensorVerificationTest@verify@@(TestCaseResult &)@
+CCCC_MemExt@CorrectSensorVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/CorrectSensorVerificationTest.cpp@7@definition@F????@LOC:3 COM:3 MVG:1@?@d@
+CCCC_MemExt@CorrectSensorVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/CorrectSensorVerificationTest.h@16@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@CorrelatedData@CorrelatedData@@(float,float,float,float,float,float)@
+CCCC_MemExt@CorrelatedData@CorrelatedData@@(float,float,float,float,float,float)@./saa-application/CorrelatedData.h@15@definition@F???0@LOC:12 COM:1 MVG:0@0@d@
+CCCC_Member@CorrelatedData@addSensor@@(Sensor,int)@
+CCCC_MemExt@CorrelatedData@addSensor@@(Sensor,int)@./saa-application/CorrelatedData.h@29@definition@F???0@LOC:5 COM:1 MVG:0@0@d@
+CCCC_Member@CorrelatedData@getCDTIPlane@@()@
+CCCC_MemExt@CorrelatedData@getCDTIPlane@@()@./saa-application/CorrelatedData.h@48@definition@F????@LOC:12 COM:2 MVG:2@?@d@
+CCCC_Member@CorrelatedData@getPlaneTags@@()@
+CCCC_MemExt@CorrelatedData@getPlaneTags@@()@./saa-application/CorrelatedData.h@77@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@CorrelatedData@getPosition@@()@
+CCCC_MemExt@CorrelatedData@getPosition@@()@./saa-application/CorrelatedData.h@66@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@CorrelatedData@getSensor@@()@
+CCCC_MemExt@CorrelatedData@getSensor@@()@./saa-application/CorrelatedData.h@42@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@CorrelatedData@getTimeStamp@@()@
+CCCC_MemExt@CorrelatedData@getTimeStamp@@()@./saa-application/CorrelatedData.h@82@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@CorrelatedData@getVelocity@@()@
+CCCC_MemExt@CorrelatedData@getVelocity@@()@./saa-application/CorrelatedData.h@72@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@CorrelatedData@setTimeStamp@@(double)@
+CCCC_MemExt@CorrelatedData@setTimeStamp@@(double)@./saa-application/CorrelatedData.h@36@definition@F???0@LOC:4 COM:1 MVG:0@0@d@
+CCCC_Member@Correlation@correlate@@(vector)@
+CCCC_MemExt@Correlation@correlate@@(vector)@./saa-application/Correlation.cpp@18@definition@F????@LOC:54 COM:60 MVG:10@?@d@
+CCCC_MemExt@Correlation@correlate@@(vector)@./saa-application/Correlation.h@16@declaration@F??T?@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@Correlation@report@@()@
+CCCC_MemExt@Correlation@report@@()@./saa-application/Correlation.cpp@13@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@Correlation@report@@()@./saa-application/Correlation.h@14@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Decision@calcAdvisory@@(vector *,vector *,Severity *,SensorData *)@
+CCCC_MemExt@Decision@calcAdvisory@@(vector *,vector *,Severity *,SensorData *)@./saa-application/Decision.cpp@11@definition@F????@LOC:30 COM:6 MVG:11@?@d@
+CCCC_MemExt@Decision@calcAdvisory@@(vector *,vector *,Severity *,SensorData *)@./saa-application/Decision.h@13@declaration@F????@LOC:2 COM:0 MVG:0@?@D@
+CCCC_Member@Decision@generateReport@@(vector *,CDTIPlane *,Severity *)@
+CCCC_MemExt@Decision@generateReport@@(vector *,CDTIPlane *,Severity *)@./saa-application/Decision.cpp@50@definition@F????@LOC:17 COM:2 MVG:2@?@d@
+CCCC_MemExt@Decision@generateReport@@(vector *,CDTIPlane *,Severity *)@./saa-application/Decision.h@15@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Display@init@@()@
+CCCC_MemExt@Display@init@@()@./cdti/Display.h@14@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Display@renderReport@@(CDTIReport &)@
+CCCC_MemExt@Display@renderReport@@(CDTIReport &)@./cdti/Display.h@13@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@DisplayController@DisplayController@@(Display &)@
+CCCC_MemExt@DisplayController@DisplayController@@(Display &)@./cdti/DisplayController.cpp@13@definition@F????@LOC:14 COM:2 MVG:0@?@d@
+CCCC_MemExt@DisplayController@DisplayController@@(Display &)@./cdti/DisplayController.h@24@declaration@F???0@LOC:1 COM:5 MVG:0@0@D@
+CCCC_Member@DisplayController@listenOnSocket@@()@
+CCCC_MemExt@DisplayController@listenOnSocket@@()@./cdti/DisplayController.cpp@32@definition@F????@LOC:9 COM:16 MVG:1@?@d@
+CCCC_MemExt@DisplayController@listenOnSocket@@()@./cdti/DisplayController.h@32@declaration@F???0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@DisplayController@run@@()@
+CCCC_MemExt@DisplayController@run@@()@./cdti/DisplayController.cpp@6@definition@F????@LOC:6 COM:0 MVG:0@?@d@
+CCCC_MemExt@DisplayController@run@@()@./cdti/DisplayController.h@28@declaration@F???0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@LinearMotion@LinearMotion@@(Vector3d,Vector3d)@
+CCCC_MemExt@LinearMotion@LinearMotion@@(Vector3d,Vector3d)@./test-server/planes/LinearMotion.cpp@23@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@LinearMotion@LinearMotion@@(Vector3d,Vector3d)@./test-server/planes/LinearMotion.h@13@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@LinearMotion@LinearMotion@@(const LinearMotion &)@
+CCCC_MemExt@LinearMotion@LinearMotion@@(const LinearMotion &)@./test-server/planes/LinearMotion.cpp@16@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@LinearMotion@LinearMotion@@(const LinearMotion &)@./test-server/planes/LinearMotion.h@14@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@LinearMotion@clone@@()@
+CCCC_MemExt@LinearMotion@clone@@()@./test-server/planes/LinearMotion.cpp@12@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_Member@LinearMotion@getInitialPosition@@()@
+CCCC_MemExt@LinearMotion@getInitialPosition@@()@./test-server/planes/LinearMotion.cpp@38@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_Member@LinearMotion@getMotionAtTick@@(float)@
+CCCC_MemExt@LinearMotion@getMotionAtTick@@(float)@./test-server/planes/LinearMotion.cpp@7@definition@F????@LOC:3 COM:2 MVG:1@?@d@
+CCCC_Member@LinearMotion@getVelocityAtTick@@(float)@
+CCCC_MemExt@LinearMotion@getVelocityAtTick@@(float)@./test-server/planes/LinearMotion.cpp@30@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_Member@LinearMotion@~LinearMotion@@()@
+CCCC_MemExt@LinearMotion@~LinearMotion@@()@./test-server/planes/LinearMotion.cpp@34@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_MemExt@LinearMotion@~LinearMotion@@()@./test-server/planes/LinearMotion.h@16@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@MockSensorEndpoint@MockSensorEndpoint@@()@
+CCCC_MemExt@MockSensorEndpoint@MockSensorEndpoint@@()@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@8@definition@F????@LOC:5 COM:2 MVG:0@?@d@
+CCCC_MemExt@MockSensorEndpoint@MockSensorEndpoint@@()@./test-server/endpoints/mocks/MockSensorEndpoint.h@13@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@MockSensorEndpoint@accept@@(SensorEndpoint &)@
+CCCC_MemExt@MockSensorEndpoint@accept@@(SensorEndpoint &)@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@18@definition@F????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@MockSensorEndpoint@accept@@(SensorEndpoint &)@./test-server/endpoints/mocks/MockSensorEndpoint.h@15@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@MockSensorEndpoint@close@@()@
+CCCC_MemExt@MockSensorEndpoint@close@@()@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@24@definition@F????@LOC:2 COM:1 MVG:0@?@d@
+CCCC_Member@MockSensorEndpoint@~MockSensorEndpoint@@()@
+CCCC_MemExt@MockSensorEndpoint@~MockSensorEndpoint@@()@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@14@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_MemExt@MockSensorEndpoint@~MockSensorEndpoint@@()@./test-server/endpoints/mocks/MockSensorEndpoint.h@14@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@MockServerSocket@MockServerSocket@@()@
+CCCC_MemExt@MockServerSocket@MockServerSocket@@()@./common/sockets/mocks/MockServerSocket.h@15@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Member@MockServerSocket@accept@@(ServerSocket &)@
+CCCC_MemExt@MockServerSocket@accept@@(ServerSocket &)@./common/sockets/mocks/MockServerSocket.h@59@definition@F??T?@LOC:4 COM:3 MVG:0@?@d@
+CCCC_Member@MockServerSocket@close@@()@
+CCCC_MemExt@MockServerSocket@close@@()@./common/sockets/mocks/MockServerSocket.h@64@definition@F??T?@LOC:2 COM:0 MVG:0@?@d@
+CCCC_Member@MockServerSocket@connectToClient@@(ClientSocket &,int)@
+CCCC_MemExt@MockServerSocket@connectToClient@@(ClientSocket &,int)@./common/sockets/mocks/MockServerSocket.h@70@definition@F??T?@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@MockServerSocket@getPort@@()@
+CCCC_MemExt@MockServerSocket@getPort@@()@./common/sockets/mocks/MockServerSocket.h@68@definition@F??T?@LOC:1 COM:0 MVG:1@?@d@
+CCCC_Member@MockServerSocket@operator <<@@(...)@
+CCCC_MemExt@MockServerSocket@operator <<@@(...)@./common/sockets/mocks/MockServerSocket.h@41@definition@T??T?@LOC:4 COM:4 MVG:1@?@d@
+CCCC_Member@MockServerSocket@operator <<@@(const string &)@
+CCCC_MemExt@MockServerSocket@operator <<@@(const string &)@./common/sockets/mocks/MockServerSocket.h@24@definition@T??T?@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@MockServerSocket@operator >>@@(...)@
+CCCC_MemExt@MockServerSocket@operator >>@@(...)@./common/sockets/mocks/MockServerSocket.h@49@definition@T??T?@LOC:4 COM:4 MVG:0@?@d@
+CCCC_Member@MockServerSocket@operator >>@@(string &)@
+CCCC_MemExt@MockServerSocket@operator >>@@(string &)@./common/sockets/mocks/MockServerSocket.h@33@definition@T??T?@LOC:4 COM:4 MVG:0@?@d@
+CCCC_Member@MockServerSocket@~MockServerSocket@@()@
+CCCC_MemExt@MockServerSocket@~MockServerSocket@@()@./common/sockets/mocks/MockServerSocket.h@20@definition@F???0@LOC:3 COM:0 MVG:0@0@d@
+CCCC_Member@Motion@clone@@()@
+CCCC_MemExt@Motion@clone@@()@./test-server/planes/Motion.h@17@declaration@T??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Motion@getInitialPosition@@()@
+CCCC_MemExt@Motion@getInitialPosition@@()@./test-server/planes/Motion.h@16@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Motion@getMotionAtTick@@(float)@
+CCCC_MemExt@Motion@getMotionAtTick@@(float)@./test-server/planes/Motion.h@14@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Motion@getVelocityAtTick@@(float)@
+CCCC_MemExt@Motion@getVelocityAtTick@@(float)@./test-server/planes/Motion.h@15@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Motion@~Motion@@()@
+CCCC_MemExt@Motion@~Motion@@()@./test-server/planes/Motion.cpp@7@definition@F????@LOC:2 COM:2 MVG:0@?@d@
+CCCC_MemExt@Motion@~Motion@@()@./test-server/planes/Motion.h@13@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Msg@age@@()@
+CCCC_MemExt@Msg@age@@()@./common/sockets/Message.pb.h@223@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Msg@clear_age@@()@
+CCCC_MemExt@Msg@clear_age@@()@./common/sockets/Message.pb.h@219@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@clear_has_age@@()@
+CCCC_MemExt@Msg@clear_has_age@@()@./common/sockets/Message.pb.h@216@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@clear_has_name@@()@
+CCCC_MemExt@Msg@clear_has_name@@()@./common/sockets/Message.pb.h@163@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@clear_name@@()@
+CCCC_MemExt@Msg@clear_name@@()@./common/sockets/Message.pb.h@166@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@has_age@@()@
+CCCC_MemExt@Msg@has_age@@()@./common/sockets/Message.pb.h@210@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Msg@has_name@@()@
+CCCC_MemExt@Msg@has_name@@()@./common/sockets/Message.pb.h@157@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@Msg@mutable_name@@()@
+CCCC_MemExt@Msg@mutable_name@@()@./common/sockets/Message.pb.h@190@definition@F????@LOC:4 COM:1 MVG:1@?@d@
+CCCC_Member@Msg@release_name@@()@
+CCCC_MemExt@Msg@release_name@@()@./common/sockets/Message.pb.h@195@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@Msg@set_age@@(...)@
+CCCC_MemExt@Msg@set_age@@(...)@./common/sockets/Message.pb.h@227@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Msg@set_allocated_name@@(...)@
+CCCC_MemExt@Msg@set_allocated_name@@(...)@./common/sockets/Message.pb.h@199@definition@F????@LOC:8 COM:1 MVG:1@?@d@
+CCCC_Member@Msg@set_has_age@@()@
+CCCC_MemExt@Msg@set_has_age@@()@./common/sockets/Message.pb.h@213@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@set_has_name@@()@
+CCCC_MemExt@Msg@set_has_name@@()@./common/sockets/Message.pb.h@160@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Msg@set_name@@(...)@
+CCCC_MemExt@Msg@set_name@@(...)@./common/sockets/Message.pb.h@174@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Msg@set_name@@(const char *)@
+CCCC_MemExt@Msg@set_name@@(const char *)@./common/sockets/Message.pb.h@179@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Msg@set_name@@(const char *,size_t)@
+CCCC_MemExt@Msg@set_name@@(const char *,size_t)@./common/sockets/Message.pb.h@184@definition@F????@LOC:5 COM:1 MVG:0@?@d@
+CCCC_Member@NumPlanesTestCaseError@NumPlanesTestCaseError@@(long)@
+CCCC_MemExt@NumPlanesTestCaseError@NumPlanesTestCaseError@@(long)@./test-server/Validation/errors/NumPlanesTestCaseError.h@13@definition@F???0@LOC:2 COM:0 MVG:0@0@d@
+CCCC_Member@NumPlanesTestCaseError@description@@()@
+CCCC_MemExt@NumPlanesTestCaseError@description@@()@./test-server/Validation/errors/NumPlanesTestCaseError.cpp@7@definition@F????@LOC:4 COM:2 MVG:1@?@d@
+CCCC_MemExt@NumPlanesTestCaseError@description@@()@./test-server/Validation/errors/NumPlanesTestCaseError.h@16@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@NumPlanesVerificationTest@NumPlanesVerificationTest@@(const shared_ptr &)@
+CCCC_MemExt@NumPlanesVerificationTest@NumPlanesVerificationTest@@(const shared_ptr &)@./test-server/Validation/NumPlanesVerificationTest.h@14@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_Member@NumPlanesVerificationTest@verify@@(TestCaseResult &)@
+CCCC_MemExt@NumPlanesVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/NumPlanesVerificationTest.cpp@8@definition@F????@LOC:9 COM:2 MVG:2@?@d@
+CCCC_MemExt@NumPlanesVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/NumPlanesVerificationTest.h@17@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Ownship@Ownship@@(int,int)@
+CCCC_MemExt@Ownship@Ownship@@(int,int)@./cdti/Ownship.cpp@3@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_MemExt@Ownship@Ownship@@(int,int)@./cdti/Ownship.h@11@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@OwnshipReport@clear_down@@()@
+CCCC_MemExt@OwnshipReport@clear_down@@()@./common/protobuf/ownship.pb.h@353@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_east@@()@
+CCCC_MemExt@OwnshipReport@clear_east@@()@./common/protobuf/ownship.pb.h@329@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_down@@()@
+CCCC_MemExt@OwnshipReport@clear_has_down@@()@./common/protobuf/ownship.pb.h@350@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_east@@()@
+CCCC_MemExt@OwnshipReport@clear_has_east@@()@./common/protobuf/ownship.pb.h@326@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_north@@()@
+CCCC_MemExt@OwnshipReport@clear_has_north@@()@./common/protobuf/ownship.pb.h@302@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_ownship_altitude@@()@
+CCCC_MemExt@OwnshipReport@clear_has_ownship_altitude@@()@./common/protobuf/ownship.pb.h@278@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_ownship_latitude@@()@
+CCCC_MemExt@OwnshipReport@clear_has_ownship_latitude@@()@./common/protobuf/ownship.pb.h@230@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_ownship_longitude@@()@
+CCCC_MemExt@OwnshipReport@clear_has_ownship_longitude@@()@./common/protobuf/ownship.pb.h@254@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_has_timestamp@@()@
+CCCC_MemExt@OwnshipReport@clear_has_timestamp@@()@./common/protobuf/ownship.pb.h@206@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_north@@()@
+CCCC_MemExt@OwnshipReport@clear_north@@()@./common/protobuf/ownship.pb.h@305@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_ownship_altitude@@()@
+CCCC_MemExt@OwnshipReport@clear_ownship_altitude@@()@./common/protobuf/ownship.pb.h@281@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_ownship_latitude@@()@
+CCCC_MemExt@OwnshipReport@clear_ownship_latitude@@()@./common/protobuf/ownship.pb.h@233@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_ownship_longitude@@()@
+CCCC_MemExt@OwnshipReport@clear_ownship_longitude@@()@./common/protobuf/ownship.pb.h@257@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@clear_timestamp@@()@
+CCCC_MemExt@OwnshipReport@clear_timestamp@@()@./common/protobuf/ownship.pb.h@209@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@down@@()@
+CCCC_MemExt@OwnshipReport@down@@()@./common/protobuf/ownship.pb.h@357@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@east@@()@
+CCCC_MemExt@OwnshipReport@east@@()@./common/protobuf/ownship.pb.h@333@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_down@@()@
+CCCC_MemExt@OwnshipReport@has_down@@()@./common/protobuf/ownship.pb.h@344@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_east@@()@
+CCCC_MemExt@OwnshipReport@has_east@@()@./common/protobuf/ownship.pb.h@320@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_north@@()@
+CCCC_MemExt@OwnshipReport@has_north@@()@./common/protobuf/ownship.pb.h@296@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_ownship_altitude@@()@
+CCCC_MemExt@OwnshipReport@has_ownship_altitude@@()@./common/protobuf/ownship.pb.h@272@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_ownship_latitude@@()@
+CCCC_MemExt@OwnshipReport@has_ownship_latitude@@()@./common/protobuf/ownship.pb.h@224@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_ownship_longitude@@()@
+CCCC_MemExt@OwnshipReport@has_ownship_longitude@@()@./common/protobuf/ownship.pb.h@248@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@has_timestamp@@()@
+CCCC_MemExt@OwnshipReport@has_timestamp@@()@./common/protobuf/ownship.pb.h@200@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@OwnshipReport@north@@()@
+CCCC_MemExt@OwnshipReport@north@@()@./common/protobuf/ownship.pb.h@309@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@ownship_altitude@@()@
+CCCC_MemExt@OwnshipReport@ownship_altitude@@()@./common/protobuf/ownship.pb.h@285@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@ownship_latitude@@()@
+CCCC_MemExt@OwnshipReport@ownship_latitude@@()@./common/protobuf/ownship.pb.h@237@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@ownship_longitude@@()@
+CCCC_MemExt@OwnshipReport@ownship_longitude@@()@./common/protobuf/ownship.pb.h@261@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@OwnshipReport@set_down@@(float)@
+CCCC_MemExt@OwnshipReport@set_down@@(float)@./common/protobuf/ownship.pb.h@361@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_east@@(float)@
+CCCC_MemExt@OwnshipReport@set_east@@(float)@./common/protobuf/ownship.pb.h@337@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_down@@()@
+CCCC_MemExt@OwnshipReport@set_has_down@@()@./common/protobuf/ownship.pb.h@347@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_east@@()@
+CCCC_MemExt@OwnshipReport@set_has_east@@()@./common/protobuf/ownship.pb.h@323@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_north@@()@
+CCCC_MemExt@OwnshipReport@set_has_north@@()@./common/protobuf/ownship.pb.h@299@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_ownship_altitude@@()@
+CCCC_MemExt@OwnshipReport@set_has_ownship_altitude@@()@./common/protobuf/ownship.pb.h@275@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_ownship_latitude@@()@
+CCCC_MemExt@OwnshipReport@set_has_ownship_latitude@@()@./common/protobuf/ownship.pb.h@227@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_ownship_longitude@@()@
+CCCC_MemExt@OwnshipReport@set_has_ownship_longitude@@()@./common/protobuf/ownship.pb.h@251@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_has_timestamp@@()@
+CCCC_MemExt@OwnshipReport@set_has_timestamp@@()@./common/protobuf/ownship.pb.h@203@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_north@@(float)@
+CCCC_MemExt@OwnshipReport@set_north@@(float)@./common/protobuf/ownship.pb.h@313@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_ownship_altitude@@(float)@
+CCCC_MemExt@OwnshipReport@set_ownship_altitude@@(float)@./common/protobuf/ownship.pb.h@289@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_ownship_latitude@@(float)@
+CCCC_MemExt@OwnshipReport@set_ownship_latitude@@(float)@./common/protobuf/ownship.pb.h@241@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_ownship_longitude@@(float)@
+CCCC_MemExt@OwnshipReport@set_ownship_longitude@@(float)@./common/protobuf/ownship.pb.h@265@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipReport@set_timestamp@@(...)@
+CCCC_MemExt@OwnshipReport@set_timestamp@@(...)@./common/protobuf/ownship.pb.h@217@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@OwnshipSensor@OwnshipSensor@@(SensorEndpoint *)@
+CCCC_MemExt@OwnshipSensor@OwnshipSensor@@(SensorEndpoint *)@./test-server/endpoints/OwnshipSensor.cpp@7@definition@F????@LOC:3 COM:2 MVG:0@?@d@
+CCCC_MemExt@OwnshipSensor@OwnshipSensor@@(SensorEndpoint *)@./test-server/endpoints/OwnshipSensor.h@11@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@OwnshipSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@OwnshipSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/OwnshipSensor.cpp@24@definition@F????@LOC:12 COM:13 MVG:0@?@d@
+CCCC_MemExt@OwnshipSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/OwnshipSensor.h@12@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@PlaneCorrelationError@PlaneCorrelationError@@(int,int,long)@
+CCCC_MemExt@PlaneCorrelationError@PlaneCorrelationError@@(int,int,long)@./test-server/Validation/errors/PlaneCorrelationError.cpp@8@definition@F????@LOC:6 COM:2 MVG:0@?@d@
+CCCC_MemExt@PlaneCorrelationError@PlaneCorrelationError@@(int,int,long)@./test-server/Validation/errors/PlaneCorrelationError.h@12@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@PlaneCorrelationError@description@@()@
+CCCC_MemExt@PlaneCorrelationError@description@@()@./test-server/Validation/errors/PlaneCorrelationError.cpp@16@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_Member@PlaneImage@PlaneImage@@(string,int,int)@
+CCCC_MemExt@PlaneImage@PlaneImage@@(string,int,int)@./cdti/PlaneImage.cpp@9@definition@F????@LOC:15 COM:5 MVG:0@?@d@
+CCCC_MemExt@PlaneImage@PlaneImage@@(string,int,int)@./cdti/PlaneImage.h@19@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@PlaneImage@draw@@(QPaintDevice *,int,int)@
+CCCC_MemExt@PlaneImage@draw@@(QPaintDevice *,int,int)@./cdti/PlaneImage.cpp@33@definition@F????@LOC:10 COM:1 MVG:0@?@d@
+CCCC_MemExt@PlaneImage@draw@@(QPaintDevice *,int,int)@./cdti/PlaneImage.h@20@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@PlaneImage@setOutlineColor@@(int,int,int,int)@
+CCCC_MemExt@PlaneImage@setOutlineColor@@(int,int,int,int)@./cdti/PlaneImage.cpp@45@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@PlaneImage@setOutlineColor@@(int,int,int,int)@./cdti/PlaneImage.h@21@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@PlaneImage@setOutlineWidth@@(int)@
+CCCC_MemExt@PlaneImage@setOutlineWidth@@(int)@./cdti/PlaneImage.cpp@50@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@PlaneImage@setOutlineWidth@@(int)@./cdti/PlaneImage.h@22@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@PositionTestCaseError@PositionTestCaseError@@(long)@
+CCCC_MemExt@PositionTestCaseError@PositionTestCaseError@@(long)@./test-server/Validation/errors/PositionTestCaseError.h@13@definition@F???0@LOC:2 COM:0 MVG:0@0@d@
+CCCC_Member@PositionTestCaseError@description@@()@
+CCCC_MemExt@PositionTestCaseError@description@@()@./test-server/Validation/errors/PositionTestCaseError.cpp@7@definition@F????@LOC:4 COM:2 MVG:1@?@d@
+CCCC_MemExt@PositionTestCaseError@description@@()@./test-server/Validation/errors/PositionTestCaseError.h@16@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@PositionVerificationTest@PositionVerificationTest@@(const shared_ptr &)@
+CCCC_MemExt@PositionVerificationTest@PositionVerificationTest@@(const shared_ptr &)@./test-server/Validation/PositionVerificationTest.h@14@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_Member@PositionVerificationTest@verify@@(TestCaseResult &)@
+CCCC_MemExt@PositionVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/PositionVerificationTest.cpp@19@definition@F????@LOC:26 COM:1 MVG:7@?@d@
+CCCC_MemExt@PositionVerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/PositionVerificationTest.h@17@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ProtobufSocketSerializer@serialize@@(...)@
+CCCC_MemExt@ProtobufSocketSerializer@serialize@@(...)@./common/sockets/ProtobufSocketSerializer.cpp@10@definition@F????@LOC:10 COM:2 MVG:1@?@d@
+CCCC_MemExt@ProtobufSocketSerializer@serialize@@(...)@./common/sockets/ProtobufSocketSerializer.h@18@declaration@FT??0@LOC:1 COM:6 MVG:0@0@D@
+CCCC_Member@Proximate@Proximate@@(int,int)@
+CCCC_MemExt@Proximate@Proximate@@(int,int)@./cdti/Proximate.cpp@3@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@Proximate@Proximate@@(int,int)@./cdti/Proximate.h@9@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@RadarReport@altitude@@()@
+CCCC_MemExt@RadarReport@altitude@@()@./common/protobuf/radar.pb.h@503@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@azimuth@@()@
+CCCC_MemExt@RadarReport@azimuth@@()@./common/protobuf/radar.pb.h@311@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@clear_altitude@@()@
+CCCC_MemExt@RadarReport@clear_altitude@@()@./common/protobuf/radar.pb.h@499@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_azimuth@@()@
+CCCC_MemExt@RadarReport@clear_azimuth@@()@./common/protobuf/radar.pb.h@307@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_down@@()@
+CCCC_MemExt@RadarReport@clear_down@@()@./common/protobuf/radar.pb.h@427@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_east@@()@
+CCCC_MemExt@RadarReport@clear_east@@()@./common/protobuf/radar.pb.h@403@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_elevation@@()@
+CCCC_MemExt@RadarReport@clear_elevation@@()@./common/protobuf/radar.pb.h@331@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_altitude@@()@
+CCCC_MemExt@RadarReport@clear_has_altitude@@()@./common/protobuf/radar.pb.h@496@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_azimuth@@()@
+CCCC_MemExt@RadarReport@clear_has_azimuth@@()@./common/protobuf/radar.pb.h@304@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_down@@()@
+CCCC_MemExt@RadarReport@clear_has_down@@()@./common/protobuf/radar.pb.h@424@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_east@@()@
+CCCC_MemExt@RadarReport@clear_has_east@@()@./common/protobuf/radar.pb.h@400@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_elevation@@()@
+CCCC_MemExt@RadarReport@clear_has_elevation@@()@./common/protobuf/radar.pb.h@328@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_id@@()@
+CCCC_MemExt@RadarReport@clear_has_id@@()@./common/protobuf/radar.pb.h@352@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_latitude@@()@
+CCCC_MemExt@RadarReport@clear_has_latitude@@()@./common/protobuf/radar.pb.h@448@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_longitude@@()@
+CCCC_MemExt@RadarReport@clear_has_longitude@@()@./common/protobuf/radar.pb.h@472@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_north@@()@
+CCCC_MemExt@RadarReport@clear_has_north@@()@./common/protobuf/radar.pb.h@376@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_plane_id@@()@
+CCCC_MemExt@RadarReport@clear_has_plane_id@@()@./common/protobuf/radar.pb.h@520@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_range@@()@
+CCCC_MemExt@RadarReport@clear_has_range@@()@./common/protobuf/radar.pb.h@280@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_has_timestamp@@()@
+CCCC_MemExt@RadarReport@clear_has_timestamp@@()@./common/protobuf/radar.pb.h@256@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_id@@()@
+CCCC_MemExt@RadarReport@clear_id@@()@./common/protobuf/radar.pb.h@355@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_latitude@@()@
+CCCC_MemExt@RadarReport@clear_latitude@@()@./common/protobuf/radar.pb.h@451@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_longitude@@()@
+CCCC_MemExt@RadarReport@clear_longitude@@()@./common/protobuf/radar.pb.h@475@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_north@@()@
+CCCC_MemExt@RadarReport@clear_north@@()@./common/protobuf/radar.pb.h@379@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_plane_id@@()@
+CCCC_MemExt@RadarReport@clear_plane_id@@()@./common/protobuf/radar.pb.h@523@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_range@@()@
+CCCC_MemExt@RadarReport@clear_range@@()@./common/protobuf/radar.pb.h@283@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@clear_timestamp@@()@
+CCCC_MemExt@RadarReport@clear_timestamp@@()@./common/protobuf/radar.pb.h@259@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@down@@()@
+CCCC_MemExt@RadarReport@down@@()@./common/protobuf/radar.pb.h@431@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@east@@()@
+CCCC_MemExt@RadarReport@east@@()@./common/protobuf/radar.pb.h@407@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@elevation@@()@
+CCCC_MemExt@RadarReport@elevation@@()@./common/protobuf/radar.pb.h@335@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_altitude@@()@
+CCCC_MemExt@RadarReport@has_altitude@@()@./common/protobuf/radar.pb.h@490@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_azimuth@@()@
+CCCC_MemExt@RadarReport@has_azimuth@@()@./common/protobuf/radar.pb.h@298@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_down@@()@
+CCCC_MemExt@RadarReport@has_down@@()@./common/protobuf/radar.pb.h@418@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_east@@()@
+CCCC_MemExt@RadarReport@has_east@@()@./common/protobuf/radar.pb.h@394@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_elevation@@()@
+CCCC_MemExt@RadarReport@has_elevation@@()@./common/protobuf/radar.pb.h@322@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_id@@()@
+CCCC_MemExt@RadarReport@has_id@@()@./common/protobuf/radar.pb.h@346@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_latitude@@()@
+CCCC_MemExt@RadarReport@has_latitude@@()@./common/protobuf/radar.pb.h@442@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_longitude@@()@
+CCCC_MemExt@RadarReport@has_longitude@@()@./common/protobuf/radar.pb.h@466@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_north@@()@
+CCCC_MemExt@RadarReport@has_north@@()@./common/protobuf/radar.pb.h@370@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_plane_id@@()@
+CCCC_MemExt@RadarReport@has_plane_id@@()@./common/protobuf/radar.pb.h@514@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_range@@()@
+CCCC_MemExt@RadarReport@has_range@@()@./common/protobuf/radar.pb.h@274@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@has_timestamp@@()@
+CCCC_MemExt@RadarReport@has_timestamp@@()@./common/protobuf/radar.pb.h@250@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@RadarReport@latitude@@()@
+CCCC_MemExt@RadarReport@latitude@@()@./common/protobuf/radar.pb.h@455@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@longitude@@()@
+CCCC_MemExt@RadarReport@longitude@@()@./common/protobuf/radar.pb.h@479@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@north@@()@
+CCCC_MemExt@RadarReport@north@@()@./common/protobuf/radar.pb.h@383@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@range@@()@
+CCCC_MemExt@RadarReport@range@@()@./common/protobuf/radar.pb.h@287@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@RadarReport@set_altitude@@(float)@
+CCCC_MemExt@RadarReport@set_altitude@@(float)@./common/protobuf/radar.pb.h@507@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_azimuth@@(float)@
+CCCC_MemExt@RadarReport@set_azimuth@@(float)@./common/protobuf/radar.pb.h@315@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_down@@(float)@
+CCCC_MemExt@RadarReport@set_down@@(float)@./common/protobuf/radar.pb.h@435@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_east@@(float)@
+CCCC_MemExt@RadarReport@set_east@@(float)@./common/protobuf/radar.pb.h@411@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_elevation@@(float)@
+CCCC_MemExt@RadarReport@set_elevation@@(float)@./common/protobuf/radar.pb.h@339@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_altitude@@()@
+CCCC_MemExt@RadarReport@set_has_altitude@@()@./common/protobuf/radar.pb.h@493@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_azimuth@@()@
+CCCC_MemExt@RadarReport@set_has_azimuth@@()@./common/protobuf/radar.pb.h@301@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_down@@()@
+CCCC_MemExt@RadarReport@set_has_down@@()@./common/protobuf/radar.pb.h@421@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_east@@()@
+CCCC_MemExt@RadarReport@set_has_east@@()@./common/protobuf/radar.pb.h@397@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_elevation@@()@
+CCCC_MemExt@RadarReport@set_has_elevation@@()@./common/protobuf/radar.pb.h@325@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_id@@()@
+CCCC_MemExt@RadarReport@set_has_id@@()@./common/protobuf/radar.pb.h@349@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_latitude@@()@
+CCCC_MemExt@RadarReport@set_has_latitude@@()@./common/protobuf/radar.pb.h@445@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_longitude@@()@
+CCCC_MemExt@RadarReport@set_has_longitude@@()@./common/protobuf/radar.pb.h@469@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_north@@()@
+CCCC_MemExt@RadarReport@set_has_north@@()@./common/protobuf/radar.pb.h@373@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_plane_id@@()@
+CCCC_MemExt@RadarReport@set_has_plane_id@@()@./common/protobuf/radar.pb.h@517@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_range@@()@
+CCCC_MemExt@RadarReport@set_has_range@@()@./common/protobuf/radar.pb.h@277@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_has_timestamp@@()@
+CCCC_MemExt@RadarReport@set_has_timestamp@@()@./common/protobuf/radar.pb.h@253@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@RadarReport@set_id@@(...)@
+CCCC_MemExt@RadarReport@set_id@@(...)@./common/protobuf/radar.pb.h@363@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_latitude@@(float)@
+CCCC_MemExt@RadarReport@set_latitude@@(float)@./common/protobuf/radar.pb.h@459@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_longitude@@(float)@
+CCCC_MemExt@RadarReport@set_longitude@@(float)@./common/protobuf/radar.pb.h@483@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_north@@(float)@
+CCCC_MemExt@RadarReport@set_north@@(float)@./common/protobuf/radar.pb.h@387@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_plane_id@@(...)@
+CCCC_MemExt@RadarReport@set_plane_id@@(...)@./common/protobuf/radar.pb.h@531@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_range@@(float)@
+CCCC_MemExt@RadarReport@set_range@@(float)@./common/protobuf/radar.pb.h@291@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarReport@set_timestamp@@(...)@
+CCCC_MemExt@RadarReport@set_timestamp@@(...)@./common/protobuf/radar.pb.h@267@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testBasicReport)@
+CCCC_MemExt@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testBasicReport)@./test-server/endpoints/RadarSensor.h@27@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testElevation)@
+CCCC_MemExt@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testElevation)@./test-server/endpoints/RadarSensor.h@29@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testVelocity)@
+CCCC_MemExt@RadarSensor@FRIEND_TEST@@(RadarSensorTest,testVelocity)@./test-server/endpoints/RadarSensor.h@28@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@RadarSensor@RadarSensor@@(SensorEndpoint *)@
+CCCC_MemExt@RadarSensor@RadarSensor@@(SensorEndpoint *)@./test-server/endpoints/RadarSensor.cpp@8@definition@F????@LOC:4 COM:2 MVG:0@?@d@
+CCCC_MemExt@RadarSensor@RadarSensor@@(SensorEndpoint *)@./test-server/endpoints/RadarSensor.h@21@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@RadarSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@RadarSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/RadarSensor.cpp@16@definition@F????@LOC:33 COM:8 MVG:4@?@d@
+CCCC_MemExt@RadarSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/RadarSensor.h@25@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@RadarSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@RadarSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/RadarSensor.cpp@63@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@RadarSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/RadarSensor.h@22@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Randomizer@Randomizer@@(float,float,int)@
+CCCC_MemExt@Randomizer@Randomizer@@(float,float,int)@./common/Randomizer.h@20@definition@F???0@LOC:11 COM:1 MVG:1@0@d@
+CCCC_Member@Randomizer@gerRandomCustom@@()@
+CCCC_MemExt@Randomizer@gerRandomCustom@@()@./common/Randomizer.cpp@6@definition@F????@LOC:4 COM:2 MVG:1@?@d@
+CCCC_MemExt@Randomizer@gerRandomCustom@@()@./common/Randomizer.h@52@declaration@FT??0@LOC:1 COM:2 MVG:0@0@D@
+CCCC_Member@Randomizer@getRandom@@()@
+CCCC_MemExt@Randomizer@getRandom@@()@./common/Randomizer.h@37@definition@F???0@LOC:4 COM:3 MVG:1@0@d@
+CCCC_Member@Randomizer@getRandom@@(float)@
+CCCC_MemExt@Randomizer@getRandom@@(float)@./common/Randomizer.h@45@definition@F???0@LOC:4 COM:3 MVG:1@0@d@
+CCCC_Member@Resolution@Resolution@@(int,int)@
+CCCC_MemExt@Resolution@Resolution@@(int,int)@./cdti/Resolution.cpp@3@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@Resolution@Resolution@@(int,int)@./cdti/Resolution.h@9@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ResultPlane@ResultPlane@@()@
+CCCC_MemExt@ResultPlane@ResultPlane@@()@./test-server/Validation/TestCaseResult.cpp@56@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@ResultPlane@ResultPlane@@()@./test-server/Validation/TestCaseResult.h@21@declaration@F???0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@ResultPlane@fromGoogleProtobuf@@(const CDTIPlane &)@
+CCCC_MemExt@ResultPlane@fromGoogleProtobuf@@(const CDTIPlane &)@./test-server/Validation/TestCaseResult.cpp@27@definition@F????@LOC:8 COM:0 MVG:1@?@d@
+CCCC_MemExt@ResultPlane@fromGoogleProtobuf@@(const CDTIPlane &)@./test-server/Validation/TestCaseResult.h@27@declaration@FT??0@LOC:1 COM:4 MVG:0@0@D@
+CCCC_Member@ResultPlane@getPosition@@()@
+CCCC_MemExt@ResultPlane@getPosition@@()@./test-server/Validation/TestCaseResult.cpp@41@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@ResultPlane@getPosition@@()@./test-server/Validation/TestCaseResult.h@32@declaration@TT??0@LOC:1 COM:4 MVG:0@0@D@
+CCCC_Member@ResultPlane@getSeverity@@()@
+CCCC_MemExt@ResultPlane@getSeverity@@()@./test-server/Validation/TestCaseResult.cpp@51@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@ResultPlane@getSeverity@@()@./test-server/Validation/TestCaseResult.h@46@declaration@TT???@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@ResultPlane@getTag@@()@
+CCCC_MemExt@ResultPlane@getTag@@()@./test-server/Validation/TestCaseResult.cpp@46@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@ResultPlane@getTag@@()@./test-server/Validation/TestCaseResult.h@42@declaration@TT???@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@ResultPlane@getVelocity@@()@
+CCCC_MemExt@ResultPlane@getVelocity@@()@./test-server/Validation/TestCaseResult.cpp@36@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@ResultPlane@getVelocity@@()@./test-server/Validation/TestCaseResult.h@38@declaration@TT??0@LOC:1 COM:4 MVG:0@0@D@
+CCCC_Member@SaaApplication@getCdtiSocket@@()@
+CCCC_MemExt@SaaApplication@getCdtiSocket@@()@./saa-application/SaaApplication.cpp@51@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@SaaApplication@getCdtiSocket@@()@./saa-application/SaaApplication.h@18@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SaaApplication@initSocks@@()@
+CCCC_MemExt@SaaApplication@initSocks@@()@./saa-application/SaaApplication.cpp@128@definition@F????@LOC:9 COM:5 MVG:0@?@d@
+CCCC_MemExt@SaaApplication@initSocks@@()@./saa-application/SaaApplication.h@17@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SaaApplication@processSensors@@(ClientSocket,ClientSocket,ClientSocket,ClientSocket)@
+CCCC_MemExt@SaaApplication@processSensors@@(ClientSocket,ClientSocket,ClientSocket,ClientSocket)@./saa-application/SaaApplication.cpp@220@definition@F????@LOC:38 COM:6 MVG:4@?@d@
+CCCC_MemExt@SaaApplication@processSensors@@(ClientSocket,ClientSocket,ClientSocket,ClientSocket)@./saa-application/SaaApplication.h@24@declaration@FT???@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@SaaApplication@setupSockets@@(int)@
+CCCC_MemExt@SaaApplication@setupSockets@@(int)@./saa-application/SaaApplication.cpp@56@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@SaaApplication@setupSockets@@(int)@./saa-application/SaaApplication.h@21@declaration@FT??2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@SaaApplication@shutdown@@()@
+CCCC_MemExt@SaaApplication@shutdown@@()@./saa-application/SaaApplication.cpp@62@definition@F????@LOC:7 COM:0 MVG:1@?@d@
+CCCC_MemExt@SaaApplication@shutdown@@()@./saa-application/SaaApplication.h@19@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Sensor@Sensor@@()@
+CCCC_MemExt@Sensor@Sensor@@()@./test-server/endpoints/Sensor.h@14@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Member@Sensor@Sensor@@(SensorEndpoint *)@
+CCCC_MemExt@Sensor@Sensor@@(SensorEndpoint *)@./test-server/endpoints/Sensor.cpp@12@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@Sensor@Sensor@@(SensorEndpoint *)@./test-server/endpoints/Sensor.h@20@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Sensor@close@@()@
+CCCC_MemExt@Sensor@close@@()@./test-server/endpoints/Sensor.cpp@18@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@Sensor@close@@()@./test-server/endpoints/Sensor.h@19@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Sensor@getEndpoint@@()@
+CCCC_MemExt@Sensor@getEndpoint@@()@./test-server/endpoints/Sensor.cpp@7@definition@F????@LOC:4 COM:2 MVG:1@?@d@
+CCCC_MemExt@Sensor@getEndpoint@@()@./test-server/endpoints/Sensor.h@21@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Sensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@Sensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/Sensor.h@25@declaration@F??T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@Sensor@setEndpoint@@(SensorEndpoint *)@
+CCCC_MemExt@Sensor@setEndpoint@@(SensorEndpoint *)@./test-server/endpoints/Sensor.h@22@definition@F??T0@LOC:1 COM:0 MVG:0@0@d@
+CCCC_Member@Sensor@~Sensor@@()@
+CCCC_MemExt@Sensor@~Sensor@@()@./test-server/endpoints/Sensor.h@15@definition@F??T0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@SensorData@SensorData@@(string,float,float,float,float,float,float,Sensor,int,double)@
+CCCC_MemExt@SensorData@SensorData@@(string,float,float,float,float,float,float,Sensor,int,double)@./saa-application/SensorData.h@31@definition@F????@LOC:18 COM:2 MVG:0@?@d@
+CCCC_Member@SensorData@getCDTIPlane@@()@
+CCCC_MemExt@SensorData@getCDTIPlane@@()@./saa-application/SensorData.cpp@7@definition@F????@LOC:10 COM:2 MVG:1@?@d@
+CCCC_MemExt@SensorData@getCDTIPlane@@()@./saa-application/SensorData.h@60@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@SensorData@getPlaneTag@@()@
+CCCC_MemExt@SensorData@getPlaneTag@@()@./saa-application/SensorData.h@72@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@SensorData@getPurePosition@@()@
+CCCC_MemExt@SensorData@getPurePosition@@()@./saa-application/SensorData.h@62@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@SensorData@getSensor@@()@
+CCCC_MemExt@SensorData@getSensor@@()@./saa-application/SensorData.h@55@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@SensorData@getTimeStamp@@()@
+CCCC_MemExt@SensorData@getTimeStamp@@()@./saa-application/SensorData.h@77@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@SensorData@getVelocity@@()@
+CCCC_MemExt@SensorData@getVelocity@@()@./saa-application/SensorData.h@67@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@SensorData@printPos@@()@
+CCCC_MemExt@SensorData@printPos@@()@./saa-application/SensorData.cpp@20@definition@F????@LOC:8 COM:1 MVG:0@?@d@
+CCCC_MemExt@SensorData@printPos@@()@./saa-application/SensorData.h@53@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@SensorEndpoint@SensorEndpoint@@()@
+CCCC_MemExt@SensorEndpoint@SensorEndpoint@@()@./test-server/endpoints/SensorEndpoint.cpp@9@definition@F????@LOC:4 COM:2 MVG:0@?@d@
+CCCC_MemExt@SensorEndpoint@SensorEndpoint@@()@./test-server/endpoints/SensorEndpoint.h@13@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SensorEndpoint@accept@@(SensorEndpoint &)@
+CCCC_MemExt@SensorEndpoint@accept@@(SensorEndpoint &)@./test-server/endpoints/SensorEndpoint.h@15@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SensorEndpoint@close@@()@
+CCCC_MemExt@SensorEndpoint@close@@()@./test-server/endpoints/SensorEndpoint.cpp@29@definition@F????@LOC:6 COM:0 MVG:1@?@d@
+CCCC_MemExt@SensorEndpoint@close@@()@./test-server/endpoints/SensorEndpoint.h@16@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SensorEndpoint@getSocket@@()@
+CCCC_MemExt@SensorEndpoint@getSocket@@()@./test-server/endpoints/SensorEndpoint.cpp@20@definition@F????@LOC:7 COM:0 MVG:2@?@d@
+CCCC_MemExt@SensorEndpoint@getSocket@@()@./test-server/endpoints/SensorEndpoint.h@18@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SensorEndpoint@~SensorEndpoint@@()@
+CCCC_MemExt@SensorEndpoint@~SensorEndpoint@@()@./test-server/endpoints/SensorEndpoint.cpp@14@definition@F????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@SensorEndpoint@~SensorEndpoint@@()@./test-server/endpoints/SensorEndpoint.h@14@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ServerSocket@ServerSocket@@()@
+CCCC_MemExt@ServerSocket@ServerSocket@@()@./common/sockets/ServerSocket.h@28@definition@F???0@LOC:1 COM:3 MVG:0@0@d@
+CCCC_Member@ServerSocket@ServerSocket@@(const int)@
+CCCC_MemExt@ServerSocket@ServerSocket@@(const int)@./common/sockets/ServerSocket.cpp@17@definition@F????@LOC:15 COM:1 MVG:3@?@d@
+CCCC_MemExt@ServerSocket@ServerSocket@@(const int)@./common/sockets/ServerSocket.h@24@declaration@F???0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@ServerSocket@accept@@(ServerSocket &)@
+CCCC_MemExt@ServerSocket@accept@@(ServerSocket &)@./common/sockets/ServerSocket.h@59@declaration@F??T?@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@ServerSocket@close@@()@
+CCCC_MemExt@ServerSocket@close@@()@./common/sockets/ServerSocket.h@61@definition@F??T?@LOC:1 COM:0 MVG:0@?@d@
+CCCC_Member@ServerSocket@connectToClient@@(ClientSocket &,int)@
+CCCC_MemExt@ServerSocket@connectToClient@@(ClientSocket &,int)@./common/sockets/ServerSocket.h@67@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ServerSocket@getPort@@()@
+CCCC_MemExt@ServerSocket@getPort@@()@./common/sockets/ServerSocket.h@63@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ServerSocket@hasData@@()@
+CCCC_MemExt@ServerSocket@hasData@@()@./common/sockets/ServerSocket.h@65@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@ServerSocket@operator <<@@(...)@
+CCCC_MemExt@ServerSocket@operator <<@@(...)@./common/sockets/ServerSocket.h@49@declaration@T??T?@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@ServerSocket@operator <<@@(const string &)@
+CCCC_MemExt@ServerSocket@operator <<@@(const string &)@./common/sockets/ServerSocket.cpp@42@definition@T????@LOC:8 COM:1 MVG:2@?@d@
+CCCC_MemExt@ServerSocket@operator <<@@(const string &)@./common/sockets/ServerSocket.h@39@declaration@T??T?@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@ServerSocket@operator >>@@(...)@
+CCCC_MemExt@ServerSocket@operator >>@@(...)@./common/sockets/ServerSocket.h@54@declaration@T??T?@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@ServerSocket@operator >>@@(string &)@
+CCCC_MemExt@ServerSocket@operator >>@@(string &)@./common/sockets/ServerSocket.cpp@51@definition@T????@LOC:8 COM:1 MVG:2@?@d@
+CCCC_MemExt@ServerSocket@operator >>@@(string &)@./common/sockets/ServerSocket.h@44@declaration@T??T?@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@ServerSocket@~ServerSocket@@()@
+CCCC_MemExt@ServerSocket@~ServerSocket@@()@./common/sockets/ServerSocket.cpp@36@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@ServerSocket@~ServerSocket@@()@./common/sockets/ServerSocket.h@33@declaration@F??T0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@Socket@Socket@@()@
+CCCC_MemExt@Socket@Socket@@()@./common/sockets/Socket.cpp@7@definition@F????@LOC:7 COM:1 MVG:0@?@d@
+CCCC_MemExt@Socket@Socket@@()@./common/sockets/Socket.h@23@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Socket@Socket@@(const Socket &)@
+CCCC_MemExt@Socket@Socket@@(const Socket &)@./common/sockets/Socket.cpp@213@definition@F????@LOC:6 COM:0 MVG:0@?@d@
+CCCC_MemExt@Socket@Socket@@(const Socket &)@./common/sockets/Socket.h@24@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Socket@accept@@(Socket &)@
+CCCC_MemExt@Socket@accept@@(Socket &)@./common/sockets/Socket.cpp@75@definition@T????@LOC:13 COM:0 MVG:3@?@d@
+CCCC_MemExt@Socket@accept@@(Socket &)@./common/sockets/Socket.h@47@declaration@T??T0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@Socket@bind@@(const int)@
+CCCC_MemExt@Socket@bind@@(const int)@./common/sockets/Socket.cpp@40@definition@F????@LOC:19 COM:0 MVG:5@?@d@
+CCCC_MemExt@Socket@bind@@(const int)@./common/sockets/Socket.h@38@declaration@F??T0@LOC:1 COM:5 MVG:0@0@D@
+CCCC_Member@Socket@close@@()@
+CCCC_MemExt@Socket@close@@()@./common/sockets/Socket.cpp@206@definition@F????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@Socket@close@@()@./common/sockets/Socket.h@108@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Socket@connect@@(const sockaddr_in)@
+CCCC_MemExt@Socket@connect@@(const sockaddr_in)@./common/sockets/Socket.cpp@161@definition@F????@LOC:12 COM:0 MVG:5@?@d@
+CCCC_MemExt@Socket@connect@@(const sockaddr_in)@./common/sockets/Socket.h@62@declaration@F??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@Socket@connect@@(const string,const int)@
+CCCC_MemExt@Socket@connect@@(const string,const int)@./common/sockets/Socket.cpp@142@definition@F????@LOC:16 COM:0 MVG:7@?@d@
+CCCC_MemExt@Socket@connect@@(const string,const int)@./common/sockets/Socket.h@55@declaration@F??T?@LOC:1 COM:6 MVG:0@?@D@
+CCCC_Member@Socket@create@@()@
+CCCC_MemExt@Socket@create@@()@./common/sockets/Socket.cpp@20@definition@F????@LOC:15 COM:2 MVG:5@?@d@
+CCCC_MemExt@Socket@create@@()@./common/sockets/Socket.h@32@declaration@F??T0@LOC:1 COM:4 MVG:0@0@D@
+CCCC_Member@Socket@hasData@@()@
+CCCC_MemExt@Socket@hasData@@()@./common/sockets/Socket.cpp@221@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@Socket@hasData@@()@./common/sockets/Socket.h@101@declaration@T??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Socket@is_valid@@()@
+CCCC_MemExt@Socket@is_valid@@()@./common/sockets/Socket.h@106@definition@T??T?@LOC:1 COM:4 MVG:1@?@d@
+CCCC_Member@Socket@listen@@()@
+CCCC_MemExt@Socket@listen@@()@./common/sockets/Socket.cpp@61@definition@T????@LOC:13 COM:0 MVG:5@?@d@
+CCCC_MemExt@Socket@listen@@()@./common/sockets/Socket.h@43@declaration@T??T0@LOC:1 COM:4 MVG:0@0@D@
+CCCC_Member@Socket@recv@@(string &,int)@
+CCCC_MemExt@Socket@recv@@(string &,int)@./common/sockets/Socket.cpp@102@definition@T????@LOC:20 COM:0 MVG:5@?@d@
+CCCC_MemExt@Socket@recv@@(string &,int)@./common/sockets/Socket.h@84@declaration@T??T?@LOC:1 COM:6 MVG:0@?@D@
+CCCC_Member@Socket@recv@@(void *,int,int)@
+CCCC_MemExt@Socket@recv@@(void *,int,int)@./common/sockets/Socket.cpp@123@definition@T????@LOC:17 COM:0 MVG:5@?@d@
+CCCC_MemExt@Socket@recv@@(void *,int,int)@./common/sockets/Socket.h@93@declaration@T??T?@LOC:1 COM:7 MVG:0@?@D@
+CCCC_Member@Socket@send@@(const string &)@
+CCCC_MemExt@Socket@send@@(const string &)@./common/sockets/Socket.cpp@89@definition@T????@LOC:12 COM:0 MVG:3@?@d@
+CCCC_MemExt@Socket@send@@(const string &)@./common/sockets/Socket.h@69@declaration@T??T?@LOC:1 COM:5 MVG:0@?@D@
+CCCC_Member@Socket@send@@(const void *,int)@
+CCCC_MemExt@Socket@send@@(const void *,int)@./common/sockets/Socket.cpp@194@definition@T????@LOC:11 COM:0 MVG:3@?@d@
+CCCC_MemExt@Socket@send@@(const void *,int)@./common/sockets/Socket.h@76@declaration@T??T?@LOC:1 COM:6 MVG:0@?@D@
+CCCC_Member@Socket@set_non_blocking@@(const bool)@
+CCCC_MemExt@Socket@set_non_blocking@@(const bool)@./common/sockets/Socket.cpp@177@definition@F????@LOC:14 COM:0 MVG:3@?@d@
+CCCC_MemExt@Socket@set_non_blocking@@(const bool)@./common/sockets/Socket.h@99@declaration@F??T?@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@Socket@~Socket@@()@
+CCCC_MemExt@Socket@~Socket@@()@./common/sockets/Socket.cpp@15@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@Socket@~Socket@@()@./common/sockets/Socket.h@25@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SocketException@SocketException@@(string)@
+CCCC_MemExt@SocketException@SocketException@@(string)@./common/sockets/SocketException.h@15@definition@F????@LOC:0 COM:0 MVG:0@?@d@
+CCCC_Member@SocketException@description@@()@
+CCCC_MemExt@SocketException@description@@()@./common/sockets/SocketException.h@18@definition@F????@LOC:1 COM:0 MVG:1@?@d@
+CCCC_Member@SocketException@~SocketException@@()@
+CCCC_MemExt@SocketException@~SocketException@@()@./common/sockets/SocketException.h@16@definition@F????@LOC:0 COM:0 MVG:0@?@d@
+CCCC_Member@SocketSensorEndpoint@SocketSensorEndpoint@@()@
+CCCC_MemExt@SocketSensorEndpoint@SocketSensorEndpoint@@()@./test-server/endpoints/SocketSensorEndpoint.cpp@12@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@SocketSensorEndpoint@SocketSensorEndpoint@@()@./test-server/endpoints/SocketSensorEndpoint.h@11@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SocketSensorEndpoint@SocketSensorEndpoint@@(int)@
+CCCC_MemExt@SocketSensorEndpoint@SocketSensorEndpoint@@(int)@./test-server/endpoints/SocketSensorEndpoint.cpp@6@definition@F????@LOC:5 COM:2 MVG:0@?@d@
+CCCC_MemExt@SocketSensorEndpoint@SocketSensorEndpoint@@(int)@./test-server/endpoints/SocketSensorEndpoint.h@13@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SocketSensorEndpoint@accept@@(SensorEndpoint &)@
+CCCC_MemExt@SocketSensorEndpoint@accept@@(SensorEndpoint &)@./test-server/endpoints/SocketSensorEndpoint.cpp@25@definition@F????@LOC:6 COM:0 MVG:1@?@d@
+CCCC_MemExt@SocketSensorEndpoint@accept@@(SensorEndpoint &)@./test-server/endpoints/SocketSensorEndpoint.h@15@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SocketSensorEndpoint@operator <<@@(...)@
+CCCC_MemExt@SocketSensorEndpoint@operator <<@@(...)@./test-server/endpoints/SocketSensorEndpoint.h@16@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@SocketSensorEndpoint@~SocketSensorEndpoint@@()@
+CCCC_MemExt@SocketSensorEndpoint@~SocketSensorEndpoint@@()@./test-server/endpoints/SocketSensorEndpoint.cpp@18@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@SocketSensorEndpoint@~SocketSensorEndpoint@@()@./test-server/endpoints/SocketSensorEndpoint.h@14@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TcasReport@altitude@@()@
+CCCC_MemExt@TcasReport@altitude@@()@./common/protobuf/tcas.pb.h@241@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@bearing@@()@
+CCCC_MemExt@TcasReport@bearing@@()@./common/protobuf/tcas.pb.h@265@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@clear_altitude@@()@
+CCCC_MemExt@TcasReport@clear_altitude@@()@./common/protobuf/tcas.pb.h@237@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_bearing@@()@
+CCCC_MemExt@TcasReport@clear_bearing@@()@./common/protobuf/tcas.pb.h@261@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_has_altitude@@()@
+CCCC_MemExt@TcasReport@clear_has_altitude@@()@./common/protobuf/tcas.pb.h@234@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_has_bearing@@()@
+CCCC_MemExt@TcasReport@clear_has_bearing@@()@./common/protobuf/tcas.pb.h@258@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_has_id@@()@
+CCCC_MemExt@TcasReport@clear_has_id@@()@./common/protobuf/tcas.pb.h@186@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_has_plane_id@@()@
+CCCC_MemExt@TcasReport@clear_has_plane_id@@()@./common/protobuf/tcas.pb.h@282@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_has_range@@()@
+CCCC_MemExt@TcasReport@clear_has_range@@()@./common/protobuf/tcas.pb.h@210@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_id@@()@
+CCCC_MemExt@TcasReport@clear_id@@()@./common/protobuf/tcas.pb.h@189@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_plane_id@@()@
+CCCC_MemExt@TcasReport@clear_plane_id@@()@./common/protobuf/tcas.pb.h@285@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@clear_range@@()@
+CCCC_MemExt@TcasReport@clear_range@@()@./common/protobuf/tcas.pb.h@213@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@has_altitude@@()@
+CCCC_MemExt@TcasReport@has_altitude@@()@./common/protobuf/tcas.pb.h@228@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@has_bearing@@()@
+CCCC_MemExt@TcasReport@has_bearing@@()@./common/protobuf/tcas.pb.h@252@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@has_id@@()@
+CCCC_MemExt@TcasReport@has_id@@()@./common/protobuf/tcas.pb.h@180@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@TcasReport@has_plane_id@@()@
+CCCC_MemExt@TcasReport@has_plane_id@@()@./common/protobuf/tcas.pb.h@276@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@has_range@@()@
+CCCC_MemExt@TcasReport@has_range@@()@./common/protobuf/tcas.pb.h@204@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@range@@()@
+CCCC_MemExt@TcasReport@range@@()@./common/protobuf/tcas.pb.h@217@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@TcasReport@set_altitude@@(float)@
+CCCC_MemExt@TcasReport@set_altitude@@(float)@./common/protobuf/tcas.pb.h@245@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@TcasReport@set_bearing@@(float)@
+CCCC_MemExt@TcasReport@set_bearing@@(float)@./common/protobuf/tcas.pb.h@269@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@TcasReport@set_has_altitude@@()@
+CCCC_MemExt@TcasReport@set_has_altitude@@()@./common/protobuf/tcas.pb.h@231@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@set_has_bearing@@()@
+CCCC_MemExt@TcasReport@set_has_bearing@@()@./common/protobuf/tcas.pb.h@255@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@set_has_id@@()@
+CCCC_MemExt@TcasReport@set_has_id@@()@./common/protobuf/tcas.pb.h@183@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@set_has_plane_id@@()@
+CCCC_MemExt@TcasReport@set_has_plane_id@@()@./common/protobuf/tcas.pb.h@279@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@set_has_range@@()@
+CCCC_MemExt@TcasReport@set_has_range@@()@./common/protobuf/tcas.pb.h@207@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@TcasReport@set_id@@(...)@
+CCCC_MemExt@TcasReport@set_id@@(...)@./common/protobuf/tcas.pb.h@197@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@TcasReport@set_plane_id@@(...)@
+CCCC_MemExt@TcasReport@set_plane_id@@(...)@./common/protobuf/tcas.pb.h@293@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@TcasReport@set_range@@(float)@
+CCCC_MemExt@TcasReport@set_range@@(float)@./common/protobuf/tcas.pb.h@221@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@TcasSensor@FRIEND_TEST@@(TCAS,createTcasMessage)@
+CCCC_MemExt@TcasSensor@FRIEND_TEST@@(TCAS,createTcasMessage)@./test-server/endpoints/TcasSensor.h@22@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@TcasSensor@FRIEND_TEST@@(TCAS,testAltitudeDistance)@
+CCCC_MemExt@TcasSensor@FRIEND_TEST@@(TCAS,testAltitudeDistance)@./test-server/endpoints/TcasSensor.h@23@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@TcasSensor@TcasSensor@@(SensorEndpoint *)@
+CCCC_MemExt@TcasSensor@TcasSensor@@(SensorEndpoint *)@./test-server/endpoints/TcasSensor.cpp@45@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TcasSensor@TcasSensor@@(SensorEndpoint *)@./test-server/endpoints/TcasSensor.h@16@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TcasSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@TcasSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/TcasSensor.cpp@8@definition@F????@LOC:22 COM:5 MVG:4@?@d@
+CCCC_MemExt@TcasSensor@createReport@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/TcasSensor.h@20@declaration@FT?T2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@TcasSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@
+CCCC_MemExt@TcasSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/TcasSensor.cpp@41@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TcasSensor@sendData@@(const TestServerPlane &,const TestServerPlane &)@./test-server/endpoints/TcasSensor.h@17@declaration@F??T0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestCase@TestCase@@()@
+CCCC_MemExt@TestCase@TestCase@@()@./test-server/TestCase.cpp@9@definition@F????@LOC:6 COM:2 MVG:0@?@d@
+CCCC_MemExt@TestCase@TestCase@@()@./test-server/TestCase.h@16@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestCase@TestCase@@(const TestCase &)@
+CCCC_MemExt@TestCase@TestCase@@(const TestCase &)@./test-server/TestCase.cpp@83@definition@F????@LOC:10 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@TestCase@@(const TestCase &)@./test-server/TestCase.h@18@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestCase@addPlane@@(const TestServerPlane &)@
+CCCC_MemExt@TestCase@addPlane@@(const TestServerPlane &)@./test-server/TestCase.cpp@25@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestCase@addPlane@@(const TestServerPlane &)@./test-server/TestCase.h@32@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@TestCase@complete@@()@
+CCCC_MemExt@TestCase@complete@@()@./test-server/TestCase.cpp@46@definition@F????@LOC:15 COM:2 MVG:2@?@d@
+CCCC_MemExt@TestCase@complete@@()@./test-server/TestCase.h@44@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@getNextRadarId@@()@
+CCCC_MemExt@TestCase@getNextRadarId@@()@./test-server/TestCase.cpp@78@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@getNextRadarId@@()@./test-server/TestCase.h@50@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@getNextTcasId@@()@
+CCCC_MemExt@TestCase@getNextTcasId@@()@./test-server/TestCase.cpp@74@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@getNextTcasId@@()@./test-server/TestCase.h@49@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@getOwnship@@()@
+CCCC_MemExt@TestCase@getOwnship@@()@./test-server/TestCase.cpp@38@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@getOwnship@@()@./test-server/TestCase.h@38@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@getPlanes@@()@
+CCCC_MemExt@TestCase@getPlanes@@()@./test-server/TestCase.cpp@42@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@getPlanes@@()@./test-server/TestCase.h@42@declaration@T????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@TestCase@isRunning@@()@
+CCCC_MemExt@TestCase@isRunning@@()@./test-server/TestCase.cpp@70@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@isRunning@@()@./test-server/TestCase.h@46@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@setName@@(const string)@
+CCCC_MemExt@TestCase@setName@@(const string)@./test-server/TestCase.cpp@17@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestCase@setName@@(const string)@./test-server/TestCase.h@22@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@TestCase@setOwnship@@(const TestServerPlane &)@
+CCCC_MemExt@TestCase@setOwnship@@(const TestServerPlane &)@./test-server/TestCase.cpp@21@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestCase@setOwnship@@(const TestServerPlane &)@./test-server/TestCase.h@28@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@TestCase@setTotalTime@@(float)@
+CCCC_MemExt@TestCase@setTotalTime@@(float)@./test-server/TestCase.cpp@66@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestCase@setTotalTime@@(float)@./test-server/TestCase.h@24@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCase@update@@(float)@
+CCCC_MemExt@TestCase@update@@(float)@./test-server/TestCase.cpp@29@definition@F????@LOC:9 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCase@update@@(float)@./test-server/TestCase.h@36@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@TestCaseError@TestCaseError@@(long)@
+CCCC_MemExt@TestCaseError@TestCaseError@@(long)@./test-server/Validation/errors/TestCaseError.h@12@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Member@TestCaseError@description@@()@
+CCCC_MemExt@TestCaseError@description@@()@./test-server/Validation/errors/TestCaseError.h@14@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCaseError@getTimestamp@@()@
+CCCC_MemExt@TestCaseError@getTimestamp@@()@./test-server/Validation/errors/TestCaseError.h@13@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@TestCaseResult@fromGoogleProtobuf@@(const CDTIReport &)@
+CCCC_MemExt@TestCaseResult@fromGoogleProtobuf@@(const CDTIReport &)@./test-server/Validation/TestCaseResult.cpp@8@definition@F????@LOC:12 COM:2 MVG:3@?@d@
+CCCC_MemExt@TestCaseResult@fromGoogleProtobuf@@(const CDTIReport &)@./test-server/Validation/TestCaseResult.h@60@declaration@FT???@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestCaseResult@getPlanes@@()@
+CCCC_MemExt@TestCaseResult@getPlanes@@()@./test-server/Validation/TestCaseResult.h@59@definition@FT???@LOC:1 COM:0 MVG:1@?@d@
+CCCC_Member@TestCaseResult@getTime@@()@
+CCCC_MemExt@TestCaseResult@getTime@@()@./test-server/Validation/TestCaseResult.cpp@22@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestCaseResult@getTime@@()@./test-server/Validation/TestCaseResult.h@62@declaration@TT???@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestEnvironment@TestEnvironment@@()@
+CCCC_MemExt@TestEnvironment@TestEnvironment@@()@./test-server/TestEnvironment.cpp@15@definition@F????@LOC:2 COM:2 MVG:0@?@d@
+CCCC_MemExt@TestEnvironment@TestEnvironment@@()@./test-server/TestEnvironment.h@20@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestEnvironment@acceptConnections@@()@
+CCCC_MemExt@TestEnvironment@acceptConnections@@()@./test-server/TestEnvironment.cpp@34@definition@F????@LOC:20 COM:4 MVG:0@?@d@
+CCCC_MemExt@TestEnvironment@acceptConnections@@()@./test-server/TestEnvironment.h@21@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestEnvironment@start@@(TestCase &)@
+CCCC_MemExt@TestEnvironment@start@@(TestCase &)@./test-server/TestEnvironment.cpp@66@definition@F????@LOC:35 COM:1 MVG:7@?@d@
+CCCC_MemExt@TestEnvironment@start@@(TestCase &)@./test-server/TestEnvironment.h@22@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestFileParser@GetTestCase@@()@
+CCCC_MemExt@TestFileParser@GetTestCase@@()@./test-server/TestFileParser.cpp@392@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestFileParser@GetTestCase@@()@./test-server/TestFileParser.h@53@declaration@F????@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@TestFileParser@@()@
+CCCC_MemExt@TestFileParser@TestFileParser@@()@./test-server/TestFileParser.h@50@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Member@TestFileParser@buildTestCase@@()@
+CCCC_MemExt@TestFileParser@buildTestCase@@()@./test-server/TestFileParser.cpp@77@definition@F????@LOC:28 COM:15 MVG:11@?@d@
+CCCC_MemExt@TestFileParser@buildTestCase@@()@./test-server/TestFileParser.h@60@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@getMovement@@(xml_node *,TestServerPlane &)@
+CCCC_MemExt@TestFileParser@getMovement@@(xml_node *,TestServerPlane &)@./test-server/TestFileParser.cpp@285@definition@F????@LOC:47 COM:15 MVG:14@?@d@
+CCCC_MemExt@TestFileParser@getMovement@@(xml_node *,TestServerPlane &)@./test-server/TestFileParser.h@62@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@getOwnship@@(xml_node *)@
+CCCC_MemExt@TestFileParser@getOwnship@@(xml_node *)@./test-server/TestFileParser.cpp@130@definition@F????@LOC:24 COM:10 MVG:11@?@d@
+CCCC_MemExt@TestFileParser@getOwnship@@(xml_node *)@./test-server/TestFileParser.h@61@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@getPlanes@@(xml_node *)@
+CCCC_MemExt@TestFileParser@getPlanes@@(xml_node *)@./test-server/TestFileParser.cpp@356@definition@F????@LOC:25 COM:9 MVG:11@?@d@
+CCCC_MemExt@TestFileParser@getPlanes@@(xml_node *)@./test-server/TestFileParser.h@65@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@getSensors@@(xml_node *,TestServerPlane &)@
+CCCC_MemExt@TestFileParser@getSensors@@(xml_node *,TestServerPlane &)@./test-server/TestFileParser.cpp@171@definition@F????@LOC:48 COM:32 MVG:11@?@d@
+CCCC_MemExt@TestFileParser@getSensors@@(xml_node *,TestServerPlane &)@./test-server/TestFileParser.h@64@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@instance@@()@
+CCCC_MemExt@TestFileParser@instance@@()@./test-server/TestFileParser.h@51@definition@F???0@LOC:0 COM:0 MVG:0@0@d@
+CCCC_Member@TestFileParser@isAttribute@@(xml_node *,string)@
+CCCC_MemExt@TestFileParser@isAttribute@@(xml_node *,string)@./test-server/TestFileParser.cpp@258@definition@F????@LOC:8 COM:5 MVG:3@?@d@
+CCCC_MemExt@TestFileParser@isAttribute@@(xml_node *,string)@./test-server/TestFileParser.h@63@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@isCoordinate@@(xml_node *)@
+CCCC_MemExt@TestFileParser@isCoordinate@@(xml_node *)@./test-server/TestFileParser.cpp@273@definition@F????@LOC:7 COM:5 MVG:5@?@d@
+CCCC_MemExt@TestFileParser@isCoordinate@@(xml_node *)@./test-server/TestFileParser.h@66@declaration@FT???@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestFileParser@load@@(string)@
+CCCC_MemExt@TestFileParser@load@@(string)@./test-server/TestFileParser.cpp@13@definition@F????@LOC:53 COM:7 MVG:16@?@d@
+CCCC_MemExt@TestFileParser@load@@(string)@./test-server/TestFileParser.h@52@declaration@F????@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@TestServer@getAdsbSocket@@()@
+CCCC_MemExt@TestServer@getAdsbSocket@@()@./test-server/TestServer.cpp@21@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServer@getAdsbSocket@@()@./test-server/TestServer.h@22@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@getOwnshipSocket@@()@
+CCCC_MemExt@TestServer@getOwnshipSocket@@()@./test-server/TestServer.cpp@16@definition@F????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServer@getOwnshipSocket@@()@./test-server/TestServer.h@21@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@getRadarSocket@@()@
+CCCC_MemExt@TestServer@getRadarSocket@@()@./test-server/TestServer.cpp@63@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServer@getRadarSocket@@()@./test-server/TestServer.h@24@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@getTcasSocket@@()@
+CCCC_MemExt@TestServer@getTcasSocket@@()@./test-server/TestServer.cpp@59@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServer@getTcasSocket@@()@./test-server/TestServer.h@23@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@provideAdsbEndpoint@@(SensorEndpoint *)@
+CCCC_MemExt@TestServer@provideAdsbEndpoint@@(SensorEndpoint *)@./test-server/TestServer.cpp@31@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServer@provideAdsbEndpoint@@(SensorEndpoint *)@./test-server/TestServer.h@14@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@provideOwnshipEndpoint@@(SensorEndpoint *)@
+CCCC_MemExt@TestServer@provideOwnshipEndpoint@@(SensorEndpoint *)@./test-server/TestServer.cpp@26@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServer@provideOwnshipEndpoint@@(SensorEndpoint *)@./test-server/TestServer.h@13@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@provideRadarEndpoint@@(SensorEndpoint *)@
+CCCC_MemExt@TestServer@provideRadarEndpoint@@(SensorEndpoint *)@./test-server/TestServer.cpp@37@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServer@provideRadarEndpoint@@(SensorEndpoint *)@./test-server/TestServer.h@16@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@provideTcasEndpoint@@(SensorEndpoint *)@
+CCCC_MemExt@TestServer@provideTcasEndpoint@@(SensorEndpoint *)@./test-server/TestServer.cpp@41@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServer@provideTcasEndpoint@@(SensorEndpoint *)@./test-server/TestServer.h@15@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@report@@()@
+CCCC_MemExt@TestServer@report@@()@./test-server/TestServer.h@19@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServer@shutdown@@()@
+CCCC_MemExt@TestServer@shutdown@@()@./test-server/TestServer.cpp@46@definition@F????@LOC:11 COM:0 MVG:4@?@d@
+CCCC_MemExt@TestServer@shutdown@@()@./test-server/TestServer.h@18@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@TestServerPlane@@()@
+CCCC_MemExt@TestServerPlane@TestServerPlane@@()@./test-server/planes/TestServerPlane.cpp@28@definition@F????@LOC:9 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@TestServerPlane@@()@./test-server/planes/TestServerPlane.h@14@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@TestServerPlane@@(const TestServerPlane &)@
+CCCC_MemExt@TestServerPlane@TestServerPlane@@(const TestServerPlane &)@./test-server/planes/TestServerPlane.cpp@123@definition@F????@LOC:13 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@TestServerPlane@@(const TestServerPlane &)@./test-server/planes/TestServerPlane.h@15@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@getADSBEnabled@@()@
+CCCC_MemExt@TestServerPlane@getADSBEnabled@@()@./test-server/planes/TestServerPlane.cpp@95@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getADSBEnabled@@()@./test-server/planes/TestServerPlane.h@43@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getAltitude@@()@
+CCCC_MemExt@TestServerPlane@getAltitude@@()@./test-server/planes/TestServerPlane.cpp@79@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getAltitude@@()@./test-server/planes/TestServerPlane.h@36@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getDownVelocity@@()@
+CCCC_MemExt@TestServerPlane@getDownVelocity@@()@./test-server/planes/TestServerPlane.cpp@91@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getDownVelocity@@()@./test-server/planes/TestServerPlane.h@39@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getEastVelocity@@()@
+CCCC_MemExt@TestServerPlane@getEastVelocity@@()@./test-server/planes/TestServerPlane.cpp@87@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getEastVelocity@@()@./test-server/planes/TestServerPlane.h@38@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getLatLongAlt@@()@
+CCCC_MemExt@TestServerPlane@getLatLongAlt@@()@./test-server/planes/TestServerPlane.cpp@185@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getLatLongAlt@@()@./test-server/planes/TestServerPlane.h@41@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getLatitude@@()@
+CCCC_MemExt@TestServerPlane@getLatitude@@()@./test-server/planes/TestServerPlane.cpp@71@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getLatitude@@()@./test-server/planes/TestServerPlane.h@34@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getLongitude@@()@
+CCCC_MemExt@TestServerPlane@getLongitude@@()@./test-server/planes/TestServerPlane.cpp@75@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getLongitude@@()@./test-server/planes/TestServerPlane.h@35@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getMotion@@()@
+CCCC_MemExt@TestServerPlane@getMotion@@()@./test-server/planes/TestServerPlane.cpp@143@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getMotion@@()@./test-server/planes/TestServerPlane.h@46@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getNorthVelocity@@()@
+CCCC_MemExt@TestServerPlane@getNorthVelocity@@()@./test-server/planes/TestServerPlane.cpp@83@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getNorthVelocity@@()@./test-server/planes/TestServerPlane.h@37@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getRadarEnabled@@()@
+CCCC_MemExt@TestServerPlane@getRadarEnabled@@()@./test-server/planes/TestServerPlane.cpp@102@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getRadarEnabled@@()@./test-server/planes/TestServerPlane.h@42@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getRadarId@@()@
+CCCC_MemExt@TestServerPlane@getRadarId@@()@./test-server/planes/TestServerPlane.cpp@173@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getRadarId@@()@./test-server/planes/TestServerPlane.h@50@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getTailNumber@@()@
+CCCC_MemExt@TestServerPlane@getTailNumber@@()@./test-server/planes/TestServerPlane.cpp@119@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getTailNumber@@()@./test-server/planes/TestServerPlane.h@47@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getTcasEnabled@@()@
+CCCC_MemExt@TestServerPlane@getTcasEnabled@@()@./test-server/planes/TestServerPlane.cpp@99@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getTcasEnabled@@()@./test-server/planes/TestServerPlane.h@44@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getTcasId@@()@
+CCCC_MemExt@TestServerPlane@getTcasId@@()@./test-server/planes/TestServerPlane.cpp@170@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getTcasId@@()@./test-server/planes/TestServerPlane.h@49@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@getTimestamp@@()@
+CCCC_MemExt@TestServerPlane@getTimestamp@@()@./test-server/planes/TestServerPlane.cpp@139@definition@T????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@getTimestamp@@()@./test-server/planes/TestServerPlane.h@45@declaration@T????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@operator =@@(const TestServerPlane &)@
+CCCC_MemExt@TestServerPlane@operator =@@(const TestServerPlane &)@./test-server/planes/TestServerPlane.cpp@152@definition@F????@LOC:15 COM:0 MVG:4@?@d@
+CCCC_MemExt@TestServerPlane@operator =@@(const TestServerPlane &)@./test-server/planes/TestServerPlane.h@16@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@setAdsbEnabled@@(bool)@
+CCCC_MemExt@TestServerPlane@setAdsbEnabled@@(bool)@./test-server/planes/TestServerPlane.cpp@55@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setAdsbEnabled@@(bool)@./test-server/planes/TestServerPlane.h@24@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@setLatLongAlt@@(Vector3d)@
+CCCC_MemExt@TestServerPlane@setLatLongAlt@@(Vector3d)@./test-server/planes/TestServerPlane.cpp@147@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setLatLongAlt@@(Vector3d)@./test-server/planes/TestServerPlane.h@30@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@setMotion@@(const Motion &)@
+CCCC_MemExt@TestServerPlane@setMotion@@(const Motion &)@./test-server/planes/TestServerPlane.cpp@65@definition@F????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@setMotion@@(const Motion &)@./test-server/planes/TestServerPlane.h@27@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@setNorthEastDownVelocity@@(Vector3d)@
+CCCC_MemExt@TestServerPlane@setNorthEastDownVelocity@@(Vector3d)@./test-server/planes/TestServerPlane.cpp@23@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setNorthEastDownVelocity@@(Vector3d)@./test-server/planes/TestServerPlane.h@31@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@setRadarEnabled@@(bool)@
+CCCC_MemExt@TestServerPlane@setRadarEnabled@@(bool)@./test-server/planes/TestServerPlane.cpp@62@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setRadarEnabled@@(bool)@./test-server/planes/TestServerPlane.h@26@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@setRadarId@@(int)@
+CCCC_MemExt@TestServerPlane@setRadarId@@(int)@./test-server/planes/TestServerPlane.cpp@180@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setRadarId@@(int)@./test-server/planes/TestServerPlane.h@52@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@setTailNumber@@(string)@
+CCCC_MemExt@TestServerPlane@setTailNumber@@(string)@./test-server/planes/TestServerPlane.cpp@115@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setTailNumber@@(string)@./test-server/planes/TestServerPlane.h@29@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@setTcasEnabled@@(bool)@
+CCCC_MemExt@TestServerPlane@setTcasEnabled@@(bool)@./test-server/planes/TestServerPlane.cpp@59@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setTcasEnabled@@(bool)@./test-server/planes/TestServerPlane.h@25@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@TestServerPlane@setTcasId@@(int)@
+CCCC_MemExt@TestServerPlane@setTcasId@@(int)@./test-server/planes/TestServerPlane.cpp@177@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@TestServerPlane@setTcasId@@(int)@./test-server/planes/TestServerPlane.h@51@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@TestServerPlane@update@@(float)@
+CCCC_MemExt@TestServerPlane@update@@(float)@./test-server/planes/TestServerPlane.cpp@43@definition@F????@LOC:9 COM:2 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@update@@(float)@./test-server/planes/TestServerPlane.h@22@declaration@F???0@LOC:1 COM:3 MVG:0@0@D@
+CCCC_Member@TestServerPlane@~TestServerPlane@@()@
+CCCC_MemExt@TestServerPlane@~TestServerPlane@@()@./test-server/planes/TestServerPlane.cpp@106@definition@F????@LOC:7 COM:0 MVG:1@?@d@
+CCCC_MemExt@TestServerPlane@~TestServerPlane@@()@./test-server/planes/TestServerPlane.h@17@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@Traffic@Traffic@@(int,int)@
+CCCC_MemExt@Traffic@Traffic@@(int,int)@./cdti/Traffic.cpp@3@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_MemExt@Traffic@Traffic@@(int,int)@./cdti/Traffic.h@8@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@ValidationWriter@writeErrors@@(ostream &,const Validator &)@
+CCCC_MemExt@ValidationWriter@writeErrors@@(ostream &,const Validator &)@./test-server/Validation/ValidationWriter.cpp@8@definition@F????@LOC:19 COM:2 MVG:3@?@d@
+CCCC_MemExt@ValidationWriter@writeErrors@@(ostream &,const Validator &)@./test-server/Validation/ValidationWriter.h@15@declaration@FT???@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Validator@Validator@@(const TestCase,shared_ptr)@
+CCCC_MemExt@Validator@Validator@@(const TestCase,shared_ptr)@./test-server/Validation/Validator.cpp@9@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_MemExt@Validator@Validator@@(const TestCase,shared_ptr)@./test-server/Validation/Validator.h@25@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Validator@ValidatorThreadRoutine@@(Validator *,shared_ptr)@
+CCCC_MemExt@Validator@ValidatorThreadRoutine@@(Validator *,shared_ptr)@./test-server/Validation/Validator.cpp@49@definition@F????@LOC:14 COM:1 MVG:1@?@d@
+CCCC_Member@Validator@addTester@@(shared_ptr)@
+CCCC_MemExt@Validator@addTester@@(shared_ptr)@./test-server/Validation/Validator.cpp@71@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Validator@endSimulation@@()@
+CCCC_MemExt@Validator@endSimulation@@()@./test-server/Validation/Validator.cpp@20@definition@F????@LOC:15 COM:5 MVG:3@?@d@
+CCCC_MemExt@Validator@endSimulation@@()@./test-server/Validation/Validator.h@31@declaration@F????@LOC:1 COM:4 MVG:0@?@D@
+CCCC_Member@Validator@hasErrors@@()@
+CCCC_MemExt@Validator@hasErrors@@()@./test-server/Validation/Validator.cpp@45@definition@T????@LOC:3 COM:0 MVG:2@?@d@
+CCCC_Member@Validator@hasReceivedResults@@()@
+CCCC_MemExt@Validator@hasReceivedResults@@()@./test-server/Validation/Validator.cpp@66@definition@T????@LOC:4 COM:0 MVG:1@?@d@
+CCCC_Member@Validator@~Validator@@()@
+CCCC_MemExt@Validator@~Validator@@()@./test-server/Validation/Validator.cpp@16@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_MemExt@Validator@~Validator@@()@./test-server/Validation/Validator.h@26@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@Vector2d@Dot@@(Vector2d,Vector2d)@
+CCCC_MemExt@Vector2d@Dot@@(Vector2d,Vector2d)@./common/Maths.h@66@definition@FT??0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@Vector2d@Vector2d@@()@
+CCCC_MemExt@Vector2d@Vector2d@@()@./common/Maths.h@46@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Member@Vector2d@Vector2d@@(double,double)@
+CCCC_MemExt@Vector2d@Vector2d@@(double,double)@./common/Maths.h@51@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Member@Vector2d@length@@()@
+CCCC_MemExt@Vector2d@length@@()@./common/Maths.h@61@definition@F???0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@Vector2d@normalized@@()@
+CCCC_MemExt@Vector2d@normalized@@()@./common/Maths.h@56@definition@F???0@LOC:5 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@Vector3d@@(double,double,double)@
+CCCC_MemExt@Vector3d@Vector3d@@(double,double,double)@./common/Maths.h@16@definition@F???0@LOC:4 COM:0 MVG:0@0@d@
+CCCC_Member@Vector3d@altitude@@()@
+CCCC_MemExt@Vector3d@altitude@@()@./common/Maths.h@29@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@distance@@(const Vector3d &)@
+CCCC_MemExt@Vector3d@distance@@(const Vector3d &)@./common/Maths.h@34@definition@F???0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@down@@()@
+CCCC_MemExt@Vector3d@down@@()@./common/Maths.h@26@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@east@@()@
+CCCC_MemExt@Vector3d@east@@()@./common/Maths.h@25@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@latitude@@()@
+CCCC_MemExt@Vector3d@latitude@@()@./common/Maths.h@27@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@longitude@@()@
+CCCC_MemExt@Vector3d@longitude@@()@./common/Maths.h@28@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@north@@()@
+CCCC_MemExt@Vector3d@north@@()@./common/Maths.h@24@definition@F???0@LOC:1 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@operator *@@(float)@
+CCCC_MemExt@Vector3d@operator *@@(float)@./common/Maths.h@20@definition@F???0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@Vector3d@operator -@@(const Vector3d &)@
+CCCC_MemExt@Vector3d@operator -@@(const Vector3d &)@./common/Maths.h@30@definition@F???0@LOC:4 COM:0 MVG:1@0@d@
+CCCC_Member@Vector@clear_has_x@@()@
+CCCC_MemExt@Vector@clear_has_x@@()@./common/protobuf/cdti.pb.h@545@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@clear_has_y@@()@
+CCCC_MemExt@Vector@clear_has_y@@()@./common/protobuf/cdti.pb.h@569@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@clear_has_z@@()@
+CCCC_MemExt@Vector@clear_has_z@@()@./common/protobuf/cdti.pb.h@593@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@clear_x@@()@
+CCCC_MemExt@Vector@clear_x@@()@./common/protobuf/cdti.pb.h@548@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@clear_y@@()@
+CCCC_MemExt@Vector@clear_y@@()@./common/protobuf/cdti.pb.h@572@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@clear_z@@()@
+CCCC_MemExt@Vector@clear_z@@()@./common/protobuf/cdti.pb.h@596@definition@F????@LOC:4 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@has_x@@()@
+CCCC_MemExt@Vector@has_x@@()@./common/protobuf/cdti.pb.h@539@definition@T????@LOC:3 COM:4 MVG:1@?@d@
+CCCC_Member@Vector@has_y@@()@
+CCCC_MemExt@Vector@has_y@@()@./common/protobuf/cdti.pb.h@563@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Vector@has_z@@()@
+CCCC_MemExt@Vector@has_z@@()@./common/protobuf/cdti.pb.h@587@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Vector@set_has_x@@()@
+CCCC_MemExt@Vector@set_has_x@@()@./common/protobuf/cdti.pb.h@542@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@set_has_y@@()@
+CCCC_MemExt@Vector@set_has_y@@()@./common/protobuf/cdti.pb.h@566@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@set_has_z@@()@
+CCCC_MemExt@Vector@set_has_z@@()@./common/protobuf/cdti.pb.h@590@definition@F????@LOC:3 COM:0 MVG:0@?@d@
+CCCC_Member@Vector@set_x@@(float)@
+CCCC_MemExt@Vector@set_x@@(float)@./common/protobuf/cdti.pb.h@556@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Vector@set_y@@(float)@
+CCCC_MemExt@Vector@set_y@@(float)@./common/protobuf/cdti.pb.h@580@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Vector@set_z@@(float)@
+CCCC_MemExt@Vector@set_z@@(float)@./common/protobuf/cdti.pb.h@604@definition@F????@LOC:4 COM:1 MVG:0@?@d@
+CCCC_Member@Vector@x@@()@
+CCCC_MemExt@Vector@x@@()@./common/protobuf/cdti.pb.h@552@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Vector@y@@()@
+CCCC_MemExt@Vector@y@@()@./common/protobuf/cdti.pb.h@576@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@Vector@z@@()@
+CCCC_MemExt@Vector@z@@()@./common/protobuf/cdti.pb.h@600@definition@T????@LOC:3 COM:1 MVG:1@?@d@
+CCCC_Member@VerificationTest@VerificationTest@@(shared_ptr)@
+CCCC_MemExt@VerificationTest@VerificationTest@@(shared_ptr)@./test-server/Validation/VerificationTest.h@15@definition@F????@LOC:1 COM:0 MVG:0@?@d@
+CCCC_Member@VerificationTest@getError@@()@
+CCCC_MemExt@VerificationTest@getError@@()@./test-server/Validation/VerificationTest.h@18@definition@F??T?@LOC:2 COM:0 MVG:1@?@d@
+CCCC_Member@VerificationTest@verify@@(TestCaseResult &)@
+CCCC_MemExt@VerificationTest@verify@@(TestCaseResult &)@./test-server/Validation/VerificationTest.h@16@declaration@F??T?@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@CDTIPlane_Severity_IsValid@@(int)@
+CCCC_MemExt@anonymous@CDTIPlane_Severity_IsValid@@(int)@./common/protobuf/cdti.pb.h@47@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@anonymous@CDTIPlane_Severity_Parse@@(...)@
+CCCC_MemExt@anonymous@CDTIPlane_Severity_Parse@@(...)@./common/protobuf/cdti.pb.h@57@definition@F???2@LOC:5 COM:0 MVG:1@2@d@
+CCCC_Member@anonymous@CDTIReport_Severity_IsValid@@(int)@
+CCCC_MemExt@anonymous@CDTIReport_Severity_IsValid@@(int)@./common/protobuf/cdti.pb.h@67@declaration@F???2@LOC:1 COM:0 MVG:0@2@D@
+CCCC_Member@anonymous@CDTIReport_Severity_Parse@@(...)@
+CCCC_MemExt@anonymous@CDTIReport_Severity_Parse@@(...)@./common/protobuf/cdti.pb.h@77@definition@F???2@LOC:5 COM:0 MVG:1@2@d@
+CCCC_Member@anonymous@SocketSetup@@(ClientSocket &,ClientSocket &,ClientSocket &,ClientSocket &)@
+CCCC_MemExt@anonymous@SocketSetup@@(ClientSocket &,ClientSocket &,ClientSocket &,ClientSocket &)@./saa-application/SaaApplication.cpp@35@definition@F????@LOC:15 COM:3 MVG:0@?@d@
+CCCC_Member@anonymous@acceptNetworkConnection@@(Sensor *,SensorEndpoint *)@
+CCCC_MemExt@anonymous@acceptNetworkConnection@@(Sensor *,SensorEndpoint *)@./test-server/TestEnvironment.cpp@19@definition@F????@LOC:11 COM:0 MVG:0@?@d@
+CCCC_Member@anonymous@acceptNetworkConnection@@(ServerSocket *,ServerSocket *)@
+CCCC_MemExt@anonymous@acceptNetworkConnection@@(ServerSocket *,ServerSocket *)@./saa-application/SaaApplication.cpp@26@definition@F????@LOC:5 COM:0 MVG:0@?@d@
+CCCC_Member@anonymous@addToLatitudeLongitude@@(Vector3d,Vector3d)@
+CCCC_MemExt@anonymous@addToLatitudeLongitude@@(Vector3d,Vector3d)@./test-server/planes/TestServerPlane.cpp@8@definition@F????@LOC:13 COM:10 MVG:1@?@d@
+CCCC_Member@anonymous@adsbToRelative@@(AdsBReport,OwnshipReport)@
+CCCC_MemExt@anonymous@adsbToRelative@@(AdsBReport,OwnshipReport)@./saa-application/SaaApplication.cpp@74@definition@F????@LOC:14 COM:4 MVG:3@?@d@
+CCCC_Member@anonymous@bearingToRadians@@(float)@
+CCCC_MemExt@anonymous@bearingToRadians@@(float)@./common/Maths.cpp@29@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@anonymous@bearingToRadians@@(float)@./common/Maths.h@78@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@anonymous@calcDistance@@(float,float,float,float)@
+CCCC_MemExt@anonymous@calcDistance@@(float,float,float,float)@./common/Maths.cpp@14@definition@F????@LOC:10 COM:3 MVG:1@?@d@
+CCCC_MemExt@anonymous@calcDistance@@(float,float,float,float)@./common/Maths.h@75@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@anonymous@calculateCPA@@(CorrelatedData)@
+CCCC_MemExt@anonymous@calculateCPA@@(CorrelatedData)@./saa-application/Decision.cpp@74@definition@F????@LOC:2 COM:0 MVG:0@?@d@
+CCCC_Member@anonymous@equalsThreshold@@(float,float,float)@
+CCCC_MemExt@anonymous@equalsThreshold@@(float,float,float)@./test-server/Validation/PositionVerificationTest.cpp@14@definition@F????@LOC:4 COM:4 MVG:1@?@d@
+CCCC_Member@anonymous@fpsToNmph@@(float)@
+CCCC_MemExt@anonymous@fpsToNmph@@(float)@./common/Maths.cpp@25@definition@F????@LOC:3 COM:0 MVG:1@?@d@
+CCCC_MemExt@anonymous@fpsToNmph@@(float)@./common/Maths.h@77@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@anonymous@getDifference@@(Vector3d,Vector3d)@
+CCCC_MemExt@anonymous@getDifference@@(Vector3d,Vector3d)@./common/Maths.cpp@41@definition@F????@LOC:9 COM:0 MVG:3@?@d@
+CCCC_MemExt@anonymous@getDifference@@(Vector3d,Vector3d)@./common/Maths.h@74@declaration@FT??0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@anonymous@makeOwnship@@()@
+CCCC_MemExt@anonymous@makeOwnship@@()@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@9@definition@F????@LOC:12 COM:2 MVG:1@?@d@
+CCCC_Member@anonymous@makePlane@@(CDTIPlane *,string,Vector *,CDTIPlane_Severity)@
+CCCC_MemExt@anonymous@makePlane@@(CDTIPlane *,string,Vector *,CDTIPlane_Severity)@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@26@definition@F????@LOC:12 COM:0 MVG:1@?@d@
+CCCC_Member@anonymous@operator <<@@(ostream &,CDTIPlane)@
+CCCC_MemExt@anonymous@operator <<@@(ostream &,CDTIPlane)@./cdti/AlertMessages.cpp@11@definition@F????@LOC:8 COM:0 MVG:1@?@d@
+CCCC_Member@anonymous@operator <<@@(ostream &,CDTIReport)@
+CCCC_MemExt@anonymous@operator <<@@(ostream &,CDTIReport)@./cdti/AlertMessages.cpp@20@definition@F????@LOC:12 COM:0 MVG:4@?@d@
+CCCC_Member@anonymous@operator <<@@(ostream &,Vector)@
+CCCC_MemExt@anonymous@operator <<@@(ostream &,Vector)@./cdti/AlertMessages.cpp@5@definition@F????@LOC:5 COM:0 MVG:1@?@d@
+CCCC_Member@anonymous@operator ==@@(Vector3d,Vector3d)@
+CCCC_MemExt@anonymous@operator ==@@(Vector3d,Vector3d)@./common/Maths.h@42@declaration@F???0@LOC:1 COM:0 MVG:0@0@D@
+CCCC_Member@anonymous@operator ==@@(const Vector3d &,const Vector3d &)@
+CCCC_MemExt@anonymous@operator ==@@(const Vector3d &,const Vector3d &)@./common/Maths.cpp@34@definition@F????@LOC:6 COM:0 MVG:3@?@d@
+CCCC_Member@anonymous@ownshipPlane@@(...)@
+CCCC_MemExt@anonymous@ownshipPlane@@(...)@./saa-application/SaaApplication.cpp@24@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@processAdsb@@(ClientSocket &,OwnshipReport &,bool &)@
+CCCC_MemExt@anonymous@processAdsb@@(ClientSocket &,OwnshipReport &,bool &)@./saa-application/SaaApplication.cpp@164@definition@F????@LOC:13 COM:4 MVG:1@?@d@
+CCCC_Member@anonymous@processOwnship@@(ClientSocket &,OwnshipReport &,bool &)@
+CCCC_MemExt@anonymous@processOwnship@@(ClientSocket &,OwnshipReport &,bool &)@./saa-application/SaaApplication.cpp@148@definition@F????@LOC:10 COM:5 MVG:1@?@d@
+CCCC_Member@anonymous@processRadar@@(ClientSocket &,OwnshipReport &,bool &)@
+CCCC_MemExt@anonymous@processRadar@@(ClientSocket &,OwnshipReport &,bool &)@./saa-application/SaaApplication.cpp@200@definition@F????@LOC:13 COM:4 MVG:1@?@d@
+CCCC_Member@anonymous@processTcas@@(ClientSocket &,OwnshipReport &,bool &)@
+CCCC_MemExt@anonymous@processTcas@@(ClientSocket &,OwnshipReport &,bool &)@./saa-application/SaaApplication.cpp@182@definition@F????@LOC:13 COM:4 MVG:1@?@d@
+CCCC_Member@anonymous@protobuf_AddDesc_Message_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_Message_2eproto@@()@./common/sockets/Message.pb.h@35@declaration@F????@LOC:1 COM:1 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AddDesc_adsb_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_adsb_2eproto@@()@./common/protobuf/adsb.pb.h@33@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AddDesc_cdti_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_cdti_2eproto@@()@./common/protobuf/cdti.pb.h@34@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AddDesc_ownship_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_ownship_2eproto@@()@./common/protobuf/ownship.pb.h@33@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AddDesc_radar_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_radar_2eproto@@()@./common/protobuf/radar.pb.h@33@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AddDesc_tcas_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AddDesc_tcas_2eproto@@()@./common/protobuf/tcas.pb.h@33@declaration@F????@LOC:1 COM:3 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_Message_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_Message_2eproto@@()@./common/sockets/Message.pb.h@36@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_adsb_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_adsb_2eproto@@()@./common/protobuf/adsb.pb.h@34@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_cdti_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_cdti_2eproto@@()@./common/protobuf/cdti.pb.h@35@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_ownship_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_ownship_2eproto@@()@./common/protobuf/ownship.pb.h@34@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_radar_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_radar_2eproto@@()@./common/protobuf/radar.pb.h@34@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_AssignDesc_tcas_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_AssignDesc_tcas_2eproto@@()@./common/protobuf/tcas.pb.h@34@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_Message_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_Message_2eproto@@()@./common/sockets/Message.pb.h@37@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_adsb_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_adsb_2eproto@@()@./common/protobuf/adsb.pb.h@35@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_cdti_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_cdti_2eproto@@()@./common/protobuf/cdti.pb.h@36@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_ownship_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_ownship_2eproto@@()@./common/protobuf/ownship.pb.h@35@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_radar_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_radar_2eproto@@()@./common/protobuf/radar.pb.h@35@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@protobuf_ShutdownFile_tcas_2eproto@@()@
+CCCC_MemExt@anonymous@protobuf_ShutdownFile_tcas_2eproto@@()@./common/protobuf/tcas.pb.h@35@declaration@F????@LOC:1 COM:0 MVG:0@?@D@
+CCCC_Member@anonymous@radarToRelative@@(RadarReport,OwnshipReport)@
+CCCC_MemExt@anonymous@radarToRelative@@(RadarReport,OwnshipReport)@./saa-application/SaaApplication.cpp@112@definition@F????@LOC:14 COM:4 MVG:1@?@d@
+CCCC_Member@anonymous@tcasToRelative@@(TcasReport,OwnshipReport)@
+CCCC_MemExt@anonymous@tcasToRelative@@(TcasReport,OwnshipReport)@./saa-application/SaaApplication.cpp@93@definition@F????@LOC:13 COM:5 MVG:1@?@d@
+CCCC_Member@anonymous@toRadians@@(float)@
+CCCC_MemExt@anonymous@toRadians@@(float)@./common/Maths.cpp@7@definition@F????@LOC:3 COM:2 MVG:1@?@d@
+CCCC_UseRel@size_t@AdsBReport@
+CCCC_UseExt@size_t@AdsBReport@./common/protobuf/adsb.pb.h@348@pass by value@F????@*@?@P@
+CCCC_UseRel@AdsBReport@AdsBService@
+CCCC_UseExt@AdsBReport@AdsBService@./saa-application/ConnectionServices/AdsBService.h@11@pass by value@F??T2@*@2@P@
+CCCC_UseRel@SensorEndpoint@AdsbSensor@
+CCCC_UseExt@SensorEndpoint@AdsbSensor@./test-server/endpoints/AdsbSensor.cpp@10@pass by reference@?????@*@?@p@
+CCCC_UseExt@SensorEndpoint@AdsbSensor@./test-server/endpoints/AdsbSensor.h@12@pass by reference@F???0@*@0@p@
+CCCC_UseRel@TestServerPlane@AdsbSensor@
+CCCC_UseExt@TestServerPlane@AdsbSensor@./test-server/endpoints/AdsbSensor.cpp@20@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@AdsbSensor@./test-server/endpoints/AdsbSensor.cpp@20@pass by reference@F????@*@?@p@
+CCCC_UseRel@CDTIEndpoint@AlertMessages@
+CCCC_UseExt@CDTIEndpoint@AlertMessages@./cdti/AlertMessages.cpp@34@pass by reference@F????@*@?@p@
+CCCC_UseExt@CDTIEndpoint@AlertMessages@./cdti/AlertMessages.h@12@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@CDTIEndpoint@AlertMessages@./cdti/AlertMessages.h@15@pass by reference@F???0@*@0@p@
+CCCC_UseRel@CDTIReport@AlertMessages@
+CCCC_UseExt@CDTIReport@AlertMessages@./cdti/AlertMessages.h@13@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@CDTIReport@CDTIGUIDisplay@
+CCCC_UseExt@CDTIReport@CDTIGUIDisplay@./cdti/CDTIGUIDisplay.cpp@96@pass by reference@F????@*@?@p@
+CCCC_UseRel@Display@CDTIGUIDisplay@
+CCCC_UseExt@Display@CDTIGUIDisplay@./cdti/CDTIGUIDisplay.h@11@inheritance@????0@*@0@I@
+CCCC_UseRel@QMainWindow@CDTIGUIDisplay@
+CCCC_UseExt@QMainWindow@CDTIGUIDisplay@./cdti/CDTIGUIDisplay.h@11@inheritance@????2@*@2@I@
+CCCC_UseRel@QPaintEvent@CDTIGUIDisplay@
+CCCC_UseExt@QPaintEvent@CDTIGUIDisplay@./cdti/CDTIGUIDisplay.cpp@37@pass by reference@F????@*@?@p@
+CCCC_UseRel@CDTIEndpoint@CDTIMockEndpoint@
+CCCC_UseExt@CDTIEndpoint@CDTIMockEndpoint@./cdti/endpoints/mocks/CDTIMockEndpoint.h@9@inheritance@????0@*@0@I@
+CCCC_UseRel@CDTIReport@CDTIMockEndpoint@
+CCCC_UseExt@CDTIReport@CDTIMockEndpoint@./cdti/endpoints/mocks/CDTIMockEndpoint.h@12@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@size_t@CDTIPlane@
+CCCC_UseExt@size_t@CDTIPlane@./common/protobuf/cdti.pb.h@642@pass by value@F????@*@?@P@
+CCCC_UseRel@CDTIEndpoint@CDTISocketEndpoint@
+CCCC_UseExt@CDTIEndpoint@CDTISocketEndpoint@./cdti/endpoints/CDTISocketEndpoint.h@10@inheritance@????0@*@0@I@
+CCCC_UseRel@ClientSocket@CDTISocketEndpoint@
+CCCC_UseExt@ClientSocket@CDTISocketEndpoint@./cdti/endpoints/CDTISocketEndpoint.h@13@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@string@CDTISocketEndpoint@
+CCCC_UseExt@string@CDTISocketEndpoint@./cdti/endpoints/CDTISocketEndpoint.cpp@7@pass by value@?????@*@?@P@
+CCCC_UseExt@string@CDTISocketEndpoint@./cdti/endpoints/CDTISocketEndpoint.h@15@pass by value@F????@*@?@P@
+CCCC_UseRel@DisplayController@Cdti@
+CCCC_UseExt@DisplayController@Cdti@./cdti/CDTI.h@13@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@Socket@ClientSocket@
+CCCC_UseExt@Socket@ClientSocket@./common/sockets/ClientSocket.h@16@inheritance@????2@*@2@I@
+CCCC_UseRel@sockaddr_in@ClientSocket@
+CCCC_UseExt@sockaddr_in@ClientSocket@./common/sockets/ClientSocket.cpp@25@pass by value@F????@*@?@P@
+CCCC_UseExt@sockaddr_in@ClientSocket@./common/sockets/ClientSocket.h@26@pass by value@F????@*@?@P@
+CCCC_UseExt@sockaddr_in@ClientSocket@./common/sockets/ClientSocket.h@37@pass by value@F??T?@*@?@P@
+CCCC_UseRel@string@ClientSocket@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.cpp@15@pass by value@?????@*@?@P@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.cpp@44@pass by reference@F????@*@?@p@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.cpp@52@pass by reference@T????@*@?@p@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.h@24@pass by value@F????@*@?@P@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.h@36@pass by value@F??T?@*@?@P@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.h@46@pass by reference@F??T?@*@?@p@
+CCCC_UseExt@string@ClientSocket@./common/sockets/ClientSocket.h@52@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@TestCaseError@CorrectSensorError@
+CCCC_UseExt@TestCaseError@CorrectSensorError@./test-server/Validation/errors/CorrectSensorError.h@11@inheritance@????0@*@0@I@
+CCCC_UseRel@TestCaseResult@CorrectSensorVerificationTest@
+CCCC_UseExt@TestCaseResult@CorrectSensorVerificationTest@./test-server/Validation/CorrectSensorVerificationTest.cpp@7@pass by reference@?????@*@?@p@
+CCCC_UseExt@TestCaseResult@CorrectSensorVerificationTest@./test-server/Validation/CorrectSensorVerificationTest.h@16@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@VerificationTest@CorrectSensorVerificationTest@
+CCCC_UseExt@VerificationTest@CorrectSensorVerificationTest@./test-server/Validation/CorrectSensorVerificationTest.h@11@inheritance@????0@*@0@I@
+CCCC_UseRel@shared_ptr@CorrectSensorVerificationTest@
+CCCC_UseExt@shared_ptr@CorrectSensorVerificationTest@./test-server/Validation/CorrectSensorVerificationTest.h@14@pass by reference@F????@*@?@p@
+CCCC_UseRel@Vector@CorrelatedData@
+CCCC_UseExt@Vector@CorrelatedData@./saa-application/CorrelatedData.h@91@has by reference@F????@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseExt@Vector@CorrelatedData@./saa-application/CorrelatedData.h@92@has by reference@F????@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseRel@string@CorrelatedData@
+CCCC_UseExt@string@CorrelatedData@./saa-application/CorrelatedData.h@90@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@vector@CorrelatedData@
+CCCC_UseExt@vector@CorrelatedData@./saa-application/CorrelatedData.h@88@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseExt@vector@CorrelatedData@./saa-application/CorrelatedData.h@89@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@vector@Correlation@
+CCCC_UseExt@vector@Correlation@./saa-application/Correlation.cpp@18@pass by value@F????@*@?@P@
+CCCC_UseExt@vector@Correlation@./saa-application/Correlation.h@16@pass by value@F??T?@*@?@P@
+CCCC_UseRel@CDTIPlane@Decision@
+CCCC_UseExt@CDTIPlane@Decision@./saa-application/Decision.cpp@50@pass by reference@F????@*@?@p@
+CCCC_UseExt@CDTIPlane@Decision@./saa-application/Decision.h@15@pass by reference@F????@*@?@p@
+CCCC_UseRel@SensorData@Decision@
+CCCC_UseExt@SensorData@Decision@./saa-application/Decision.cpp@12@pass by reference@?????@*@?@p@
+CCCC_UseExt@SensorData@Decision@./saa-application/Decision.h@14@pass by reference@F????@*@?@p@
+CCCC_UseRel@Severity@Decision@
+CCCC_UseExt@Severity@Decision@./saa-application/Decision.cpp@12@pass by reference@?????@*@?@p@
+CCCC_UseExt@Severity@Decision@./saa-application/Decision.cpp@50@pass by reference@F????@*@?@p@
+CCCC_UseExt@Severity@Decision@./saa-application/Decision.h@14@pass by reference@F????@*@?@p@
+CCCC_UseExt@Severity@Decision@./saa-application/Decision.h@15@pass by reference@F????@*@?@p@
+CCCC_UseRel@vector@Decision@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.cpp@11@pass by reference@?????@*@?@p@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.cpp@11@pass by reference@?????@*@?@p@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.cpp@50@pass by reference@F????@*@?@p@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.h@13@pass by reference@F????@*@?@p@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.h@13@pass by reference@F????@*@?@p@
+CCCC_UseExt@vector@Decision@./saa-application/Decision.h@15@pass by reference@F????@*@?@p@
+CCCC_UseRel@CDTIReport@Display@
+CCCC_UseExt@CDTIReport@Display@./cdti/Display.h@13@pass by reference@F??T0@*@0@p@
+CCCC_UseRel@AlertMessages@DisplayController@
+CCCC_UseExt@AlertMessages@DisplayController@./cdti/DisplayController.h@16@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseRel@CDTIEndpoint@DisplayController@
+CCCC_UseExt@CDTIEndpoint@DisplayController@./cdti/DisplayController.h@15@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseRel@Display@DisplayController@
+CCCC_UseExt@Display@DisplayController@./cdti/DisplayController.cpp@13@pass by reference@F????@*@?@p@
+CCCC_UseExt@Display@DisplayController@./cdti/DisplayController.h@14@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@Display@DisplayController@./cdti/DisplayController.h@24@pass by reference@F???0@*@0@p@
+CCCC_UseRel@thread@DisplayController@
+CCCC_UseExt@thread@DisplayController@./cdti/DisplayController.h@17@has by reference@?????@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseRel@Motion@LinearMotion@
+CCCC_UseExt@Motion@LinearMotion@./test-server/planes/LinearMotion.h@11@inheritance@????0@*@0@I@
+CCCC_UseRel@SensorEndpoint@MockSensorEndpoint@
+CCCC_UseExt@SensorEndpoint@MockSensorEndpoint@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@18@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@MockSensorEndpoint@./test-server/endpoints/mocks/MockSensorEndpoint.h@10@inheritance@????0@*@0@I@
+CCCC_UseExt@SensorEndpoint@MockSensorEndpoint@./test-server/endpoints/mocks/MockSensorEndpoint.h@15@pass by reference@F??T0@*@0@p@
+CCCC_UseRel@ClientSocket@MockServerSocket@
+CCCC_UseExt@ClientSocket@MockServerSocket@./common/sockets/mocks/MockServerSocket.h@70@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@ServerSocket@MockServerSocket@
+CCCC_UseExt@ServerSocket@MockServerSocket@./common/sockets/mocks/MockServerSocket.h@11@inheritance@????0@*@0@I@
+CCCC_UseExt@ServerSocket@MockServerSocket@./common/sockets/mocks/MockServerSocket.h@59@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@string@MockServerSocket@
+CCCC_UseExt@string@MockServerSocket@./common/sockets/mocks/MockServerSocket.h@24@pass by reference@F??T?@*@?@p@
+CCCC_UseExt@string@MockServerSocket@./common/sockets/mocks/MockServerSocket.h@33@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@size_t@Msg@
+CCCC_UseExt@size_t@Msg@./common/sockets/Message.pb.h@184@pass by value@F????@*@?@P@
+CCCC_UseRel@TestCaseError@NumPlanesTestCaseError@
+CCCC_UseExt@TestCaseError@NumPlanesTestCaseError@./test-server/Validation/errors/NumPlanesTestCaseError.h@10@inheritance@????0@*@0@I@
+CCCC_UseRel@TestCaseResult@NumPlanesVerificationTest@
+CCCC_UseExt@TestCaseResult@NumPlanesVerificationTest@./test-server/Validation/NumPlanesVerificationTest.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@TestCaseResult@NumPlanesVerificationTest@./test-server/Validation/NumPlanesVerificationTest.h@17@pass by reference@F????@*@?@p@
+CCCC_UseRel@VerificationTest@NumPlanesVerificationTest@
+CCCC_UseExt@VerificationTest@NumPlanesVerificationTest@./test-server/Validation/NumPlanesVerificationTest.h@10@inheritance@????0@*@0@I@
+CCCC_UseRel@shared_ptr@NumPlanesVerificationTest@
+CCCC_UseExt@shared_ptr@NumPlanesVerificationTest@./test-server/Validation/NumPlanesVerificationTest.h@14@pass by reference@F????@*@?@p@
+CCCC_UseRel@PlaneImage@Ownship@
+CCCC_UseExt@PlaneImage@Ownship@./cdti/Ownship.h@7@inheritance@????0@*@0@I@
+CCCC_UseRel@SensorEndpoint@OwnshipSensor@
+CCCC_UseExt@SensorEndpoint@OwnshipSensor@./test-server/endpoints/OwnshipSensor.cpp@7@pass by reference@?????@*@?@p@
+CCCC_UseExt@SensorEndpoint@OwnshipSensor@./test-server/endpoints/OwnshipSensor.h@11@pass by reference@F???0@*@0@p@
+CCCC_UseRel@TestServerPlane@OwnshipSensor@
+CCCC_UseExt@TestServerPlane@OwnshipSensor@./test-server/endpoints/OwnshipSensor.cpp@24@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@OwnshipSensor@./test-server/endpoints/OwnshipSensor.cpp@24@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@OwnshipSensor@./test-server/endpoints/OwnshipSensor.h@12@pass by reference@F??T0@*@0@p@
+CCCC_UseExt@TestServerPlane@OwnshipSensor@./test-server/endpoints/OwnshipSensor.h@12@pass by reference@F??T0@*@0@p@
+CCCC_UseRel@TestCaseError@PlaneCorrelationError@
+CCCC_UseExt@TestCaseError@PlaneCorrelationError@./test-server/Validation/errors/PlaneCorrelationError.h@9@inheritance@????0@*@0@I@
+CCCC_UseRel@QBrush@PlaneImage@
+CCCC_UseExt@QBrush@PlaneImage@./cdti/PlaneImage.h@16@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@QImage@PlaneImage@
+CCCC_UseExt@QImage@PlaneImage@./cdti/PlaneImage.h@14@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@QPaintDevice@PlaneImage@
+CCCC_UseExt@QPaintDevice@PlaneImage@./cdti/PlaneImage.cpp@33@pass by reference@F????@*@?@p@
+CCCC_UseExt@QPaintDevice@PlaneImage@./cdti/PlaneImage.h@20@pass by reference@F????@*@?@p@
+CCCC_UseRel@QPainter@PlaneImage@
+CCCC_UseExt@QPainter@PlaneImage@./cdti/PlaneImage.h@15@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@QPen@PlaneImage@
+CCCC_UseExt@QPen@PlaneImage@./cdti/PlaneImage.h@17@has by value@????2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@string@PlaneImage@
+CCCC_UseExt@string@PlaneImage@./cdti/PlaneImage.cpp@9@pass by value@?????@*@?@P@
+CCCC_UseExt@string@PlaneImage@./cdti/PlaneImage.h@19@pass by value@F????@*@?@P@
+CCCC_UseRel@TestCaseError@PositionTestCaseError@
+CCCC_UseExt@TestCaseError@PositionTestCaseError@./test-server/Validation/errors/PositionTestCaseError.h@10@inheritance@????0@*@0@I@
+CCCC_UseRel@TestCaseResult@PositionVerificationTest@
+CCCC_UseExt@TestCaseResult@PositionVerificationTest@./test-server/Validation/PositionVerificationTest.cpp@19@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestCaseResult@PositionVerificationTest@./test-server/Validation/PositionVerificationTest.h@17@pass by reference@F????@*@?@p@
+CCCC_UseRel@VerificationTest@PositionVerificationTest@
+CCCC_UseExt@VerificationTest@PositionVerificationTest@./test-server/Validation/PositionVerificationTest.h@10@inheritance@????0@*@0@I@
+CCCC_UseRel@shared_ptr@PositionVerificationTest@
+CCCC_UseExt@shared_ptr@PositionVerificationTest@./test-server/Validation/PositionVerificationTest.h@14@pass by reference@F????@*@?@p@
+CCCC_UseRel@PlaneImage@Proximate@
+CCCC_UseExt@PlaneImage@Proximate@./cdti/Proximate.h@6@inheritance@????0@*@0@I@
+CCCC_UseRel@RadarSensorTest@RadarSensor@
+CCCC_UseExt@RadarSensorTest@RadarSensor@./test-server/endpoints/RadarSensor.h@27@pass by value@FT?T2@*@2@P@
+CCCC_UseExt@RadarSensorTest@RadarSensor@./test-server/endpoints/RadarSensor.h@28@pass by value@FT?T2@*@2@P@
+CCCC_UseExt@RadarSensorTest@RadarSensor@./test-server/endpoints/RadarSensor.h@29@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@SensorEndpoint@RadarSensor@
+CCCC_UseExt@SensorEndpoint@RadarSensor@./test-server/endpoints/RadarSensor.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@SensorEndpoint@RadarSensor@./test-server/endpoints/RadarSensor.h@21@pass by reference@F???0@*@0@p@
+CCCC_UseRel@TestServerPlane@RadarSensor@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.cpp@16@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.cpp@16@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.cpp@63@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.cpp@63@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.h@22@pass by reference@F??T0@*@0@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.h@22@pass by reference@F??T0@*@0@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.h@25@pass by reference@FT?T2@*@2@p@
+CCCC_UseExt@TestServerPlane@RadarSensor@./test-server/endpoints/RadarSensor.h@25@pass by reference@FT?T2@*@2@p@
+CCCC_UseRel@testBasicReport@RadarSensor@
+CCCC_UseExt@testBasicReport@RadarSensor@./test-server/endpoints/RadarSensor.h@27@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@testElevation@RadarSensor@
+CCCC_UseExt@testElevation@RadarSensor@./test-server/endpoints/RadarSensor.h@29@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@testVelocity@RadarSensor@
+CCCC_UseExt@testVelocity@RadarSensor@./test-server/endpoints/RadarSensor.h@28@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@default_random_engine@Randomizer@
+CCCC_UseExt@default_random_engine@Randomizer@./common/Randomizer.h@16@has by value@?????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@function@Randomizer@
+CCCC_UseExt@function@Randomizer@./common/Randomizer.h@18@has by value@?????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@uniform_real_distribution@Randomizer@
+CCCC_UseExt@uniform_real_distribution@Randomizer@./common/Randomizer.h@17@has by value@?????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@PlaneImage@Resolution@
+CCCC_UseExt@PlaneImage@Resolution@./cdti/Resolution.h@6@inheritance@????0@*@0@I@
+CCCC_UseRel@CDTIPlane@ResultPlane@
+CCCC_UseExt@CDTIPlane@ResultPlane@./test-server/Validation/TestCaseResult.cpp@27@pass by reference@T????@*@?@p@
+CCCC_UseExt@CDTIPlane@ResultPlane@./test-server/Validation/TestCaseResult.h@27@pass by reference@FT??0@*@0@p@
+CCCC_UseRel@string@ResultPlane@
+CCCC_UseExt@string@ResultPlane@./test-server/Validation/TestCaseResult.h@51@has by value@TT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@ClientSocket@SaaApplication@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.cpp@220@pass by value@F????@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.cpp@220@pass by value@F????@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.cpp@220@pass by value@F????@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.cpp@220@pass by value@F????@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.h@24@pass by value@FT???@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.h@24@pass by value@FT???@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.h@24@pass by value@FT???@*@?@P@
+CCCC_UseExt@ClientSocket@SaaApplication@./saa-application/SaaApplication.h@24@pass by value@FT???@*@?@P@
+CCCC_UseRel@ServerSocket@SaaApplication@
+CCCC_UseExt@ServerSocket@SaaApplication@./saa-application/SaaApplication.h@23@has by reference@FT???@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseExt@ServerSocket@SaaApplication@./saa-application/SaaApplication.h@25@has by value@FT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseExt@ServerSocket@SaaApplication@./saa-application/SaaApplication.h@26@has by value@FT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@vector@SaaApplication@
+CCCC_UseExt@vector@SaaApplication@./saa-application/SaaApplication.h@22@has by value@FT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@Randomizer@SensorData@
+CCCC_UseExt@Randomizer@SensorData@./saa-application/SensorData.h@27@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@Randomizer@SensorData@./saa-application/SensorData.h@28@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@Randomizer@SensorData@./saa-application/SensorData.h@29@has by reference@????2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseRel@Vector@SensorData@
+CCCC_UseExt@Vector@SensorData@./saa-application/SensorData.h@86@has by reference@F????@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseExt@Vector@SensorData@./saa-application/SensorData.h@87@has by reference@F????@LOC:0 COM:0 MVG:0@?@h@
+CCCC_UseRel@string@SensorData@
+CCCC_UseExt@string@SensorData@./saa-application/SensorData.h@31@pass by value@F????@*@?@P@
+CCCC_UseExt@string@SensorData@./saa-application/SensorData.h@85@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@ServerSocket@SensorEndpoint@
+CCCC_UseExt@ServerSocket@SensorEndpoint@./test-server/endpoints/SensorEndpoint.h@21@has by reference@F??T0@LOC:0 COM:0 MVG:0@0@h@
+CCCC_UseRel@ClientSocket@ServerSocket@
+CCCC_UseExt@ClientSocket@ServerSocket@./common/sockets/ServerSocket.h@67@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@Socket@ServerSocket@
+CCCC_UseExt@Socket@ServerSocket@./common/sockets/ServerSocket.h@18@inheritance@????2@*@2@I@
+CCCC_UseRel@string@ServerSocket@
+CCCC_UseExt@string@ServerSocket@./common/sockets/ServerSocket.cpp@42@pass by reference@F????@*@?@p@
+CCCC_UseExt@string@ServerSocket@./common/sockets/ServerSocket.cpp@51@pass by reference@T????@*@?@p@
+CCCC_UseExt@string@ServerSocket@./common/sockets/ServerSocket.h@39@pass by reference@F??T?@*@?@p@
+CCCC_UseExt@string@ServerSocket@./common/sockets/ServerSocket.h@44@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@bool@Socket@
+CCCC_UseExt@bool@Socket@./common/sockets/Socket.cpp@177@pass by value@F????@*@?@P@
+CCCC_UseExt@bool@Socket@./common/sockets/Socket.h@99@pass by value@F??T?@*@?@P@
+CCCC_UseRel@sockaddr_in@Socket@
+CCCC_UseExt@sockaddr_in@Socket@./common/sockets/Socket.cpp@161@pass by value@F????@*@?@P@
+CCCC_UseExt@sockaddr_in@Socket@./common/sockets/Socket.h@62@pass by value@F??T?@*@?@P@
+CCCC_UseExt@sockaddr_in@Socket@./common/sockets/Socket.h@116@has by value@F??T1@LOC:0 COM:0 MVG:0@1@H@
+CCCC_UseRel@string@Socket@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.cpp@89@pass by reference@T????@*@?@p@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.cpp@102@pass by reference@T????@*@?@p@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.cpp@142@pass by value@T????@*@?@P@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.h@55@pass by value@F??T?@*@?@P@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.h@69@pass by reference@F??T?@*@?@p@
+CCCC_UseExt@string@Socket@./common/sockets/Socket.h@84@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@string@SocketException@
+CCCC_UseExt@string@SocketException@./common/sockets/SocketException.h@15@pass by value@F????@*@?@P@
+CCCC_UseExt@string@SocketException@./common/sockets/SocketException.h@22@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@SensorEndpoint@SocketSensorEndpoint@
+CCCC_UseExt@SensorEndpoint@SocketSensorEndpoint@./test-server/endpoints/SocketSensorEndpoint.cpp@25@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@SocketSensorEndpoint@./test-server/endpoints/SocketSensorEndpoint.h@8@inheritance@????0@*@0@I@
+CCCC_UseExt@SensorEndpoint@SocketSensorEndpoint@./test-server/endpoints/SocketSensorEndpoint.h@15@pass by reference@F???0@*@0@p@
+CCCC_UseRel@SensorEndpoint@TcasSensor@
+CCCC_UseExt@SensorEndpoint@TcasSensor@./test-server/endpoints/TcasSensor.cpp@45@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@TcasSensor@./test-server/endpoints/TcasSensor.h@16@pass by reference@F???0@*@0@p@
+CCCC_UseRel@TCAS@TcasSensor@
+CCCC_UseExt@TCAS@TcasSensor@./test-server/endpoints/TcasSensor.h@22@pass by value@FT?T2@*@2@P@
+CCCC_UseExt@TCAS@TcasSensor@./test-server/endpoints/TcasSensor.h@23@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@TestServerPlane@TcasSensor@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.cpp@9@pass by reference@?????@*@?@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.cpp@41@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.cpp@41@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.h@17@pass by reference@F??T0@*@0@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.h@17@pass by reference@F??T0@*@0@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.h@20@pass by reference@FT?T2@*@2@p@
+CCCC_UseExt@TestServerPlane@TcasSensor@./test-server/endpoints/TcasSensor.h@20@pass by reference@FT?T2@*@2@p@
+CCCC_UseRel@createTcasMessage@TcasSensor@
+CCCC_UseExt@createTcasMessage@TcasSensor@./test-server/endpoints/TcasSensor.h@22@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@testAltitudeDistance@TcasSensor@
+CCCC_UseExt@testAltitudeDistance@TcasSensor@./test-server/endpoints/TcasSensor.h@23@pass by value@FT?T2@*@2@P@
+CCCC_UseRel@TestServerPlane@TestCase@
+CCCC_UseExt@TestServerPlane@TestCase@./test-server/TestCase.cpp@21@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestCase@./test-server/TestCase.cpp@25@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestCase@./test-server/TestCase.h@28@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestCase@./test-server/TestCase.h@32@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestCase@./test-server/TestCase.h@54@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@string@TestCase@
+CCCC_UseExt@string@TestCase@./test-server/TestCase.cpp@17@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestCase@./test-server/TestCase.h@22@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestCase@./test-server/TestCase.h@56@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@vector@TestCase@
+CCCC_UseExt@vector@TestCase@./test-server/TestCase.h@55@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@CDTIReport@TestCaseResult@
+CCCC_UseExt@CDTIReport@TestCaseResult@./test-server/Validation/TestCaseResult.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@CDTIReport@TestCaseResult@./test-server/Validation/TestCaseResult.h@60@pass by reference@FT???@*@?@p@
+CCCC_UseRel@ResultPlane@TestCaseResult@
+CCCC_UseExt@ResultPlane@TestCaseResult@./test-server/Validation/TestCaseResult.h@68@has by value@TT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@vector@TestCaseResult@
+CCCC_UseExt@vector@TestCaseResult@./test-server/Validation/TestCaseResult.h@67@has by value@TT???@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@AdsbSensor@TestEnvironment@
+CCCC_UseExt@AdsbSensor@TestEnvironment@./test-server/TestEnvironment.h@25@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@OwnshipSensor@TestEnvironment@
+CCCC_UseExt@OwnshipSensor@TestEnvironment@./test-server/TestEnvironment.h@26@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@RadarSensor@TestEnvironment@
+CCCC_UseExt@RadarSensor@TestEnvironment@./test-server/TestEnvironment.h@28@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@TcasSensor@TestEnvironment@
+CCCC_UseExt@TcasSensor@TestEnvironment@./test-server/TestEnvironment.h@27@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@TestCase@TestEnvironment@
+CCCC_UseExt@TestCase@TestEnvironment@./test-server/TestEnvironment.cpp@66@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestCase@TestEnvironment@./test-server/TestEnvironment.h@22@pass by reference@F???0@*@0@p@
+CCCC_UseRel@shared_ptr@TestEnvironment@
+CCCC_UseExt@shared_ptr@TestEnvironment@./test-server/TestEnvironment.h@30@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@TestCase@TestFileParser@
+CCCC_UseExt@TestCase@TestFileParser@./test-server/TestFileParser.h@57@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@TestServerPlane@TestFileParser@
+CCCC_UseExt@TestServerPlane@TestFileParser@./test-server/TestFileParser.cpp@171@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestFileParser@./test-server/TestFileParser.cpp@285@pass by reference@F????@*@?@p@
+CCCC_UseExt@TestServerPlane@TestFileParser@./test-server/TestFileParser.h@62@pass by reference@FT???@*@?@p@
+CCCC_UseExt@TestServerPlane@TestFileParser@./test-server/TestFileParser.h@64@pass by reference@FT???@*@?@p@
+CCCC_UseRel@string@TestFileParser@
+CCCC_UseExt@string@TestFileParser@./test-server/TestFileParser.cpp@13@pass by value@?????@*@?@P@
+CCCC_UseExt@string@TestFileParser@./test-server/TestFileParser.cpp@258@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestFileParser@./test-server/TestFileParser.h@52@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestFileParser@./test-server/TestFileParser.h@63@pass by value@FT???@*@?@P@
+CCCC_UseRel@xml_document@TestFileParser@
+CCCC_UseExt@xml_document@TestFileParser@./test-server/TestFileParser.h@56@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@xml_node@TestFileParser@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@130@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@171@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@258@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@273@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@285@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.cpp@356@pass by reference@F????@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@61@pass by reference@FT???@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@62@pass by reference@FT???@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@63@pass by reference@FT???@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@64@pass by reference@FT???@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@65@pass by reference@FT???@*@?@p@
+CCCC_UseExt@xml_node@TestFileParser@./test-server/TestFileParser.h@66@pass by reference@FT???@*@?@p@
+CCCC_UseRel@SensorEndpoint@TestServer@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.cpp@26@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.cpp@31@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.cpp@37@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.cpp@41@pass by reference@F????@*@?@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@13@pass by reference@FT??0@*@0@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@14@pass by reference@FT??0@*@0@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@15@pass by reference@FT??0@*@0@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@16@pass by reference@FT??0@*@0@p@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@27@has by reference@FT??2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@28@has by reference@FT??2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@29@has by reference@FT??2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseExt@SensorEndpoint@TestServer@./test-server/TestServer.h@30@has by reference@FT??2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseRel@Motion@TestServerPlane@
+CCCC_UseExt@Motion@TestServerPlane@./test-server/planes/TestServerPlane.cpp@65@pass by reference@F????@*@?@p@
+CCCC_UseExt@Motion@TestServerPlane@./test-server/planes/TestServerPlane.h@27@pass by reference@F???0@*@0@p@
+CCCC_UseExt@Motion@TestServerPlane@./test-server/planes/TestServerPlane.h@56@has by reference@F???2@LOC:0 COM:0 MVG:0@2@h@
+CCCC_UseRel@bool@TestServerPlane@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.cpp@55@pass by value@F????@*@?@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.cpp@59@pass by value@F????@*@?@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.cpp@62@pass by value@F????@*@?@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@24@pass by value@F???0@*@0@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@25@pass by value@F???0@*@0@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@26@pass by value@F???0@*@0@P@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@63@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@64@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseExt@bool@TestServerPlane@./test-server/planes/TestServerPlane.h@65@has by value@F???2@LOC:0 COM:0 MVG:0@2@H@
+CCCC_UseRel@string@TestServerPlane@
+CCCC_UseExt@string@TestServerPlane@./test-server/planes/TestServerPlane.cpp@115@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestServerPlane@./test-server/planes/TestServerPlane.h@29@pass by value@F????@*@?@P@
+CCCC_UseExt@string@TestServerPlane@./test-server/planes/TestServerPlane.h@67@has by value@F????@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseRel@PlaneImage@Traffic@
+CCCC_UseExt@PlaneImage@Traffic@./cdti/Traffic.h@5@inheritance@????0@*@0@I@
+CCCC_UseRel@Validator@ValidationWriter@
+CCCC_UseExt@Validator@ValidationWriter@./test-server/Validation/ValidationWriter.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@Validator@ValidationWriter@./test-server/Validation/ValidationWriter.h@15@pass by reference@FT???@*@?@p@
+CCCC_UseRel@ostream@ValidationWriter@
+CCCC_UseExt@ostream@ValidationWriter@./test-server/Validation/ValidationWriter.cpp@8@pass by reference@?????@*@?@p@
+CCCC_UseExt@ostream@ValidationWriter@./test-server/Validation/ValidationWriter.h@15@pass by reference@FT???@*@?@p@
+CCCC_UseRel@TestCase@Validator@
+CCCC_UseExt@TestCase@Validator@./test-server/Validation/Validator.cpp@9@pass by value@?????@*@?@P@
+CCCC_UseExt@TestCase@Validator@./test-server/Validation/Validator.h@25@pass by value@F???0@*@0@P@
+CCCC_UseRel@shared_ptr@Validator@
+CCCC_UseExt@shared_ptr@Validator@./test-server/Validation/Validator.cpp@9@pass by value@?????@*@?@P@
+CCCC_UseExt@shared_ptr@Validator@./test-server/Validation/Validator.cpp@49@pass by value@T????@*@?@P@
+CCCC_UseExt@shared_ptr@Validator@./test-server/Validation/Validator.cpp@71@pass by value@T????@*@?@P@
+CCCC_UseExt@shared_ptr@Validator@./test-server/Validation/Validator.h@25@pass by value@F????@*@?@P@
+CCCC_UseRel@TestCaseResult@VerificationTest@
+CCCC_UseExt@TestCaseResult@VerificationTest@./test-server/Validation/VerificationTest.h@16@pass by reference@F??T?@*@?@p@
+CCCC_UseRel@shared_ptr@VerificationTest@
+CCCC_UseExt@shared_ptr@VerificationTest@./test-server/Validation/VerificationTest.h@15@pass by value@F????@*@?@P@
+CCCC_UseExt@shared_ptr@VerificationTest@./test-server/Validation/VerificationTest.h@22@has by value@F??T?@LOC:0 COM:0 MVG:0@?@H@
+CCCC_UseExt@shared_ptr@VerificationTest@./test-server/Validation/VerificationTest.h@23@has by value@F??T?@LOC:0 COM:0 MVG:0@?@H@
+CCCC_RejExt@./cdti/Advisory.cpp@1@<file scope items>@?????@LOC:0 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Advisory.h@1@<file scope items>@????2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./cdti/AlertMessages.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/AlertMessages.h@1@<file scope items>@F???2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./cdti/CDTI.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./cdti/CDTI.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./cdti/CDTIGUIDisplay.cpp@1@<file scope items>@F????@LOC:5 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Display.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./cdti/DisplayController.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/DisplayController.h@1@<file scope items>@F???2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./cdti/DistanceIndicator.cpp@1@<file scope items>@?????@LOC:0 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/DistanceIndicator.h@1@<file scope items>@????2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./cdti/endpoints/CDTIEndpoint.cpp@1@<file scope items>@?????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./cdti/endpoints/CDTIEndpoint.h@1@<file scope items>@T??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./cdti/endpoints/CDTISocketEndpoint.cpp@1@<file scope items>@T????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./cdti/endpoints/CDTISocketEndpoint.h@1@<file scope items>@T???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./cdti/endpoints/mocks/CDTIMockEndpoint.cpp@1@<file scope items>@T????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./cdti/endpoints/mocks/CDTIMockEndpoint.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./cdti/Ownship.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Ownship.h@1@<file scope items>@F???0@LOC:1 COM:0 MVG:0@0@r@
+CCCC_RejExt@./cdti/PlaneImage.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./cdti/PlaneImage.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./cdti/Proximate.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Proximate.h@1@<file scope items>@F???0@LOC:1 COM:0 MVG:0@0@r@
+CCCC_RejExt@./cdti/Resolution.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Resolution.h@1@<file scope items>@F???0@LOC:1 COM:0 MVG:0@0@r@
+CCCC_RejExt@./cdti/Traffic.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./cdti/Traffic.h@1@<file scope items>@F???0@LOC:1 COM:0 MVG:0@0@r@
+CCCC_RejExt@./common/Common.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/Common.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./common/Maths.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/Maths.h@1@<file scope items>@FT??0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./common/protobuf/adsb.pb.h@41@protobuf :: Message @F???0@LOC:135 COM:15 MVG:7@0@r@
+CCCC_RejExt@./common/protobuf/adsb.pb.h@238@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/adsb.pb.h@334@const :: std @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/adsb.pb.h@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@52@const :: google @F???2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@53@const :: std @F???2@LOC:4 COM:0 MVG:1@2@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@72@const :: google @F???2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@73@const :: std @F???2@LOC:4 COM:0 MVG:1@2@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@84@protobuf :: Message @F???0@LOC:82 COM:9 MVG:7@0@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@196@protobuf :: Message @F???0@LOC:134 COM:11 MVG:11@0@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@365@protobuf :: Message @F???0@LOC:132 COM:11 MVG:11@0@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@628@const :: std @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@681@const :: Vector @F????@LOC:3 COM:1 MVG:2@?@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@685@:: Vector * @F????@LOC:7 COM:1 MVG:2@?@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@693@:: Vector * @F????@LOC:6 COM:0 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/cdti.pb.h@724@const :: Vector @F????@LOC:3 COM:1 MVG:2@?@r@
+CCCC_RejExt@./common/protobuf/ownship.pb.h@41@protobuf :: Message @F???0@LOC:114 COM:13 MVG:7@0@r@
+CCCC_RejExt@./common/protobuf/ownship.pb.h@213@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/ownship.pb.h@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/protobuf/radar.pb.h@41@protobuf :: Message @F???0@LOC:154 COM:18 MVG:7@0@r@
+CCCC_RejExt@./common/protobuf/radar.pb.h@263@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/radar.pb.h@359@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/radar.pb.h@527@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/radar.pb.h@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/protobuf/tcas.pb.h@41@protobuf :: Message @F???0@LOC:98 COM:11 MVG:7@0@r@
+CCCC_RejExt@./common/protobuf/tcas.pb.h@193@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/tcas.pb.h@289@:: google :: @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/protobuf/tcas.pb.h@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/Randomizer.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./common/Randomizer.h@1@<file scope items>@FT??2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./common/sockets/ClientSocket.h@1@<file scope items>@T??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./common/sockets/Message.pb.h@43@protobuf :: Message @F???0@LOC:79 COM:8 MVG:7@0@r@
+CCCC_RejExt@./common/sockets/Message.pb.h@170@const :: std @F????@LOC:3 COM:1 MVG:1@?@r@
+CCCC_RejExt@./common/sockets/Message.pb.h@1@<file scope items>@F????@LOC:3 COM:5 MVG:0@?@r@
+CCCC_RejExt@./common/sockets/mocks/MockServerSocket.h@1@<file scope items>@F??T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./common/sockets/ProtobufSocketSerializer.cpp@1@<file scope items>@F????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./common/sockets/ProtobufSocketSerializer.h@1@<file scope items>@FT??2@LOC:1 COM:0 MVG:0@2@r@
+CCCC_RejExt@./common/sockets/ServerSocket.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./common/sockets/Socket.cpp@1@<file scope items>@T????@LOC:1 COM:0 MVG:0@?@r@
+CCCC_RejExt@./common/sockets/Socket.h@1@<file scope items>@F??T2@LOC:4 COM:2 MVG:0@2@r@
+CCCC_RejExt@./common/sockets/SocketException.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/ConnectionServices/AdsBService.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/ConnectionServices/ConnectionInfo.h@1@<file scope items>@????0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./saa-application/ConnectionServices/RadarService.h@1@<file scope items>@?????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./saa-application/CorrelatedData.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/Correlation.cpp@1@<file scope items>@F????@LOC:2 COM:3 MVG:0@?@r@
+CCCC_RejExt@./saa-application/Correlation.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/Decision.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./saa-application/Decision.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/SaaApplication.cpp@1@<file scope items>@F????@LOC:4 COM:4 MVG:0@?@r@
+CCCC_RejExt@./saa-application/SaaApplication.h@1@<file scope items>@FT??2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./saa-application/SensorData.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./saa-application/SensorData.h@1@<file scope items>@F???2@LOC:8 COM:6 MVG:0@2@r@
+CCCC_RejExt@./test-server/endpoints/AdsbSensor.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/AdsbSensor.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/ConnectionInfo.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/ConnectionInfo.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/mocks/MockSensorEndpoint.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/mocks/MockSensorEndpoint.h@1@<file scope items>@F??T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/OwnshipSensor.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/OwnshipSensor.h@1@<file scope items>@F??T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/RadarSensor.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/RadarSensor.h@1@<file scope items>@FT?T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/Sensor.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/Sensor.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/endpoints/SensorEndpoint.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/SensorEndpoint.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/endpoints/SocketSensorEndpoint.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/SocketSensorEndpoint.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/endpoints/TcasSensor.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/endpoints/TcasSensor.h@1@<file scope items>@FT?T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/planes/LinearMotion.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/planes/LinearMotion.h@1@<file scope items>@F??T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/planes/Motion.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/planes/Motion.h@1@<file scope items>@T??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/planes/TestServerPlane.cpp@1@<file scope items>@T????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/planes/TestServerPlane.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/TestCase.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/TestCase.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/TestEnvironment.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/TestEnvironment.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/TestFileParser.cpp@1@<file scope items>@F????@LOC:2 COM:3 MVG:0@?@r@
+CCCC_RejExt@./test-server/TestFileParser.h@1@<file scope items>@FT??2@LOC:22 COM:24 MVG:0@2@r@
+CCCC_RejExt@./test-server/TestServer.cpp@1@<file scope items>@F????@LOC:5 COM:3 MVG:0@?@r@
+CCCC_RejExt@./test-server/TestServer.h@1@<file scope items>@FT??2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/Validation/CorrectSensorVerificationTest.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/CorrectSensorVerificationTest.h@1@<file scope items>@F??T0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/errors/CorrectSensorError.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/errors/CorrectSensorError.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/errors/NumPlanesTestCaseError.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/errors/NumPlanesTestCaseError.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/errors/PlaneCorrelationError.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/errors/PlaneCorrelationError.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/errors/PositionTestCaseError.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/errors/PositionTestCaseError.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/errors/TestCaseError.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/Validation/NumPlanesVerificationTest.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/NumPlanesVerificationTest.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/PositionVerificationTest.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/PositionVerificationTest.h@1@<file scope items>@F???0@LOC:1 COM:1 MVG:0@0@r@
+CCCC_RejExt@./test-server/Validation/TestCaseResult.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/TestCaseResult.h@1@<file scope items>@TT??2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/Validation/ValidationWriter.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/ValidationWriter.h@1@<file scope items>@FT??2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/Validation/Validator.cpp@7@std :: vector @?????@LOC:1 COM:2 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/Validator.cpp@41@const std :: @F????@LOC:3 COM:0 MVG:1@?@r@
+CCCC_RejExt@./test-server/Validation/Validator.cpp@1@<file scope items>@F????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/Validator.h@1@<file scope items>@F???2@LOC:1 COM:1 MVG:0@2@r@
+CCCC_RejExt@./test-server/Validation/VerificationTest.cpp@1@<file scope items>@?????@LOC:1 COM:1 MVG:0@?@r@
+CCCC_RejExt@./test-server/Validation/VerificationTest.h@1@<file scope items>@F??T2@LOC:1 COM:1 MVG:0@2@r@

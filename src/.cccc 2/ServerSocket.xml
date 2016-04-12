@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module ServerSocket-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="53" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="48" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.104" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.146" level="0" />
+<weighted_methods_per_class_unity value="12" level="0" />
+<weighted_methods_per_class_visibility value="3" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="1" level="0" />
+<coupling_between_objects value="6" level="0" />
+<IF4 value="81" level="0" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="36" level="1" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="4" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="18" />
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="17" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>ServerSocket()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="28" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ServerSocket(const int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="17" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="24" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>accept(ServerSocket &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="59" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>close()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="61" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>connectToClient(ClientSocket &amp;,int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="67" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getPort()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="63" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>hasData()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="65" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="49" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="42" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="39" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &gt;&gt;(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="54" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &gt;&gt;(string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="51" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="44" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~ServerSocket()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="36" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="33" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>ServerSocket</name>
+<client_module>
+<name>MockServerSocket</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./common/sockets/mocks/MockServerSocket.h" line="11" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/mocks/MockServerSocket.h" line="59" />
+</extent>
+<name>SaaApplication</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="./saa-application/SaaApplication.h" line="23" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./saa-application/SaaApplication.h" line="25" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./saa-application/SaaApplication.h" line="26" />
+</extent>
+<name>SensorEndpoint</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="./test-server/endpoints/SensorEndpoint.h" line="21" />
+</extent>
+</client_module>
+<supplier_module>
+<name>ClientSocket</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="67" />
+</extent>
+<name>Socket</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="18" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="42" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/ServerSocket.cpp" line="51" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="39" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./common/sockets/ServerSocket.h" line="44" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

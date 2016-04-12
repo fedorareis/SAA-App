@@ -6,6 +6,7 @@
 #include <test-server/planes/TestServerPlane.h>
 #include <common/Maths.h>
 #include <test-server/endpoints/RadarSensor.h>
+#include <common/TestVec3dNoise.h>
 
 TEST(RadarSensorTest, testBasicReport)
 {
@@ -30,7 +31,7 @@ TEST(RadarSensorTest, testBasicReport)
 
    ownship.setNorthEastDownVelocity(Vector3d(1,-1,0));
    report = sensor.createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(-45,report.azimuth());
+   ASSERT_FLOAT_EQ(45,report.azimuth());
    ASSERT_FLOAT_EQ(0, report.elevation());
 
 
@@ -64,9 +65,38 @@ TEST(RadarSensorTest, testElevation)
    ownship.setLatLongAlt(Vector3d(50,0,2000));
    plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
    RadarReport rept = sensor.createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(9.456378, rept.elevation());
+   ASSERT_FLOAT_EQ(9.3301497, rept.elevation());
    plane.setLatLongAlt(Vector3d(50.1,0,2000 - NAUT_MILES_TO_FEET));
    rept = sensor.createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(-9.456378, rept.elevation());
+   ASSERT_FLOAT_EQ(-9.3301497, rept.elevation());
 
+}
+
+TEST(RadarSensorTest, testNoise)
+{
+   TestServerPlane plane;
+   TestServerPlane ownship;
+   TestVec3dNoise testNoise(Vector3d(1,1,1));
+   RadarSensor sensor(nullptr,true);
+   ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
+   ownship.setLatLongAlt(Vector3d(50,0,2000));
+   plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
+   RadarReport rept = sensor.createReport(plane,ownship, testNoise, testNoise);
+   ASSERT_FLOAT_EQ(8.0451717, rept.elevation());
+
+   ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
+   ownship.setLatLongAlt(Vector3d(50,0,2000));
+   plane.setLatLongAlt(Vector3d(50.1,0,2000));
+   rept = sensor.createReport(plane,ownship, testNoise, testNoise);
+   ASSERT_FLOAT_EQ(0,rept.north());
+   ASSERT_FLOAT_EQ(1,rept.east());
+   ASSERT_FLOAT_EQ(1,rept.down());
+
+   ownship.setLatLongAlt(Vector3d(50,0,2000));
+   plane.setLatLongAlt(Vector3d(50.1,0,2000));
+   ownship.setNorthEastDownVelocity(Vector3d(1,-1,0));
+   rept = sensor.createReport(plane,ownship, testNoise, testNoise);
+   ASSERT_FLOAT_EQ(46,rept.azimuth());
+   //1 foot difference is ~ zero
+   ASSERT_FLOAT_EQ(0, rept.elevation());
 }
