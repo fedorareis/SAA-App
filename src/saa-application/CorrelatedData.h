@@ -72,7 +72,7 @@ public:
    // returns the CDTIPlane
    CDTIPlane* getCDTIPlane()
    {
-      severity = CDTIPlane::PROXIMATE;
+      severity = CDTIPlane::AIR;
 
       plane->set_id(tailNumber);
       plane->set_severity(severity);

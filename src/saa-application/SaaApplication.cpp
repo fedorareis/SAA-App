@@ -252,8 +252,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
        */
       while (!adsbFinished && !ownshipFinished && !tcasFinished && !radarFinished)
       {
-         std::cout << "Starting one cycle" << std::endl;
-
          std::this_thread::sleep_for(std::chrono::seconds(1));
          planeMutex.lock();
          std::vector<SensorData> planesCopy = planes;
@@ -263,7 +261,6 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
-         std::cout << "finished one cycle" << std::endl;
       }
 
       adsbthread.join();
