@@ -189,7 +189,6 @@ std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<Se
    // checks whether there are planes or not
    if(planes.size() == 0)
    {
-      //TODO: refactor to nullptr later on the SaaApplication.cpp?
       return pointer;
    }
 
