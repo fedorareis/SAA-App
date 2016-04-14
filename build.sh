@@ -12,6 +12,7 @@ fi
 cd build
 cmake ..
 make -j4
+make install
 cd ../../../
 echo "MLPack is in!\n\n"
 echo "going into protobuf to autogen it"
