@@ -27,4 +27,14 @@ TEST(Vector2, dot)
    EXPECT_FLOAT_EQ(1, Vector2d::Dot(a,b));
 
 }
+TEST(Vector3, add)
+{
+   Vector3d a(1,2,3);
+   Vector3d b(4,5,6);
+   a += b;
+   EXPECT_EQ(a.x, 5);
+   EXPECT_EQ(a.y, 7);
+   EXPECT_EQ(a.z, 9);
 
+
+}

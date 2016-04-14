@@ -22,6 +22,13 @@ struct Vector3d
    {
       return Vector3d(x*rhs,y*rhs,z*rhs);
    }
+   Vector3d & operator +=(const Vector3d & rhs)
+   {
+      this->x += rhs.x;
+      this->y += rhs.y;
+      this->z += rhs.z;
+      return *this;
+   }
     double north(){return x;}
     double east(){return y;}
     double down(){return z;}

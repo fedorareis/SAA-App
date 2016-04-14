@@ -40,6 +40,7 @@ void PlaneImage::draw(QPaintDevice *window, int posX, int posY)
         painter.translate(posX,posY);
         painter.drawRect(0,0,image.width(),image.height());
     painter.end();
+
 }
 
 void PlaneImage::setOutlineColor(int red, int green, int blue, int alpha)

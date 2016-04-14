@@ -38,7 +38,7 @@ int main(int argC, const char* argV[])
       TestCase testCase = parser.GetTestCase();
       PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
       NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
-      Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
+      //Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
       Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
       TestEnvironment environment;
       environment.acceptConnections();
