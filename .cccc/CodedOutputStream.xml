@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module CodedOutputStream-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="7" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="4" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="1" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/extension_set.h" line="66" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/io/coded_stream.h" line="143" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/message.h" line="150" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/message_lite.h" line="50" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/unknown_field_set.h" line="51" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/protostream_objectwriter.h" line="52" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format.h" line="58" />
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>CodedOutputStream</name>
+<client_module>
+<name>WireFormatLite</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="499" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="504" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="508" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="512" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="516" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="520" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="524" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="528" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="532" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="536" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="540" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="544" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="548" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="552" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="556" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="565" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/wire_format_lite_inl.h" line="573" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

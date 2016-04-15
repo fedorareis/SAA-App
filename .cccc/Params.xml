@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module Params-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="185" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="29" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="1" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="185.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="29.000" level="2" />
+<weighted_methods_per_class_unity value="38" level="0" />
+<weighted_methods_per_class_visibility value="38" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="16" level="0" />
+<IF4 value="2304" level="2" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="576" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="48" />
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="25.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>Params(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="73" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>base_name()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="91" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>clear_override_java_multiple_files()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="146" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generate_clear()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="235" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generate_clone()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="242" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generate_equals()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="207" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generate_has()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="179" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>generate_intdefs()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="249" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>has_java_outer_classname(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="117" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>has_java_package(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="95" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ignore_services()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="214" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_enum_style()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="186" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_multiple_files(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="157" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_outer_classname(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="125" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_outer_classnames()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="135" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_package(const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="103" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>java_packages()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="113" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>optional_field_accessors()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="193" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>parcelable_messages()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="221" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>reftypes_primitive_enums()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="228" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_generate_clear(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="232" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_generate_clone(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="239" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_generate_equals(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="204" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_generate_has(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="176" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_generate_intdefs(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="246" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_ignore_services(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="211" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_java_enum_style(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="183" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_java_multiple_files(const string &amp;,bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="150" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_java_outer_classname(const string &amp;,const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="121" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_java_package(const string &amp;,const string &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="99" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_optional_field_accessors(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="190" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_override_java_multiple_files(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="139" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_parcelable_messages(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="218" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_reftypes_primitive_enums(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="225" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_store_unknown_fields(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="169" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_use_reference_types_for_primitives(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="197" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>store_unknown_fields()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="172" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>use_reference_types_for_primitives()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="200" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>Params</name>
+<client_module>
+<name>AccessorEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="74" />
+</extent>
+<name>AccessorPrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="76" />
+</extent>
+<name>EnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="51" />
+</extent>
+<name>FileGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_file.h" line="60" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_file.h" line="82" />
+</extent>
+<name>MapFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_map_field.h" line="47" />
+</extent>
+<name>MessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="50" />
+</extent>
+<name>MessageOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="73" />
+</extent>
+<name>PrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="50" />
+</extent>
+<name>PrimitiveOneofFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="100" />
+</extent>
+<name>RepeatedEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_enum_field.h" line="97" />
+</extent>
+<name>RepeatedMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="96" />
+</extent>
+<name>RepeatedPrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_primitive_field.h" line="122" />
+</extent>
+</client_module>
+<supplier_module>
+<name>NameMap</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="57" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="58" />
+</extent>
+<name>NameSet</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="59" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="56" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="60" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="61" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="62" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="63" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="64" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="65" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="66" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="67" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="68" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="69" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="139" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="150" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="169" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="176" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="183" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="190" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="197" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="204" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="218" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="225" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="232" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="239" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="246" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="53" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="54" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="73" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="95" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="100" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="103" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="117" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="121" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="122" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="125" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="150" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_params.h" line="157" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
