@@ -35,6 +35,4 @@ TEST(Vector3, add)
    EXPECT_EQ(a.x, 5);
    EXPECT_EQ(a.y, 7);
    EXPECT_EQ(a.z, 9);
-
-
 }
