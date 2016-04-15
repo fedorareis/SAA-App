@@ -3,9 +3,14 @@
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 include_directories("/usr/local/include")
 link_directories("/usr/local/lib")
+link_directories("/usr/local/include")
 
 if( NOT DEFINED protobuf_BINARY_DIR )
 	message( "Protobuf has not been built! Ensure that it exists in lib/google/protobuf")
+endif()
+
+if(NOT APPLE)
+      set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} mlpack")
 endif()
 
 #Script for building the CDTI sources
