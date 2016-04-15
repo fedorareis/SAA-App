@@ -3,11 +3,7 @@
 //
 
 #include "TestEnvironment.h"
-#include "saa-application/ConnectionServices/AdsBService.h"
 #include "TestServer.h"
-#include <thread>
-#include <test-server/endpoints/Sensor.h>
-#include <iostream>
 #include <common/sockets/SocketException.h>
 #include <test-server/Validation/Validator.h>
 #include <test-server/Validation/ValidationWriter.h>
@@ -74,13 +70,16 @@ void TestEnvironment::start(TestCase & tc)
          ownshipSensor.sendData(tc.getOwnship(), tc.getOwnship());
 
          for (auto plane = tc.getPlanes().begin(); plane != tc.getPlanes().end(); plane++) {
-            if (sendADSB && plane->getADSBEnabled()) {
+            if (sendADSB && plane->getADSBEnabled())
+            {
                adsbSensor.sendData(*plane, tc.getOwnship());
             }
-            if (plane->getTcasEnabled() && sendTcas) {
+            if (plane->getTcasEnabled() && sendTcas)
+            {
                tcasSensor.sendData(*plane, tc.getOwnship());
             }
-            if (sendRadar) {
+            if (sendRadar)
+            {
                radarSensor.sendData(*plane, tc.getOwnship());
             }
          }

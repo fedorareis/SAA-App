@@ -3,17 +3,29 @@
 //
 
 #include <iostream>
+#include <test-server/TestServer.h>
+#include <common/Vec3dNoise.h>
 #include "RadarSensor.h"
 
-RadarSensor::RadarSensor(SensorEndpoint *endpoint):
-Sensor(endpoint)
+RadarSensor::RadarSensor(SensorEndpoint *endpoint, bool jitter) :
+        Sensor(endpoint, jitter)
 {
 
 }
+
+
 /**
  * create a radar report from two planes,
  */
+
 RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestServerPlane &ownship) {
+   return createReport(plane, ownship, *TestServer::getRadarPositionNoise(), *TestServer::getRadarVelocityNoise());
+}
+
+
+
+RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestServerPlane &ownship,
+   Vec3dNoise & positionDistribution, Vec3dNoise & velocityDistribution ) {
    RadarReport rept;
    //Create range from position
    float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude());
@@ -34,20 +46,37 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    //if 'difference' is to the left, use negabive bearings.
    float azimuth = 180.f/M_PI * angle * (negBearing ? -1 : 1);
 
-   float elevation = 180.f/M_PI * atan2(positionZ/NAUT_MILES_TO_FEET,range);
-   range = (float)sqrt(range*range + positionZ*positionZ/(NAUT_MILES_TO_FEET * NAUT_MILES_TO_FEET));
 
    RadarReport report;
 
+   //tuple of the position to send to report. is in format (range,azimuth,altitude)
+   Vector3d finalPosition(range, azimuth, positionZ);
+   Vector3d velocity(plane.getNorthVelocity()-ownship.getNorthVelocity(),
+                     plane.getEastVelocity() - ownship.getEastVelocity(),
+                     plane.getDownVelocity() - ownship.getDownVelocity());
+   if (jitter)
+   {
+      finalPosition += positionDistribution.getNoise();
+      velocity += velocityDistribution.getNoise();
+   }
+
+   range = (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (NAUT_MILES_TO_FEET *
+
+                                                                                                 NAUT_MILES_TO_FEET));
+   float elevation = 180.f/M_PI * atan2(positionZ/NAUT_MILES_TO_FEET,range);
+
+   report.set_altitude((float) finalPosition.z);
+   report.set_range(range);
+   report.set_azimuth(finalPosition.y);
+
    std::cout << "RDR" << azimuth << "," << elevation << "," << range << std::endl;
 
-   report.set_azimuth(azimuth);
-   report.set_altitude(positionZ);
+   report.set_altitude(finalPosition.z);
    report.set_elevation(elevation);
    report.set_range(range);
-   report.set_north(plane.getNorthVelocity() - ownship.getNorthVelocity());
-   report.set_east(plane.getEastVelocity() - ownship.getEastVelocity());
-   report.set_down(plane.getDownVelocity() - ownship.getDownVelocity());
+   report.set_north(velocity.x);
+   report.set_east(velocity.y);
+   report.set_down(velocity.z);
    report.set_longitude(ownship.getLongitude());
    report.set_latitude(ownship.getLatitude());
    report.set_altitude(ownship.getAltitude());
@@ -57,8 +86,6 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    std::cout << range << "," << azimuth <<  "," << elevation << std::endl;
    return report;
 }
-
-
 
 
 void RadarSensor::sendData(const TestServerPlane &plane, const TestServerPlane &other) {

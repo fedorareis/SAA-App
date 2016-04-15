@@ -91,3 +91,10 @@ TestCase::TestCase(const TestCase &otherTestCase) :
    for (auto plane: otherTestCase.otherPlanes)
       otherPlanes.push_back(plane);
 }
+
+void TestCase::makeDataNoise(bool noise)
+{
+   enableErrors = noise;
+}
+
+

@@ -10,7 +10,7 @@
 
 #define EARTH_RADIUS 3440.0
 #define KNOT_CONVERSION 0.592484
-#define NAUT_MILES_TO_FEET 6076.12
+#define NAUT_MILES_TO_FEET 6076.12f
 
 struct Vector3d
 {
@@ -21,6 +21,13 @@ struct Vector3d
    Vector3d operator* (float  rhs)
    {
       return Vector3d(x*rhs,y*rhs,z*rhs);
+   }
+   Vector3d & operator +=(const Vector3d & rhs)
+   {
+      this->x += rhs.x;
+      this->y += rhs.y;
+      this->z += rhs.z;
+      return *this;
    }
     double north(){return x;}
     double east(){return y;}
@@ -45,11 +52,11 @@ struct Vector3d
    {
        return "(" + std::to_string(x) + "," + std::to_string(y) + "," + "," + std::to_string(z) + ")";
    }
-
    static double Dot(Vector3d a, Vector3d b)
    {
       return a.x*b.x + a.y*b.y + a.z*b.z;
    }
+
 };
 bool operator==(Vector3d lhs, Vector3d rhs);
 
@@ -85,6 +92,10 @@ struct Vector2d
 
 Vector3d getDifference(Vector3d latLongAlt1, Vector3d latLongAlt2);
 float calcDistance(float lat1, float lon1, float lat2, float lon2);
+
+inline float feetToNauticalMiles(float feet);
+
+inline float nauticalMilesToFeet(float miles);
 
 float fpsToNmph(float fps);
 float bearingToRadians(float bearing);

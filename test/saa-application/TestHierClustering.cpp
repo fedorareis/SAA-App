@@ -4,40 +4,36 @@
 #include <gtest/gtest.h>
 #include <mlpack/methods/emst/dtb.hpp>
 #include <saa-application/SensorData.h>
+#include <saa-application/HiercClusteringCorrelation.h>
 
+/**
+ * Tests what
+ */
 TEST(HiercClustering, TestSetup)
 {
    std::vector<double> data;
 
    // test data
    std::vector<SensorData> planes;
+   /*
+   SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
+         float velocityZ, Sensor sensor, int planeId, double time) :
+   tailNumber(tailNumber), sensor(sensor)
+   */
 
-   //TODO: makeup test data and put them into planes
+   // makeup data
+   planes.push_back(SensorData("", 0.0, 9.0, 0.0, 4.0, 10.0, 9.0, tcas, 0, 0.0));
+   planes.push_back(SensorData("", 3.0, 5.0, 1.0, 4.0, 5.0, 9.0, adsb, 2, 0.0));
+   planes.push_back(SensorData("", 0.0, 0.0, 0.0, 4.0, 5.0, 2.0, tcas, 4, 0.0));
+   planes.push_back(SensorData("", 0.0, 4.0, 0.0, 4.0, 5.0, 9.0, radar, 2, 0.0));
+   planes.push_back(SensorData("", 4.0, 0.0, 9.0, 7.0, 2.0, 4.0, adsb, 5, 0.0));
 
-   // put data into vector for matrix initialization
-   for(int i = 0 ; i < planes.size(); i++){
-      SensorData plane = planes[i];
+   std::cout<<"ht-planes have "<<planes.size()<<" planes"<<std::endl;
 
-      // only getting position for now
-      data.push_back(plane.getPurePosition().x);
-      data.push_back(plane.getPurePosition().y);
-      data.push_back(plane.getPurePosition().z);
-   }
+   // calls correlation
+   HiercClusteringCorrelation corr;
+//   std::vector<CorrelatedData> result = corr.correlate(planes);
 
-   // generate matrix
-   auto dataMtx = arma::Mat<double>(&data[0],3,planes.size());
-
-   // generate emst
-   mlpack::emst::DualTreeBoruvka<> dtb(dataMtx);
-
-   // result matrix
-   arma::mat mstResults;
-
-   dtb.ComputeMST(mstResults);
-
-   // print data from each row
-   for(arma::uword row = 0; row < mstResults.n_elem; row++) {
-      std::cout<<"x: "<<mstResults.at(row, 0)<<" y: "<<mstResults.at(row, 1)<<" z: "<<mstResults.at(row, 2)<<std::endl;
-   }
+//   ASSERT_EQ(0,result.size());
 
 };

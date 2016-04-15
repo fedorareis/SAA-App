@@ -9,8 +9,9 @@ SensorEndpoint & Sensor::getEndpoint()
    return *endpoint;
 }
 
-Sensor::Sensor(SensorEndpoint *endpoint):
-      endpoint(endpoint)
+Sensor::Sensor(SensorEndpoint *endpoint, bool jitter):
+      endpoint(endpoint),
+      jitter(jitter)
 {
 
 }

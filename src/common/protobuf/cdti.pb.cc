@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -135,18 +136,19 @@ void protobuf_AddDesc_cdti_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\ncdti.proto\")\n\006Vector\022\t\n\001X\030\001 \002(\002\022\t\n\001Y\030\002"
-    " \002(\002\022\t\n\001Z\030\003 \002(\002\"\277\001\n\tCDTIPlane\022\n\n\002id\030\001 \002("
+    " \002(\002\022\t\n\001Z\030\003 \002(\002\"\323\001\n\tCDTIPlane\022\n\n\002id\030\001 \002("
     "\t\022\031\n\010position\030\002 \002(\0132\007.Vector\022\031\n\010velocity"
     "\030\003 \002(\0132\007.Vector\022%\n\010severity\030\004 \002(\0162\023.CDTI"
-    "Plane.Severity\022\021\n\tplaneTags\030\005 \003(\005\"6\n\010Sev"
-    "erity\022\r\n\tPROXIMATE\020\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRES"
-    "OLUTION\020\002\"\326\001\n\nCDTIReport\022\021\n\ttimestamp\030\001 "
-    "\002(\020\022\033\n\007ownship\030\002 \002(\0132\n.CDTIPlane\022\027\n\017advi"
-    "soryMessage\030\003 \001(\t\022+\n\radvisoryLevel\030\004 \001(\016"
-    "2\024.CDTIReport.Severity\022\032\n\006planes\030\005 \003(\0132\n"
-    ".CDTIPlane\"6\n\010Severity\022\r\n\tPROXIMATE\020\000\022\013\n"
-    "\007TRAFFIC\020\001\022\016\n\nRESOLUTION\020\002B#\n\033edu.calpol"
-    "y.capstone.sensorB\004Cdti", 503);
+    "Plane.Severity\022\021\n\tplaneTags\030\005 \003(\005\"J\n\010Sev"
+    "erity\022\007\n\003AIR\020\000\022\r\n\tPROXIMATE\020\001\022\013\n\007TRAFFIC"
+    "\020\002\022\016\n\nRESOLUTION\020\003\022\t\n\005CRASH\020\004\"\352\001\n\nCDTIRe"
+    "port\022\021\n\ttimestamp\030\001 \002(\020\022\033\n\007ownship\030\002 \002(\013"
+    "2\n.CDTIPlane\022\027\n\017advisoryMessage\030\003 \001(\t\022+\n"
+    "\radvisoryLevel\030\004 \001(\0162\024.CDTIReport.Severi"
+    "ty\022\032\n\006planes\030\005 \003(\0132\n.CDTIPlane\"J\n\010Severi"
+    "ty\022\007\n\003AIR\020\000\022\r\n\tPROXIMATE\020\001\022\013\n\007TRAFFIC\020\002\022"
+    "\016\n\nRESOLUTION\020\003\022\t\n\005CRASH\020\004B#\n\033edu.calpol"
+    "y.capstone.sensorB\004Cdti", 543);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "cdti.proto", &protobuf_RegisterTypes);
   Vector::default_instance_ = new Vector();
@@ -594,6 +596,8 @@ bool CDTIPlane_Severity_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -601,9 +605,11 @@ bool CDTIPlane_Severity_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const CDTIPlane_Severity CDTIPlane::AIR;
 const CDTIPlane_Severity CDTIPlane::PROXIMATE;
 const CDTIPlane_Severity CDTIPlane::TRAFFIC;
 const CDTIPlane_Severity CDTIPlane::RESOLUTION;
+const CDTIPlane_Severity CDTIPlane::CRASH;
 const CDTIPlane_Severity CDTIPlane::Severity_MIN;
 const CDTIPlane_Severity CDTIPlane::Severity_MAX;
 const int CDTIPlane::Severity_ARRAYSIZE;
@@ -1279,6 +1285,8 @@ bool CDTIReport_Severity_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -1286,9 +1294,11 @@ bool CDTIReport_Severity_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const CDTIReport_Severity CDTIReport::AIR;
 const CDTIReport_Severity CDTIReport::PROXIMATE;
 const CDTIReport_Severity CDTIReport::TRAFFIC;
 const CDTIReport_Severity CDTIReport::RESOLUTION;
+const CDTIReport_Severity CDTIReport::CRASH;
 const CDTIReport_Severity CDTIReport::Severity_MIN;
 const CDTIReport_Severity CDTIReport::Severity_MAX;
 const int CDTIReport::Severity_ARRAYSIZE;

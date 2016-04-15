@@ -12,6 +12,17 @@ class CorrelatedData {
 
 public:
    // constructor that takes in position and velocity
+   CorrelatedData (){
+      position = new Vector();
+      velocity = new Vector();
+      position->set_x(0);
+      position->set_y(0);
+      position->set_z(0);
+      velocity->set_x(0);
+      velocity->set_y(0);
+      velocity->set_z(0);
+
+   }
    CorrelatedData (float positionX, float positionY, float positionZ,
                    float velocityX, float velocityY, float velocityZ)
    {
@@ -23,6 +34,20 @@ public:
       velocity->set_x(velocityX);
       velocity->set_y(velocityY);
       velocity->set_z(velocityZ);
+   }
+
+   void addPosition(Vector3d pos)
+   {
+      position->set_x(position->x() + pos.x);
+      position->set_y(position->y() + pos.y);
+      position->set_z(position->z() + pos.z);
+   }
+
+   void setPosition(Vector3d pos)
+   {
+      position->set_x(pos.x);
+      position->set_y(pos.y);
+      position->set_z(pos.z);
    }
 
    // adds sensor and its planetag to the vector
@@ -47,7 +72,7 @@ public:
    // returns the CDTIPlane
    CDTIPlane* getCDTIPlane()
    {
-      severity = CDTIPlane::PROXIMATE;
+      severity = CDTIPlane::AIR;
 
       plane->set_id(tailNumber);
       plane->set_severity(severity);

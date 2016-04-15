@@ -23,10 +23,6 @@ enum Sensor
 
 class SensorData
 {
-private:
-    Randomizer *adsbNoise;
-    Randomizer *tcasNoise;
-    Randomizer *radarNoise;
 public:
    SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
               float velocityZ, Sensor sensor, int planeId, double time) :
@@ -34,20 +30,15 @@ public:
    {
       velocity = new Vector();
       position = new Vector();
-      velocity->set_x(velocityX);
-      velocity->set_y(velocityY);
-      velocity->set_z(velocityZ);
-      position->set_x(positionX);
-      position->set_y(positionY);
-      position->set_z(positionZ);
+      velocity->set_x(velocityX); // north
+      velocity->set_y(velocityY); // east
+      velocity->set_z(velocityZ); // down
+      position->set_x(positionX); // north
+      position->set_y(positionY); // east
+      position->set_z(positionZ); // down
       planeTag = planeId;
       timeStamp = time;
 
-      //add 3rd parameter is you want to put in a seed
-      //todo: lookup ranges to put into this, possibly make up to 3 randomizers per sensor
-      adsbNoise = new Randomizer(0, 0);
-      tcasNoise = new Randomizer(0, 0);
-      radarNoise = new Randomizer(0, 0);
    }
 
    void printPos();
