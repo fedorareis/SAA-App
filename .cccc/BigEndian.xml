@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module BigEndian-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="35" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="17" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="2" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="17.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="8.500" level="1" />
+<weighted_methods_per_class_unity value="13" level="0" />
+<weighted_methods_per_class_visibility value="13" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="3" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="319" />
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>FromHost16(uint16)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="323" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="336" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>FromHost32(uint32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="326" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="339" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>FromHost64(uint64)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="329" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="342" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>IsLittleEndian()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="332" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="345" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Load16(const void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="350" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Load32(const void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="358" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Load64(const void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="366" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Store16(void *,uint16)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="354" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Store32(void *,uint32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="362" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Store64(void *,uint64)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="370" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ToHost16(uint16)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="324" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="337" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ToHost32(uint32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="327" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="340" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ToHost64(uint64)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="330" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="343" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>BigEndian</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>uint16</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="323" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="324" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="336" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="337" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="354" />
+</extent>
+<name>uint32</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="326" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="327" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="339" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="340" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="362" />
+</extent>
+<name>uint64</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="329" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="330" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="342" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="343" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/stubs/port.h" line="370" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

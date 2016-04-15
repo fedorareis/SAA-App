@@ -84,6 +84,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             if(currentImage)
                 //Positions are NED relative, Y is x, x is y etc.
                 currentImage->draw(this,width / 2.0f - report.position().y() * 20.0f,height / 2.0f - report.position().x() * 20.0f);
+
         }
     }
 }
@@ -97,4 +98,5 @@ void CDTIGUIDisplay::init()
 void CDTIGUIDisplay::renderReport(CDTIReport &report)
 {
     currentReport = &report;
+    repaint();
 }

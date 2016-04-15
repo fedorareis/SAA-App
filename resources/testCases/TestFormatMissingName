@@ -1,0 +1,21 @@
+
+<test description="1 Plane flies parallel to UAV" time = "10">
+    <ownship tag="ABC123">
+        <tcas enabled="true" error="1.5"/>
+        <ads-b enabled="true" error="0.2"/>
+        <movement type="linear">
+            <position x="0" y="0" z="0"/>
+            <direction x="600" y="0" z="0"/>
+        </movement>
+    </ownship>
+    <plane tag="N22121">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <!--radar enabled="true"/-->
+        <movement type="linear">
+            <position x="0" y="-10" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+</test>
+

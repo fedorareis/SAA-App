@@ -6,6 +6,7 @@
 #define SAA_APPLICATION_MEANSHIFTCORRELATION_H
 
 
+#include <mlpack/core.hpp>
 #include "SensorData.h"
 #include "CorrelationStrategy.h"
 #include "CorrelatedData.h"
@@ -23,6 +24,9 @@ class MeanShiftCorrelation : public CorrelationStrategy {
    private:
       double cWindow;
       int currFlags;
+      arma::Col<size_t> prevAssignments;
+
+
 };
 
 

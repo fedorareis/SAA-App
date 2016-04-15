@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module ExpectingObjectWriter-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="128" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="26" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+<weighted_methods_per_class_unity value="16" level="0" />
+<weighted_methods_per_class_visibility value="15" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="8" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="89" />
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>EndList()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="118" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>EndObject()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="102" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ExpectingObjectWriter(MockObjectWriter *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="91" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GOOGLE_DISALLOW_IMPLICIT_CONSTRUCTORS(ExpectingObjectWriter)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="230" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderBool(StringPiece,bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="125" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderBytes(StringPiece,StringPiece)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="207" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderDouble(StringPiece,double)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="175" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderFloat(StringPiece,float)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="186" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderInt32(StringPiece,int32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="135" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderInt64(StringPiece,int64)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="155" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderNull(StringPiece)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="219" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderString(StringPiece,StringPiece)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="197" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderUint32(StringPiece,uint32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="145" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RenderUint64(StringPiece,uint64)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="165" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>StartList(StringPiece)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="109" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>StartObject(StringPiece)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="93" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>ExpectingObjectWriter</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>MockObjectWriter</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="91" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="228" />
+</extent>
+<name>ObjectWriter</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="89" />
+</extent>
+<name>StringPiece</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="93" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="109" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="125" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="135" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="145" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="155" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="165" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="175" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="186" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="197" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="197" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="207" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="207" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="219" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="125" />
+</extent>
+<name>int32</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="135" />
+</extent>
+<name>int64</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="155" />
+</extent>
+<name>uint32</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="145" />
+</extent>
+<name>uint64</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/util/internal/expecting_objectwriter.h" line="165" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

@@ -3,6 +3,7 @@
 //
 
 #include <test-server/endpoints/AdsbSensor.h>
+#include <common/UniformVec3dNoise.h>
 #include "TestServer.h"
 
 
@@ -20,9 +21,10 @@ Randomizer *TestServer::adsbLatNoise = new Randomizer(-0.0001, 0.0001);
 Randomizer *TestServer::adsbLongNoise = new Randomizer(-0.0001, 0.0001);;
 Randomizer *TestServer::adsbAltNoise = new Randomizer(-50, 50);
 
-Randomizer *TestServer::radarRangeNoise = new Randomizer(-0.0001, 0.0001);
-Randomizer *TestServer::radarAzimuthNoise = new Randomizer(-0.0001, 0.0001);
-Randomizer *TestServer::radarElevationNoise = new Randomizer(-50, 50);
+Vec3dNoise *TestServer::radarPosNoise = new UniformVec3dNoise(Vector3d(-0.0001, -0.0001, -50), Vector3d(0.0001, 0.0001, 50));
+Vec3dNoise *TestServer::radarVelNoise = new UniformVec3dNoise(Vector3d(-0.0001, -0.0001, -50), Vector3d(0.0001, 0.0001, 50));
+
+
 
 bool TestServer::noiseEnabled = false;
 
@@ -108,6 +110,7 @@ Vector3d TestServer::scrambleTCAS(Vector3d position)
     return newPosition;
 }
 
+/*
 Vector3d TestServer::scrambleRadar(Vector3d position)
 {
     Vector3d newPosition(0, 0, 0);
@@ -117,9 +120,16 @@ Vector3d TestServer::scrambleRadar(Vector3d position)
 
     return newPosition;
 }
+*/
 
 
 
 
 
+Vec3dNoise *TestServer::getRadarPositionNoise() {
+    return radarPosNoise;
+}
 
+Vec3dNoise *TestServer::getRadarVelocityNoise() {
+    return radarVelNoise;
+}

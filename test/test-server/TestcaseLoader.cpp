@@ -9,18 +9,34 @@
 
 #include "common/Maths.h"
 
-
-TEST(TestCaseLoader, loadTwoPlanes)
+TEST(TestCaseLoader, testFileNotFound)
 {
-   std::string s(__DIR__"/resources/TestCaseTwoPlanes.xml");
+   std::string s(__DIR__"/resources/blahblah.xml");
    TestFileParser parser;
-   // true if building test case is successful
-   if(parser.load(s)) {
-      TestCase testCase = parser.GetTestCase();
-      ASSERT_EQ(2,testCase.getPlanes().size());
-   }
-   else
-   {
-      ASSERT_TRUE(false); // Parser could not load test case
-   }
+
+   ASSERT_FALSE(parser.load(s));
+}
+
+TEST(TestCaseLoader, testFormatTestNameMissing)
+{
+   std::string s(__DIR__"/resources/TestFormatMissingName.xml");
+   TestFileParser parser;
+
+   ASSERT_FALSE(parser.load(s));
+}
+
+TEST(TestCaseLoader, testFormatAllPlanesMissing)
+{
+   std::string s(__DIR__"/resources/TestAllPlanesMissing.xml");
+   TestFileParser parser;
+
+   ASSERT_FALSE(parser.load(s));
+}
+
+TEST(TestCaseLoader, testFormatOwnShipMissingAllSensors)
+{
+   std::string s(__DIR__"/resources/TestOwnshipMissingAllSensors.xml");
+   TestFileParser parser;
+
+   ASSERT_FALSE(parser.load(s));
 }

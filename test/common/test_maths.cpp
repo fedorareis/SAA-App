@@ -27,4 +27,47 @@ TEST(Vector2, dot)
    EXPECT_FLOAT_EQ(1, Vector2d::Dot(a,b));
 
 }
+TEST(Vector3, add)
+{
+   Vector3d a(1, 2, 3);
+   Vector3d b(4, 5, 6);
+   a += b;
+   EXPECT_EQ(a.x, 5);
+   EXPECT_EQ(a.y, 7);
+   EXPECT_EQ(a.z, 9);
+}
+
+// Helen on 4/12/16
+TEST(Math, getDif)
+{
+   Vector3d plane(4, 5, 6);
+   Vector3d ownship(4, 5, 6);
+
+   Vector3d result = getDifference(plane, ownship);
+   Vector3d expected(0,0,0);
+
+   // why build fail when calling EXPECT_EQ(expected, result)?
+   //EXPECT_EQ(expected, result);
+
+   EXPECT_EQ(expected.x, result.x);
+   EXPECT_EQ(expected.y, result.y);
+   EXPECT_EQ(expected.z, result.z);
+}
+
+TEST(Math, calcDist)
+{
+   float lat1 = 0.5;
+   float lon1 = 0.5;
+
+   float lat2 = 0.5;
+   float lon2 = 0.5;
+
+   EXPECT_EQ(0, calcDistance(lat1, lon1, lat2, lon2));
+}
+
+TEST(Math, bearing) {
+   float bear = 180;
+
+   EXPECT_FLOAT_EQ(-M_PI, bearingToRadians(bear));
+}
 
