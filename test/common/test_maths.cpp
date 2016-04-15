@@ -65,9 +65,9 @@ TEST(Math, calcDist)
    EXPECT_EQ(0, calcDistance(lat1, lon1, lat2, lon2));
 }
 
-TEST(Math, bear)
-{
+TEST(Math, bearing) {
    float bear = 180;
 
    EXPECT_FLOAT_EQ(-M_PI, bearingToRadians(bear));
 }
+
