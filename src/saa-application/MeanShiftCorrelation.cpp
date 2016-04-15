@@ -9,6 +9,7 @@
 std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorData> planes) {
    std::vector<CorrelatedData> correlatedPlanes;
    std::vector<double> data;
+   bool correlationFailed = false;
    if(planes.size() == 0)
    {
       return correlatedPlanes;
@@ -58,18 +59,55 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
     */
    catch(std::invalid_argument e)
    {
+      std::cout << "Invalid argument exception: " << e.what() <<  std::endl;
+      correlationFailed = true;
+   }
 
+   /**
+    * If correlation fails, use the assignments from the previous run and vector summations to create new planes.
+    */
+   if(correlationFailed && prevAssignments.size() > 0)
+   {
+      correlatedPlanes.resize(planes.size());
+      /*Sum correlations*/
+      for(int i = 0; i < planes.size(); i++)
+      {
+         correlatedPlanes[prevAssignments.at(i)].addPosition(planes[i].getPurePosition());
+         correlatedPlanes[prevAssignments.at(i)].addSensor(planes[i].getSensor(),planes[i].getPlaneTag());
+      }
+      /*Trim planes that didn't actually correlate*/
+      correlatedPlanes.erase(std::remove_if(correlatedPlanes.begin(), correlatedPlanes.end(),
+                                            [](CorrelatedData & data){return data.getSensor().size() == 0;}),
+                     correlatedPlanes.end());
+      //For the remainder of planes, average
+      for(auto cPlane : correlatedPlanes)
+      {
+         Vector3d position = cPlane.getPosition();
+         position.x /= cPlane.getSensor().size();
+         position.y /= cPlane.getSensor().size();
+         position.z /= cPlane.getSensor().size();
+         cPlane.setPosition(position);
+      }
       return correlatedPlanes;
    }
-
-
-
-   correlatedPlanes.reserve(centroids.n_cols);
-   for (int i = 0; i < centroids.n_cols; i++) {
-      correlatedPlanes.push_back(CorrelatedData(centroids.at(0, i), centroids.at(1, i), centroids.at(2, i), 0, 0, 0));
+   else if(correlationFailed)
+   {
+      return correlatedPlanes;
    }
-   for (int i = 0; i < planes.size(); i++) {
-      correlatedPlanes[assignments.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag());
+   else
+   {
+
+
+      correlatedPlanes.reserve(centroids.n_cols);
+      for (int i = 0; i < centroids.n_cols; i++) {
+         correlatedPlanes.push_back(CorrelatedData(centroids.at(0, i), centroids.at(1, i), centroids.at(2, i), 0, 0, 0));
+      }
+      for (int i = 0; i < planes.size(); i++) {
+         correlatedPlanes[assignments.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag());
+
+
+      }
+      prevAssignments = assignments;
    }
 
 

@@ -8,6 +8,7 @@
 #include <common/sockets/ServerSocket.h>
 #include <test-server/endpoints/SensorEndpoint.h>
 #include <common/Randomizer.h>
+#include <common/Vec3dNoise.h>
 
 class TestServer
 {
@@ -42,6 +43,10 @@ public:
 
     static Vector3d scrambleRadar(Vector3d position);
 
+   static Vec3dNoise * getRadarPositionNoise();
+
+   static Vec3dNoise * getRadarVelocityNoise();
+
 private:
     static SensorEndpoint *ownshipSocket;
     static SensorEndpoint *adsbSocket;
@@ -57,9 +62,8 @@ private:
     static Randomizer *adsbLongNoise;
     static Randomizer *adsbAltNoise;
 
-    static Randomizer *radarRangeNoise;
-    static Randomizer *radarAzimuthNoise;
-    static Randomizer *radarElevationNoise;
+    static Vec3dNoise *radarPosNoise;
+    static Vec3dNoise *radarVelNoise;
 
     static bool noiseEnabled;
 };

@@ -11,6 +11,7 @@
 #include "SensorEndpoint.h"
 #include "Sensor.h"
 #include <gtest/gtest.h>
+#include "common/TestVec3dNoise.h"
 
 /**
  * The RadarSensor transforms standard test data into a radar newtork message
@@ -23,10 +24,13 @@ class RadarSensor : public Sensor {
 
    private:
     RadarReport createReport(const TestServerPlane &plane, const TestServerPlane &ownship);
+    RadarReport createReport(const TestServerPlane &plane, const TestServerPlane &ownship,
+                             Vec3dNoise & radarPosNoise, Vec3dNoise & radarVelNoise);
 
    FRIEND_TEST(RadarSensorTest, testBasicReport);
    FRIEND_TEST(RadarSensorTest, testVelocity);
    FRIEND_TEST(RadarSensorTest, testElevation);
+   FRIEND_TEST(RadarSensorTest, testNoise);
 };
 
 

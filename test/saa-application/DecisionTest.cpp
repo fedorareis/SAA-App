@@ -8,40 +8,171 @@
 #include "saa-application/CorrelatedData.h"
 #include <common/protobuf/cdti.pb.h>
 
-TEST(DecisionTest, testCalAdvisory)
+CorrelatedData plane1(50, 50, 5000, 100, 100, 0);
+CorrelatedData plane2(9, 0, 900, 100, 100, 0);
+CorrelatedData plane3(4, 0, 0, -10, 0, 0);
+CorrelatedData plane4(1, 0, 0, -10, 0, 0);
+CorrelatedData plane5(0, 0, 0, 0, 0, 0);
+
+TEST(DecisionTest, testCalAdvisoryAir)
 {
    std::vector<CorrelatedData> planes;
    SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
    Decision dec;
-   CorrelatedData plane1(50, 10, 5000, 100, 100, 0);
-   planes.push_back(plane1);
-   CDTIReport* result = dec.calcAdvisory(&planes, &ownship);
+   CDTIReport *result;
 
-   // TODO: switch to AIR once AIR is implemented in proto
-   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::PROXIMATE);
-   ASSERT_EQ(result->advisorylevel(), CDTIReport::PROXIMATE);
+   // AIR
+   std::cout << "AIR TEST" << std::endl;
+   planes.push_back(plane1);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIPlane::AIR, result->planes().Get(0).severity());
+   ASSERT_EQ(CDTIReport::AIR, result->advisorylevel());
+}
+
+TEST(DecisionTest, testCalAdvisoryProximate)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
 
    // Proximate
-   CorrelatedData plane2(9, 0, 900, 100, 100, 0);
+   std::cout << "PROXIMATE TEST" << std::endl;
    planes.push_back(plane2);
-   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::PROXIMATE);
-   ASSERT_EQ(result->advisorylevel(), CDTIReport::PROXIMATE);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIPlane::PROXIMATE, result->planes().Get(0).severity());
+   ASSERT_EQ(CDTIReport::PROXIMATE, result->advisorylevel());
+}
+
+TEST(DecisionTest, testCalAdvisoryTraffic)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
 
    // Traffic
-   CorrelatedData plane3(4, 0, 0, -10, 0, 0);
+   std::cout << "TRAFFIC TEST" << std::endl;
    planes.push_back(plane3);
-   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::TRAFFIC);
-   ASSERT_EQ(result->advisorylevel(), CDTIReport::TRAFFIC);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIPlane::TRAFFIC, result->planes().Get(0).severity());
+   ASSERT_EQ(CDTIReport::TRAFFIC, result->advisorylevel());
+}
+
+TEST(DecisionTest, testCalAdvisoryResolution)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
 
    // Resolution
-   CorrelatedData plane4(1, 0, 0, -10, 0, 0);
+   std::cout << "RESOLUTION TEST" << std::endl;
    planes.push_back(plane4);
-   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::RESOLUTION);
-   ASSERT_EQ(result->advisorylevel(), CDTIReport::RESOLUTION);
-
-   // Crash TODO: switch to CRASH once CRASH is implemented in proto
-   CorrelatedData plane5(.4, 0, 0, -10, 0, 0);
-   planes.push_back(plane5);
-   ASSERT_EQ(result->planes().Get(0).severity(), CDTIPlane::RESOLUTION);
-   ASSERT_EQ(result->advisorylevel(), CDTIReport::RESOLUTION);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIPlane::RESOLUTION, result->planes().Get(0).severity());
+   ASSERT_EQ(CDTIReport::RESOLUTION, result->advisorylevel());
 }
+
+TEST(DecisionTest, testCalAdvisoryCrash)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "CRASH TEST" << std::endl;
+   planes.push_back(plane5);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIPlane::CRASH, result->planes().Get(0).severity());
+   ASSERT_EQ(CDTIReport::CRASH, result->advisorylevel());
+}
+
+// Tests that if there are multiple planes and the highest severity is CRASH then the Report has severity CRASH
+TEST(DecisionTest, testCalAdvisoryMultiCrash)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "MULTI-PLANE CRASH TEST" << std::endl;
+   planes.push_back(plane4);
+   planes.push_back(plane2);
+   planes.push_back(plane5);
+   planes.push_back(plane1);
+   planes.push_back(plane3);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIReport::CRASH, result->advisorylevel());
+}
+
+// Tests that if there are multiple planes and the highest severity is RESOLUTION then the Report has severity RESOLUTION
+/*TEST(DecisionTest, testCalAdvisoryMultiResolution)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "MULTI-PLANE RESOLUTION TEST" << std::endl;
+   planes.push_back(plane2);
+   planes.push_back(plane4);
+   planes.push_back(plane1);
+   planes.push_back(plane3);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIReport::RESOLUTION, result->advisorylevel());
+}
+
+// Tests that if there are multiple planes and the highest severity is TRAFFIC then the Report has severity TRAFFIC
+TEST(DecisionTest, testCalAdvisoryMultiTraffic)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "MULTI-PLANE TRAFFIC TEST" << std::endl;
+   planes.push_back(plane2);
+   planes.push_back(plane3);
+   planes.push_back(plane1);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIReport::TRAFFIC, result->advisorylevel());
+}
+
+// Tests that if there are multiple planes and the highest severity is PROXIMATE then the Report has severity CRASH
+TEST(DecisionTest, testCalAdvisoryMultiProximate)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "MULTI-PLANE PROXIMATE TEST" << std::endl;
+   planes.push_back(plane1);
+   planes.push_back(plane2);
+   planes.push_back(plane1);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIReport::PROXIMATE, result->advisorylevel());
+}
+
+// Tests that if there are multiple planes and the highest severity is AIR then the Report has severity AIR
+TEST(DecisionTest, testCalAdvisoryMultiAir)
+{
+   std::vector<CorrelatedData> planes;
+   SensorData ownship("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+   Decision dec;
+   CDTIReport *result;
+
+   // Crash
+   std::cout << "MULTI-PLANE AIR TEST" << std::endl;
+   planes.push_back(plane1);
+   planes.push_back(plane1);
+   planes.push_back(plane1);
+   result = dec.calcAdvisory(&planes, &ownship);
+   ASSERT_EQ(CDTIReport::AIR, result->advisorylevel());
+}*/
