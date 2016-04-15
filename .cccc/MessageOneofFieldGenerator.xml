@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module MessageOneofFieldGenerator-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="50" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="2" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="25.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="26" level="0" />
+<weighted_methods_per_class_visibility value="4" level="0" />
+<depth_of_inheritance_tree value="4" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="7" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="84" />
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="66" />
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="70" />
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageOneofFieldGenerator)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="108" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="77" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="90" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateClearCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="78" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateClearingCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="96" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateCloningCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="71" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateConstructorCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="98" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateDependentAccessorDeclarations(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="91" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateDependentInlineAccessorDefinitions(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="92" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateEqualsCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="82" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateFixClonedCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="84" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateGetterDeclaration(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="101" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateHashCodeCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="83" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateInlineAccessorDefinitions(Printer *,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="93" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateMembers(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="72" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateMembers(Printer *,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="77" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateMergingCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="79" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateNonInlineAccessorDefinitions(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="95" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateParsingCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="74" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateSerializationCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="80" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateSerializedSizeCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="81" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GenerateSwappingCode(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="97" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>InternalGenerateInlineAccessorDefinitions(const map &amp;,Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="104" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>MessageOneofFieldGenerator(const FieldDescriptor *,const Options &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="86" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>MessageOneofFieldGenerator(const FieldDescriptor *,const Params &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="72" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>MessageOneofFieldGenerator(const FieldDescriptor *,int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="68" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>WriteToString(Printer *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="73" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~MessageOneofFieldGenerator()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="88" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="69" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="74" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>MessageOneofFieldGenerator</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>FieldDescriptor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="86" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="68" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="72" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="87" />
+</extent>
+<name>FieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="70" />
+</extent>
+<name>MessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="84" />
+</extent>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="66" />
+</extent>
+<name>Params</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="73" />
+</extent>
+<name>Printer</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="91" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="92" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="93" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="95" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="96" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="97" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="98" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="101" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="105" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="71" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="72" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="73" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/csharp/csharp_message_field.h" line="74" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="77" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="78" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="79" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="80" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="81" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="82" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="83" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="84" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="94" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="107" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="77" />
+</extent>
+<name>map</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/cpp/cpp_message_field.h" line="105" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/javanano/javanano_message_field.h" line="88" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
