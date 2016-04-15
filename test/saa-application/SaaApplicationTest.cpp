@@ -54,3 +54,34 @@ TEST(saa_Test, adsbToRel)
    assert(result.getPurePosition().y >= 10.39 - .05 && result.getPurePosition().y <= 10.39 + .05);
    assert(result.getPurePosition().z == 0);
 }
+
+TEST(saa_Test, radarToRelative) {
+   RadarReport radar;
+   OwnshipReport ownship;
+
+   //initialize radar report
+   radar.set_range(12152.2); // 2 nautical miles
+   radar.set_azimuth(0);
+   radar.set_elevation(0);
+   radar.set_north(200);
+   radar.set_east(0);
+   radar.set_down(0);
+
+   //initialize ownship
+   ownship.set_ownship_longitude(30.0);
+   ownship.set_ownship_latitude(30.0);
+   ownship.set_ownship_altitude(20000); // feet
+   ownship.set_north(200); // ft/s
+   ownship.set_east(0); // ft/s
+   ownship.set_down(0); // ft/s
+
+   SensorData result = SaaApplication::radarToRelative(radar, ownship);
+
+   assert(result.getVelocity().x == 0);
+   assert(result.getVelocity().y == 0);
+   assert(result.getVelocity().z == 0);
+   assert(result.getPurePosition().x == 0);
+   assert(result.getPurePosition().y >= 2 - .05 && result.getPurePosition().y <= 2 + .05);
+   assert(result.getPurePosition().z == 0);
+
+}
