@@ -77,7 +77,7 @@ TEST(saa_Test, radarToRelative) {
 
    SensorData result = SaaApplication::radarToRelative(radar, ownship);
 
-   assert(result.getVelocity().x == 0);
+   EXPECT_FLOAT_EQ(result.getVelocity().x, 0);
    assert(result.getVelocity().y == 0);
    assert(result.getVelocity().z == 0);
    assert(result.getPurePosition().x == 0);
