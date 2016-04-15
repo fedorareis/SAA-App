@@ -5,7 +5,7 @@
 #ifndef SAA_APPLICATION_UNIFORMVEC3DNOISE_H
 #define SAA_APPLICATION_UNIFORMVEC3DNOISE_H
 #include <random>
-#include "maths.h"
+#include "Maths.h"
 
 #include "Vec3dNoise.h"
 #include "Randomizer.h"
