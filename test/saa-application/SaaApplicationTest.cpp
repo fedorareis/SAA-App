@@ -34,12 +34,13 @@ TEST(saa_Test, adsbToRel)
 
    SensorData result = SaaApplication::adsbToRelative(adsb, ownship);
 
-   assert(result.getVelocity().x == 0);
-   assert(result.getVelocity().y == 0);
-   assert(result.getVelocity().z == 0);
-   assert(result.getPurePosition().x >= 30.02 - .05 && result.getPurePosition().x <= 30.02 + .05);
-   assert(result.getPurePosition().y == 0);
-   assert(result.getPurePosition().z == 0);
+   ASSERT_EQ(result.getVelocity().x, 0);
+   ASSERT_EQ(result.getVelocity().y, 0);
+   ASSERT_EQ(result.getVelocity().z, 0);
+   ASSERT_GE(result.getPurePosition().x, 30.02 - .05);
+   ASSERT_LE(result.getPurePosition().x, 30.02 + .05);
+   ASSERT_EQ(result.getPurePosition().y, 0);
+   ASSERT_EQ(result.getPurePosition().z, 0);
 
    //now test longitude
    ownship.set_ownship_longitude(29.8);
@@ -47,12 +48,13 @@ TEST(saa_Test, adsbToRel)
 
    result = SaaApplication::adsbToRelative(adsb, ownship);
 
-   assert(result.getVelocity().x == 0);
-   assert(result.getVelocity().y == 0);
-   assert(result.getVelocity().z == 0);
-   assert(result.getPurePosition().x == 0);
-   assert(result.getPurePosition().y >= 10.39 - .05 && result.getPurePosition().y <= 10.39 + .05);
-   assert(result.getPurePosition().z == 0);
+   ASSERT_EQ(result.getVelocity().x, 0);
+   ASSERT_EQ(result.getVelocity().y, 0);
+   ASSERT_EQ(result.getVelocity().z, 0);
+   ASSERT_EQ(result.getPurePosition().x, 0);
+   ASSERT_GE(result.getPurePosition().y, 10.39 - .05);
+   ASSERT_LE(result.getPurePosition().y, 10.39 + .05);
+   ASSERT_EQ(result.getPurePosition().z, 0);
 }
 
 TEST(saa_Test, radarToRelative) {
@@ -77,11 +79,13 @@ TEST(saa_Test, radarToRelative) {
 
    SensorData result = SaaApplication::radarToRelative(radar, ownship);
 
-   EXPECT_FLOAT_EQ(result.getVelocity().x, 0);
-   assert(result.getVelocity().y == 0);
-   assert(result.getVelocity().z == 0);
-   assert(result.getPurePosition().x == 0);
-   assert(result.getPurePosition().y >= 2 - .05 && result.getPurePosition().y <= 2 + .05);
-   assert(result.getPurePosition().z == 0);
+   ASSERT_EQ(result.getVelocity().x, 0);
+   ASSERT_EQ(result.getVelocity().y, 0);
+   ASSERT_EQ(result.getVelocity().z, 0);
+   std::cout << result.getPurePosition().x << std::endl;
+   ASSERT_EQ(result.getPurePosition().x, 0);
+   ASSERT_GE(result.getPurePosition().y, 2 - .05);
+   ASSERT_LE(result.getPurePosition().y, 2 + .05);
+   ASSERT_EQ(result.getPurePosition().z, 0);
 
 }
