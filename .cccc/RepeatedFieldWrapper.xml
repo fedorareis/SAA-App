@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module RepeatedFieldWrapper-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="41" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="7" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="5.857" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.714" level="0" />
+<weighted_methods_per_class_unity value="14" level="0" />
+<weighted_methods_per_class_visibility value="14" level="0" />
+<depth_of_inheritance_tree value="2" level="0" />
+<number_of_children value="1" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="16" level="0" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="16" level="0" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="1" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="88" />
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>Add(Field *,const Value *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="108" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Clear(Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="102" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ConvertFromT(const T &amp;,Value *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="136" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ConvertToT(const Value *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="129" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Get(const Field *,int,Value *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="98" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GetRepeatedField(const Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="120" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>IsEmpty(const Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="92" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>MutableRepeatedField(Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="123" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RemoveLast(Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="111" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>RepeatedFieldWrapper()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="90" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Set(Field *,int,const Value *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="105" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Size(const Field *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="95" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SwapElements(Field *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="114" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~RepeatedFieldWrapper()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="91" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>RepeatedFieldWrapper</name>
+<client_module>
+<name>RepeatedFieldPrimitiveAccessor</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="272" />
+</extent>
+</client_module>
+<supplier_module>
+<name>Field</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="92" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="95" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="98" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="102" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="105" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="108" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="111" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="114" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="120" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="123" />
+</extent>
+<name>RandomAccessRepeatedFieldAccessor</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="88" />
+</extent>
+<name>T</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="136" />
+</extent>
+<name>Value</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="105" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="108" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="129" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/reflection_internal.h" line="137" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

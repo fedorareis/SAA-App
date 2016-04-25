@@ -12,8 +12,15 @@
 class KMeansCorrelation : public CorrelationStrategy
 {
    public:
-      void report();
-      //void addPlane(/* When we have a plane class pass one in here*/);
+    /**
+      * First algorithm implemented for correlation.
+      *
+      * Calculates and correlates the raw sensor data to be sent and analyzed
+      * in the Decision-Making module.
+      *
+      * @param planes The raw sensor data sent from the test server once per second.
+      * @return The correlated sensor data being sent to Decision module.
+      */
       virtual std::vector<CorrelatedData> correlate(std::vector<SensorData> planes);
 };
 #endif //SAA_APPLICATION_CORRELATION_H

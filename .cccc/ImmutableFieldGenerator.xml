@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module ImmutableFieldGenerator-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="9" level="0" />
+<coupling_between_objects value="9" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>ImmutableFieldGenerator</name>
+<client_module>
+<name>ImmutableEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="56" />
+</extent>
+<name>ImmutableMapFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_map_field.h" line="41" />
+</extent>
+<name>ImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="56" />
+</extent>
+<name>ImmutablePrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="56" />
+</extent>
+<name>ImmutableStringFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="57" />
+</extent>
+<name>RepeatedImmutableEnumFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_enum_field.h" line="116" />
+</extent>
+<name>RepeatedImmutableMessageFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_message_field.h" line="122" />
+</extent>
+<name>RepeatedImmutablePrimitiveFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_primitive_field.h" line="116" />
+</extent>
+<name>RepeatedImmutableStringFieldGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/compiler/java/java_string_field.h" line="116" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

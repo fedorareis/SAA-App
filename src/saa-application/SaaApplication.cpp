@@ -145,9 +145,9 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));
    float positionN = (float)(horizRange * sin(theta));
-   float velocityN = fpsToNmph(radar.north());
-   float velocityE = fpsToNmph(radar.east());
-   float velocityD = fpsToNmph(radar.down());
+   float velocityN = fpsToNmph(ownship.north() - radar.north());
+   float velocityE = fpsToNmph(ownship.east() - radar.east());
+   float velocityD = fpsToNmph(ownship.down() - radar.down());
    SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }

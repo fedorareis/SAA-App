@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module TestServerPlane-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="174" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="23" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="7" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="24.857" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.286" level="0" />
+<weighted_methods_per_class_unity value="29" level="0" />
+<weighted_methods_per_class_visibility value="9" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="9" level="0" />
+<IF4 value="324" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="225" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="4" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="12" />
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>TestServerPlane()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="28" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="14" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>TestServerPlane(const TestServerPlane &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="123" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="15" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getADSBEnabled()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="95" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="43" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getAltitude()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="79" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="36" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getDownVelocity()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="91" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="39" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getEastVelocity()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="87" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="38" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLatLongAlt()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="185" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="41" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLatitude()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="71" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="34" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLongitude()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="75" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="35" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getMotion()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="143" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="46" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getNorthVelocity()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="83" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="37" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getRadarEnabled()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="102" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="42" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getRadarId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="173" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="50" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getTailNumber()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="119" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="47" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getTcasEnabled()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="99" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="44" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getTcasId()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="170" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="49" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getTimestamp()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="139" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="45" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator =(const TestServerPlane &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="152" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="16" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setAdsbEnabled(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="55" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="24" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setLatLongAlt(Vector3d)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="147" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="30" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setMotion(const Motion &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="65" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="27" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setNorthEastDownVelocity(Vector3d)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="23" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="31" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setRadarEnabled(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="62" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="26" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setRadarId(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="180" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="52" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setTailNumber(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="115" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="29" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setTcasEnabled(bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="59" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="25" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setTcasId(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="177" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="51" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>update(float)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="43" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="22" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~TestServerPlane()</name>
+<extent>
+<description>definition</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="106" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="17" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>TestServerPlane</name>
+<client_module>
+<name>AdsbSensor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/AdsbSensor.cpp" line="20" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/AdsbSensor.cpp" line="20" />
+</extent>
+<name>OwnshipSensor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/OwnshipSensor.cpp" line="24" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/OwnshipSensor.cpp" line="24" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/OwnshipSensor.h" line="12" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/OwnshipSensor.h" line="12" />
+</extent>
+<name>RadarSensor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.cpp" line="16" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.cpp" line="16" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.cpp" line="61" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.cpp" line="61" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.h" line="22" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.h" line="22" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.h" line="25" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/RadarSensor.h" line="25" />
+</extent>
+<name>TcasSensor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.cpp" line="8" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.cpp" line="9" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.h" line="17" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.h" line="17" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.h" line="20" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/endpoints/TcasSensor.h" line="20" />
+</extent>
+<name>TestCase</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestCase.cpp" line="21" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestCase.cpp" line="25" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestCase.h" line="28" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestCase.h" line="32" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./src/test-server/TestCase.h" line="54" />
+</extent>
+<name>TestFileParser</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestFileParser.cpp" line="171" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestFileParser.cpp" line="285" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestFileParser.h" line="62" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/TestFileParser.h" line="64" />
+</extent>
+</client_module>
+<supplier_module>
+<name>Motion</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="65" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="27" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="56" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="55" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="59" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="24" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="25" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="26" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="63" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="64" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="65" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.cpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="29" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="./src/test-server/planes/TestServerPlane.h" line="67" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

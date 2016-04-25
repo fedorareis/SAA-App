@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module MapTypeHandler-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="109" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="12" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="15" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="7.267" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.800" level="0" />
+<weighted_methods_per_class_unity value="14" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="4" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="131" />
+<lines_of_code value="39" level="1" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="15" level="0" />
+<lines_of_code_per_line_of_comment value="2.600" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>AssignDefaultValue(Type **)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="394" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Clear(Type **,Arena *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="369" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ClearMaybeByDefaultEnum(Type **,Arena *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="375" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>DefaultIfNotInitialized(const Type *,const Type *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="426" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>DeleteNoArena(const Type *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="388" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>EnsureMutable(Type **,Arena *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="414" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Initialize(Type **,Arena *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="400" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>InitializeMaybeByDefaultEnum(Type **,int,Arena *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="407" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>IsInitialized(Type *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="432" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Merge(const Type &amp;,Type **,Arena *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="382" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Read(CodedInputStream *,MapEntryAccessorType *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="316" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="322" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SpaceUsedInMap(const Type &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="363" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SpaceUsedInMapEntry(const Type *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="357" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>WriteToArray(int,const MapEntryAccessorType &amp;,uint8 *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="283" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>MapTypeHandler</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>Arena</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="370" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="377" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="383" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="402" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="409" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="416" />
+</extent>
+<name>CodedInputStream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="317" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="323" />
+</extent>
+<name>MapEntryAccessorType</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="284" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="317" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="323" />
+</extent>
+<name>uint8</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="./lib/protobuf/src/google/protobuf/map_type_handler.h" line="284" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

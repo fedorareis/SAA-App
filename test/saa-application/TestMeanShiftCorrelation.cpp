@@ -12,6 +12,19 @@ TEST(MeanshiftCorrelator,emptyCorrelation)
     auto res = correlation.correlate(std::vector<SensorData>());
     ASSERT_EQ(res.size(),0);
 }
+
+TEST(MeanshiftCorrelator, oneDatapoint)
+{
+    MeanShiftCorrelation correlation;
+    std::vector<SensorData> data;
+
+    SensorData data1("",5.01,3,   -400,3000,2050,1020,Sensor::adsb,0,1.0);
+    data.push_back(data1);
+    auto res = correlation.correlate(data);
+    ASSERT_EQ(res.size(),1);
+
+}
+
 TEST(MeanshiftCorrelator,Simple)
 {
     MeanShiftCorrelation correlation;
