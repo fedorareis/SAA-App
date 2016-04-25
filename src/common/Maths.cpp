@@ -43,7 +43,7 @@ bool operator==(const Vector3d& lhs, const Vector3d& rhs)
 
 Vector3d getDifference(Vector3d plane, Vector3d ownship)
 {
-    float positionX = calcDistance(plane.latitude(), ownship.latitude(), ownship.latitude(),
+    float positionX = calcDistance(plane.latitude(), ownship.longitude(), ownship.latitude(),
                                    ownship.longitude()) * (plane.latitude() < ownship.latitude() ? -1 : 1);
     float positionY = calcDistance(ownship.latitude(), plane.longitude(), ownship.latitude(),
                                    ownship.longitude()) * (plane.longitude() < ownship.longitude() ? -1 : 1);
