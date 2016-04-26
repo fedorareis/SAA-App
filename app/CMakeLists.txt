@@ -1,5 +1,6 @@
 #CMakeLists for main application
 
+find_package(Qt5Widgets)
 include_directories ("${PROJECT_SOURCE_DIR}/src")
 include_directories("/usr/local/include")
 link_directories("/usr/local/lib")

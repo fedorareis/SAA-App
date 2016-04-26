@@ -5,7 +5,7 @@
 #include "ValidationWriter.h"
 #include "Validator.h"
 
-void ValidationWriter::writeErrors(std::ostream &str, const Validator & v) {
+void ValidationWriter::writeErrors(std::ostream &str, const Validator &v) {
    if(v.hasErrors())
    {
       if(!v.hasReceivedResults())
@@ -23,6 +23,4 @@ void ValidationWriter::writeErrors(std::ostream &str, const Validator & v) {
    {
       str << "Correlation is perfect, no errors detected!" << std::endl;
    }
-
-
 }
