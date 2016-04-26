@@ -13,10 +13,13 @@ option(BUILD_PROTOBUF "Build the protobuf library" ON)
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
 # to always look for includes there:
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-if(!APPLE)
-	set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} mlpack")
-endif()
+
+IF(NOT APPLE)
+
+set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} mlpack")
+ENDIF()
 #add Googletest
 
 

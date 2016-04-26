@@ -47,21 +47,18 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
    arma::mat centroids;
 
    auto dataMtx = arma::Mat<double>(&data[0],dimensionality,planes.size());
+   //dataMtx = dataMtx.; //Transpose data matrix
    //Radius test
    meanShift.Radius(0.01);
-   try
-   {
+   //try
+   //{
       meanShift.Cluster(dataMtx, assignments, centroids);
 
-   }
+  // }
    /*
     * MeanShift has trouble processing data sets. For now, we'll return a blank correlation..
     */
-   catch(std::invalid_argument e)
-   {
-      std::cout << "Invalid argument exception: " << e.what() <<  std::endl;
-      correlationFailed = true;
-   }
+
 
    /**
     * If correlation fails, use the assignments from the previous run and vector summations to create new planes.
