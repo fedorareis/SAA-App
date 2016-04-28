@@ -139,7 +139,7 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
 {
    std::string tailNumber = std::to_string(radar.id());
    float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
-   float vertRange = (float)(positionZ / NAUT_MILES_TO_FEET);
+   float vertRange = (float)(positionZ / FEET_TO_NAUT_MILES);
    float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));

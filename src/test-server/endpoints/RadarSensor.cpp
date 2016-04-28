@@ -60,10 +60,10 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
       velocity += velocityDistribution.getNoise();
    }
 
-   range = (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (NAUT_MILES_TO_FEET *
+   range = (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (FEET_TO_NAUT_MILES *
 
-                                                                                                 NAUT_MILES_TO_FEET));
-   float elevation = 180.f/M_PI * atan2(positionZ/NAUT_MILES_TO_FEET,range);
+                                                                                                 FEET_TO_NAUT_MILES));
+   float elevation = 180.f/M_PI * atan2(positionZ / FEET_TO_NAUT_MILES, range);
 
    report.set_altitude((float) finalPosition.z);
    report.set_range(range);
