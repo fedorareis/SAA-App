@@ -63,10 +63,10 @@ TEST(RadarSensorTest, testElevation)
    RadarSensor sensor(nullptr,false);
    ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
    ownship.setLatLongAlt(Vector3d(50,0,2000));
-   plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
+   plane.setLatLongAlt(Vector3d(50.1,0, 2000 + FEET_TO_NAUT_MILES));
    RadarReport rept = sensor.createReport(plane,ownship);
    ASSERT_FLOAT_EQ(9.3301497, rept.elevation());
-   plane.setLatLongAlt(Vector3d(50.1,0,2000 - NAUT_MILES_TO_FEET));
+   plane.setLatLongAlt(Vector3d(50.1,0, 2000 - FEET_TO_NAUT_MILES));
    rept = sensor.createReport(plane,ownship);
    ASSERT_FLOAT_EQ(-9.3301497, rept.elevation());
 
@@ -80,7 +80,7 @@ TEST(RadarSensorTest, testNoise)
    RadarSensor sensor(nullptr,true);
    ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
    ownship.setLatLongAlt(Vector3d(50,0,2000));
-   plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
+   plane.setLatLongAlt(Vector3d(50.1,0, 2000 + FEET_TO_NAUT_MILES));
    RadarReport rept = sensor.createReport(plane,ownship, testNoise, testNoise);
    ASSERT_FLOAT_EQ(8.0451717, rept.elevation());
 
