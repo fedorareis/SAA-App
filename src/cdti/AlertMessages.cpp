@@ -39,6 +39,8 @@ AlertMessages::AlertMessages(CDTIEndpoint& socket):cdtiSocket(socket)
 CDTIReport AlertMessages::getMessage()
 {
     cdtiSocket >> report;
+    int posx = report.planes(0).position().x();
+    int timestamp = report.timestamp();
     //std::cout << report << std::endl;
     return report;
 }

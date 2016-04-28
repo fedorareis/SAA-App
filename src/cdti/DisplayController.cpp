@@ -20,6 +20,7 @@ DisplayController::DisplayController(Display & display): display(display)
     }
     catch(SocketException exception)
     {
+        mock = true;
         std::cout << exception.description() << std::endl;
         std::cout << "falling back to mock data" << std::endl;
 
@@ -34,22 +35,30 @@ void DisplayController::listenOnSocket()
 {
     while(socket->isRunning())
     {
-       CDTIReport report = messages->getMessage();
+        CDTIReport report;
+        if(mock)
+        {
+            ((CDTIMockEndpoint *)(messages->getSocket()))->step();
+        }
+        report = messages->getMessage();
 
-//        for(int i = 0; i < report.planes_size(); i++)
+//        if(mock)
 //        {
-//            if(i >= display.getNumPlanes())
+//            for (int i = 0; i < report.planes_size(); i++)
 //            {
-//                Aircraft* aircraft = new Aircraft(report.planes(i));
-//                std::cout << "Planes added!" << std::endl;
-//                display.addPlane(aircraft);
-//            }
-//            else
-//            {
-//                Aircraft* aircraft = display.getPlane(i);
-//                aircraft->setPosition(report.planes(i).position());
-//                aircraft->setVelocity(report.planes(i).velocity());
-//                aircraft->setSeverity(report.planes(i).severity());
+//                if (i >= display.getNumPlanes())
+//                {
+//                    Aircraft *aircraft = new Aircraft(report.planes(i));
+//                    std::cout << "Planes added!" << std::endl;
+//                    display.addPlane(aircraft);
+//                }
+//                else
+//                {
+//                    Aircraft *aircraft = display.getPlane(i);
+//                    aircraft->setPosition(report.planes(i).position());
+//                    aircraft->setVelocity(report.planes(i).velocity());
+//                    aircraft->setSeverity(report.planes(i).severity());
+//                }
 //            }
 //        }
 

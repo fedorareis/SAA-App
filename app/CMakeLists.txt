@@ -13,12 +13,12 @@ file (GLOB_RECURSE CDTI_APP_SOURCES
       "cdti/*.cpp")
 
 add_executable (cdti-main WIN32 ${CDTI_APP_SOURCES})
-target_link_libraries (cdti-main common-sources cdti-sources protobuf)
+target_link_libraries (cdti-main common-sources cdti-sources protobuf mlpack)
 
 #SAA application
 
 add_executable (cdti ${CDTI_APP_SOURCES})
-target_link_libraries (cdti common-sources cdti-sources protobuf)
+target_link_libraries (cdti common-sources cdti-sources protobuf mlpack)
 
 file (GLOB_RECURSE SAA_APPLICATION_APP_SOURCES
       "saa-application/*.cpp")
@@ -30,7 +30,7 @@ file (GLOB_RECURSE TEST_SERVER_APP_SOURCES
       "test-server/*.cpp")
 
 add_executable (test-server ${TEST_SERVER_APP_SOURCES})
-target_link_libraries (test-server  common-sources test-server-sources protobuf )
+target_link_libraries (test-server  common-sources test-server-sources protobuf mlpack)
 
 
 
