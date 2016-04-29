@@ -87,5 +87,4 @@ TEST(saa_Test, radarToRelative) {
    ASSERT_GE(result.getPurePosition().y, 2 - .05);
    ASSERT_LE(result.getPurePosition().y, 2 + .05);
    ASSERT_EQ(result.getPurePosition().z, 0);
-
 }

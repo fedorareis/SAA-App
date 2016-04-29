@@ -34,7 +34,7 @@ float bearingToRadians(float bearing) {
 }
 
 
-bool operator==(const Vector3d& lhs, const Vector3d& rhs)
+bool operator==(const Vector3d lhs, const Vector3d rhs)
 {
     return lhs.x == rhs.x &&
            lhs.y == rhs.y &&
