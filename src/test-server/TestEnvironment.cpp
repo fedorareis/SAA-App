@@ -76,7 +76,7 @@ void TestEnvironment::start(TestCase & tc)
             }
             if (plane->getTcasEnabled() && sendTcas)
             {
-               tcasSensor.sendData(*plane, tc.getOwnship());
+               //tcasSensor.sendData(*plane, tc.getOwnship());
             }
             if (sendRadar)
             {
