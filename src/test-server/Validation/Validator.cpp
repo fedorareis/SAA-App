@@ -35,7 +35,7 @@ void Validator::endSimulation()
          }
       }
    }
-  std::cout << "Final Results:  " << errors.size() << "Errors, " << numResults << std::endl;
+  std::cout << "Final Results:  " << errors.size() << " Errors, " << numResults << " Results" << std::endl;
 }
 
 const std::vector<std::shared_ptr<TestCaseError>> & Validator::getErrors()const {
