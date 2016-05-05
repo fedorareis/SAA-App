@@ -138,9 +138,10 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
 SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
-   float positionZ = (float)(radar.range() * sin(-bearingToRadians(radar.elevation())));
-   float vertRange = (float)(positionZ / NAUT_MILES_TO_FEET);
-   float horizRange = (float)(sqrt(radar.range() * radar.range() - vertRange * vertRange));
+   float range = radar.range() / FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
+   float positionZ = (float)(range * sin(-bearingToRadians(radar.elevation())));
+   float vertRange = (float)(positionZ / FEET_TO_NAUT_MILES);
+   float horizRange = (float)(sqrt(range * range - vertRange * vertRange));
    // theta = bearing of intruder + heading of ownship
    float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
    float positionE = (float)(horizRange * cos(theta));

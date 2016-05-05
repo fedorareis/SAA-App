@@ -55,6 +55,9 @@ public:
 
     int getNextRadarId();
 
+   int getTotalTime() const;
+   int getElapsedTime() const;
+
     /**
      * enables or disables data fuzzing of planes for the test case
      */
@@ -63,6 +66,7 @@ public:
 private:
     static Randomizer *sensorNoise;
     bool enableErrors;
+    float totalTime;
 
     float t;
     TestServerPlane ownship;

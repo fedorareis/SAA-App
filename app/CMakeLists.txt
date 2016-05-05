@@ -25,7 +25,7 @@ file (GLOB_RECURSE SAA_APPLICATION_APP_SOURCES
       "saa-application/*.cpp")
 
 add_executable (saa-application ${SAA_APPLICATION_APP_SOURCES})
-target_link_libraries (saa-application  common-sources saa-application-sources protobuf mlpack boost_serialization) 
+target_link_libraries (saa-application  common-sources saa-application-sources protobuf armadillo mlpack boost_serialization)
 
 file (GLOB_RECURSE TEST_SERVER_APP_SOURCES
       "test-server/*.cpp")

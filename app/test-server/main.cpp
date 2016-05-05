@@ -22,31 +22,44 @@ int main(int argC, const char* argV[])
    TestServer::provideOwnshipEndpoint(new SocketSensorEndpoint(5000));
 
    //__DIR__ is injected in compile time
-   std::string test = "/resources/TestPlan_2.xml";
-   if(argC > 1)
+   std::string test;
+   if(argC < 2)
+   {
+      std::cout << "test-server: <test-file-name.xml>" << std::endl;
+      return -1;
+   }
+
+   else
    {
       test = std::string(argV[1]);
    }
-
-   std::string s(__DIR__+test);
+   std::string s(test);
    TestFileParser parser;
    // true if building test case is successful
-   if(parser.load(s))
-   {
-      std::cout<<s<<std::endl;
+   try {
 
-      TestCase testCase = parser.GetTestCase();
-      PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
-      NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
-      //Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
-      Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
-      TestEnvironment environment;
-      environment.acceptConnections();
-      environment.start(testCase);
 
-      std::cout << "Environment has finished accepting connections" << std::endl;
+      if (parser.load(s)) {
+         std::cout << s << std::endl;
+
+         TestCase testCase = parser.GetTestCase();
+         PositionVerificationTest positionTest(std::make_shared<TestCase>(TestCase(testCase)));
+         NumPlanesVerificationTest numPlanesTest(std::make_shared<TestCase>(TestCase(testCase)));
+         //Validator::addTester(std::make_shared<PositionVerificationTest>(std::move(positionTest)));
+         Validator::addTester(std::make_shared<NumPlanesVerificationTest>(std::move(numPlanesTest)));
+         TestEnvironment environment;
+         environment.acceptConnections();
+         environment.start(testCase);
+
+         std::cout << "Environment has finished accepting connections" << std::endl;
+      }
+      TestServer::shutdown();
    }
-   TestServer::shutdown();
+   catch(std::exception e)
+   {
+      std::cerr << "Error in loading test case: " << e.what() << std::endl;
+   }
+
 /*
    std::cout<<"\n----Test File 2----"<<std::endl;
    //__DIR__ is injected in compile time

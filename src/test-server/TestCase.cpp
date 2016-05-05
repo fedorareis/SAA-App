@@ -64,8 +64,9 @@ void TestCase::complete() {
    }
 }
 
-void TestCase::setTotalTime(float totalTime) {
-   this->t = totalTime;
+void TestCase::setTotalTime(float tTime) {
+   this->t = tTime;
+   this->totalTime = tTime;
 }
 
 bool TestCase::isRunning() {
@@ -85,7 +86,8 @@ TestCase::TestCase(const TestCase &otherTestCase) :
         t(otherTestCase.t),
         name(otherTestCase.name),
         radarId(otherTestCase.radarId),
-        tcasId(otherTestCase.tcasId)
+        tcasId(otherTestCase.tcasId),
+        totalTime(otherTestCase.totalTime)
 {
    ownship = TestServerPlane(otherTestCase.ownship);
    for (auto plane: otherTestCase.otherPlanes)
@@ -98,3 +100,10 @@ void TestCase::makeDataNoise(bool noise)
 }
 
 
+int TestCase::getTotalTime() const {
+   return this->totalTime;
+}
+
+int TestCase::getElapsedTime() const {
+   return getTotalTime() - t;
+}
