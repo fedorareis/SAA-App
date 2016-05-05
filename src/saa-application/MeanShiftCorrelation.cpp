@@ -21,13 +21,13 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       {
          data.push_back(plane.getPurePosition().x);
          data.push_back(plane.getPurePosition().y);
-         data.push_back(plane.getPurePosition().z);
+         data.push_back(plane.getPurePosition().z / FEET_TO_NAUT_MILES);
       }
       if(this->currFlags & COR_VEL)
       {
-         data.push_back(plane.getVelocity().x);
-         data.push_back(plane.getVelocity().y);
-         data.push_back(plane.getVelocity().z);
+         data.push_back(plane.getVelocity().x / FEET_TO_NAUT_MILES);
+         data.push_back(plane.getVelocity().y / FEET_TO_NAUT_MILES);
+         data.push_back(plane.getVelocity().z / FEET_TO_NAUT_MILES);
       }
    }
    //Data is constructed, set dimensionality.
@@ -42,26 +42,21 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       dimensionality += 3;
    }
 
-   mlpack::meanshift::MeanShift<true> meanShift;
    arma::Col<size_t> assignments;
    arma::mat centroids;
-
+   meanshift->setWindow(dimensionality * 25);
    auto dataMtx = arma::Mat<double>(&data[0],dimensionality,planes.size());
+   //dataMtx = dataMtx.; //Transpose data matrix
    //Radius test
-   meanShift.Radius(0.01);
-   try
-   {
-      meanShift.Cluster(dataMtx, assignments, centroids);
+   //try
+   //{
+   meanshift->Cluster(dataMtx, assignments, centroids);
 
-   }
+  // }
    /*
     * MeanShift has trouble processing data sets. For now, we'll return a blank correlation..
     */
-   catch(std::invalid_argument e)
-   {
-      std::cout << "Invalid argument exception: " << e.what() <<  std::endl;
-      correlationFailed = true;
-   }
+
 
    /**
     * If correlation fails, use the assignments from the previous run and vector summations to create new planes.
@@ -109,9 +104,6 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       }
       prevAssignments = assignments;
    }
-
-
-
    return correlatedPlanes;
 
 
@@ -121,5 +113,6 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
 MeanShiftCorrelation::MeanShiftCorrelation(double wSize, int flags) {
    this->cWindow = wSize;
    this->currFlags = flags;
+   meanshift = std::make_shared<MeanShiftImpl>(0.2);
 
 }

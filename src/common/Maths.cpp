@@ -34,7 +34,7 @@ float bearingToRadians(float bearing) {
 }
 
 
-bool operator==(const Vector3d& lhs, const Vector3d& rhs)
+bool operator==(const Vector3d lhs, const Vector3d rhs)
 {
     return lhs.x == rhs.x &&
            lhs.y == rhs.y &&
@@ -62,10 +62,10 @@ double Vector3d::getMagnitude()
 
 inline float feetToNauticalMiles(float feet)
 {
-    return feet * 1.0f / NAUT_MILES_TO_FEET;
+    return feet * 1.0f / FEET_TO_NAUT_MILES;
 }
 
 inline float nauticalMilesToFeet(float miles)
 {
-    return miles * NAUT_MILES_TO_FEET;
+    return miles * FEET_TO_NAUT_MILES;
 }

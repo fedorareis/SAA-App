@@ -18,7 +18,7 @@ public:
             expected(expected),
             actual(actual)
     { }
-
+    std::string csvString() override;
     std::string description();
 };
 

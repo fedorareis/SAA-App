@@ -24,9 +24,11 @@ public:
    CDTIReport* calcAdvisory(std::vector<CorrelatedData>* planes, SensorData* ownship);
 
    static void setTime0(time_t time);
+
 private:
    static time_t time0;
 
+protected:
    // The Sensativity Level (SL) based on altitude.
    int sensitivity;
    double tau;

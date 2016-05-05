@@ -12,6 +12,7 @@ class TestCaseError {
    TestCaseError(long timestamp) : timestamp(timestamp){};
    long getTimestamp(){return timestamp;}
    virtual std::string description() = 0;
+   virtual std::string csvString() = 0;
 
    private:
    long timestamp;
