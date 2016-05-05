@@ -84,8 +84,9 @@ TEST(saa_Test, radarToRelative) {
    ASSERT_EQ(result.getVelocity().z, 0);
    std::cout << result.getPurePosition().x << std::endl;
 
-   ASSERT_EQ(result.getPurePosition().x, 0);
-   ASSERT_GE(result.getPurePosition().y, 2 - .05);
-   ASSERT_LE(result.getPurePosition().y, 2 + .05);
+   ASSERT_GE(result.getPurePosition().x, 2 - .05);
+   ASSERT_LE(result.getPurePosition().x, 2 + .05);
+   ASSERT_GE(result.getPurePosition().y, 0 - .05);
+   ASSERT_LE(result.getPurePosition().y, 0 + .05);
    ASSERT_EQ(result.getPurePosition().z, 0);
 }
