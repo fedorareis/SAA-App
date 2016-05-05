@@ -18,6 +18,11 @@ public:
             expected(numPLanesExpeted)
     { }
 
+    NumPlanesTestCaseError(const NumPlanesTestCaseError & other):
+        TestCaseError(other),
+        actual(other.actual),
+        expected(other.expected){}
+
     std::string description();
    std::string csvString();
 };

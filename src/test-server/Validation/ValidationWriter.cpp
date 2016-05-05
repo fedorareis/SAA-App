@@ -9,8 +9,8 @@
 
 void ValidationWriter::writeErrors(std::ostream &str, const Validator &v) {
    std::ofstream out;
-   out.open("errors.csv");
-   out << "Time Stamp, Error Type,Expected X/Num,Actual X/Num,Expected Y,Actual Y,Expected Z,Actual Z\n";
+   out.open("VerificationResults.csv");
+   out << "Time Stamp, Result Type,Expected X/Num,Actual X/Num,Expected Y,Actual Y,Expected Z,Actual Z\n";
 
    if(v.hasErrors())
    {
@@ -20,8 +20,10 @@ void ValidationWriter::writeErrors(std::ostream &str, const Validator &v) {
       }
       else {
          for (auto error : v.getErrors()) {
-            str << "Correlation error: [" << error->getTimestamp() << "] : "
-            << error->description() << std::endl;
+            if (error.isError()) {
+               str << "Correlation error: [" << error->getTimestamp() << "] : "
+               << error->description() << std::endl;
+            }
             out << error->csvString();
          }
       }
