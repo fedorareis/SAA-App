@@ -34,7 +34,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    }
 
    TcasReport report;
-   report.set_bearing((float) finalPosition.x);
+   report.set_bearing((float) finalPosition.y);
    report.set_altitude((float) finalPosition.z);
 
    report.set_range(
