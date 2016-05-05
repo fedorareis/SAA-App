@@ -66,7 +66,6 @@ void MeanShiftImpl::Cluster(const arma::mat &mtx, arma::Col<size_t> &assignments
                 shifted_points.col(i) = point_new;
             }
         }
-        std::cout << "max shift dist: " << max_shift_distance << std::endl;
     } while (max_shift_distance > EPSILON);
 
     //Calculate cluster assignments
