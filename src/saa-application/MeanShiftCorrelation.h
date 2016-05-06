@@ -7,6 +7,8 @@
 
 
 #include <mlpack/core.hpp>
+#include <common/IMeanShift.h>
+#include <common/MeanShiftImpl.h>
 #include "SensorData.h"
 #include "CorrelationStrategy.h"
 #include "CorrelatedData.h"
@@ -18,13 +20,16 @@ enum CorrelationFlags
 };
 class MeanShiftCorrelation : public CorrelationStrategy {
    public:
-      MeanShiftCorrelation(double window = 0, int flags = COR_POS );
+      MeanShiftCorrelation(double window = 0, int flags = COR_POS);
       virtual std::vector<CorrelatedData> correlate(std::vector<SensorData> planes);
 
    private:
       double cWindow;
       int currFlags;
       arma::Col<size_t> prevAssignments;
+      std::shared_ptr<IMeanShift> meanshift;
+
+
 
 
 };

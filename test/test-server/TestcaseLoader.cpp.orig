@@ -33,6 +33,7 @@ TEST(TestCaseLoader, testFormatAllPlanesMissing)
    ASSERT_FALSE(parser.load(s));
 }
 
+<<<<<<< Updated upstream
 TEST(TestCaseLoader, testFormatOwnShipMissingAllSensors)
 {
    std::string s(__DIR__"/resources/TestOwnshipMissingAllSensors.xml");
@@ -40,10 +41,12 @@ TEST(TestCaseLoader, testFormatOwnShipMissingAllSensors)
 
    ASSERT_FALSE(parser.load(s));
 }
+=======
 TEST(TestCaseLoader, loadBadTestcase)
 {
    std::string s(__DIR__"/resources/awesome.png");
    TestFileParser parser;
-   ASSERT_ANY_THROW(parser.load(s));
-}
+   ASSERT_THROW(parser.load(s))); // Parser could not load test case
 
+}
+>>>>>>> Stashed changes

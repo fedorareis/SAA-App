@@ -19,6 +19,7 @@ public:
     { }
 
     std::string description();
+   std::string csvString();
 };
 
 #endif //SAA_APPLICATION_NUMPLANESTESTCASEERROR_H

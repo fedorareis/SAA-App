@@ -36,10 +36,10 @@ TEST(TCAS,testAltitudeDistance)
    TestServerPlane ownship;
    ownship.setNorthEastDownVelocity(Vector3d(1,0,0));
    ownship.setLatLongAlt(Vector3d(50,0,2000));
-   plane.setLatLongAlt(Vector3d(50.1,0,2000 + NAUT_MILES_TO_FEET));
+   plane.setLatLongAlt(Vector3d(50.1,0, 2000 + FEET_TO_NAUT_MILES));
    TcasSensor sensor(nullptr, false);
    TcasReport report = sensor.createReport(plane,ownship);
-   ASSERT_FLOAT_EQ(NAUT_MILES_TO_FEET,report.altitude());
+   ASSERT_FLOAT_EQ(FEET_TO_NAUT_MILES, report.altitude());
    ASSERT_FLOAT_EQ(0,report.bearing());
    ASSERT_FLOAT_EQ(6.0865512,report.range());
 

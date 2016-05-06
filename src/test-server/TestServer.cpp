@@ -20,9 +20,14 @@ Randomizer *TestServer::tcasBearingNoise = new Randomizer(-10, 10);
 Randomizer *TestServer::adsbLatNoise = new Randomizer(-0.0001, 0.0001);
 Randomizer *TestServer::adsbLongNoise = new Randomizer(-0.0001, 0.0001);;
 Randomizer *TestServer::adsbAltNoise = new Randomizer(-50, 50);
+//Vec3dNoise *TestServer::adsbVelNoise = new UniformVec3dNoise(Vector3d(-15, -10, -10), Vector3d(15, 10, 10));
 
-Vec3dNoise *TestServer::radarPosNoise = new UniformVec3dNoise(Vector3d(-0.0001, -0.0001, -50), Vector3d(0.0001, 0.0001, 50));
-Vec3dNoise *TestServer::radarVelNoise = new UniformVec3dNoise(Vector3d(-0.0001, -0.0001, -50), Vector3d(0.0001, 0.0001, 50));
+
+Vec3dNoise *TestServer::radarPosNoise = new UniformVec3dNoise(Vector3d(-50.0, -2.5, 0),
+                                                              Vector3d( 50.0, 2.5, 0));
+
+Vec3dNoise *TestServer::radarVelNoise = new UniformVec3dNoise(Vector3d(-0.0001, -0.0001, -50),
+                                                              Vector3d(0.0001, 0.0001, 50));
 
 
 

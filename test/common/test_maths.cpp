@@ -7,10 +7,12 @@ TEST(Math, fpsToNmph)
 {
    EXPECT_FLOAT_EQ(180*KNOT_CONVERSION, fpsToNmph(180));
 }
+
 TEST(Vector2, len)
 {
    EXPECT_FLOAT_EQ(sqrt(4+9), Vector2d(2,3).length());
 }
+
 TEST(Vector2, dot)
 {
    Vector2d a(0,1);
@@ -27,6 +29,7 @@ TEST(Vector2, dot)
    EXPECT_FLOAT_EQ(1, Vector2d::Dot(a,b));
 
 }
+
 TEST(Vector3, add)
 {
    Vector3d a(1, 2, 3);
@@ -35,6 +38,13 @@ TEST(Vector3, add)
    EXPECT_EQ(a.x, 5);
    EXPECT_EQ(a.y, 7);
    EXPECT_EQ(a.z, 9);
+}
+
+TEST(Vector3, eq)
+{
+   Vector3d a(1, 2, 3);
+   Vector3d b(1, 2, 3);
+   EXPECT_EQ(a, b);
 }
 
 // Helen on 4/12/16
