@@ -10,19 +10,19 @@
 class TestDecision : public Decision
 {
 public:
-   using Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* ownship, CDTIPlane::Severity* severity);
+   using Decision::generateReport;
 
-   using Decision::setSensitivityLevel(SensorData* ownship);
+   using Decision::setSensitivityLevel;
 
-   using Decision::calculateTAUMod(CorrelatedData plane, bool RA);
+   using Decision::calculateTAUMod;
 
-   using Decision::calculateTCOA(CorrelatedData plane);
+   using Decision::calculateTCOA;
 
-   using Decision::horizontalRA(CorrelatedData plane, bool RA);
+   using Decision::horizontalRA;
 
-   using Decision::verticalRA(CorrelatedData plane, bool RA);
+   using Decision::verticalRA;
 
-   using Decision::tcasiiRA(CorrelatedData plane, bool RA, double cpaRange);
+   using Decision::tcasiiRA;
 };
 
 
