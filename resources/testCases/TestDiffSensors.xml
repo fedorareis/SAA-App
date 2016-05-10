@@ -1,0 +1,59 @@
+<test name="Mix n Match Sensors"
+      description="Two aircrafts with different sets of sensors."
+      time = "30"
+      sensorError = "false">
+
+<!--    <ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="1.0"/>
+         <direction x="150" y="150" z="150"/>
+      </movement>
+   </ownship>
+   <plane tag="TEST1">
+      <tcas enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="10" y="5" z="1.5"/>
+         <direction x="100" y="350" z="50"/>
+      </movement>
+   </plane>
+   <plane tag="TEST2">
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="10" y="10" z="1"/>
+         <direction x="200" y="-400" z="100"/>
+      </movement>
+   </plane>
+
+   -->
+
+   <ownship tag="ABC123">
+      <radar enabled="true"/>
+      <tcas enabled="true" error="1.5"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="800" y="0" z="0"/>
+      </movement>
+   </ownship>
+   <plane tag="N37789">
+      <tcas enabled="true" error="1.5"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+         <direction x="800" y="0" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="B12324">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="-10" z="0.3"/>
+         <direction x="800" y="0" z="0"/>
+      </movement>
+   </plane>
+</test>

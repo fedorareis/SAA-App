@@ -1,0 +1,23 @@
+<test name="Max Altitude Difference"
+      description="Tests the boundaries of the altitude difference. The sensor inaccuracy sheet says that the sensors can detect planes with a max altitude difference of 50000 ft (8.2289 nautical miles)."
+      time = "30"
+      sensorError = "true">
+   <ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="800" y="0" z="0"/>
+      </movement>
+   </ownship>
+   <plane tag="N37789">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="10" z="8.2289"/> <!--NED in Nautical Miles-->
+         <direction x="800" y="0" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>
+

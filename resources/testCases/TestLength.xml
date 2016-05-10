@@ -1,0 +1,33 @@
+<test name="Length Test"
+      description="Runs the tests for 10 minutes."
+      time = "600"
+      sensorError = "false">
+
+   <ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="1.0"/>
+         <direction x="150" y="150" z="150"/>
+      </movement>
+   </ownship>
+   <plane tag="TEST1">
+      <tcas enabled="true"/>
+      <radar enabled="true" />
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="10" y="10" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="100" y="700" z="50"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST2">
+      <tcas enabled="true"/>
+      <radar enabled="true" />
+      <adsb enabled="true"/>
+      <movement type="linear">
+         <position x="10" y="5" z="1"/> <!--NED in Nautical Miles-->
+         <direction x="200" y="-600" z="100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>

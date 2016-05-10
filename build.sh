@@ -6,7 +6,7 @@ check_program() {
 
 install_homebrew(){
 	echo "Checking to see if homebrew is installed..."
-	if  check_program brew; then 
+	if  [ check_program brew -ne 0 ]; then 
 		read -p "Install Homebrew? " -n 1 -r
 		if [[ ! $REPLY =~ ^[Yy]$ ]]
 		then
@@ -39,12 +39,17 @@ fi
 echo "Third party libraries installed"
 echo "ML pack dependicies\n"
 
-if [ "$OSTYPE" == "linux-gnu" ]; then
+if [[ $OSTYPE == "linux-gnu" ]]; then
 	sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev
 
-elif [ "$OSTYPE" == "darwin"* ]; then
+elif [[ $OSTYPE == *"darwin"* ]]; then
 	install_homebrew
-	brew install armadillo boost qt5   
+	brew install homebrew/science/armadillo 
+    brew install boost 
+    brew install qt5
+else
+    echo "Unrecognized OS $OSTYPE"
+    exit 1;
 fi
 
 echo "Now to finish up building mlpack\n\n"

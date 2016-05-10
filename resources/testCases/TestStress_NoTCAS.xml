@@ -1,0 +1,169 @@
+<test name="Stress Test"
+      description="Performs a stress test on the system."
+      time = "30"
+      sensorError = "false">
+
+   <ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="1.0"/>
+         <direction x="150" y="150" z="150"/>
+      </movement>
+   </ownship>
+   <plane tag="TEST1">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="10" y="10" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="100" y="700" z="-50"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST2">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="10" y="5" z="1"/> <!--NED in Nautical Miles-->
+         <direction x="200" y="-600" z="-100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST3">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="10" y="10" z="5"/> <!--NED in Nautical Miles-->
+         <direction x="300" y="500" z="50"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST4">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="-10" z="10"/> <!--NED in Nautical Miles-->
+         <direction x="400" y="-400" z="100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST5">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="-10" y="-10" z="10"/> <!--NED in Nautical Miles-->
+         <direction x="500" y="300" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST6">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="10" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="600" y="-200" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST7">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="-15" y="10" z="5"/> <!--NED in Nautical Miles-->
+         <direction x="700" y="100" z="150"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST8">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="-20" y="10" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="800" y="0" z="-100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST9">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="5" y="20" z="20"/> <!--NED in Nautical Miles-->
+         <direction x="-550" y="-300" z="-200"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST10">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="20" y="10" z="5"/> <!--NED in Nautical Miles-->
+         <direction x="450" y="300" z="-200"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST11">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="15" y="-15" z="15"/> <!--NED in Nautical Miles-->
+         <direction x="-350" y="-400" z="75"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST12">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-15" y="-15" z="15"/> <!--NED in Nautical Miles-->
+         <direction x="250" y="300" z="-200"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST13">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="25" y="0" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="-150" y="-550" z="-10"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST14">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="25" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="50" y="475" z="-150"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST15">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="5" y="-25" z="3"/> <!--NED in Nautical Miles-->
+         <direction x="-300" y="475" z="200"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST16">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="-25" y="5" z="3"/> <!--NED in Nautical Miles-->
+         <direction x="400" y="350" z="125"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST17">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="-15" y="30" z="20"/> <!--NED in Nautical Miles-->
+         <direction x="650" y="50" z="-100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST18">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-15" y="-30" z="20"/> <!--NED in Nautical Miles-->
+         <direction x="750" y="-50" z="100"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST19">
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="15" y="30" z="8"/> <!--NED in Nautical Miles-->
+         <direction x="0" y="300" z="-200"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST20">
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="12" y="12" z="12"/> <!--NED in Nautical Miles-->
+         <direction x="-100" y="-500" z="50"/> <!--Feet/second-->
+      </movement>
+   </plane>
+   <plane tag="TEST21">
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="10" z="1.5"/> <!--NED in Nautical Miles-->
+         <direction x="275" y="-300" z="-20"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>
