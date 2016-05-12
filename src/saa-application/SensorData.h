@@ -70,6 +70,20 @@ public:
       return timeStamp;
    }
 
+   //Supersede Instance Variable (404)
+   void supersedePosition(float newPositionX, float newPositionY, float newPositionZ)
+   {
+      position->set_x(newPositionX);
+      position->set_y(newPositionY);
+      position->set_z(newPositionZ);
+   }
+
+   void supersedeVelocity(float newVelocityX, float newVelocityY, float newVelocityZ)
+   {
+      velocity->set_x(newVelocityX);
+      velocity->set_y(newVelocityY);
+      velocity->set_z(newVelocityZ);
+   }
 
 private:
    Sensor sensor;
