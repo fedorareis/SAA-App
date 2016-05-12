@@ -20,8 +20,8 @@ TEST(TestDecisionTest, setSensitivityLevel)
 TEST(TestDecisionTest, calculateTAUMod)
 {
    SensorData ownship("Ownship", 0, 0, 42000, 0, 0, 0, Sensor::ownship, 0, 0);
-   CorrelatedData plane("Intruder", 1, 0, 42000, 0, 0, 0);
+   CorrelatedData plane(1, 0, 42000, 0, 0, 0);
    TestDecision dec;
 
-   ASSERT_EQ()
+   ASSERT_EQ(0, 1);
 }
