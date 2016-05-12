@@ -4,6 +4,7 @@
 
 #include "XMLUtil.h"
 #include <string>
+#include <cstring>
 /**
     * Extract a floating point value from an xml attribute.
     */
@@ -17,6 +18,5 @@ double XMLUtil::ExtractFloat(rapidxml::xml_attribute<> * attribute)
 bool  XMLUtil::ExtractBool(rapidxml::xml_attribute<> * attribute)
 {
     std::string data(attribute->value());
-    std::transform(data.begin(), data.end(), data.begin(), ::tolower);
-    return std::strcmp(data.c_str(), "true") == 0;
+    return strcmp(data.c_str(), "true") == 0;
 }

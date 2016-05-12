@@ -10,12 +10,18 @@
 class TestCaseError {
    public:
    TestCaseError(long timestamp) : timestamp(timestamp){};
+   TestCaseError(const TestCaseError & other):
+      timestamp(other.timestamp),
+      isError_(other.isError_){}
    long getTimestamp(){return timestamp;}
+   bool isError(){return isError_;}
+   void setError(bool is){isError_ = is;}
    virtual std::string description() = 0;
    virtual std::string csvString() = 0;
 
    private:
    long timestamp;
+   bool isError_;
 };
 
 
