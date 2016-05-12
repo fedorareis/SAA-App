@@ -42,15 +42,14 @@ public:
    }
 
    void printPos();
+   CDTIPlane* getCDTIPlane();
 
    Sensor getSensor()
    {
       return sensor;
    }
 
-   CDTIPlane* getCDTIPlane();
-
-    Vector3d getPurePosition()
+   Vector3d getPurePosition()
    {
       return Vector3d(position->x(),position->y(),position->z());
    }
