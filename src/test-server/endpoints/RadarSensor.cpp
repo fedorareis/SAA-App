@@ -58,6 +58,7 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
                      plane.getDownVelocity() - ownship.getDownVelocity());
    if (jitter)
    {
+
       finalPosition += positionDistribution.getNoise();
       velocity += velocityDistribution.getNoise();
    }

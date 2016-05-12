@@ -20,7 +20,7 @@ TEST(RadarSensorTest, testBasicReport)
    RadarReport report = sensor.createReport(plane,ownship);
    ASSERT_FLOAT_EQ(0,report.azimuth());
 
-   ASSERT_FLOAT_EQ(6.0038409,report.range());
+   ASSERT_FLOAT_EQ(6.0038409 * FEET_TO_NAUT_MILES,report.range());
    ASSERT_FLOAT_EQ(0,report.elevation());
 
    ownship.setNorthEastDownVelocity(Vector3d(0,1,0));

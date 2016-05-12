@@ -4,6 +4,7 @@
 #include <sstream>
 #include <test-server/planes/LinearMotion.h>
 #include "TestFileParser.h"
+#include "XMLUtil.h"
 
 using namespace rapidxml;
 #include <cstring>
@@ -91,11 +92,17 @@ int TestFileParser::buildTestCase()
 
       // Total time is required
       if(isAttribute(node, "time")) {
-         double time = std::atof(node->first_attribute("time")->value());
+         double time = XMLUtil::ExtractFloat(node->first_attribute("time"));
          test.setTotalTime(time);
          //std::cout<<"Total time to run the test: "<< time <<std::endl;
       } else return ErrorCode::timeMissingErr;
 
+      if(isAttribute(node, "sensorError"))
+      {
+
+         test.makeDataNoise(XMLUtil::ExtractBool(node->first_attribute("sensorError")));
+         //std::cout << "Sensor error set to " << test.getNoiseEnabled() << std::endl;
+      }
       // Ownship is necessary
       xml_node<> *inside = node->first_node("ownship");
 
@@ -179,7 +186,7 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane & aircraft)
 
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
-            if(!std::strcmp(sensor->first_attribute("enabled")->value(),"true")) {
+            if(XMLUtil::ExtractBool(sensor->first_attribute("enabled"))) {
                aircraft.setTcasEnabled(true);
                aircraft.setTcasId(test.getNextTcasId());
             }
@@ -226,12 +233,8 @@ int TestFileParser::getSensors(xml_node<> *node, TestServerPlane & aircraft)
          // checks if there is enabled tag
          if (isAttribute(sensor, "enabled")) {
             // string to bool conversion
-            if(!std::strcmp(sensor->first_attribute("enabled")->value(), "true"))
-            {
-               aircraft.setAdsbEnabled(true);
-            } else {
-               aircraft.setAdsbEnabled(false);
-            }
+            aircraft.setAdsbEnabled(XMLUtil::ExtractBool(sensor->first_attribute("enabled")));
+
          }
          /*
          // checks if error value is specified
@@ -311,9 +314,9 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane & ai
             // coordinate must exist
             if (isCoordinate(pos)) {
                // working around
-               pos_x = std::atof(pos->first_attribute("x")->value());
-               pos_y = std::atof(pos->first_attribute("y")->value());
-               pos_z = std::atof(pos->first_attribute("z")->value());
+               pos_x = XMLUtil::ExtractFloat(pos->first_attribute("x"));
+               pos_y = XMLUtil::ExtractFloat(pos->first_attribute("y"));
+               pos_z = XMLUtil::ExtractFloat(pos->first_attribute("z"));
             }
             else return ErrorCode::coordMissingErr;
          }
@@ -329,9 +332,9 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane & ai
             // coordinate must exist
             if (isCoordinate(dir)) {
                // working around
-               dir_x = std::atof(dir->first_attribute("x")->value());
-               dir_y = std::atof(dir->first_attribute("y")->value());
-               dir_z = std::atof(dir->first_attribute("z")->value());
+               dir_x = XMLUtil::ExtractFloat(dir->first_attribute("x"));
+               dir_y = XMLUtil::ExtractFloat(dir->first_attribute("y"));
+               dir_z = XMLUtil::ExtractFloat(dir->first_attribute("z"));
             }
             else return ErrorCode::coordMissingErr;
          }
