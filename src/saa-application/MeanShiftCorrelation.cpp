@@ -44,7 +44,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
 
    arma::Col<size_t> assignments;
    arma::mat centroids;
-   meanshift->setWindow(dimensionality * 25);
+   meanshift->setWindow(10);
    auto dataMtx = arma::Mat<double>(&data[0],dimensionality,planes.size());
    //dataMtx = dataMtx.; //Transpose data matrix
    //Radius test

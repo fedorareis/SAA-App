@@ -258,10 +258,11 @@ void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock,
          std::vector<SensorData> planesCopy = planes;
          planes.clear();
          ownshipPlane = SensorData("Ownship", 0, 0, 0, ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
-         planeMutex.unlock();
          std::vector<CorrelatedData> planesResult = cor->correlate(planesCopy);
          rep = dec.calcAdvisory(&planesResult, &ownshipPlane);
          connectionManager->sendMessage(*rep);
+         planeMutex.unlock();
+
       }
 
       adsbthread.join();

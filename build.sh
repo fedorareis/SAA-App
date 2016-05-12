@@ -43,8 +43,8 @@ if [ "$OSTYPE" == "linux-gnu" ]; then
 	sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev
 
 elif [ "$OSTYPE" == "darwin"* ]; then
-	install_homebrew
-	brew install armadillo boost qt5   
+	#install_homebrew
+	brew install homebrew/science/armadillo boost qt5   
 fi
 
 echo "Now to finish up building mlpack\n\n"

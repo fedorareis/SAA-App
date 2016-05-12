@@ -87,7 +87,8 @@ TestCase::TestCase(const TestCase &otherTestCase) :
         name(otherTestCase.name),
         radarId(otherTestCase.radarId),
         tcasId(otherTestCase.tcasId),
-        totalTime(otherTestCase.totalTime)
+        totalTime(otherTestCase.totalTime),
+        enableErrors(otherTestCase.enableErrors)
 {
    ownship = TestServerPlane(otherTestCase.ownship);
    for (auto plane: otherTestCase.otherPlanes)
@@ -106,4 +107,8 @@ int TestCase::getTotalTime() const {
 
 int TestCase::getElapsedTime() const {
    return getTotalTime() - t;
+}
+
+bool TestCase::getNoiseEnabled() const {
+   return enableErrors;
 }

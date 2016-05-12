@@ -29,6 +29,8 @@ public:
     void setEndpoint(SensorEndpoint *endpoint)
     { this->endpoint = endpoint; }
 
+   void setJitter(bool jitter);
+
 protected:
     bool jitter;
 private:

@@ -1,0 +1,14 @@
+//
+// Created by Kyle Piddington on 5/12/16.
+//
+
+#ifndef SAA_APPLICATION_MOCKTESTENVIRONMENT_H
+#define SAA_APPLICATION_MOCKTESTENVIRONMENT_H
+
+
+class MockTestEnvironment {
+
+};
+
+
+#endif //SAA_APPLICATION_MOCKTESTENVIRONMENT_H

@@ -77,6 +77,13 @@ void TestEnvironment::start(TestCase & tc)
    bool sendADSB = tc.getOwnship().getADSBEnabled();
    bool sendRadar = tc.getOwnship().getRadarEnabled();
    bool sendTcas = tc.getOwnship().getTcasEnabled();
+   if(tc.getNoiseEnabled())
+   {
+      adsbSensor.setJitter(true);
+      radarSensor.setJitter(true);
+      tcasSensor.setJitter(true);
+   }
+
    Validator validator(tc, this->cdtiSocket);
    try{
       while(tc.isRunning()) {
