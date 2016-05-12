@@ -9,7 +9,8 @@
 
 void ValidationWriter::writeErrors(std::ostream &str, const Validator &v) {
    std::ofstream out;
-   out.open("results.csv");
+   char *outName = "validation.csv";
+   out.open(outName);
    out << "Time Stamp, Result Type,Expected X/Num,Actual X/Num,Expected Y,Actual Y,Expected Z,Actual Z\n";
    if (!out.is_open()) {
       str << "well shit...\n";
@@ -35,4 +36,5 @@ void ValidationWriter::writeErrors(std::ostream &str, const Validator &v) {
       str << "Correlation is perfect, no errors detected!" << std::endl;
    }
    out.close();
+   str << "\nclosed validation csv file '" << outName << "'\n";
 }
