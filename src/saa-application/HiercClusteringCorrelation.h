@@ -13,7 +13,6 @@
 class HiercClusteringCorrelation : public CorrelationStrategy
 {
 public:
-   //void addPlane(/* When we have a plane class pass one in here*/);
    virtual std::vector<CorrelatedData> correlate(std::vector<SensorData> planes);
 
 private:
