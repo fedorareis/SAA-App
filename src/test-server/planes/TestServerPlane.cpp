@@ -136,7 +136,8 @@ motionPtr(nullptr)
 }
 
 
-double TestServerPlane::getTimestamp() const {
+double TestServerPlane::getTimestamp() const
+{
    return t;
 }
 
@@ -186,3 +187,8 @@ const Vector3d &TestServerPlane::getLatLongAlt() const
 {
    return latLongAlt;
 }
+Vector3d TestServerPlane::getLatLongAlt()
+{
+   return Vector3d(0, 0, 0);
+}
+

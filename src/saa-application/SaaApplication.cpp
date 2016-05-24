@@ -199,6 +199,7 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
       tcasSock.operator>>(tcas); //blocking call, waits for server
       planeMutex.lock();
       planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
+      planes.back().printPos();
       planeMutex.unlock();
    }
    std::cout << "TCASThread done\n";
