@@ -44,7 +44,7 @@ if [ "$OSTYPE" == "linux-gnu" ]; then
 
 elif [ "$OSTYPE" == "darwin"* ]; then
 	#install_homebrew
-	brew install homebrew/science/armadillo boost qt5   
+	brew install homebrew/science/armadillo boost qt5 autoconf automake libtool 
 fi
 
 echo "Now to finish up building mlpack\n\n"
