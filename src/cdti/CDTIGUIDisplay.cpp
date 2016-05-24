@@ -95,7 +95,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
                 float posX = report.position().x();
                 currentImage->draw(this,
                                    width / 2.0f -  posY * 20.0f,
-                                   height / 2.0f - posX * 20.0f);
+                                   height / 2.0f - posX * 20.0f,false);
             }
 
         }

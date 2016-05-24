@@ -40,7 +40,7 @@ echo "Third party libraries installed"
 echo "ML pack dependicies\n"
 
 if [ "$OSTYPE" == "linux-gnu" ]; then
-	sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev
+	sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
 
 elif [ "$OSTYPE" == "darwin"* ]; then
 	#install_homebrew

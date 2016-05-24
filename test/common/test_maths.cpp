@@ -72,7 +72,7 @@ TEST(Math, calcDist)
    float lat2 = 0.5;
    float lon2 = 0.5;
 
-   EXPECT_EQ(0, calcDistance(lat1, lon1, lat2, lon2));
+   EXPECT_EQ(0, calcDistance(lat1, lon1, lat2, lon2,0));
 }
 
 TEST(Math, bearing) {
