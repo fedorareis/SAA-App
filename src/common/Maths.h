@@ -93,7 +93,7 @@ struct Vector2d
 };
 
 Vector3d getDifference(Vector3d latLongAlt1, Vector3d latLongAlt2);
-float calcDistance(float lat1, float lon1, float lat2, float lon2);
+float calcDistance(float lat1, float lon1, float lat2, float lon2, float alt);
 
 inline float feetToNauticalMiles(float feet);
 

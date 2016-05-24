@@ -52,7 +52,7 @@ void DisplayController::listenOnSocket()
 //                aircraft->setSeverity(report.planes(i).severity());
 //            }
 //        }
-
+        std::cout << report.DebugString() << endl;
         display.renderReport(report);
         sleep(1);
     }
