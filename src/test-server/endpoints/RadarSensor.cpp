@@ -28,11 +28,11 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    Vec3dNoise & positionDistribution, Vec3dNoise & velocityDistribution ) {
    RadarReport rept;
    //Create range from position
-   float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude());
+   float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude(), ownship.getAltitude());
    float positionX = calcDistance(plane.getLatitude(), ownship.getLongitude(), ownship.getLatitude(),
-                                  ownship.getLongitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1); //Difference N
+                                  ownship.getLongitude(), ownship.getAltitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1); //Difference N
    float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
-                                  ownship.getLongitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1); //Difference E
+                                  ownship.getLongitude(), ownship.getAltitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1); //Difference E
 
    float positionZ = plane.getAltitude()-ownship.getAltitude();
 

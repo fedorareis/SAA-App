@@ -14,14 +14,14 @@ float toRadians(float lat) {
 /*
  * Calculates the distance between two latitude/longitude coordinates and returns the distance in nautical miles.
  */
-float calcDistance(float lat1, float lon1, float lat2, float lon2) {
+float calcDistance(float lat1, float lon1, float lat2, float lon2, float alt) {
     float phi1 = toRadians(lat1);
     float phi2 = toRadians(lat2);
     float deltaPhi = toRadians(lat2 - lat1);
     float deltaLambda = toRadians(lon2 - lon1);
     double a = sin(deltaPhi/2) * sin(deltaPhi/2) + cos(phi1) * cos(phi2) * sin(deltaLambda/2) * sin(deltaLambda/2);
     double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-    double d = EARTH_RADIUS * c;
+    double d = (EARTH_RADIUS + alt) * c;
     return (float)d;
 }
 
@@ -44,9 +44,9 @@ bool operator==(const Vector3d lhs, const Vector3d rhs)
 Vector3d getDifference(Vector3d plane, Vector3d ownship)
 {
     float positionX = calcDistance(plane.latitude(), ownship.longitude(), ownship.latitude(),
-                                   ownship.longitude()) * (plane.latitude() < ownship.latitude() ? -1 : 1);
+                                   ownship.longitude(), ownship.altitude()) * (plane.latitude() < ownship.latitude() ? -1 : 1);
     float positionY = calcDistance(ownship.latitude(), plane.longitude(), ownship.latitude(),
-                                   ownship.longitude()) * (plane.longitude() < ownship.longitude() ? -1 : 1);
+                                   ownship.longitude(), ownship.altitude()) * (plane.longitude() < ownship.longitude() ? -1 : 1);
 
     float positionZ = plane.altitude() - ownship.altitude();
 

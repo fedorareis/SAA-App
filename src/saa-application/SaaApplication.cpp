@@ -100,9 +100,9 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
 {
    std::string tailNumber = adsb.tail_number();
    float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionE = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
    float positionD = adsb.altitude() - ownship.ownship_altitude();
    float velocityN = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityE = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
@@ -119,15 +119,19 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
 {
    std::string tailNumber = std::to_string(tcas.id());
    float positionZ = tcas.altitude();
-   float horizRange = (float)(sqrt( tcas.range() * tcas.range()- tcas.altitude() * tcas.altitude()));
-   // theta = bearing of intruder + heading of ownship
-   float theta = (float)(bearingToRadians(tcas.bearing()) + atan2(ownship.north(), ownship.east()));
-   float positionE = (float)(horizRange * cos(theta));
-   float positionN = (float)(horizRange * sin(theta));
+   float horizRange = tcas.range();
+   // ownship_compass_bearing = bearing of intruder + heading of ownship
+   float ownship_compass_bearing = (float) bearingToRadians(tcas.bearing());
+   //std::cout << ownship_compass_bearing << std::endl;
+   //std::cout << horizRange << std::endl;
+   float positionN = (float)(horizRange * cos(ownship_compass_bearing));
+   float positionE = (float)(horizRange * sin(ownship_compass_bearing));
    float velocityN = 0;
    float velocityE = 0;
    float velocityD = 0;
    SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::tcas, tcas.plane_id(), 0);
+   //tcasPlane.printPos();
+   //std::cout << tcas.range << std::endl;
    return tcasPlane;
 }
 
