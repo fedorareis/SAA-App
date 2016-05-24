@@ -1,0 +1,39 @@
+<test name="Three Sensor Correlation"
+      description="Planes output one sensor type, and should not be correlated"
+      time = "120"
+      sensorError="true">
+
+    <ownship tag="ABC123">
+        <ads-b enabled="true"/>
+        <radar enabled="false"/>
+        <movement type="linear">
+            <position x="0" y="0" z="0"/>
+            <direction x="200" y="0" z="0"/>
+        </movement>
+    </ownship>
+    <plane tag="N11111">
+        <ads-b enabled="true"/>
+        <tcas enabled="false"/>
+        <movement type="linear">
+            <position x="0" y="10" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="-800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="N22222">
+        <ads-b enabled="true"/>
+        <tcas enabled="false"/>
+        <movement type="linear">
+            <position x="-2" y="10.25" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="-800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="Neeeee">
+        <ads-b enabled="true"/>
+        <tcas enabled="false"/>
+        <movement type="linear">
+            <position x="0" y="-9.75" z="0.3"/> <!--NED in Nautical Miles-->
+            <direction x="-800" y="0" z="0"/> <!--Feet/second-->
+        </movement>
+    </plane>
+</test>
+

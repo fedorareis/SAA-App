@@ -11,7 +11,6 @@
 #include "test-server/endpoints/AdsbSensor.h"
 #include "test-server/endpoints/OwnshipSensor.h"
 #include "TestCase.h"
-#include <memory>
 #include <test-server/endpoints/TcasSensor.h>
 #include <test-server/endpoints/RadarSensor.h>
 
@@ -21,14 +20,15 @@ class TestEnvironment {
       bool acceptConnections();
       void start(TestCase & tc);
 
-   private:
-      AdsbSensor adsbSensor = AdsbSensor(new SocketSensorEndpoint());
-      OwnshipSensor ownshipSensor = OwnshipSensor(new SocketSensorEndpoint());
-      TcasSensor tcasSensor = TcasSensor(new SocketSensorEndpoint());
-      RadarSensor radarSensor = RadarSensor(new SocketSensorEndpoint());
+   protected:
+      virtual void createSensors();
+      std::shared_ptr<Sensor> adsbSensor;// = AdsbSensor(new SocketSensorEndpoint());
+      std::shared_ptr<Sensor> ownshipSensor;// = OwnshipSensor(new SocketSensorEndpoint());
+      std::shared_ptr<Sensor> tcasSensor;// = TcasSnsor(new SocketSensorEndpoint());
+      std::shared_ptr<Sensor> radarSensor;// = RadarSensor(new SocketSensorEndpoint());
 
       std::shared_ptr<ClientSocket> cdtiSocket;
-
+      bool delay;
 
 };
 

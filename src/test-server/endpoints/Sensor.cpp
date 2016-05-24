@@ -19,7 +19,11 @@ Sensor::Sensor(SensorEndpoint *endpoint, bool jitter):
 }
 
 void Sensor::close() {
-   endpoint->close();
+   if(endpoint != nullptr)
+   {
+      endpoint->close();
+   }
+
 }
 
 void Sensor::setJitter(bool jitter) {
