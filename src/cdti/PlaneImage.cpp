@@ -6,7 +6,7 @@
 #include <iostream>
 #include "PlaneImage.h"
 
-PlaneImage::PlaneImage(std::string resPath, int width, int height)
+PlaneImage::PlaneImage(std::string resPath, std::string dirPath, int width, int height)
 {
     std::string projectPath = __FILE__;
     projectPath = projectPath.substr(0, projectPath.rfind("/") + 1) .append("../..");
@@ -17,6 +17,8 @@ PlaneImage::PlaneImage(std::string resPath, int width, int height)
     image.load(projectDir.filePath(resPath.c_str()));
     image = image.scaled(width,height);
 
+    dirImage.load(projectDir.filePath(dirPath.c_str()));
+    dirImage = dirImage.scaled(width,height);
      //TODO: this should mutate. in case not, well, here's the problem
 
     imageBrush.setTextureImage(image);
@@ -30,15 +32,21 @@ PlaneImage::PlaneImage(std::string resPath, int width, int height)
     outlinePen.setWidth(4);
 }
 
-void PlaneImage::draw(QPaintDevice *window, int posX, int posY)
+void PlaneImage::draw(QPaintDevice *window, int posX, int posY, bool directional)
 {
+    QImage drawImage;
+    if(directional)
+        drawImage = dirImage;
+    else
+        drawImage = image;
+
     painter.begin(window);
         painter.setBrush(imageBrush);
         painter.setPen(outlinePen);
         //offset currentImage size
-        painter.translate(-image.width() / 2, -image.height() / 2);
+        painter.translate(-drawImage.width() / 2, -drawImage.height() / 2);
         painter.translate(posX,posY);
-        painter.drawRect(0,0,image.width(),image.height());
+        painter.drawRect(0,0,drawImage.width(),drawImage.height());
     painter.end();
 
 }

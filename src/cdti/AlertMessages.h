@@ -14,5 +14,6 @@ private:
 public:
     AlertMessages(CDTIEndpoint& socket);
     CDTIReport getMessage();
+    CDTIEndpoint* getSocket(){return &cdtiSocket;};
 };
 #endif //SAA_APPLICATION_ALERTMESSAGES_CDTI_H

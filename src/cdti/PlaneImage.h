@@ -11,13 +11,14 @@
 class PlaneImage
 {
 private:
-    QImage image;
+    QImage image, dirImage;
     QPainter painter;
     QBrush imageBrush;
     QPen outlinePen; //transparent for now, but can be implemented if desired;
+    bool directional;
 public:
-    PlaneImage(std::string resPath, int width, int height);
-    void draw(QPaintDevice* window, int posX, int posY);
+    PlaneImage(std::string resPath,std::string dirPath, int width, int height);
+    void draw(QPaintDevice* window, int posX, int posY, bool directional);
     void setOutlineColor(int red, int green, int blue, int alpha);
     void setOutlineWidth(int width);
 };

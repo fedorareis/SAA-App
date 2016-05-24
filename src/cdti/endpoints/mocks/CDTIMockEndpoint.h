@@ -9,8 +9,8 @@
 class CDTIMockEndpoint : public CDTIEndpoint
 {
 private:
-    CDTIReport report;
-    int time;
+    CDTIReport* report;
+    int time = 0;
 public:
    CDTIMockEndpoint();
    const CDTIEndpoint& operator >> (::google::protobuf::Message & msg) const;

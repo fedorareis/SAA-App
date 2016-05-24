@@ -56,18 +56,25 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     //render ownship. everything is relative to it, so it never moved from the center
     if(ownshipImage)
     {
-        ownshipImage->draw(this,width / 2,height / 2);
+        ownshipImage->draw(this,width / 2,height / 2,false);
     }
 
-
+    int timestamp = currentReport->timestamp();
     //if there is a report to be read, attempt to render planes here
     if(currentReport)
     {
 
         for(int i = 0; i < currentReport->planes_size(); i++)
         {
+            bool directional = false;
             CDTIPlane report = currentReport->planes(i);
             PlaneImage* currentImage;
+            if(report.velocity().x() > 0.01f || report.velocity().x() < -0.01f ||
+                report.velocity().y() > 0.01f || report.velocity().y() < -0.01f ||
+                report.velocity().z() > 0.01f || report.velocity().z() < -0.01f)
+            {
+                directional = true;
+            }
             switch(report.severity())
             {
                 case CDTIPlane_Severity_PROXIMATE:
@@ -82,8 +89,14 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             }
             //render planes here
             if(currentImage)
+            {
+                float posY = report.position().y();
                 //Positions are NED relative, Y is x, x is y etc.
-                currentImage->draw(this,width / 2.0f - report.position().y() * 20.0f,height / 2.0f - report.position().x() * 20.0f);
+                float posX = report.position().x();
+                currentImage->draw(this,
+                                   width / 2.0f -  posY * 20.0f,
+                                   height / 2.0f - posX * 20.0f);
+            }
 
         }
     }
@@ -98,5 +111,5 @@ void CDTIGUIDisplay::init()
 void CDTIGUIDisplay::renderReport(CDTIReport &report)
 {
     currentReport = &report;
-    repaint();
+    update(); //todo if wonky, change to repaint
 }
