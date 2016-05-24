@@ -16,16 +16,12 @@ set(CMAKE_AUTOMOC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-<<<<<<< HEAD
-=======
 IF(FALSE)
 
 set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} mlpack")
 ENDIF()
 #add Googletest
 
-
->>>>>>> master
 #Environment Setup,  add C++11, debugging symbols, all warnings
 option(test "Build all tests." ON) # Makes boolean 'test' available.
 
