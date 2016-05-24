@@ -183,12 +183,8 @@ void TestServerPlane::setRadarId(int rd)
    this->radarID = rd;
 }
 
-const Vector3d &TestServerPlane::getLatLongAlt() const
+const Vector3d& TestServerPlane::getLatLongAlt() const
 {
    return latLongAlt;
-}
-Vector3d TestServerPlane::getLatLongAlt()
-{
-   return Vector3d(0, 0, 0);
 }
 

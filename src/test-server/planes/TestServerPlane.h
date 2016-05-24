@@ -34,12 +34,11 @@ class TestServerPlane {
    float getLatitude() const;
    float getLongitude() const;
    float getAltitude() const;
-    Vector3d getLatLongAlt() const;
+   const Vector3d& getLatLongAlt() const;
    float getNorthVelocity() const;
    float getEastVelocity() const;
    float getDownVelocity() const;
 
-    const Vector3d &getLatLongAlt() const;
    bool getRadarEnabled() const;
    bool getADSBEnabled() const;
    bool getTcasEnabled() const;

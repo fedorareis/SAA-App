@@ -13,6 +13,7 @@
 #define POLAR_EARTH_RADIUS 3949.902764
 #define KNOT_CONVERSION 0.592484
 #define FEET_TO_NAUT_MILES 6076.12f
+#define NAUT_MILES_TO_FEET 1 / FEET_TO_NAUT_MILES
 
 struct Vector3d
 {
@@ -69,13 +70,8 @@ struct Vector3d
        double recipLen = 1/sqrt(x*x + y*y + z*z);
        return Vector3d(x*recipLen, y*recipLen, z * recipLen);
    }
-
 };
 
-Vector3d operator +(const Vector3d&  lhs, const Vector3d&  rhs)
-{
-   return Vector3d(lhs.x + rhs.x,lhs.y + rhs.y,lhs.z + rhs.z);
-}
 
 bool operator==(Vector3d lhs, Vector3d rhs);
 

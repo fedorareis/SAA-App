@@ -7,6 +7,11 @@
 
 using namespace std;
 
+Vector3d operator+(Vector3d lhs, Vector3d rhs)
+{
+    return Vector3d(lhs.x + rhs.x,lhs.y + rhs.y,lhs.z + rhs.z);
+}
+
 float toRadians(float lat) {
     return (float)(lat * M_PI / 180);
 }

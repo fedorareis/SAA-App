@@ -16,7 +16,7 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
                                   ownship.getLongitude(), ownship.getAltitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
 
-   float positionZ = -1*(plane.getAltitude()-ownship.getAltitude());
+   float positionZ = (float) (-1.0*(plane.getAltitude()-ownship.getAltitude()));
 
    Vector2d difference = Vector2d(positionX,positionY).normalized();
    Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
