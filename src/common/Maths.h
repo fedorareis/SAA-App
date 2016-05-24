@@ -10,7 +10,7 @@
 
 #define EARTH_RADIUS 3440.0
 #define KNOT_CONVERSION 0.592484
-#define NAUT_MILES_TO_FEET 6076.12f
+#define FEET_TO_NAUT_MILES 6076.12f
 
 struct Vector3d
 {
@@ -135,12 +135,6 @@ float calcDistance(float lat1, float lon1, float lat2, float lon2);
 inline float feetToNauticalMiles(float feet);
 
 inline float nauticalMilesToFeet(float miles);
-
-Vector3d translate(Vector3d vec)
-{
-   glm::vec4
-}
-
 
 
 float fpsToNmph(float fps);

@@ -9,7 +9,9 @@
 #include <test-server/Validation/Validator.h>
 #include "mocks/ClientSocket_test.h"
 #include "test-server/Validation/ValidationWriter.h"
+
 using ::testing::Return;
+
 TEST(ValidationWriter, successfulTest)
 {
    std::stringstream ss;
@@ -27,7 +29,6 @@ TEST(ValidationWriter, successfulTest)
    EXPECT_CALL(*testSocket,READ())
          .WillOnce(Return(&report));
 
-
    SensorEndpoint_test test;
    TestCase tc;
    TestServerPlane plane;
@@ -40,6 +41,7 @@ TEST(ValidationWriter, successfulTest)
    ValidationWriter::writeErrors(ss,validator);
    EXPECT_STREQ("Correlation is perfect, no errors detected!\n",ss.str().c_str());
 }
+
 TEST(ValidationWriter, failedTest)
 {
    std::stringstream ss;
@@ -68,6 +70,4 @@ TEST(ValidationWriter, failedTest)
 
    Validator validator(tc,testSocket);
    validator.endSimulation();
-
-
 }

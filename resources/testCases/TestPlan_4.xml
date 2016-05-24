@@ -5,7 +5,7 @@
 
    <ownship tag="ABC123">
       <tcas enabled="true" error="1.5"/>
-      <radar enabled="true"/>
+      <radar enabled="false"/>
       <ads-b enabled="true" error="0.2"/>
       <movement type="linear">
          <position x="0" y="0" z="0"/>

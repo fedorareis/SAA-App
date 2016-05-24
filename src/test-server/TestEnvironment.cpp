@@ -57,6 +57,20 @@ bool TestEnvironment::acceptConnections()
 
 
 }
+void printProgressBar(TestCase & tc)
+{
+   int barWidth = 70;
+   float progress = (float)tc.getElapsedTime()/tc.getTotalTime();
+   std::cout << "[";
+   int pos = barWidth * progress;
+   for (int i = 0; i < barWidth; ++i) {
+      if (i < pos) std::cout << "=";
+      else if (i == pos) std::cout << ">";
+      else std::cout << " ";
+   }
+   std::cout << "] " << int(progress * 100.0) << " %\r";
+   std::cout.flush();
+}
 
 void TestEnvironment::start(TestCase & tc)
 {
@@ -82,8 +96,9 @@ void TestEnvironment::start(TestCase & tc)
             {
                radarSensor.sendData(*plane, tc.getOwnship());
             }
-         }
 
+         }
+         printProgressBar(tc);
          sleep(1); //sleep for one second before sending next data batch.
       }
       adsbSensor.close();
