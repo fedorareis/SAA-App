@@ -74,6 +74,8 @@ struct Vector3d
 };
 
 
+Vector3d operator+(Vector3d lhs, Vector3d rhs);
+
 bool operator==(Vector3d lhs, Vector3d rhs);
 
 struct Vector2d

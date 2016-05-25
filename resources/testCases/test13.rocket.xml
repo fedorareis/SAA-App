@@ -1,0 +1,194 @@
+<test name="randomly generated"
+      description="20 aircraft centered around Cal Poly"
+      time = "120"
+      sensorError = "false">
+<ownship tag="ABC123">
+      <tcas enabled="true" />
+      <radar enabled="true"/>
+      <ads-b enabled="true" />
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="1" y="0" z="0"/>
+      </movement>
+   </ownship>
+<plane tag="R69TB">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="25.342369102872766" y="-22.886538249440775" z="-2.0160892148278835"/> <!--NED in Nautical Miles-->
+         <direction x="-8.413034381240024" y="-192.69016701881185" z="83.06455553822263"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X42PD">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-4.747926024720215" y="38.49995771888587" z="0.9874722684871268"/> <!--NED in Nautical Miles-->
+         <direction x="-249.03013892267907" y="-128.2589495407116" z="75.05752307973101"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X74JE">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="28.580461023375392" y="-47.037398745305836" z="-0.8640382349262359"/> <!--NED in Nautical Miles-->
+         <direction x="124.65267366048123" y="574.115405107023" z="-3.0761287509590036"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="L62SX">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="33.03947979584365" y="45.85227712523192" z="-2.057233892681514"/> <!--NED in Nautical Miles-->
+         <direction x="70.20671753632207" y="171.60807607942775" z="317.2978648479886"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="R27EV">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-18.665591441094875" y="17.123424401506497" z="-2.5921147047787074"/> <!--NED in Nautical Miles-->
+         <direction x="-107.98183950817797" y="44.72754241428223" z="-77.06730361189936"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X41AZ">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-13.079824787564718" y="36.572520155459074" z="-2.4275359933641867"/> <!--NED in Nautical Miles-->
+         <direction x="131.52423209222863" y="72.9050723340971" z="-79.2857288577815"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="S59VM">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-3.6621445324270496" y="9.08556566573651" z="-1.9749445369742535"/> <!--NED in Nautical Miles-->
+         <direction x="77.02696116775803" y="136.14469295338586" z="545.516012444996"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="S46PT">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-0.5017957184462318" y="5.442511430009915" z="0.32915742282904226"/> <!--NED in Nautical Miles-->
+         <direction x="67.81911803302984" y="205.66794694102876" z="-502.8493937853402"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="C31SX">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-18.547155172563947" y="36.72082300763549" z="-2.96241680546138"/> <!--NED in Nautical Miles-->
+         <direction x="3.28368655533285" y="-188.12227676246368" z="26.442889182412433"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="R92NX">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="40.9556351834911" y="-38.065140205434886" z="2.1806679262424047"/> <!--NED in Nautical Miles-->
+         <direction x="369.1778675002187" y="-166.30250317846227" z="-280.37016528969076"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="G46AH">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-24.330584751441933" y="-43.53583410847932" z="0.4525914563899331"/> <!--NED in Nautical Miles-->
+         <direction x="-283.5796921369964" y="69.39150919729181" z="335.84576319913356"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="L29GX">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="33.69947220198824" y="-39.812866249121726" z="-2.633259382632338"/> <!--NED in Nautical Miles-->
+         <direction x="162.65483966344289" y="-110.74773837045389" z="-16.869842319630074"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="L84MU">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-42.95657041948289" y="31.3359817257151" z="-2.2218126040960353"/> <!--NED in Nautical Miles-->
+         <direction x="166.887702074092" y="-498.7747656555546" z="-346.80286625354717"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="R53FY">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="23.52842395193875" y="-45.80023030284764" z="1.48120840273069"/> <!--NED in Nautical Miles-->
+         <direction x="-49.496533243937115" y="102.61693409139018" z="67.64693662328777"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X30GV">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="22.815266204997897" y="10.117270867339982" z="0.32915742282904226"/> <!--NED in Nautical Miles-->
+         <direction x="19.42937791243052" y="97.6780788865996" z="-456.76880604848577"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X34WS">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-24.477962823584676" y="21.83246025815606" z="-1.5223530805843204"/> <!--NED in Nautical Miles-->
+         <direction x="-241.8010153726284" y="115.33316811431543" z="150.95290423665583"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="S82OV">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-8.253492135554552" y="25.14546324964556" z="-1.5223530805843204"/> <!--NED in Nautical Miles-->
+         <direction x="0.8250142145968717" y="-189.07813020276623" z="511.1494693634842"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X55LE">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="44.55503739882275" y="-28.339331154710976" z="-0.8228935570726056"/> <!--NED in Nautical Miles-->
+         <direction x="-47.83986726452718" y="-9.51594125271571" z="326.37523490943255"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="L37WD">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="28.99867824744433" y="-10.521889850496962" z="-0.3703021006826725"/> <!--NED in Nautical Miles-->
+         <direction x="348.9976808510409" y="38.2214622893323" z="-796.0149110293477"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="R24IS">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-5.89724297169596" y="29.32419613935025" z="-1.1520509799016478"/> <!--NED in Nautical Miles-->
+         <direction x="117.487802452837" y="18.083102342460705" z="46.10713268546678"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>

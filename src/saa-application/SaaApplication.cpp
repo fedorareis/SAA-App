@@ -21,6 +21,7 @@
 #include <mutex>
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
+#include <common/FrameBody.h>
 
 
 std::shared_ptr<ServerConnectionManager> SaaApplication::connectionManager = nullptr;
@@ -28,6 +29,7 @@ std::shared_ptr<ServerSocket> SaaApplication::cdtiSocket = nullptr;
 std::vector<SensorData> planes;
 std::mutex planeMutex;
 SensorData ownshipPlane("Ownship", 0, 0, 0, 0, 0, 0, Sensor::ownship, 0, 0);
+
 
 void acceptNetworkConnection(std::shared_ptr<ServerConnectionManager> mgr)
 {
@@ -143,17 +145,38 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
 {
    std::string tailNumber = std::to_string(radar.id());
    float range = radar.range() / FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
-   float positionZ = (float)(range * sin(-bearingToRadians(radar.elevation())));
-   float vertRange = (float)(positionZ / FEET_TO_NAUT_MILES);
-   float horizRange = (float)(sqrt(range * range - vertRange * vertRange));
+   float z = (float)(range * sin(-bearingToRadians(radar.elevation())));
+   float vertRange = (float)(z / FEET_TO_NAUT_MILES);
+   float horizRange = (float)(range * cos(-bearingToRadians(radar.elevation())));
    // theta = bearing of intruder + heading of ownship
-   float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.north(), ownship.east()));
-   float positionE = (float)(horizRange * cos(theta));
-   float positionN = (float)(horizRange * sin(theta));
-   float velocityN = fpsToNmph(ownship.north() - radar.north());
-   float velocityE = fpsToNmph(ownship.east() - radar.east());
-   float velocityD = fpsToNmph(ownship.down() - radar.down());
-   SensorData radarPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
+   float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.east(),ownship.north()));
+   float x = (float)(horizRange * cos(theta));
+   float y = (float)(horizRange * sin(theta));
+
+   Vector3d ownshiplla(ownship.ownship_latitude(),ownship.ownship_longitude(),ownship.ownship_altitude());
+   Vector3d ownshipVel(ownship.north(),ownship.east(),ownship.down());
+   auto velBasis = makeNEDBasis(llaToXyz(ownshiplla));
+   Vector3d velAlongBasis = velBasis.north * ownshipVel.x + velBasis.east * ownshipVel.y  + velBasis.down *
+       ownshipVel.z;
+   FrameBody ownFrameB(ownshiplla, makeBodyBasis(ownshiplla,velAlongBasis));
+   Vector3d P_EO_E = ownFrameB.utx(llaToXyz(Vector3d(x,y,z)));
+   auto lla = xyzToLla(P_EO_E);
+   float R = (float)P_EO_E.getMagnitude();
+
+   float positionN = calcDistance(ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) *
+       (lla.latitude() < ownship.ownship_latitude() ? -1 : 1);
+   float positionE = calcDistance(ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) *
+       (lla.longitude() < radar.longitude()? -1 : 1);
+
+   float positionD = (float) (-1.0*(lla.altitude()-ownship.ownship_altitude()));
+
+
+   float velocityN = fpsToNmph(radar.north() - ownship.north());
+   float velocityE = fpsToNmph(radar.east()  - ownship.east());
+   float velocityD = fpsToNmph(radar.down()  - ownship.down());
+   SensorData radarPlane(tailNumber, x, y, z, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
    return radarPlane;
 }
 
