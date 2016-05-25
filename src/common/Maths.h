@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <string>
+#include <glm/glm.hpp>
 
 #define EARTH_RADIUS 3440.0
 #define EQ_EARTH_RADIUS 3963.190592
@@ -122,8 +123,6 @@ struct BodyBasis
     BodyBasis(Vector3d forward, Vector3d right, Vector3d down):forward(forward),right(right),down(down){}
 };
 
-
-
 NEDBases makeNEDBasis(Vector3d vec);
 BodyBasis makeBodyBasis(Vector3d lla,Vector3d vel);
 
@@ -133,7 +132,6 @@ float calcDistance(float lat1, float lon1, float lat2, float lon2, float alt);
 inline float feetToNauticalMiles(float feet);
 
 inline float nauticalMilesToFeet(float miles);
-
 
 float fpsToNmph(float fps);
 float bearingToRadians(float bearing);

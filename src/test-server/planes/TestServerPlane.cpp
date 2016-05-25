@@ -92,6 +92,9 @@ float TestServerPlane::getDownVelocity() const{
    return this->northEastDownVel.z;
 }
 
+Vector3d TestServerPlane::getVelocity() const {
+   return this->northEastDownVel;
+}
 bool TestServerPlane::getADSBEnabled() const {
    return this->isADSBEnabled;
 }

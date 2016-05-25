@@ -23,7 +23,7 @@ link_directories("/usr/local/lib")
 # Creates saa-application.dll with the listed sources collected in the variables
 # Also adds sources to the Solution Explorer
 
-add_library(common-sources ${COMMON_FUNCTION_SOURCES})
+add_library(common-sources ${COMMON_FUNCTION_SOURCES} common/FrameBody.cpp common/FrameBody.h)
 target_link_libraries(common-sources mlpack armadillo protobuf)
 add_library(cdti-sources ${CDTI_FUNCTION_SOURCES} cdti/Display.h)
 target_link_libraries(cdti-sources Qt5::Widgets common-sources protobuf)
