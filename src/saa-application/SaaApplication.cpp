@@ -144,16 +144,17 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
 SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
    std::string tailNumber = std::to_string(radar.id());
-   float range = radar.range() / FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
-   float z = (float)(range * sin(-bearingToRadians(radar.elevation())));
+   float range = radar.range() * FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
+   float z = (float)(range * sin(-degToRad(radar.elevation())));
    float vertRange = (float)(z / FEET_TO_NAUT_MILES);
-   float horizRange = (float)(range * cos(-bearingToRadians(radar.elevation())));
+   float horizRange = (float)(range * cos(-degToRad(radar.elevation())));
    // theta = bearing of intruder + heading of ownship
-   float theta = (float)(bearingToRadians(radar.azimuth()) + atan2(ownship.east(),ownship.north()));
+   float theta = (float)(degToRad(radar.azimuth()));
    float x = (float)(horizRange * cos(theta));
    float y = (float)(horizRange * sin(theta));
 
-   Vector3d ownshiplla(ownship.ownship_latitude(),ownship.ownship_longitude(),ownship.ownship_altitude());
+   Vector3d ownshiplla(ownship.ownship_latitude(),ownship.ownship_longitude(), NAUT_MILES_TO_FEET * ownship
+       .ownship_altitude());
    Vector3d ownshipVel(ownship.north(),ownship.east(),ownship.down());
    auto velBasis = makeNEDBasis(llaToXyz(ownshiplla));
    Vector3d velAlongBasis = velBasis.north * ownshipVel.x + velBasis.east * ownshipVel.y  + velBasis.down *
@@ -227,7 +228,7 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
       tcasSock.operator>>(tcas); //blocking call, waits for server
       planeMutex.lock();
       planes.push_back(SaaApplication::tcasToRelative(tcas, ownship));
-      planes.back().printPos();
+      //planes.back().printPos();
       planeMutex.unlock();
    }
    std::cout << "TCASThread done\n";
@@ -246,6 +247,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
       radarSock.operator>>(radar); //blocking call, waits for server
       planeMutex.lock();
       planes.push_back(SaaApplication::radarToRelative(radar, ownship));
+      planes.back().printPos();
       planeMutex.unlock();
    }
    std::cout << "RadarThread done\n";

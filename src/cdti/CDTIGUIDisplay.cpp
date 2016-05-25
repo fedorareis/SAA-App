@@ -1,6 +1,7 @@
 #include <QtWidgets/qlabel.h>
 #include <QtWidgets/qscrollarea.h>
 #include <iostream>
+#include <math.h>
 #include "CDTIGUIDisplay.h"
 
 Proximate* CDTIGUIDisplay::proximateImage = nullptr;
@@ -11,7 +12,7 @@ Ownship* CDTIGUIDisplay::ownshipImage = nullptr;
 CDTIGUIDisplay::CDTIGUIDisplay(int width, int height): width(width), height(height)
 {
     resize(width, height);
-
+    
     trafficImage = new Traffic(100,100);
     proximateImage = new Proximate(100,100);
     resolutionImage = new Resolution(100,100);
@@ -39,7 +40,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     //TODO Move to airplane implementation?
     //setup loading directory
     //render ownship
-
+    
     //render gridlines
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -47,7 +48,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     const QBrush brush();
     painter.setPen(QPen(Qt::white, 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter.translate(width / 2, height / 2);
-
+    
     //paint the grid cirlces
     for (int i = 0, radius = 100; i <= numGridCircles; i++, radius += 100.0f)
     {
@@ -58,46 +59,47 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     {
         ownshipImage->draw(this,width / 2,height / 2,false);
     }
-
-    int timestamp = currentReport->timestamp();
+   
+    float scale = 20.0f;
+    float largestD = 18.0f;
+    
+    
     //if there is a report to be read, attempt to render planes here
     if(currentReport)
     {
-
         for(int i = 0; i < currentReport->planes_size(); i++)
         {
-            bool directional = false;
             CDTIPlane report = currentReport->planes(i);
-            PlaneImage* currentImage;
-            if(report.velocity().x() > 0.01f || report.velocity().x() < -0.01f ||
-                report.velocity().y() > 0.01f || report.velocity().y() < -0.01f ||
-                report.velocity().z() > 0.01f || report.velocity().z() < -0.01f)
-            {
-                directional = true;
-            }
+            float d = fmax(report.position().y(), report.position().x());
+            largestD = fmax(largestD, d);
+
+            
+        }
+        scale = height/2/(largestD*1.05f);
+        
+        for(int i = 0; i < currentReport->planes_size(); i++)
+        {
+            CDTIPlane report = currentReport->planes(i);
+            PlaneImage* currentImage = nullptr;
             switch(report.severity())
             {
-                case CDTIPlane_Severity_PROXIMATE:
-                    currentImage = proximateImage;
-                    break;
                 case CDTIPlane_Severity_RESOLUTION:
                     currentImage = resolutionImage;
                     break;
                 case CDTIPlane_Severity_TRAFFIC:
                     currentImage = trafficImage;
                     break;
+                case CDTIPlane_Severity_AIR:
+                case CDTIPlane_Severity_PROXIMATE:
+                default:
+                    currentImage = proximateImage;
+                    break;
             }
             //render planes here
             if(currentImage)
-            {
-                float posY = report.position().y();
                 //Positions are NED relative, Y is x, x is y etc.
-                float posX = report.position().x();
-                currentImage->draw(this,
-                                   width / 2.0f -  posY * 20.0f,
-                                   height / 2.0f - posX * 20.0f,false);
-            }
-
+                currentImage->draw(this,width / 2.0f - report.position().y() * scale,height / 2.0f - report.position
+                    ().x() * scale,false);
         }
     }
 }
@@ -111,5 +113,5 @@ void CDTIGUIDisplay::init()
 void CDTIGUIDisplay::renderReport(CDTIReport &report)
 {
     currentReport = &report;
-    update(); //todo if wonky, change to repaint
+    repaint();
 }

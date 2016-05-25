@@ -61,7 +61,7 @@ void DisplayController::listenOnSocket()
 //                }
 //            }
 //        }
-        std::cout << report.DebugString() << endl;
+        std::cerr << report.DebugString() << endl;
         display.renderReport(report);
         sleep(1);
     }

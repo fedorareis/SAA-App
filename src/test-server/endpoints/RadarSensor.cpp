@@ -37,7 +37,7 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
    float azimuth = (float)radToDeg(atan2(P_BO_B.y,P_BO_B.x));
-   float elevation = (float)std::sqrt(P_BO_B.y * P_BO_B.y + P_BO_B.x * P_BO_B.x);
+   float elevation = (float)tan( P_BO_B.z / std::sqrt(P_BO_B.y * P_BO_B.y + P_BO_B.x * P_BO_B.x));
 
 
    RadarReport report;

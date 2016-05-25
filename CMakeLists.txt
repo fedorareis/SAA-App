@@ -7,14 +7,16 @@ IF(APPLE)
     set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt5/5.5.1_2;/usr/local/Cellar/qt5/5.5.1;/usr/local/Cellar/qt5/5.6.0")
 endif()
 
+
 option(PROFILE "Turn on code-profile options" OFF)
-option(BUILD_PROTOBUF "Build the protobuf library" ON)
+option(BUILD_PROTOBUF_SOURCE "Build the protobuf library via source; else use finPackage" OFF)
     # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
 # to always look for includes there:
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}} cmake)
 
 IF(FALSE)
 
@@ -39,14 +41,21 @@ project (SAA_Application)
 
 add_subdirectory(lib/googletest)
 
-if(BUILD_PROTOBUF)
+if(BUILD_PROTOBUF_SOURCE)
     add_subdirectory(lib/protobuf/cmake)
     include_directories(${protobuf_SOURCE_DIR}/../src)
     link_directories(${protobuf_BINARY_DIR})
     link_directories(${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
     link_directories(${/usr/lib/x86_64-linux-gnu/})
-    message(WANRING "Proto is at: " ${protobuf_SOURCE_DIR})
+else()
+    find_package(Protobuf REQUIRED)
+    include_directories(${PROTOBUF_INCLUDE_DIRS})
+    if(NOT ${PROTOBUF_FOUND})
+        message(ERROR "FIND_PACKAGE didn't work, mate")
+    endif()
 endif()
+message(WARNING "Proto is at: ${protobuf_SOURCE_DIR}")
+
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
@@ -59,7 +68,7 @@ if(PROFILE)
 ENDIF()
 
 
-#SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
+SET(CMAKE_INSTALL_PREFIX "${PROJECT_BINARY_DIR}")
 
 
 

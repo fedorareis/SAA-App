@@ -15,7 +15,7 @@ private:
     CDTIEndpoint* socket;
     AlertMessages* messages;
     std::thread* socketThread;
-    bool mock;
+    bool mock = false;
 public:
     /**
      * constructs a CDTIGUIDisplay controller with the configured display
