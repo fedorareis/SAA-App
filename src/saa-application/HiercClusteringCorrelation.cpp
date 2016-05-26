@@ -498,8 +498,65 @@ void get_k_clusters(cluster_t *cluster, int k)
  */
 std::vector<CorrelatedData> correlated(cluster_t *cluster)
 {
+   int i = cluster->num_nodes - 1;
+   int roots_found = 0;
 
+   int nodes_to_discard = cluster->num_nodes;
+   int k = cluster->num_items;
+
+   /*
+    std::map<std::string, int> m;
+  m["hello"] = 23;
+  // check if key is present
+  if (m.find("world") != m.end())
+    std::cout << "map contains key world!\n";
+  // retrieve
+  std::cout << m["hello"] << '\n';
+  std::map<std::string, int>::iterator i = m.find("hello");
+  assert(i != m.end());
+  std::cout << "Key: " << i->first << " Value: " << i->second << '\n';
+    */
+
+   std::map<int, std::vector<Sensor>> m;
+   for(int i = 0; i < cluster->num_nodes; i++)
+   {
+      cluster_node_t *node = &(cluster->nodes[i]);
+      for(int j = 0; j < node->num_items; j++)
+      {
+         if(m.find(node->height) == m.end())
+         {
+            m[node->height].push_back(node->label);
+         }
+      }
+   }
+   /*
+void print_cluster_node(cluster_t *cluster, int index)
+{
+   cluster_node_t *node = &(cluster->nodes[index]);
+   fprintf(stdout, "Node %d - height: %d, centroid: (%5.3f, %5.3f, %5.3f)\n",
+           index, node->height, node->centroid.x, node->centroid.y, node->centroid.z);
+   std::cout<<"Sensor: "<<node->label<<std::endl;
+    */
+   // put all nodes
+
+//   std::cout<<"best number of cluster :"<<std::endl;
+   std::vector<CorrelatedData> result;
+
+//   CorrelatedData root;
+//   root.setPosition(cluster->nodes->centroid);
+//   result.push_back(root);
+   return result;
+//   cluster_node_t *node = &(cluster->nodes[index]);
+//   if (node->num_items > 0) {
+//      std::cout << "Sensor: " << cluster->nodes[node->items[0]].label << std::endl;
+//      for (int i = 1; i < node->num_items; ++i)
+//         std::cout << "Sensor: " <<
+//         cluster->nodes[node->items[i]].label << std::endl;
+//   }
    // mmm.... how to come up with k...
+   // check each height
+   // if it contains more than 1 same sensor, move onto next height
+   // and when it's not, that's the number of cluster
 }
 
 /*
@@ -532,7 +589,6 @@ std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<Se
       SensorData sensor = planes.at(i);
       Vector3d pos = sensor.getPurePosition();
       item_t *t = &(items[i]);
-      std::cout<<"Retrieved sensor "<<sensor.getSensor()<<std::endl;
       t->label = sensor.getSensor();
       t->coord.x = pos.x;
       t->coord.y = pos.y;
@@ -546,15 +602,18 @@ std::vector<CorrelatedData> HiercClusteringCorrelation::correlate(std::vector<Se
          "--------------------\n");
    print_cluster(cluster);
 
-   int k = 2;
-   fprintf(stdout, "\n\n%d CLUSTERS\n"
-         "--------------------\n", k);
-   get_k_clusters(cluster, k);
-   free_cluster(cluster);
+//   int k = 2;
+//   fprintf(stdout, "\n\n%d CLUSTERS\n"
+//         "--------------------\n", k);
+//   get_k_clusters(cluster, k);
+//   free_cluster(cluster);
+
+   pointer = correlated(cluster);
 
    CorrelatedData root;
    root.setPosition(cluster->nodes->centroid);
    pointer.push_back(root);
+   free_cluster(cluster);
 
    // returns the list of correlated data
    return pointer;

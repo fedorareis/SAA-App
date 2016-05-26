@@ -14,11 +14,14 @@ TEST(HiercClustering, TestSetup)
    std::vector<SensorData> planes;
 
    // makeup data
-   planes.push_back(SensorData("", 0.0, 9.0, 0.0, 4.0, 10.0, 9.0, tcas, 0, 0.0));
+//   planes.push_back(SensorData("",5.01,3,   400,3000,2050,1020,adsb,0,1.0));
+//   planes.push_back(SensorData("",5,   3.01,390,3010,2050,1030,tcas,0,1.0));
+//   planes.push_back(SensorData("",4.99,2.99,410,2990,2050,1040,radar,0,1.0));
+//   planes.push_back(SensorData("", 0.0, 9.0, 0.0, 4.0, 10.0, 9.0, tcas, 0, 0.0));
    planes.push_back(SensorData("", 3.0, 5.0, 1.0, 4.0, 5.0, 9.0, adsb, 2, 0.0));
    planes.push_back(SensorData("", 0.0, 0.0, 0.0, 4.0, 5.0, 2.0, tcas, 4, 0.0));
    planes.push_back(SensorData("", 0.0, 4.0, 0.0, 4.0, 5.0, 9.0, radar, 2, 0.0));
-   planes.push_back(SensorData("", 4.0, 0.0, 9.0, 7.0, 2.0, 4.0, adsb, 5, 0.0));
+//   planes.push_back(SensorData("", 4.0, 0.0, 9.0, 7.0, 2.0, 4.0, adsb, 5, 0.0));
 
    // calls correlation
    HiercClusteringCorrelation corr;

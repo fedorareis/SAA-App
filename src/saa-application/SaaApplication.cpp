@@ -18,6 +18,7 @@
 #include "KMeansCorrelation.h"
 #include "Decision.h"
 #include "ServerConnectionManager.h"
+#include "HiercClusteringCorrelation.h"
 #include <mutex>
 #include <common/protobuf/tcas.pb.h>
 #include <common/protobuf/radar.pb.h>
@@ -269,7 +270,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
  */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock)
 {
-   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new MeanShiftCorrelation());
+   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new HiercClusteringCorrelation());
    Decision dec;
    CDTIReport *rep = nullptr;
    OwnshipReport ownship;
