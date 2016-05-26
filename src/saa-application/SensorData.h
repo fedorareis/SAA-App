@@ -15,7 +15,7 @@
 
 enum Sensor
 {
-   adsb,
+   adsb=0,
    tcas,
    radar,
    ownship
