@@ -137,7 +137,7 @@ int TestFileParser::buildTestCase()
 int TestFileParser::getOwnship(xml_node<> *node)
 {
    TestServerPlane plane;
-
+   plane.setPlaneId(test.getNextPlaneId());
    // checks that ownship data exists
    if(node) {
       xml_node<> *ownship = node;
@@ -362,6 +362,7 @@ int TestFileParser::getPlanes(xml_node<> *node)
    for (xml_node<> *plane = node ; plane; plane = plane->next_sibling())
    {
       TestServerPlane intruder;
+      intruder.setPlaneId(test.getNextPlaneId());
 
       // tag is necessary
       if(isAttribute(plane, "tag")) {

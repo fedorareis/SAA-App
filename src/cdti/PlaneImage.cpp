@@ -56,7 +56,7 @@ void PlaneImage::drawPlane(QPaintDevice *window, int posX, int posY, bool direct
         painter.restore();
         painter.setPen(QColor(255,255,255));
         Vector3d textLocation(drawImage.width() / 2, drawImage.height() / 2, 0);
-        int offset(textLocation.getMagnitude());
+        int offset(textLocation.getMagnitude() - 10);
         painter.translate(-offset, -offset - textMargin);
         painter.drawText(0, 0, QString(text.c_str()));
     painter.end();

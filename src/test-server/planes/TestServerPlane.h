@@ -52,11 +52,11 @@ class TestServerPlane {
    int getRadarId() const;
    void setTcasId(int tc);
    void setRadarId(int rd);
-    static int nextId();
+   void setPlaneId(int pd);
+   static int nextId();
    int getId() const;
 private:
     static int idSeq;
-    int planeId = 0;
    double t;
    Motion * motionPtr;
    Vector3d northEastDownVel;
@@ -64,6 +64,7 @@ private:
 
    int tcasID;
    int radarID;
+    int planeID;
 
    bool isADSBEnabled;
    bool isTCasEnabled;

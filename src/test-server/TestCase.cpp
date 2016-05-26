@@ -9,7 +9,8 @@
 TestCase::TestCase() :
 ownship(TestServerPlane()),
 radarId(0),
-tcasId(0)
+tcasId(0),
+planeId(0)
 {
 
 }
@@ -55,8 +56,8 @@ void TestCase::complete() {
          Vector3d diffPos = relPos - ownship.getMotion()->getInitialPosition();
 
          //Offset by lat and long miles (This should be encapsulated somewhere else)
-         float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * POLAR_EARTH_RADIUS)/360.0); //Arc length, nMi/theta
-         float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EQ_EARTH_RADIUS)/360.0);
+         float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * EARTH_RADIUS)/360.0); //Arc length, nMi/theta
+         float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EARTH_RADIUS)/360.0);
          plane->setLatLongAlt(Vector3d(newLat,newLong,relPos.z + ownship.getAltitude()));
          plane->setNorthEastDownVelocity(plane->getMotion()->getVelocityAtTick(0));
 
@@ -75,13 +76,17 @@ bool TestCase::isRunning() {
 
 int TestCase::getNextTcasId()
 {
-   return tcasId++;
+   return ++tcasId;
 }
 int TestCase::getNextRadarId()
 {
-   return radarId++;
+   return ++radarId;
 }
 
+int TestCase::getNextPlaneId()
+{
+   return ++planeId;
+}
 TestCase::TestCase(const TestCase &otherTestCase) :
         t(otherTestCase.t),
         name(otherTestCase.name),

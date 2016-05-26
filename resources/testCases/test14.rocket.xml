@@ -3,9 +3,9 @@
       time = "120"
       sensorError = "false">
 <ownship tag="ABC123">
-      <tcas enabled="true" error="1.5"/>
-      <radar enabled="true"/>
-      <ads-b enabled="true" error="0.2"/>
+      <tcas enabled="true" />
+      <radar enabled="true" />
+      <ads-b enabled="true" />
       <movement type="linear">
          <position x="0" y="0" z="0"/>
          <direction x="1" y="0" z="0"/>

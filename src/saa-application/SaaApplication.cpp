@@ -102,14 +102,19 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
 {
    std::string tailNumber = adsb.tail_number();
    float positionN = calcDistance(adsb.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
+                                  ownship.ownship_longitude(), ownship.ownship_altitude() * FEET_TO_NAUT_MILES) * (adsb.latitude() < ownship.ownship_latitude()? -1 : 1);
    float positionE = calcDistance(ownship.ownship_latitude(), adsb.longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (adsb.longitude() < ownship.ownship_longitude()? -1 : 1);
-   float positionD = adsb.altitude() - ownship.ownship_altitude();
+                                  ownship.ownship_longitude(), ownship.ownship_altitude() * FEET_TO_NAUT_MILES) *
+       (adsb.longitude() <
+       ownship.ownship_longitude()? -1 : 1);
+   float positionD = ownship.ownship_altitude() - adsb.altitude();
    float velocityN = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityE = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityD = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, adsb.north(), adsb.east(), adsb.down(), velocityN, velocityE, velocityD, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
+   SensorData adsbPlane(tailNumber, positionN, positionE, positionD, adsb.north(), adsb.east(), adsb.down
+       (), Sensor::adsb, adsb
+       .plane_id(), adsb
+       .timestamp());
    return adsbPlane;
 }
 
@@ -119,11 +124,11 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
  */
 SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
-   std::string tailNumber = std::string("TCAS" + std::to_string(tcas.id()));
+   std::string tailNumber = std::string("TCAS" + std::to_string(tcas.plane_id()));
    float positionZ = tcas.altitude();
    float horizRange = tcas.range();
    // ownship_compass_bearing = bearing of intruder + heading of ownship
-   float ownship_compass_bearing = (float) bearingToRadians(tcas.bearing());
+   float ownship_compass_bearing = (float) degToRad(tcas.bearing());
    //std::cout << ownship_compass_bearing << std::endl;
    //std::cout << horizRange << std::endl;
    float positionN = (float)(horizRange * cos(ownship_compass_bearing));
@@ -132,7 +137,8 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
    float velocityE = 0;
    float velocityD = 0;
    SensorData tcasPlane(tailNumber, positionN, positionE, positionZ, velocityN, velocityE, velocityD, Sensor::tcas, tcas.plane_id(), 0);
-   //tcasPlane.printPos();
+//   std::cout << "show tcas " << tcas.plane_id() << " pos" << std::endl;
+//   tcasPlane.printPos();
    //std::cout << tcas.range << std::endl;
    return tcasPlane;
 }
@@ -143,7 +149,7 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
  */
 SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
-   std::cout << radar.DebugString() << std::endl;
+//   std::cout << radar.DebugString() << std::endl;
 
    std::string tailNumber = std::string("RDR" + std::to_string(radar.plane_id()));
    double range = radar.range() * FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
@@ -174,7 +180,7 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
                                   ownship.ownship_longitude(), ownship.ownship_altitude()) * (lla.longitude() <
        ownship.ownship_longitude()? -1 : 1);
 
-   float positionD = (float) lla.z;
+   float positionD = (float) ownshiplla.z - lla.z;
 
    SensorData radarPlane(tailNumber, positionN, positionE, positionD, planeVel.x, planeVel.y, planeVel.z,
                          Sensor::radar, radar.plane_id(), radar.timestamp());
@@ -194,7 +200,11 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
       planeMutex.lock();
       ownSock.operator>>(ownship); //blocking call, waits for server
       // TODO: Switch to actual ownship data for use by Decision
-      ownshipPlane = SensorData("Ownship", 0, 0, ownship.ownship_altitude(), ownship.north(), ownship.east(), ownship.down(), Sensor::ownship, 0, 0);
+      ownshipPlane = SensorData("Ownship", ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_altitude(), ownship
+          .north()
+          , ownship.east(),
+                                ownship
+          .down(), Sensor::ownship, 0, 0);
       planeMutex.unlock();
    }
    std::cout << "Ownship Thread done\n";
@@ -212,7 +222,9 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
       planeMutex.lock();
-      planes.push_back(SaaApplication::adsbToRelative(adsb, ownship));
+      AdsBReport *cpy = new AdsBReport;
+      cpy->CopyFrom(adsb);
+      planes.push_back(SaaApplication::adsbToRelative(*cpy, ownship));
       planeMutex.unlock();
    }
    std::cout << "ADSBThread done\n";
@@ -253,7 +265,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
       RadarReport* cpy = new RadarReport;
       cpy->CopyFrom(radar);
       planes.push_back(SaaApplication::radarToRelative(*cpy, ownship));
-      planes.back().printPos();
+//      planes.back().printPos();
       planeMutex.unlock();
    }
    std::cout << "RadarThread done\n";

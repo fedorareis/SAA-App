@@ -10,22 +10,26 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
                                     const TestServerPlane &ownship) {
 
    //Create range from position
-   float range = calcDistance(plane.getLatitude(),plane.getLongitude(),ownship.getLatitude(),ownship.getLongitude(), ownship.getAltitude());
-   float positionX = calcDistance(plane.getLatitude(), ownship.getLongitude(), ownship.getLatitude(),
-                                  ownship.getLongitude(), ownship.getAltitude()) * (plane.getLatitude() < ownship.getLatitude()? -1 : 1);
-   float positionY = calcDistance(ownship.getLatitude(), plane.getLongitude(), ownship.getLatitude(),
-                                  ownship.getLongitude(), ownship.getAltitude()) * (plane.getLongitude() < ownship.getLongitude()? -1 : 1);
+   Vector3d pos(plane.getLatitude(), plane.getLongitude(), plane.getAltitude());
+//   float range = calcDistance(pos.x, pos.y,ownship.getLatitude(),ownship.getLongitude(), ownship.getAltitude());
+   float positionX = calcDistance(pos.x, ownship.getLongitude(), ownship.getLatitude(),
+                                  ownship.getLongitude(), ownship.getAltitude()) * (pos.x < ownship
+       .getLatitude()? -1 : 1);
+   float positionY = calcDistance(ownship.getLatitude(), pos.y, ownship.getLatitude(),
+                                  ownship.getLongitude(), ownship.getAltitude()) * (pos.y < ownship
+       .getLongitude()? -1 : 1);
 
+   float range = std::sqrt(positionX * positionX + positionY * positionY);
    float positionZ = (float) (-1.0*(plane.getAltitude()-ownship.getAltitude()));
 
-   Vector2d difference = Vector2d(positionX,positionY).normalized();
-   Vector2d leftVec = Vector2d(-ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
-   float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
-                                        difference));
-   bool negBearing = Vector2d::Dot(leftVec,difference) <= 0;
+//   Vector2d difference = Vector2d(positionX,positionY).normalized();
+//   Vector2d leftVec = Vector2d(ownship.getEastVelocity(),ownship.getNorthVelocity()).normalized();
+//   float angle = (float)acos((float)Vector2d::Dot(Vector2d(ownship.getNorthVelocity(),ownship.getEastVelocity()).normalized(),
+//                                        difference));
+//   bool negBearing = Vector2d::Dot(leftVec,difference) <= 0;
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
-   float bearing = 180.f/M_PI * atan2(leftVec.y, leftVec.x);//180.f/M_PI * angle * (negBearing ? -1 : 1);
+   float bearing = radToDeg(atan2(positionY, positionX));//180.f/M_PI * angle * (negBearing ? -1 : 1);
    if (bearing < 0) {
       bearing += 360;
    }

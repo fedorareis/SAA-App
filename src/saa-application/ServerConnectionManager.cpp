@@ -70,6 +70,7 @@ void ServerConnectionManager::sendMessage(google::protobuf::Message &msg) {
             google::protobuf::Message * uniqueMsg;
             uniqueMsg = msg.New();
             uniqueMsg->CopyFrom(msg);
+//            std::cout << uniqueMsg->DebugString() << std::endl;
             *(*sock) << *uniqueMsg;
             delete uniqueMsg;
          }

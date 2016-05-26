@@ -35,16 +35,19 @@ TestServerPlane::TestServerPlane():
       latLongAlt(0,0,0),
       northEastDownVel(0,0,0),
       motionPtr(nullptr),
-      tcasID(-1),
-      radarID(-1),
-      planeId(TestServerPlane::nextId())
-
+      tcasID(0),
+      radarID(0),
+      planeID(0)
 {
 
 }
 
+void TestServerPlane::setPlaneId(int pd) {
+   planeID = pd;
+}
+
 int TestServerPlane::getId() const {
-   return planeId;
+   return planeID;
 }
 
 //Actually move the plane (Can't do LatLongAlt from dNES)
@@ -138,8 +141,16 @@ northEastDownVel(other.northEastDownVel),
 isADSBEnabled(other.isADSBEnabled),
 isTCasEnabled(other.isTCasEnabled),
 isRadarEnabled(other.isRadarEnabled),
-motionPtr(nullptr), planeId(other.planeId)
+motionPtr(nullptr), planeID(other.planeID)
 {
+   if (isTCasEnabled)
+   {
+      tcasID = other.tcasID;
+   }
+   if (isRadarEnabled)
+   {
+      radarID = other.radarID;
+   }
 
    if(other.motionPtr != nullptr)
       this->motionPtr = other.motionPtr->clone();
@@ -170,6 +181,15 @@ TestServerPlane &TestServerPlane::operator=(const TestServerPlane &rhs) {
    this->isADSBEnabled = rhs.isADSBEnabled;
    this->isTCasEnabled = rhs.isTCasEnabled;
    this->isRadarEnabled = rhs.isRadarEnabled;
+   this->planeID = rhs.planeID;
+   if (this->isTCasEnabled)
+   {
+      this->tcasID = rhs.tcasID;
+   }
+   if (this->isRadarEnabled)
+   {
+      this->radarID = rhs.radarID;
+   }
    this->tailNumber = rhs.tailNumber;
    if(this->motionPtr)
       delete motionPtr;

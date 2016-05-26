@@ -17,7 +17,7 @@ TEST(HiercClustering, TestSetup)
    std::vector<SensorData> planes;
    /*
    SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
-         float velocityZ, Sensor sensor, int planeId, double time) :
+         float velocityZ, Sensor sensor, int planeID, double time) :
    tailNumber(tailNumber), sensor(sensor)
    */
 

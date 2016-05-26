@@ -69,7 +69,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       {
          correlatedPlanes[prevAssignments.at(i)].addPosition(planes[i].getPurePosition());
          correlatedPlanes[prevAssignments.at(i)].addSensor(planes[i].getSensor(),planes[i].getPlaneTag(), planes[i]
-             .getTailNumber(), planes[i].getVelocity());
+             .getTailNumber(), planes[i].getVelocity(), planes[i].getPurePosition());
       }
       /*Trim planes that didn't actually correlate*/
       correlatedPlanes.erase(std::remove_if(correlatedPlanes.begin(), correlatedPlanes.end(),
@@ -101,7 +101,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       }
       for (int i = 0; i < planes.size(); i++) {
          correlatedPlanes[assignments.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag(), planes[i]
-             .getTailNumber(), planes[i].getVelocity());
+             .getTailNumber(), planes[i].getVelocity(), planes[i].getPurePosition());
 
 
       }

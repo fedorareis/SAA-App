@@ -52,13 +52,14 @@ public:
    }
 
    // adds sensor and its planetag to the vector
-   void addSensor(Sensor sensor, int planeTag, std::string planeId, Vector3d velocity = Vector3d(0,0,0))
+   void addSensor(Sensor sensor, int planeTag, std::string planeId, Vector3d velocity, Vector3d
+   pos)
    {
       sensors.push_back(sensor);
       planeTags.push_back(planeTag);
       tailNumbers.push_back(planeId);
       velocities.push_back(velocity);
-
+      positions.push_back(pos);
    }
 
    // setter for time stamp
@@ -91,12 +92,14 @@ public:
          auto radarIdIndex = std::distance(sensors.begin(), radarIter);
          tailNumber = tailNumbers[radarIdIndex];
          setVelocity(velocities[radarIdIndex]);
+         setPosition(positions[radarIdIndex]);
       }
       auto tcasIter = std::find(sensors.begin(), sensors.end(), Sensor::tcas);
       if (tcasIter != sensors.end())
       {
          auto tcasIdIndex = std::distance(sensors.begin(), tcasIter);
          tailNumber = tailNumbers[tcasIdIndex];
+         setPosition(positions[tcasIdIndex]);
       }
       auto adsbIter = std::find(sensors.begin(), sensors.end(), Sensor::adsb);
       if (adsbIter != sensors.end())
@@ -104,17 +107,37 @@ public:
          auto adsbIdIndex = std::distance(sensors.begin(), adsbIter);
          tailNumber = tailNumbers[adsbIdIndex];
          setVelocity(velocities[adsbIdIndex]);
+         setPosition(positions[adsbIdIndex]);
       }
       plane->set_id(tailNumber);
       plane->set_severity(severity);
       plane->set_allocated_position(position);
       plane->set_allocated_velocity(velocity);
-
-
+//      std::cout << "start planeTags" << std::endl;
       for(int ndx = 0; ndx < planeTags.size(); ndx++) {
-         plane->add_planetags(planeTags.at(ndx));
+         plane->add_planetags(planeTags[ndx]);
+         std::string sensorName;
+         switch(sensors[ndx]) {
+            case Sensor::adsb:
+               sensorName = "adsb";
+                 break;
+            case Sensor::radar:
+               sensorName = "radar";
+                 break;
+            case Sensor::tcas:
+               sensorName = "tcas";
+                 break;
+            default:
+               sensorName ="???";
+         }
+//         std::cout << "sensor type" << sensorName << std::endl;
+//         std::cout << "planeID " << planeTags[ndx] << std::endl;
+//         std::cout << "pos n:" << positions[ndx].x << " e:" <<positions[ndx].y << " d:" << positions[ndx].z <<
+//         std::endl;
+//         *planeTag = planeTags.at(ndx);
 //         plane->set_planetags(ndx, planeTags.at(ndx));
       }
+//      std::cout << "end planeTags" << std::endl << std::endl << std::endl;
 
       return plane;
    }
@@ -148,6 +171,7 @@ private:
    std::vector<int> planeTags; // list of planeTags from each of the sensors
     std::vector<std::string> tailNumbers;
     std::vector<Vector3d> velocities;
+    std::vector<Vector3d> positions;
    std::string tailNumber;
    Vector *velocity;
    Vector *position;

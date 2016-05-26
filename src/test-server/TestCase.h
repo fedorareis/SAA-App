@@ -55,6 +55,8 @@ public:
 
     int getNextRadarId();
 
+    int getNextPlaneId();
+
    int getTotalTime() const;
    int getElapsedTime() const;
 
@@ -77,6 +79,7 @@ private:
 
     int radarId;
     int tcasId;
+    int planeId;
 };
 
 #endif //SAA_APPLICATION_TESTCASE_H
