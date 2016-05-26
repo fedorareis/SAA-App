@@ -2,7 +2,6 @@
 // Created by Helen Hwang on 3/3/16.
 //
 #include <gtest/gtest.h>
-#include <mlpack/methods/emst/dtb.hpp>
 #include <saa-application/SensorData.h>
 #include <saa-application/HiercClusteringCorrelation.h>
 
@@ -11,29 +10,28 @@
  */
 TEST(HiercClustering, TestSetup)
 {
-   std::vector<double> data;
-
    // test data
    std::vector<SensorData> planes;
-   /*
-   SensorData(std::string tailNumber, float positionX, float positionY, float positionZ, float velocityX, float velocityY,
-         float velocityZ, Sensor sensor, int planeID, double time) :
-   tailNumber(tailNumber), sensor(sensor)
-   */
+
 
    // makeup data
-   planes.push_back(SensorData("", 0.0, 9.0, 0.0, 4.0, 10.0, 9.0, tcas, 0, 0.0));
+//   planes.push_back(SensorData("",5.01,3,   400,3000,2050,1020,adsb,0,1.0));
+//   planes.push_back(SensorData("",5,   3.01,390,3010,2050,1030,tcas,0,1.0));
+//   planes.push_back(SensorData("",4.99,2.99,410,2990,2050,1040,radar,0,1.0));
+//   planes.push_back(SensorData("", 0.0, 9.0, 0.0, 4.0, 10.0, 9.0, tcas, 0, 0.0));
    planes.push_back(SensorData("", 3.0, 5.0, 1.0, 4.0, 5.0, 9.0, adsb, 2, 0.0));
    planes.push_back(SensorData("", 0.0, 0.0, 0.0, 4.0, 5.0, 2.0, tcas, 4, 0.0));
    planes.push_back(SensorData("", 0.0, 4.0, 0.0, 4.0, 5.0, 9.0, radar, 2, 0.0));
-   planes.push_back(SensorData("", 4.0, 0.0, 9.0, 7.0, 2.0, 4.0, adsb, 5, 0.0));
-
-   std::cout<<"ht-planes have "<<planes.size()<<" planes"<<std::endl;
+//   planes.push_back(SensorData("", 4.0, 0.0, 9.0, 7.0, 2.0, 4.0, adsb, 5, 0.0));
 
    // calls correlation
    HiercClusteringCorrelation corr;
-//   std::vector<CorrelatedData> result = corr.correlate(planes);
+   std::vector<CorrelatedData> result = corr.correlate(planes);
+   ASSERT_EQ(1,result.size());
+   CorrelatedData res = result.at(0);
+   Vector3d d = res.getPosition();
+   // error:
+   // ASSERT_EQ(Vector3d(5.010, 3, -400), d);
+   std::cout<<"centroid: "<<d.x<<", "<<d.y<<", "<<d.z<<std::endl;
 
-//   ASSERT_EQ(0,result.size());
-
-};
+}
