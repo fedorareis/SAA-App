@@ -18,7 +18,7 @@ private:
     bool directional;
 public:
     PlaneImage(std::string resPath,std::string dirPath, int width, int height);
-    void draw(QPaintDevice* window, int posX, int posY, bool directional);
+    void drawPlane(QPaintDevice *window, int posX, int posY, bool directional, float angle = 0, std::string text = "");
     void setOutlineColor(int red, int green, int blue, int alpha);
     void setOutlineWidth(int width);
 };

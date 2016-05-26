@@ -79,6 +79,5 @@ add_subdirectory(test)
 #Copy resources to output dir
 #TODO: THIS NO WORK...
 file(GLOB_RECURSE RESOURCES
-        "resources/*"
-        )
+        "resources/*")
 file(COPY ${RESOURCES} DESTINATION ${PROJECT_BINARY_DIR}/resources)

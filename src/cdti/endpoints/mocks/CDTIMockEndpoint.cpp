@@ -27,8 +27,8 @@ CDTIPlane* makePlane(CDTIPlane* otherPlane,std::string name,Vector* position,CDT
 {
     Vector* velocity = new Vector();
 
-    velocity->set_x(2);
-    velocity->set_y(0);
+    velocity->set_x(-2);
+    velocity->set_y(2);
     velocity->set_z(0);
 
 
@@ -72,12 +72,12 @@ void CDTIMockEndpoint::step()
     CDTIReport* newReport = new CDTIReport();
     newReport->set_timestamp(++time);
     newReport->set_allocated_ownship(makeOwnship());
-    std::cout << time << std::endl;
+    //std::cout << time << std::endl;
     for(int i = 0; i < report->planes_size(); i++)
     {
         CDTIPlane plane = report->planes(i);
         Vector planeVelocity = plane.velocity();
-        std::cout << planeVelocity.x() << std::endl;
+        //std::cout << planeVelocity.x() << std::endl;
         Vector ownshipVelocity = report->ownship().velocity();
         Vector* newPosition = new Vector();
         Vector* newVelocity = new Vector();
