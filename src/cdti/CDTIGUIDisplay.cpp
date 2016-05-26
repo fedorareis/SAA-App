@@ -140,7 +140,10 @@ void CDTIGUIDisplay::renderReport(CDTIReport &report)
     CDTIReport copyReport(report);
     reportData = copyReport;
     currentReport = &reportData;
+    std::string log(reportData.DebugString());
     mtx.unlock();
+
+    std::cout << log << std::endl;
     update();
 }
 bool CDTIGUIDisplay::event(QEvent *event)

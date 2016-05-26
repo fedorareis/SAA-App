@@ -143,6 +143,8 @@ SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship
  */
 SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport ownship)
 {
+   std::cout << radar.DebugString() << std::endl;
+
    std::string tailNumber = std::to_string(radar.id());
    float range = radar.range() * FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
    float z = (float)(range * sin(-degToRad(radar.elevation())));
@@ -177,7 +179,12 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
    float velocityN = fpsToNmph(radar.north() - ownship.north());
    float velocityE = fpsToNmph(radar.east()  - ownship.east());
    float velocityD = fpsToNmph(radar.down()  - ownship.down());
-   SensorData radarPlane(tailNumber, x, y, z, velocityN, velocityE, velocityD, Sensor::radar, radar.plane_id(), radar.timestamp());
+   SensorData radarPlane(tailNumber, x, y, z, radar.north(), radar.east(), radar.down(), Sensor::radar, radar.plane_id(),
+                         radar
+       .timestamp());
+   std::cout  << "sensor data:  ";
+   radarPlane.printPos();
+   std::cout << std::endl;
    return radarPlane;
 }
 

@@ -64,9 +64,10 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
    if(correlationFailed && prevAssignments.size() > 0)
    {
       correlatedPlanes.resize(planes.size());
-      /*Sum correlations*/
+      /* Sum correlations */
       for(int i = 0; i < planes.size(); i++)
       {
+         correlatedPlanes[prevAssignments.at(i)].addVelocity(planes[i].getVelocity());
          correlatedPlanes[prevAssignments.at(i)].addPosition(planes[i].getPurePosition());
          correlatedPlanes[prevAssignments.at(i)].addSensor(planes[i].getSensor(),planes[i].getPlaneTag());
       }
@@ -77,6 +78,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
       //For the remainder of planes, average
       for(auto cPlane : correlatedPlanes)
       {
+         Vector3d velocity = cPlane.getVelocity();
          Vector3d position = cPlane.getPosition();
          position.x /= cPlane.getSensor().size();
          position.y /= cPlane.getSensor().size();
@@ -98,6 +100,7 @@ std::vector<CorrelatedData> MeanShiftCorrelation::correlate(std::vector<SensorDa
          correlatedPlanes.push_back(CorrelatedData(centroids.at(0, i), centroids.at(1, i), centroids.at(2, i), 0, 0, 0));
       }
       for (int i = 0; i < planes.size(); i++) {
+         correlatedPlanes[assignments.at(i)].addVelocity(planes[i].getVelocity());
          correlatedPlanes[assignments.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag());
 
 

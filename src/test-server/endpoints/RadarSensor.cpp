@@ -45,9 +45,9 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    //tuple of the position to send to report. is in format (range,azimuth,altitude)
    Vector3d finalPosition(range*FEET_TO_NAUT_MILES, azimuth, elevation);
 
-   Vector3d velocity(plane.getNorthVelocity() - ownship.getNorthVelocity(),
-                     plane.getEastVelocity() - ownship.getEastVelocity(),
-                     plane.getDownVelocity() - ownship.getDownVelocity());
+   Vector3d velocity(plane.getNorthVelocity(),
+                     plane.getEastVelocity(),
+                     plane.getDownVelocity());
    if (jitter)
    {
 
