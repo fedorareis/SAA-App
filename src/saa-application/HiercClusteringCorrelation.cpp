@@ -271,10 +271,10 @@ void print_cluster_items(cluster_t *cluster, int index)
    cluster_node_t *node = &(cluster->nodes[index]);
    fprintf(stdout, "Items: ");
    if (node->num_items > 0) {
-      fprintf(stdout, "Sensor:", cluster->nodes[node->items[0]].label);
+      std::cout<<"Sensor: "<<cluster->nodes[node->items[0]].label<<std::endl;
       for (int i = 1; i < node->num_items; ++i)
-         fprintf(stdout, "Sensor:",
-                 cluster->nodes[node->items[i]].label);
+         std::cout<<"Sensor: "<<
+                 cluster->nodes[node->items[i]].label<<std::endl;
    }
    fprintf(stdout, "\n");
 }
@@ -284,7 +284,7 @@ void print_cluster_node(cluster_t *cluster, int index)
    cluster_node_t *node = &(cluster->nodes[index]);
    fprintf(stdout, "Node %d - height: %d, centroid: (%5.3f, %5.3f, %5.3f)\n",
            index, node->height, node->centroid.x, node->centroid.y, node->centroid.z);
-   fprintf(stdout,"Sensor: ", node->label,"\n");
+   std::cout<<"Sensor: "<<node->label<<std::endl;
    print_cluster_items(cluster, index);
    fprintf(stdout, "\tNeighbours: ");
    neighbour_t *t = node->neighbours;
