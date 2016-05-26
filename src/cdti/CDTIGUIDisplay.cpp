@@ -115,10 +115,21 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             else {
                 direction = true;
                 angle = radToDeg(atan2(vel.y, vel.x));
-                if(currentImage)
+                if(currentImage) {
+                    Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());
+                    //Plane labels -- ID, Position, Velocity, Direction (angle)
+                    std::string currentPlaneLabel = " ID: " + report.id();
+                    currentPlaneLabel += "\\n";
+                    currentPlaneLabel += "Position: (" + std::to_string(report.position().x()) + ", "
+                        + std::to_string(report.position().y()) + ", "
+                        + std::to_string(report.position().z())
+                        + ")\\nVelocity: " + std::to_string(currentPlaneVel.getMagnitude());
+
                     //Positions are NED relative, Y is x, x is y etc.
-                    currentImage->drawPlane(this, width / 2.0f + report.position().y() * scale, height / 2.0f - report.position
-                            ().x() * scale, direction, angle, report.id());
+                    currentImage->drawPlane(this, width / 2.0f + report.position().y() * scale,
+                                            height / 2.0f - report.position
+                                                    ().x() * scale, direction, angle, currentPlaneLabel);
+                }
             }
             //render planes here
 

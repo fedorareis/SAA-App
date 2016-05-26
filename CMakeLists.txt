@@ -9,7 +9,7 @@ endif()
 
 
 option(PROFILE "Turn on code-profile options" OFF)
-option(BUILD_PROTOBUF_SOURCE "Build the protobuf library via source; else use finPackage" OFF)
+option(BUILD_PROTOBUF_SOURCE "Build the protobuf library via source; else use finPackage" ON)
     # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 # As moc files are generated in the binary dir, tell CMake
