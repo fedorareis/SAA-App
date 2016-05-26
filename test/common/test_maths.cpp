@@ -56,9 +56,6 @@ TEST(Math, getDif)
    Vector3d result = getDifference(plane, ownship);
    Vector3d expected(0,0,0);
 
-   // why build fail when calling EXPECT_EQ(expected, result)?
-   //EXPECT_EQ(expected, result);
-
    EXPECT_EQ(expected.x, result.x);
    EXPECT_EQ(expected.y, result.y);
    EXPECT_EQ(expected.z, result.z);
