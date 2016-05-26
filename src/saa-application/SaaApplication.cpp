@@ -281,7 +281,7 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
  */
 void SaaApplication::processSensors(ClientSocket ownSock, ClientSocket adsbSock, ClientSocket tcasSock, ClientSocket radarSock)
 {
-   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new HiercClusteringCorrelation());
+   std::shared_ptr<CorrelationStrategy> cor = std::shared_ptr<CorrelationStrategy>(new MeanShiftCorrelation());
    Decision dec;
    CDTIReport *rep = nullptr;
    OwnshipReport ownship;
