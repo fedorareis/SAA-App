@@ -28,10 +28,10 @@ void OwnshipSensor::sendData(const TestServerPlane & plane, const TestServerPlan
    report.set_timestamp((long)plane.getTimestamp());
    report.set_ownship_latitude(plane.getLatitude());
    report.set_ownship_longitude(plane.getLongitude());
-   report.set_ownship_altitude(plane.getAltitude());
-   report.set_north(plane.getNorthVelocity());
-   report.set_east(plane.getEastVelocity());
-   report.set_down(plane.getDownVelocity());
+   report.set_ownship_altitude(plane.getAltitude() * NAUT_MILES_TO_FEET);
+   report.set_north(plane.getNorthVelocity() * NAUT_MILES_TO_FEET);
+   report.set_east(plane.getEastVelocity() * NAUT_MILES_TO_FEET);
+   report.set_down(plane.getDownVelocity() * NAUT_MILES_TO_FEET);
    (this->getEndpoint().getSocket().operator<<(report));
 
 }

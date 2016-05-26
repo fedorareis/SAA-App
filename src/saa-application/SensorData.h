@@ -69,6 +69,10 @@ public:
       return timeStamp;
    }
 
+   std::string getTailNumber() {
+        return tailNumber;
+   }
+
    //Supersede Instance Variable (404)
    void supersedePosition(float newPositionX, float newPositionY, float newPositionZ)
    {

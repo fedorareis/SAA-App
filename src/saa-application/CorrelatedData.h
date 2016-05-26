@@ -52,10 +52,13 @@ public:
    }
 
    // adds sensor and its planetag to the vector
-   void addSensor(Sensor sensor, int planeId)
+   void addSensor(Sensor sensor, int planeTag, std::string planeId, Vector3d velocity = Vector3d(0,0,0))
    {
       sensors.push_back(sensor);
-      planeTags.push_back(planeId);
+      planeTags.push_back(planeTag);
+      tailNumbers.push_back(planeId);
+      velocities.push_back(velocity);
+
    }
 
    // setter for time stamp
@@ -69,28 +72,38 @@ public:
    {
       return sensors;
    }
+    void setVelocity(Vector3d vel)
+    {
+       velocity->set_x(vel.x);
+       velocity->set_y(vel.y);
+       velocity->set_z(vel.z);
+    }
 
    // returns the CDTIPlane
    CDTIPlane* getCDTIPlane()
    {
+      plane->Clear();
+
       severity = CDTIPlane::AIR;
       auto radarIter = std::find(sensors.begin(), sensors.end(), Sensor::radar);
       if (radarIter != sensors.end())
       {
          auto radarIdIndex = std::distance(sensors.begin(), radarIter);
-         tailNumber = planeTags[radarIdIndex];
+         tailNumber = tailNumbers[radarIdIndex];
+         setVelocity(velocities[radarIdIndex]);
       }
       auto tcasIter = std::find(sensors.begin(), sensors.end(), Sensor::tcas);
       if (tcasIter != sensors.end())
       {
          auto tcasIdIndex = std::distance(sensors.begin(), tcasIter);
-         tailNumber = planeTags[tcasIdIndex];
+         tailNumber = tailNumbers[tcasIdIndex];
       }
       auto adsbIter = std::find(sensors.begin(), sensors.end(), Sensor::adsb);
       if (adsbIter != sensors.end())
       {
          auto adsbIdIndex = std::distance(sensors.begin(), adsbIter);
-         tailNumber = planeTags[adsbIdIndex];
+         tailNumber = tailNumbers[adsbIdIndex];
+         setVelocity(velocities[adsbIdIndex]);
       }
       plane->set_id(tailNumber);
       plane->set_severity(severity);
@@ -100,7 +113,7 @@ public:
 
       for(int ndx = 0; ndx < planeTags.size(); ndx++) {
          plane->add_planetags(planeTags.at(ndx));
-         //plane->set_planetags(ndx, planeTags.at(ndx));
+//         plane->set_planetags(ndx, planeTags.at(ndx));
       }
 
       return plane;
@@ -118,12 +131,7 @@ public:
       return Vector3d(velocity->x(),velocity->y(),velocity->z());
    }
 
-   void addVelocity(Vector3d vel)
-   {
-      velocity->set_x(std::abs(vel.x) > std::abs(velocity->x()) ? vel.x : velocity->x());
-      velocity->set_y(std::abs(vel.y) > std::abs(velocity->y()) ? vel.y : velocity->y());
-      velocity->set_z(std::abs(vel.z) > std::abs(velocity->z()) ? vel.z : velocity->z());
-   }
+
 
    std::vector<int> getPlaneTags()
    {
@@ -138,6 +146,8 @@ public:
 private:
    std::vector<Sensor> sensors; // list of sensors that were used to correlate this plane
    std::vector<int> planeTags; // list of planeTags from each of the sensors
+    std::vector<std::string> tailNumbers;
+    std::vector<Vector3d> velocities;
    std::string tailNumber;
    Vector *velocity;
    Vector *position;

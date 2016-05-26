@@ -13,9 +13,8 @@
 #define EQ_EARTH_RADIUS 3963.190592
 #define POLAR_EARTH_RADIUS 3949.902764
 #define KNOT_CONVERSION 0.592484
-#define FEET_TO_NAUT_MILES 6076.12
-#define NAUT_MILES_TO_FEET 1.0 / FEET_TO_NAUT_MILES
-
+#define NAUT_MILES_TO_FEET 6076.12
+#define FEET_TO_NAUT_MILES 1.0 / NAUT_MILES_TO_FEET
 struct Vector3d
 {
    Vector3d(double x, double y, double z):

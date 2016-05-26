@@ -37,13 +37,13 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    //Angle offset
    //if 'difference' is to the left, use negabive bearings.
    float azimuth = (float)radToDeg(atan2(P_BO_B.y,P_BO_B.x));
-   float elevation = (float)tan( P_BO_B.z / std::sqrt(P_BO_B.y * P_BO_B.y + P_BO_B.x * P_BO_B.x));
+   float elevation = (float) -radToDeg(atan( P_BO_B.z / std::sqrt(P_BO_B.y * P_BO_B.y + P_BO_B.x * P_BO_B.x)));
 
 
    RadarReport report;
 
    //tuple of the position to send to report. is in format (range,azimuth,altitude)
-   Vector3d finalPosition(range*FEET_TO_NAUT_MILES, azimuth, elevation);
+   Vector3d finalPosition(range*NAUT_MILES_TO_FEET, azimuth, elevation);
 
    Vector3d velocity(plane.getNorthVelocity(),
                      plane.getEastVelocity(),
@@ -63,8 +63,9 @@ RadarReport RadarSensor::createReport(const TestServerPlane &plane, const TestSe
    report.set_down(velocity.z);
    report.set_longitude(ownship.getLongitude());
    report.set_latitude(ownship.getLatitude());
-   report.set_altitude(ownship.getAltitude());
-   report.set_id(plane.getRadarId());
+   report.set_altitude(ownship.getAltitude() * NAUT_MILES_TO_FEET);
+   report.set_id((uint) plane.getRadarId());
+   report.set_plane_id(plane.getId());
    report.set_timestamp(plane.getTimestamp());
 
    return report;

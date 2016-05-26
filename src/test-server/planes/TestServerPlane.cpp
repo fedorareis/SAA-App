@@ -4,6 +4,11 @@
 
 #include <math.h>
 #include "TestServerPlane.h"
+int TestServerPlane::idSeq = 1;
+
+int TestServerPlane::nextId() {
+   return TestServerPlane::idSeq++;
+}
 
 Vector3d addToLatitudeLongitude(Vector3d latLongAlt, Vector3d translation)
 {
@@ -31,13 +36,16 @@ TestServerPlane::TestServerPlane():
       northEastDownVel(0,0,0),
       motionPtr(nullptr),
       tcasID(-1),
-      radarID(-1)
+      radarID(-1),
+      planeId(TestServerPlane::nextId())
 
 {
 
 }
 
-
+int TestServerPlane::getId() const {
+   return planeId;
+}
 
 //Actually move the plane (Can't do LatLongAlt from dNES)
 void TestServerPlane::update(float dT)
@@ -112,7 +120,6 @@ TestServerPlane::~TestServerPlane() {
       delete motionPtr;
       motionPtr = nullptr;
    }
-
 }
 
 void TestServerPlane::setTailNumber(std::string name) {
@@ -131,8 +138,9 @@ northEastDownVel(other.northEastDownVel),
 isADSBEnabled(other.isADSBEnabled),
 isTCasEnabled(other.isTCasEnabled),
 isRadarEnabled(other.isRadarEnabled),
-motionPtr(nullptr)
+motionPtr(nullptr), planeId(other.planeId)
 {
+
    if(other.motionPtr != nullptr)
       this->motionPtr = other.motionPtr->clone();
 

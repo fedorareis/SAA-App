@@ -98,7 +98,7 @@ Vector3d xyzToLla(Vector3d vec)
 //    std::cout << "R: " << R <<  std::endl;
 //    std::cout << " VS vec magnitude" << vec.getMagnitude() << std::endl;
     double latRad =  std::atan(vec.z / std::sqrt(vec.x * vec.x + vec.y * vec.y));
-    double lngRad =  atan2(vec.y,vec.x);
+    double lngRad =  atan2(vec.y, vec.x);
     double alt = R - EARTH_RADIUS;
     return Vector3d(radToDeg(latRad),radToDeg(lngRad),alt);
 }

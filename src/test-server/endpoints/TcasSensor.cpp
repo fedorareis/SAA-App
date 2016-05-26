@@ -43,10 +43,12 @@ TcasReport TcasSensor::createReport(const TestServerPlane &plane,
    report.set_bearing((float) finalPosition.y);
    report.set_altitude((float) finalPosition.z);
 
-   report.set_range(
-           (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (FEET_TO_NAUT_MILES *
-                                                                                                 FEET_TO_NAUT_MILES)));
+   report.set_range(finalPosition.x);
+           /* (float) sqrt(finalPosition.x * finalPosition.x + finalPosition.z * finalPosition.z / (FEET_TO_NAUT_MILES *
+                                                                                                 FEET_TO_NAUT_MILES))
+                                                                                                 );*/
    report.set_id(plane.getTcasId());
+   report.set_plane_id(plane.getId());
 
    return report;
 }

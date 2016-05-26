@@ -59,7 +59,7 @@ std::vector<CorrelatedData> KMeansCorrelation::correlate(std::vector<SensorData>
    }
    for (int i = 0; i < size; i++)
    {
-      correlatedPlanes[groupings.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag());
+      correlatedPlanes[groupings.at(i)].addSensor(planes[i].getSensor(), planes[i].getPlaneTag(), planes[i].getTailNumber());
    }
 
    std::cout << "Ending" << std::endl;

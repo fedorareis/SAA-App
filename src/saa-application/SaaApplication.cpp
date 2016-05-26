@@ -109,7 +109,7 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
    float velocityN = fpsToNmph(ownship.north()) - fpsToNmph(adsb.north());
    float velocityE = fpsToNmph(ownship.east()) - fpsToNmph((adsb.east()));
    float velocityD = fpsToNmph(ownship.down()) - fpsToNmph(adsb.down());
-   SensorData adsbPlane(tailNumber, positionN, positionE, positionD, velocityN, velocityE, velocityD, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
+   SensorData adsbPlane(tailNumber, adsb.north(), adsb.east(), adsb.down(), velocityN, velocityE, velocityD, Sensor::adsb, adsb.plane_id(), adsb.timestamp());
    return adsbPlane;
 }
 
@@ -119,7 +119,7 @@ SensorData SaaApplication::adsbToRelative(AdsBReport adsb, OwnshipReport ownship
  */
 SensorData SaaApplication::tcasToRelative(TcasReport tcas, OwnshipReport ownship)
 {
-   std::string tailNumber = std::to_string(tcas.id());
+   std::string tailNumber = std::string("TCAS" + std::to_string(tcas.id()));
    float positionZ = tcas.altitude();
    float horizRange = tcas.range();
    // ownship_compass_bearing = bearing of intruder + heading of ownship
@@ -145,46 +145,42 @@ SensorData SaaApplication::radarToRelative(RadarReport radar, OwnshipReport owns
 {
    std::cout << radar.DebugString() << std::endl;
 
-   std::string tailNumber = std::to_string(radar.id());
-   float range = radar.range() * FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
-   float z = (float)(range * sin(-degToRad(radar.elevation())));
-   float vertRange = (float)(z / FEET_TO_NAUT_MILES);
-   float horizRange = (float)(range * cos(-degToRad(radar.elevation())));
+   std::string tailNumber = std::string("RDR" + std::to_string(radar.plane_id()));
+   double range = radar.range() * FEET_TO_NAUT_MILES; // converts range from feet to Nautical Miles
+   double elv = degToRad(radar.elevation());
+   double azm = degToRad(radar.azimuth());
+   float z = range * sin(-elv);
+//   float vertRange = (float)(z / FEET_TO_NAUT_MILES);
+   float horizRange = range * cos(-elv);
    // theta = bearing of intruder + heading of ownship
-   float theta = (float)(degToRad(radar.azimuth()));
-   float x = (float)(horizRange * cos(theta));
-   float y = (float)(horizRange * sin(theta));
+   float x = horizRange * cos(azm);
+   float y = horizRange * sin(azm);
 
-   Vector3d ownshiplla(ownship.ownship_latitude(),ownship.ownship_longitude(), NAUT_MILES_TO_FEET * ownship
-       .ownship_altitude());
-   Vector3d ownshipVel(ownship.north(),ownship.east(),ownship.down());
-   auto velBasis = makeNEDBasis(llaToXyz(ownshiplla));
-   Vector3d velAlongBasis = velBasis.north * ownshipVel.x + velBasis.east * ownshipVel.y  + velBasis.down *
-       ownshipVel.z;
-   FrameBody ownFrameB(ownshiplla, makeBodyBasis(ownshiplla,velAlongBasis));
-   Vector3d P_EO_E = ownFrameB.utx(llaToXyz(Vector3d(x,y,z)));
+   Vector3d ownshiplla(radar.latitude(),radar.longitude(), radar.altitude() * FEET_TO_NAUT_MILES);
+   Vector3d planeVel(radar.north() * FEET_TO_NAUT_MILES, radar.east() * FEET_TO_NAUT_MILES, radar.down() *
+       FEET_TO_NAUT_MILES);
+   Vector3d ownshipVel(ownship.north() * FEET_TO_NAUT_MILES, ownship.east()* FEET_TO_NAUT_MILES, ownship.down()*
+       FEET_TO_NAUT_MILES);
+   FrameBody ownFrameB(ownshiplla, makeBodyBasis(ownshiplla,ownshipVel));
+   Vector3d P_EO_E = ownFrameB.utx(Vector3d(x,y,z));
    auto lla = xyzToLla(P_EO_E);
-   float R = (float)P_EO_E.getMagnitude();
+//   std::cout << "plane lla radar " << lla << std::endl;
+//   float R = (float)P_EO_E.getMagnitude();
 
-   float positionN = calcDistance(ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude(), ownship.ownship_altitude()) *
-       (lla.latitude() < ownship.ownship_latitude() ? -1 : 1);
-   float positionE = calcDistance(ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
-                                  ownship.ownship_longitude(), ownship.ownship_altitude()) *
-       (lla.longitude() < radar.longitude()? -1 : 1);
+   float positionN = calcDistance(lla.latitude(), ownship.ownship_longitude(), ownship.ownship_latitude(),
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (lla.latitude() < ownship
+       .ownship_latitude()? -1 : 1);
+   float positionE = calcDistance(ownship.ownship_latitude(), lla.longitude(), ownship.ownship_latitude(),
+                                  ownship.ownship_longitude(), ownship.ownship_altitude()) * (lla.longitude() <
+       ownship.ownship_longitude()? -1 : 1);
 
-   float positionD = (float) (-1.0*(lla.altitude()-ownship.ownship_altitude()));
+   float positionD = (float) lla.z;
 
-
-   float velocityN = fpsToNmph(radar.north() - ownship.north());
-   float velocityE = fpsToNmph(radar.east()  - ownship.east());
-   float velocityD = fpsToNmph(radar.down()  - ownship.down());
-   SensorData radarPlane(tailNumber, x, y, z, radar.north(), radar.east(), radar.down(), Sensor::radar, radar.plane_id(),
-                         radar
-       .timestamp());
-   std::cout  << "sensor data:  ";
-   radarPlane.printPos();
-   std::cout << std::endl;
+   SensorData radarPlane(tailNumber, positionN, positionE, positionD, planeVel.x, planeVel.y, planeVel.z,
+                         Sensor::radar, radar.plane_id(), radar.timestamp());
+//   std::cout  << "sensor data:  ";
+//   radarPlane.printPos();
+//   std::cout << std::endl;
    return radarPlane;
 }
 
@@ -251,9 +247,12 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
    RadarReport radar;
    while(radarSock.hasData())
    {
+      radar.Clear();
       radarSock.operator>>(radar); //blocking call, waits for server
       planeMutex.lock();
-      planes.push_back(SaaApplication::radarToRelative(radar, ownship));
+      RadarReport* cpy = new RadarReport;
+      cpy->CopyFrom(radar);
+      planes.push_back(SaaApplication::radarToRelative(*cpy, ownship));
       planes.back().printPos();
       planeMutex.unlock();
    }

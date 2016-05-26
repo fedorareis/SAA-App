@@ -35,6 +35,7 @@ void AdsbSensor::sendData(const TestServerPlane & plane, const TestServerPlane &
    report.set_north(plane.getNorthVelocity());
    report.set_east(plane.getEastVelocity());
    report.set_down(plane.getDownVelocity());
+   report.set_plane_id(plane.getId());
 
    this->getEndpoint().getSocket() << report;
 

@@ -7,7 +7,7 @@
 CDTIPlane* SensorData::getCDTIPlane()
 {
    severity = CDTIPlane::PROXIMATE;
-
+   plane->Clear();
    plane->set_id(tailNumber);
    plane->set_severity(severity);
    plane->set_allocated_position(position);
