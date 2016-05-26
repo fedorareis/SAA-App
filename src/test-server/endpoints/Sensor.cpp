@@ -2,6 +2,8 @@
 // Created by Kyle Piddington on 11/24/15.
 //
 
+
+#include <iostream>
 #include "Sensor.h"
 
 SensorEndpoint & Sensor::getEndpoint()
@@ -17,5 +19,15 @@ Sensor::Sensor(SensorEndpoint *endpoint, bool jitter):
 }
 
 void Sensor::close() {
-   endpoint->close();
+   if(endpoint != nullptr)
+   {
+      endpoint->close();
+   }
+
+}
+
+void Sensor::setJitter(bool jitter) {
+   std::cout << "Jitter set to " << jitter << std::endl;
+
+   this->jitter = jitter;
 }

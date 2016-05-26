@@ -20,7 +20,7 @@ enum CorrelationFlags
 };
 class MeanShiftCorrelation : public CorrelationStrategy {
    public:
-      MeanShiftCorrelation(double window = 0, int flags = COR_POS);
+      MeanShiftCorrelation(double window = 0, int flags = COR_POS | COR_VEL);
       virtual std::vector<CorrelatedData> correlate(std::vector<SensorData> planes);
 
    private:

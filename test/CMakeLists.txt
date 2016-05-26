@@ -30,7 +30,7 @@ include_directories (${PROJECT_SOURCE_DIR}/test)
 
 
 #Add all the tests
-add_executable (test_all  ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES})
+add_executable (test_all  ${MOCKS_SOURCES} ${CDTI_TEST_SOURCES} ${COMMON_TEST_SOURCES} ${SAA_APPLICATION_TEST_SOURCES} ${TEST_SERVER_TEST_SOURCES} test-server/Dirty.cpp)
 add_executable(test_testserver ${MOCKS_SOURCES} ${TEST_SERVER_TEST_SOURCES})
 #Link all of the sources
 target_link_libraries (test_all cdti-sources common-sources

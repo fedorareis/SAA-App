@@ -9,14 +9,11 @@ std::vector<std::shared_ptr<TestCaseError>> NumPlanesVerificationTest::verify(Te
 {
     bool correct = tc->getPlanes().size() == result.getPlanes().size();
     std::vector<std::shared_ptr<TestCaseError>> errors;
-    if (!correct)
-    {
-        errors.push_back(
-              std::make_shared<NumPlanesTestCaseError>(
-                    NumPlanesTestCaseError(result.getTime(),
-                                           tc->getPlanes().size(),
-                                           result.getPlanes().size())));
-    }
+    NumPlanesTestCaseError error = NumPlanesTestCaseError(result.getTime(),
+          tc->getPlanes().size(),
+          result.getPlanes().size());
+    error.setError(!correct);
+    errors.push_back(std::make_shared<NumPlanesTestCaseError>(error));
 
     return errors;
 }

@@ -47,16 +47,22 @@ std::vector<std::shared_ptr<TestCaseError>> PositionVerificationTest::verify(Tes
             bool localMatch = correctLat && correctLong && correctAlt;
             match |= localMatch;
 
-            //if plane is too far away to be a math, but is closest of the 'wrong' planes, report this as an error
+            //if plane is too far away to be a match, but is closest of the 'wrong' planes, report this as an error
             if(!localMatch && distance.getMagnitude() < closestPosition->getMagnitude())
             {
                 closestPosition = new Vector3d(distance);
             }
         }
-        if(!match && closestPosition)
+
+        PositionTestCaseError error = PositionTestCaseError(result.getTime(),testServerPlane.getLatLongAlt(),*closestPosition);
+        error.setError(!match && closestPosition);
+        errors.push_back(std::make_shared<PositionTestCaseError>(error));
+        /*
+         * if(!match && closestPosition)
         {
             errors.push_back(std::make_shared<PositionTestCaseError>(PositionTestCaseError(result.getTime(),testServerPlane.getLatLongAlt(),*closestPosition)));
         }
+         */
     }
 
     return errors;

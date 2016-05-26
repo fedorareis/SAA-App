@@ -92,6 +92,9 @@ float TestServerPlane::getDownVelocity() const{
    return this->northEastDownVel.z;
 }
 
+Vector3d TestServerPlane::getVelocity() const {
+   return this->northEastDownVel;
+}
 bool TestServerPlane::getADSBEnabled() const {
    return this->isADSBEnabled;
 }
@@ -136,7 +139,8 @@ motionPtr(nullptr)
 }
 
 
-double TestServerPlane::getTimestamp() const {
+double TestServerPlane::getTimestamp() const
+{
    return t;
 }
 
@@ -182,7 +186,8 @@ void TestServerPlane::setRadarId(int rd)
    this->radarID = rd;
 }
 
-const Vector3d &TestServerPlane::getLatLongAlt() const
+const Vector3d& TestServerPlane::getLatLongAlt() const
 {
    return latLongAlt;
 }
+

@@ -11,7 +11,8 @@ class Sensor
 {
 
 public:
-    Sensor()
+    Sensor():
+    endpoint(NULL)
     { };
 
     virtual ~Sensor()
@@ -20,7 +21,7 @@ public:
             delete endpoint;
     }
 
-    void close();
+    virtual void close();
 
     Sensor(SensorEndpoint *endpoint,bool jitter);
 
@@ -29,13 +30,15 @@ public:
     void setEndpoint(SensorEndpoint *endpoint)
     { this->endpoint = endpoint; }
 
+   void setJitter(bool jitter);
+
+   virtual void sendData(const TestServerPlane &plane, const TestServerPlane &other) = 0;
+
 protected:
     bool jitter;
 private:
 
     SensorEndpoint *endpoint;
-
-    virtual void sendData(const TestServerPlane &plane, const TestServerPlane &other) = 0;
 };
 
 #endif //SAA_APPLICATION_SENSOR_H

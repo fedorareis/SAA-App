@@ -55,8 +55,8 @@ void TestCase::complete() {
          Vector3d diffPos = relPos - ownship.getMotion()->getInitialPosition();
 
          //Offset by lat and long miles (This should be encapsulated somewhere else)
-         float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * EARTH_RADIUS)/360.0); //Arc length, nMi/theta
-         float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EARTH_RADIUS)/360.0);
+         float newLat = ownship.getLatitude()   + diffPos.x / ((M_PI  * 2 * POLAR_EARTH_RADIUS)/360.0); //Arc length, nMi/theta
+         float newLong = ownship.getLongitude() + diffPos.y / ((M_PI  * 2 * EQ_EARTH_RADIUS)/360.0);
          plane->setLatLongAlt(Vector3d(newLat,newLong,relPos.z + ownship.getAltitude()));
          plane->setNorthEastDownVelocity(plane->getMotion()->getVelocityAtTick(0));
 
@@ -87,7 +87,8 @@ TestCase::TestCase(const TestCase &otherTestCase) :
         name(otherTestCase.name),
         radarId(otherTestCase.radarId),
         tcasId(otherTestCase.tcasId),
-        totalTime(otherTestCase.totalTime)
+        totalTime(otherTestCase.totalTime),
+        enableErrors(otherTestCase.enableErrors)
 {
    ownship = TestServerPlane(otherTestCase.ownship);
    for (auto plane: otherTestCase.otherPlanes)
@@ -106,4 +107,8 @@ int TestCase::getTotalTime() const {
 
 int TestCase::getElapsedTime() const {
    return getTotalTime() - t;
+}
+
+bool TestCase::getNoiseEnabled() const {
+   return enableErrors;
 }

@@ -1,0 +1,59 @@
+<test name="randomly generated"
+      description="5 aircraft centered around Cal Poly"
+      time = "120"
+      sensorError = "false">
+<ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="1" y="0" z="0"/>
+      </movement>
+   </ownship>
+<plane tag="G16AB">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="34.976779273711145" y="-12.87682896945654" z="-1.8515105034133625"/> <!--NED in Nautical Miles-->
+         <direction x="-656.8603308738165" y="-124.70883038193676" z="92.77506857507399"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="G39NM">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="39.68356007244452" y="-36.71706204768242" z="-2.7155487383395984"/> <!--NED in Nautical Miles-->
+         <direction x="36.1865393857029" y="39.146377761621174" z="507.20616663781936"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="L77OG">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-47.02026913873851" y="-42.202547332271934" z="1.5223530805843204"/> <!--NED in Nautical Miles-->
+         <direction x="175.49686383013437" y="-239.34752171446826" z="-165.87228410716912"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="G88PB">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="22.31927413959056" y="-28.06592537090154" z="0.12343403356089085"/> <!--NED in Nautical Miles-->
+         <direction x="-37.507888011981116" y="-172.7508579507852" z="424.6766998719712"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="X85VM">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="16.54055758845047" y="-2.20748707652092" z="-3.5795869732658345"/> <!--NED in Nautical Miles-->
+         <direction x="105.76581001577503" y="67.38025217126557" z="23.0161910194464"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>

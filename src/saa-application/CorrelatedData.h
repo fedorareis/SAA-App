@@ -7,6 +7,7 @@
 
 #include "SensorData.h"
 #include "common/protobuf/cdti.pb.h"
+#include <algorithm>
 
 class CorrelatedData {
 
@@ -73,11 +74,29 @@ public:
    CDTIPlane* getCDTIPlane()
    {
       severity = CDTIPlane::AIR;
-
+      auto radarIter = std::find(sensors.begin(), sensors.end(), Sensor::radar);
+      if (radarIter != sensors.end())
+      {
+         auto radarIdIndex = std::distance(sensors.begin(), radarIter);
+         tailNumber = planeTags[radarIdIndex];
+      }
+      auto tcasIter = std::find(sensors.begin(), sensors.end(), Sensor::tcas);
+      if (tcasIter != sensors.end())
+      {
+         auto tcasIdIndex = std::distance(sensors.begin(), tcasIter);
+         tailNumber = planeTags[tcasIdIndex];
+      }
+      auto adsbIter = std::find(sensors.begin(), sensors.end(), Sensor::adsb);
+      if (adsbIter != sensors.end())
+      {
+         auto adsbIdIndex = std::distance(sensors.begin(), adsbIter);
+         tailNumber = planeTags[adsbIdIndex];
+      }
       plane->set_id(tailNumber);
       plane->set_severity(severity);
       plane->set_allocated_position(position);
       plane->set_allocated_velocity(velocity);
+
 
       for(int ndx = 0; ndx < planeTags.size(); ndx++) {
          plane->add_planetags(planeTags.at(ndx));
@@ -97,6 +116,13 @@ public:
    Vector3d  getVelocity()
    {
       return Vector3d(velocity->x(),velocity->y(),velocity->z());
+   }
+
+   void addVelocity(Vector3d vel)
+   {
+      velocity->set_x(std::abs(vel.x) > std::abs(velocity->x()) ? vel.x : velocity->x());
+      velocity->set_y(std::abs(vel.y) > std::abs(velocity->y()) ? vel.y : velocity->y());
+      velocity->set_z(std::abs(vel.z) > std::abs(velocity->z()) ? vel.z : velocity->z());
    }
 
    std::vector<int> getPlaneTags()

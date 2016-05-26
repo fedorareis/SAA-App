@@ -63,6 +63,8 @@ public:
      */
     void makeDataNoise(bool noise);
 
+    bool getNoiseEnabled() const;
+
 private:
     static Randomizer *sensorNoise;
     bool enableErrors;

@@ -7,10 +7,14 @@
 
 #include <cmath>
 #include <string>
+#include <glm/glm.hpp>
 
 #define EARTH_RADIUS 3440.0
+#define EQ_EARTH_RADIUS 3963.190592
+#define POLAR_EARTH_RADIUS 3949.902764
 #define KNOT_CONVERSION 0.592484
-#define FEET_TO_NAUT_MILES 6076.12f
+#define FEET_TO_NAUT_MILES 6076.12
+#define NAUT_MILES_TO_FEET 1.0 / FEET_TO_NAUT_MILES
 
 struct Vector3d
 {
@@ -18,7 +22,7 @@ struct Vector3d
    x(x),
    y(y),
    z(z){}
-   Vector3d operator* (float  rhs)
+   Vector3d operator* (double  rhs)
    {
       return Vector3d(x*rhs,y*rhs,z*rhs);
    }
@@ -57,7 +61,21 @@ struct Vector3d
       return a.x*b.x + a.y*b.y + a.z*b.z;
    }
 
+    static Vector3d cross(Vector3d u, Vector3d v)
+    {
+       return Vector3d(u.y * v.z - u.z * v.y,u.z * v.x - u.x * v.z, u.x * v.y - u.y * v.x);
+    }
+
+    Vector3d normalized()
+   {
+       double recipLen = 1/sqrt(x*x + y*y + z*z);
+       return Vector3d(x*recipLen, y*recipLen, z * recipLen);
+   }
 };
+
+
+Vector3d operator+(Vector3d lhs, Vector3d rhs);
+
 bool operator==(Vector3d lhs, Vector3d rhs);
 
 struct Vector2d
@@ -90,8 +108,28 @@ struct Vector2d
 
 };
 
+struct NEDBases
+{
+public:
+    Vector3d north;
+    Vector3d east;
+    Vector3d down;
+    NEDBases(Vector3d north, Vector3d east, Vector3d down):north(north),east(east),down(down){}
+};
+
+struct BodyBasis
+{
+    Vector3d forward;
+    Vector3d right;
+    Vector3d down;
+    BodyBasis(Vector3d forward, Vector3d right, Vector3d down):forward(forward),right(right),down(down){}
+};
+
+NEDBases makeNEDBasis(Vector3d vec);
+BodyBasis makeBodyBasis(Vector3d lla,Vector3d vel);
+
 Vector3d getDifference(Vector3d latLongAlt1, Vector3d latLongAlt2);
-float calcDistance(float lat1, float lon1, float lat2, float lon2);
+float calcDistance(float lat1, float lon1, float lat2, float lon2, float alt);
 
 inline float feetToNauticalMiles(float feet);
 
@@ -99,6 +137,10 @@ inline float nauticalMilesToFeet(float miles);
 
 float fpsToNmph(float fps);
 float bearingToRadians(float bearing);
+inline double degToRad(double degrees){return degrees * M_PI / 180.0;}
+inline double radToDeg (double degrees){return degrees * 180.0 / M_PI;}
 
+Vector3d llaToXyz(Vector3d latLongAlt);
+Vector3d xyzToLla(Vector3d latLongAlt);
 
 #endif //SAA_APPLICATION_MATHS_H
