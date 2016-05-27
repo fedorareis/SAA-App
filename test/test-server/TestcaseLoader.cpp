@@ -1,5 +1,6 @@
 //
 // Created by Kyle Piddington on 1/19/16.
+// Updated by Helen Hwang on 5/27/16
 //
 #include <gtest/gtest.h>
 
@@ -47,3 +48,10 @@ TEST(TestCaseLoader, loadBadTestcase)
    ASSERT_ANY_THROW(parser.load(s));
 }
 
+TEST(TestCaseLoader, testFormatDataInputFormat)
+{
+   std::string s(__DIR__"/resources/TestInputFormat.xml");
+   TestFileParser parser;
+
+   ASSERT_FALSE(parser.load(s));
+}

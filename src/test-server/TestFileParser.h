@@ -35,7 +35,8 @@ enum ErrorCode
    directionError, // =14 missing direction
    coordMissingErr, // =15 one of xyz value is missing
    timeMissingErr, // = 16 total time for test to run is missing
-   testMissingError // =17 test tag is missing on the test
+   testMissingError, // =17 test tag is missing on the test
+   inputFormatError // =18 input data type is wrong
 };
 
 /**

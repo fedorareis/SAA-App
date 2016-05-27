@@ -64,6 +64,9 @@ bool TestFileParser::load(std::string testFile) {
             case 16:
             std::cout<<"the document not starting with 'test'tag"<<std::endl;
                break;
+            case 17:
+            std::cout<<"error in input data format"<<std::endl;
+               break;
             default:
                std::cout << "error" << std::endl;
          }
@@ -314,9 +317,15 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane & ai
             // coordinate must exist
             if (isCoordinate(pos)) {
                // working around
-               pos_x = XMLUtil::ExtractFloat(pos->first_attribute("x"));
-               pos_y = XMLUtil::ExtractFloat(pos->first_attribute("y"));
-               pos_z = XMLUtil::ExtractFloat(pos->first_attribute("z"));
+               try{
+                  pos_x = XMLUtil::ExtractFloat(pos->first_attribute("x"));
+                  pos_y = XMLUtil::ExtractFloat(pos->first_attribute("y"));
+                  pos_z = XMLUtil::ExtractFloat(pos->first_attribute("z"));
+               }
+               catch(...)
+               {
+                  return ErrorCode::inputFormatError;
+               }
             }
             else return ErrorCode::coordMissingErr;
          }
@@ -332,9 +341,17 @@ int TestFileParser::getMovement(rapidxml::xml_node<> *node, TestServerPlane & ai
             // coordinate must exist
             if (isCoordinate(dir)) {
                // working around
-               dir_x = XMLUtil::ExtractFloat(dir->first_attribute("x"));
-               dir_y = XMLUtil::ExtractFloat(dir->first_attribute("y"));
-               dir_z = XMLUtil::ExtractFloat(dir->first_attribute("z"));
+               try
+               {
+                  dir_x = XMLUtil::ExtractFloat(dir->first_attribute("x"));
+                  dir_y = XMLUtil::ExtractFloat(dir->first_attribute("y"));
+                  dir_z = XMLUtil::ExtractFloat(dir->first_attribute("z"));
+               }
+               catch(...)
+               {
+                  return ErrorCode::inputFormatError;
+               }
+
             }
             else return ErrorCode::coordMissingErr;
          }
