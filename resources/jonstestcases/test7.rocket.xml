@@ -1,0 +1,87 @@
+<test name="test team test"
+      description="test from test team"
+      time = "40"
+      sensorError = "false">
+<ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="1" y="1" z="1"/>
+         <direction x="1500" y="100" z="10"/>
+      </movement>
+   </ownship>
+<plane tag="Pair1-1">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-12.000017" y="5" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="1000" y="10" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="Pair1-2">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-12.000017" y="5.0" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="1000" y="12" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="pair2-1">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-6" y="-5" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="1000" y="8" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="pair2-2">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+          <position x="-6" y="-5" z="3"/> <!--NED in Nautical Miles-->
+         <direction x="1005" y="10" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="pair3-1">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="-12.00000000000017" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="0" y="1000" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="AA113-2">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-2.9999999999998295" y="-12.00000000000017" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="0" y="1000" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="pair4-1">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="0" y="12.00000000000017" z="3.5"/> <!--NED in Nautical Miles-->
+         <direction x="350" y="-1000" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="pair4-2">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="2.9999999999998295" y="12.00000000000017" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="305" y="-1000" z="0"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>
+

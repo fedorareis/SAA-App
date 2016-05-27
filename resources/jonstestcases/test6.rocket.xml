@@ -1,0 +1,33 @@
+<test name="Should say climb 1500 feet"
+      description="1 aircraft centered around Cal Poly"
+      time = "40"
+      sensorError = "false">
+    <ownship tag="ABC123">
+        <tcas enabled="true" error="1.5"/>
+        <radar enabled="true"/>
+        <ads-b enabled="true" error="0.2"/>
+        <movement type="linear">
+            <position x="0" y="0" z="0"/>
+            <direction x="500" y="0" z="0"/>
+        </movement>
+    </ownship>
+    <plane tag="P1">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <radar enabled="true"/>
+        <movement type="linear">
+            <position x="7.5" y="2" z="-100"/> <!--NED in Nautical Miles-->
+            <direction x="-500" y="10" z="10"/> <!--Feet/second-->
+        </movement>
+    </plane>
+    <plane tag="P2">
+        <ads-b enabled="true"/>
+        <tcas enabled="true"/>
+        <radar enabled="true"/>
+        <movement type="linear">
+            <position x="-7.5" y="0" z="-110"/> <!--NED in Nautical Miles-->
+            <direction x="750" y="10" z="10"/> <!--Feet/second-->
+        </movement>
+    </plane>
+</test>
+

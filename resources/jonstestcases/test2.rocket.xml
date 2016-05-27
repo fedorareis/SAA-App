@@ -1,0 +1,60 @@
+<test name="randomly generated"
+      description="5 aircraft centered around Cal Poly"
+      time = "20"
+      sensorError = "false">
+<ownship tag="ABC123">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="750" y="0" z="0"/>
+      </movement>
+   </ownship>
+<plane tag="P1">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="4.999999999999986" y="-7980" z="0.16457871141452113"/> <!--NED in Nautical Miles-->
+         <direction x="110" y="500" z="8"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="p2">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="2" y="-40" z="-0.16457871141452113"/> <!--NED in Nautical Miles-->
+         <direction x="500" y="300" z="8"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="p3">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="6" y="-10" z="0.8228935570726056"/> <!--NED in Nautical Miles-->
+         <direction x="300" y="500" z="-111111"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="p4">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-21" y="-10" z="0.6583148456580845"/> <!--NED in Nautical Miles-->
+         <direction x="300" y="500" z="8"/> <!--Feet/second-->
+      </movement>
+   </plane>
+<plane tag="p5">
+      <ads-b enabled="true"/>
+      <tcas enabled="true"/>
+      <radar enabled="true"/>
+      <movement type="linear">
+         <position x="-3" y="10" z="0"/> <!--NED in Nautical Miles-->
+         <direction x="-300" y="-115" z="8"/> <!--Feet/second-->
+      </movement>
+   </plane>
+</test>
+

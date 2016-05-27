@@ -1,0 +1,66 @@
+<test name="5 Planes"
+      description="5 Planes within 2 miles of each other. Should not be grouped together"
+      time = "30"
+      sensorError = "false">
+   <ownship tag="12345">
+      <tcas enabled="true" error="1.5"/>
+      <radar enabled="true"/>
+      <ads-b enabled="true" error="0.2"/>
+      <movement type="linear">
+         <position x="0" y="0" z="0"/>
+         <direction x="800" y="0" z="0"/>
+      </movement>
+   </ownship>
+
+   <plane tag="N00001">
+      <ads-b enabled="true"/>
+      <radar enabled="true"/>
+      <tcas enabled="true"/>
+         <movement type="linear">
+            <position x="5" y="5" z="0.5" />
+            <direction x="12" y="-5" z="0"/>
+         </movement>
+   </plane>
+
+   <plane tag="N00002">
+      <ads-b enabled="true"/>
+      <radar enabled="true"/>
+      <tcas enabled="true"/>
+         <movement type="linear">
+            <position x="12" y="4" z="0.5" />
+            <direction x="4" y="-5" z="0"/>
+         </movement>
+   </plane>
+
+   <plane tag="N00003">
+      <ads-b enabled="true"/>
+      <radar enabled="true"/>
+      <tcas enabled="true"/>
+         <movement type="linear">
+            <position x="30" y="-10.5" z="3.0" />
+            <direction x="-100" y="500" z="0"/>
+         </movement>
+   </plane>
+
+   <plane tag="N00004">
+      <ads-b enabled="true"/>
+      <radar enabled="true"/>
+      <tcas enabled="true"/>
+         <movement type="linear">
+            <position x="-7" y="-3.5" z="-3.0" />
+            <direction x="-1222" y="-500" z="-100"/>
+         </movement>
+   </plane>
+
+   <plane tag="N00005">
+      <ads-b enabled="true"/>
+      <radar enabled="true"/>
+      <tcas enabled="true"/>
+         <movement type="linear">
+            <position x="7" y="5.5" z="1.0" />
+            <direction x="0" y="-500" z="0"/>
+         </movement>
+   </plane>
+
+
+</test>
