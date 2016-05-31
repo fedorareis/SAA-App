@@ -99,6 +99,11 @@ protected:
     */
    bool tcasiiRA(CorrelatedData plane, bool RA, double cpaRange);
 
+   int getSensitivity()
+   {
+      return sensitivity;
+   }
+
    // Values for both arrays come from table on page 10 of https://drive.google.com/file/d/0BxXF9g8ajTSfOVgzX18xdEpCTjA/view?usp=sharing
    // Sensitivity levels start at 2 so arrays are padded with 0 for indeces 0 and 1.
    // DMOD is the Horizontal Threshold

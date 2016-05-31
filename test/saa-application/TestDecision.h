@@ -23,6 +23,8 @@ public:
    using Decision::verticalRA;
 
    using Decision::tcasiiRA;
+
+   using Decision::getSensitivity;
 };
 
 
