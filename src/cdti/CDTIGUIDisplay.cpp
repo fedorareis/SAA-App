@@ -51,8 +51,10 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     painter.setPen(QPen(Qt::white, 4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter.translate(width / 2, height / 2);
 
+    int largerRes = std::max(width,height);
+    int numActualCircles = largerRes / 100;
     //paint the grid cirlces
-    for (int i = 0, radius = 100; i <= numGridCircles; i++, radius += 100.0f)
+    for (int i = 0, radius = 100; i <= numActualCircles; i++, radius += 100.0f)
     {
         painter.drawEllipse(QPointF(0.0f, 0.0f),(float)radius,(float)radius);
         std::ostringstream out;
@@ -168,15 +170,11 @@ bool CDTIGUIDisplay::event(QEvent *event)
         QKeyEvent *keyEvent = (QKeyEvent *)event;
         if (keyEvent->key() == Qt::Key_Up)
         {
-            scale *= 1.05;
-            std::cout << "Scale: " << scale << std::endl;
-            update();
+            scaleUp();
         }
         if (keyEvent->key() == Qt::Key_Down)
         {
-            scale /= 1.05;
-            std::cout << "Scale: " << scale << std::endl;
-            update();
+            scaleDown();
         }
     }
     else if(event->type() == QEvent::Wheel)
@@ -186,19 +184,34 @@ bool CDTIGUIDisplay::event(QEvent *event)
         {
             if (wheelEvent->delta() > 0)
             {
-                scale *= 1.05;
-                std::cout << "Scale: " << scale << std::endl;
-                update();
+                scaleUp();
             }
             else if(wheelEvent->delta() < 0)
             {
-                scale /= 1.05;
-                std::cout << "Scale: " << scale << std::endl;
-                update();
+                scaleDown();
             }
         }
     }
+
+    else if(event->type() == QEvent::Resize)
+    {
+        QResizeEvent *resizeEvent = (QResizeEvent *)event;
+        width = resizeEvent->size().width();
+        height = resizeEvent->size().height();
+    }
     return QMainWindow::event(event);
+}
+void CDTIGUIDisplay::scaleDown()
+{
+    scale /= 1.05;
+    std::cout << "Scale: " << scale << std::endl;
+    update();
+}
+void CDTIGUIDisplay::scaleUp()
+{
+    scale *= 1.05;
+    std::cout << "Scale: " << scale << std::endl;
+    update();
 }
 
 

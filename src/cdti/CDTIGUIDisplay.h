@@ -14,7 +14,7 @@ class CDTIGUIDisplay : private QMainWindow, public Display
 {
     Q_OBJECT
 private:
-    const int width, height;
+    int width, height;
     const int numGridCircles = 5;
     //use to scale the
     float scale = 20.0f;
@@ -33,6 +33,8 @@ private:
 
     std::mutex mtx;
     std::string getplaneTag(const CDTIPlane& report) const;
+    void scaleUp();
+    void scaleDown();
 protected:
     virtual bool event(QEvent* event) override;
 public:
@@ -49,6 +51,5 @@ public:
     CDTIGUIDisplay(int width, int height);
     void init() override;
     void renderReport(CDTIReport& report) override;
-
 };
 #endif //SAA_APPLICATION_DISPLAY_CDTI_H
