@@ -1,7 +1,7 @@
 <test name="randomly generated"
       description="20 aircraft centered around Cal Poly"
       time = "120"
-      sensorError = "false">
+      sensorError="false">
 <ownship tag="ABC123">
       <tcas enabled="true" />
       <radar enabled="true"/>
@@ -51,7 +51,7 @@
       <ads-b enabled="true"/>
       <tcas enabled="true"/>
       <radar enabled="true"/>
-      <movement type="linear">
+      <movement type="lin1ear">
          <position x="-18.665591441094875" y="17.123424401506497" z="-2.5921147047787074"/> <!--NED in Nautical Miles-->
          <direction x="-107.98183950817797" y="44.72754241428223" z="-77.06730361189936"/> <!--Feet/second-->
       </movement>

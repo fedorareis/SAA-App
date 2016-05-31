@@ -685,6 +685,31 @@ public final class Cdti {
      * <code>required .CDTIPlane.Severity severity = 4;</code>
      */
     edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity getSeverity();
+
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    java.util.List<java.lang.Integer> getPlaneTagsList();
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    int getPlaneTagsCount();
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    int getPlaneTags(int index);
   }
   /**
    * Protobuf type {@code CDTIPlane}
@@ -705,6 +730,7 @@ public final class Cdti {
     private CDTIPlane() {
       id_ = "";
       severity_ = 0;
+      planeTags_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -777,6 +803,27 @@ public final class Cdti {
               }
               break;
             }
+            case 40: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                planeTags_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              planeTags_.add(input.readInt32());
+              break;
+            }
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+                planeTags_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                planeTags_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -786,6 +833,9 @@ public final class Cdti {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          planeTags_ = java.util.Collections.unmodifiableList(planeTags_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -808,31 +858,47 @@ public final class Cdti {
     public enum Severity
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>PROXIMATE = 0;</code>
+       * <code>AIR = 0;</code>
        */
-      PROXIMATE(0, 0),
+      AIR(0, 0),
       /**
-       * <code>TRAFFIC = 1;</code>
+       * <code>PROXIMATE = 1;</code>
        */
-      TRAFFIC(1, 1),
+      PROXIMATE(1, 1),
       /**
-       * <code>RESOLUTION = 2;</code>
+       * <code>TRAFFIC = 2;</code>
        */
-      RESOLUTION(2, 2),
+      TRAFFIC(2, 2),
+      /**
+       * <code>RESOLUTION = 3;</code>
+       */
+      RESOLUTION(3, 3),
+      /**
+       * <code>CRASH = 4;</code>
+       */
+      CRASH(4, 4),
       ;
 
       /**
-       * <code>PROXIMATE = 0;</code>
+       * <code>AIR = 0;</code>
        */
-      public static final int PROXIMATE_VALUE = 0;
+      public static final int AIR_VALUE = 0;
       /**
-       * <code>TRAFFIC = 1;</code>
+       * <code>PROXIMATE = 1;</code>
        */
-      public static final int TRAFFIC_VALUE = 1;
+      public static final int PROXIMATE_VALUE = 1;
       /**
-       * <code>RESOLUTION = 2;</code>
+       * <code>TRAFFIC = 2;</code>
        */
-      public static final int RESOLUTION_VALUE = 2;
+      public static final int TRAFFIC_VALUE = 2;
+      /**
+       * <code>RESOLUTION = 3;</code>
+       */
+      public static final int RESOLUTION_VALUE = 3;
+      /**
+       * <code>CRASH = 4;</code>
+       */
+      public static final int CRASH_VALUE = 4;
 
 
       public final int getNumber() {
@@ -841,9 +907,11 @@ public final class Cdti {
 
       public static Severity valueOf(int value) {
         switch (value) {
-          case 0: return PROXIMATE;
-          case 1: return TRAFFIC;
-          case 2: return RESOLUTION;
+          case 0: return AIR;
+          case 1: return PROXIMATE;
+          case 2: return TRAFFIC;
+          case 3: return RESOLUTION;
+          case 4: return CRASH;
           default: return null;
         }
       }
@@ -1029,7 +1097,41 @@ public final class Cdti {
      */
     public edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity getSeverity() {
       edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity result = edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.valueOf(severity_);
-      return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.PROXIMATE : result;
+      return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.AIR : result;
+    }
+
+    public static final int PLANETAGS_FIELD_NUMBER = 5;
+    private java.util.List<java.lang.Integer> planeTags_;
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    public java.util.List<java.lang.Integer>
+        getPlaneTagsList() {
+      return planeTags_;
+    }
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    public int getPlaneTagsCount() {
+      return planeTags_.size();
+    }
+    /**
+     * <code>repeated int32 planeTags = 5;</code>
+     *
+     * <pre>
+     *Unique Plane ID tag for correlation verification
+     * </pre>
+     */
+    public int getPlaneTags(int index) {
+      return planeTags_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1080,6 +1182,9 @@ public final class Cdti {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeEnum(4, severity_);
       }
+      for (int i = 0; i < planeTags_.size(); i++) {
+        output.writeInt32(5, planeTags_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1102,6 +1207,15 @@ public final class Cdti {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, severity_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < planeTags_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(planeTags_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getPlaneTagsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1238,6 +1352,8 @@ public final class Cdti {
         bitField0_ = (bitField0_ & ~0x00000004);
         severity_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        planeTags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -1286,6 +1402,11 @@ public final class Cdti {
           to_bitField0_ |= 0x00000008;
         }
         result.severity_ = severity_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          planeTags_ = java.util.Collections.unmodifiableList(planeTags_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.planeTags_ = planeTags_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1315,6 +1436,16 @@ public final class Cdti {
         }
         if (other.hasSeverity()) {
           setSeverity(other.getSeverity());
+        }
+        if (!other.planeTags_.isEmpty()) {
+          if (planeTags_.isEmpty()) {
+            planeTags_ = other.planeTags_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensurePlaneTagsIsMutable();
+            planeTags_.addAll(other.planeTags_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1608,7 +1739,7 @@ public final class Cdti {
         if (positionBuilder_ == null) {
           positionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               edu.calpoly.capstone.sensor.Cdti.Vector, edu.calpoly.capstone.sensor.Cdti.Vector.Builder, edu.calpoly.capstone.sensor.Cdti.VectorOrBuilder>(
-                  getPurePosition(),
+                  getPosition(),
                   getParentForChildren(),
                   isClean());
           position_ = null;
@@ -1782,7 +1913,7 @@ public final class Cdti {
        */
       public edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity getSeverity() {
         edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity result = edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.valueOf(severity_);
-        return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.PROXIMATE : result;
+        return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIPlane.Severity.AIR : result;
       }
       /**
        * <code>required .CDTIPlane.Severity severity = 4;</code>
@@ -1802,6 +1933,100 @@ public final class Cdti {
       public Builder clearSeverity() {
         bitField0_ = (bitField0_ & ~0x00000008);
         severity_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> planeTags_ = java.util.Collections.emptyList();
+      private void ensurePlaneTagsIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          planeTags_ = new java.util.ArrayList<java.lang.Integer>(planeTags_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public java.util.List<java.lang.Integer>
+          getPlaneTagsList() {
+        return java.util.Collections.unmodifiableList(planeTags_);
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public int getPlaneTagsCount() {
+        return planeTags_.size();
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public int getPlaneTags(int index) {
+        return planeTags_.get(index);
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public Builder setPlaneTags(
+          int index, int value) {
+        ensurePlaneTagsIsMutable();
+        planeTags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public Builder addPlaneTags(int value) {
+        ensurePlaneTagsIsMutable();
+        planeTags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public Builder addAllPlaneTags(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensurePlaneTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, planeTags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 planeTags = 5;</code>
+       *
+       * <pre>
+       *Unique Plane ID tag for correlation verification
+       * </pre>
+       */
+      public Builder clearPlaneTags() {
+        planeTags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -2114,31 +2339,47 @@ public final class Cdti {
     public enum Severity
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>PROXIMATE = 0;</code>
+       * <code>AIR = 0;</code>
        */
-      PROXIMATE(0, 0),
+      AIR(0, 0),
       /**
-       * <code>TRAFFIC = 1;</code>
+       * <code>PROXIMATE = 1;</code>
        */
-      TRAFFIC(1, 1),
+      PROXIMATE(1, 1),
       /**
-       * <code>RESOLUTION = 2;</code>
+       * <code>TRAFFIC = 2;</code>
        */
-      RESOLUTION(2, 2),
+      TRAFFIC(2, 2),
+      /**
+       * <code>RESOLUTION = 3;</code>
+       */
+      RESOLUTION(3, 3),
+      /**
+       * <code>CRASH = 4;</code>
+       */
+      CRASH(4, 4),
       ;
 
       /**
-       * <code>PROXIMATE = 0;</code>
+       * <code>AIR = 0;</code>
        */
-      public static final int PROXIMATE_VALUE = 0;
+      public static final int AIR_VALUE = 0;
       /**
-       * <code>TRAFFIC = 1;</code>
+       * <code>PROXIMATE = 1;</code>
        */
-      public static final int TRAFFIC_VALUE = 1;
+      public static final int PROXIMATE_VALUE = 1;
       /**
-       * <code>RESOLUTION = 2;</code>
+       * <code>TRAFFIC = 2;</code>
        */
-      public static final int RESOLUTION_VALUE = 2;
+      public static final int TRAFFIC_VALUE = 2;
+      /**
+       * <code>RESOLUTION = 3;</code>
+       */
+      public static final int RESOLUTION_VALUE = 3;
+      /**
+       * <code>CRASH = 4;</code>
+       */
+      public static final int CRASH_VALUE = 4;
 
 
       public final int getNumber() {
@@ -2147,9 +2388,11 @@ public final class Cdti {
 
       public static Severity valueOf(int value) {
         switch (value) {
-          case 0: return PROXIMATE;
-          case 1: return TRAFFIC;
-          case 2: return RESOLUTION;
+          case 0: return AIR;
+          case 1: return PROXIMATE;
+          case 2: return TRAFFIC;
+          case 3: return RESOLUTION;
+          case 4: return CRASH;
           default: return null;
         }
       }
@@ -2333,7 +2576,7 @@ public final class Cdti {
      */
     public edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity getAdvisoryLevel() {
       edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity result = edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.valueOf(advisoryLevel_);
-      return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.PROXIMATE : result;
+      return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.AIR : result;
     }
 
     public static final int PLANES_FIELD_NUMBER = 5;
@@ -3074,7 +3317,7 @@ public final class Cdti {
        */
       public edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity getAdvisoryLevel() {
         edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity result = edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.valueOf(advisoryLevel_);
-        return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.PROXIMATE : result;
+        return result == null ? edu.calpoly.capstone.sensor.Cdti.CDTIReport.Severity.AIR : result;
       }
       /**
        * <code>optional .CDTIReport.Severity advisoryLevel = 4;</code>
@@ -3490,18 +3733,19 @@ public final class Cdti {
   static {
     java.lang.String[] descriptorData = {
       "\n\ncdti.proto\")\n\006Vector\022\t\n\001X\030\001 \002(\002\022\t\n\001Y\030\002" +
-      " \002(\002\022\t\n\001Z\030\003 \002(\002\"\254\001\n\tCDTIPlane\022\n\n\002id\030\001 \002(" +
+      " \002(\002\022\t\n\001Z\030\003 \002(\002\"\323\001\n\tCDTIPlane\022\n\n\002id\030\001 \002(" +
       "\t\022\031\n\010position\030\002 \002(\0132\007.Vector\022\031\n\010velocity" +
       "\030\003 \002(\0132\007.Vector\022%\n\010severity\030\004 \002(\0162\023.CDTI" +
-      "Plane.Severity\"6\n\010Severity\022\r\n\tPROXIMATE\020" +
-      "\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRESOLUTION\020\002\"\326\001\n\nCDTIR" +
-      "eport\022\021\n\ttimestamp\030\001 \002(\020\022\033\n\007ownship\030\002 \002(" +
-      "\0132\n.CDTIPlane\022\027\n\017advisoryMessage\030\003 \001(\t\022+" +
-      "\n\radvisoryLevel\030\004 \001(\0162\024.CDTIReport.Sever" +
-      "ity\022\032\n\006planes\030\005 \003(\0132\n.CDTIPlane\"6\n\010Sever",
-      "ity\022\r\n\tPROXIMATE\020\000\022\013\n\007TRAFFIC\020\001\022\016\n\nRESOL" +
-      "UTION\020\002B#\n\033edu.calpoly.capstone.sensorB\004" +
-      "Cdti"
+      "Plane.Severity\022\021\n\tplaneTags\030\005 \003(\005\"J\n\010Sev" +
+      "erity\022\007\n\003AIR\020\000\022\r\n\tPROXIMATE\020\001\022\013\n\007TRAFFIC" +
+      "\020\002\022\016\n\nRESOLUTION\020\003\022\t\n\005CRASH\020\004\"\352\001\n\nCDTIRe" +
+      "port\022\021\n\ttimestamp\030\001 \002(\020\022\033\n\007ownship\030\002 \002(\013" +
+      "2\n.CDTIPlane\022\027\n\017advisoryMessage\030\003 \001(\t\022+\n" +
+      "\radvisoryLevel\030\004 \001(\0162\024.CDTIReport.Severi",
+      "ty\022\032\n\006planes\030\005 \003(\0132\n.CDTIPlane\"J\n\010Severi" +
+      "ty\022\007\n\003AIR\020\000\022\r\n\tPROXIMATE\020\001\022\013\n\007TRAFFIC\020\002\022" +
+      "\016\n\nRESOLUTION\020\003\022\t\n\005CRASH\020\004B#\n\033edu.calpol" +
+      "y.capstone.sensorB\004Cdti"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3526,7 +3770,7 @@ public final class Cdti {
     internal_static_CDTIPlane_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_CDTIPlane_descriptor,
-        new java.lang.String[] { "Id", "Position", "Velocity", "Severity", });
+        new java.lang.String[] { "Id", "Position", "Velocity", "Severity", "PlaneTags", });
     internal_static_CDTIReport_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_CDTIReport_fieldAccessorTable = new

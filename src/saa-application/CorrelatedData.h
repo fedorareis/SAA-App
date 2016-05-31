@@ -115,6 +115,7 @@ public:
       plane->set_allocated_velocity(velocity);
 //      std::cout << "start planeTags" << std::endl;
       for(int ndx = 0; ndx < planeTags.size(); ndx++) {
+
          plane->add_planetags(planeTags[ndx]);
          std::string sensorName;
          switch(sensors[ndx]) {
@@ -130,14 +131,15 @@ public:
             default:
                sensorName ="???";
          }
-//         std::cout << "sensor type" << sensorName << std::endl;
-//         std::cout << "planeID " << planeTags[ndx] << std::endl;
+         std::cout << "sensor type" << sensorName << std::endl;
+         std::cout << "planeID " << planeTags[ndx] << std::endl;
 //         std::cout << "pos n:" << positions[ndx].x << " e:" <<positions[ndx].y << " d:" << positions[ndx].z <<
 //         std::endl;
 //         *planeTag = planeTags.at(ndx);
 //         plane->set_planetags(ndx, planeTags.at(ndx));
       }
 //      std::cout << "end planeTags" << std::endl << std::endl << std::endl;
+      std::cout << "planeTags.size() = " << plane->planetags_size() << std::endl;
 
       return plane;
    }

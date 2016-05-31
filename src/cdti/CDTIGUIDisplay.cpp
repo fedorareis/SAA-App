@@ -65,10 +65,10 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     {
         ownshipImage->drawPlane(this, width / 2, height / 2, false);
     }
-   
+
     float largestD = 18.0f;
-    
-    
+
+
     //if there is a report to be read, attempt to render planes here
     mtx.lock();
     if(currentReport)
@@ -81,7 +81,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             largestD = fmax(largestD, d);
         }
         //scale = height/2/(largestD*1.05f);
-        
+
         for(int i = 0; i < planeSize; i++)
         {
             bool direction = false;
@@ -110,29 +110,19 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
                 if(currentImage)
                     //Positions are NED relative, Y is x, x is y etc.
                     currentImage->drawPlane(this, width / 2.0f - report.position().y() * scale, height / 2.0f - report.position
-                            ().x() * scale, direction, angle);
+                        ().x() * scale, direction, angle);
             }
-            else {
+            else
+            {
                 direction = true;
                 angle = radToDeg(atan2(vel.y, vel.x));
                 if(currentImage) {
-                    Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());
-                    std::string newline = "\r\n";
-
-                    //Plane labels -- ID, Position, Velocity, Direction (angle)
-                    std::ostringstream out;
-                    out << "ID: " << report.id() << newline << "Position: (";
-                    std::cout.precision(4);
-                    out << report.position().x() << ", ";
-                    out << report.position().y() << ", ";
-                    out << report.position().z() << ")" << newline << "Velocity: ";
-                    out << currentPlaneVel.getMagnitude();
-                    //std::cout << currentPlaneLabel << std::endl;
+                    std::string tag = getplaneTag(report);
 
                     //Positions are NED relative, Y is x, x is y etc.
                     currentImage->drawPlane(this, width / 2.0f + report.position().y() * scale,
                                             height / 2.0f - report.position
-                                                    ().x() * scale, direction, angle, out.str());
+                                                ().x() * scale, direction, angle, tag);
                 }
             }
             //render planes here
@@ -140,6 +130,24 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
         }
     }
     mtx.unlock();
+}
+std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
+{
+    Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());
+    std::__cxx11::string newline = "\r\n";
+
+    //Plane labels -- ID, Position, Velocity, Direction (angle)
+    std::ostringstream out;
+    out << "ID: " << report.id() << newline;// << "Position: (";
+    std::cout.precision(4);
+    out << "IDs( ";
+
+    for (int idx = 0; idx < report.planetags_size(); idx++)// plainID : report.planetags())
+                    {
+                        out << report.planetags(idx) << " ";
+                    }
+    out << ")" << newline;
+    return out.str();
 }
 
 void CDTIGUIDisplay::init()
@@ -179,7 +187,25 @@ bool CDTIGUIDisplay::event(QEvent *event)
             update();
         }
     }
-
+    else if(event->type() == QEvent::Wheel)
+    {
+        QWheelEvent *wheelEvent = (QWheelEvent *)event;
+        if(wheelEvent->orientation() == Qt::Vertical)
+        {
+            if (wheelEvent->delta() > 0)
+            {
+                scale *= 1.05;
+                std::cout << "Scale: " << scale << std::endl;
+                update();
+            }
+            else if(wheelEvent->delta() < 0)
+            {
+                scale /= 1.05;
+                std::cout << "Scale: " << scale << std::endl;
+                update();
+            }
+        }
+    }
     return QMainWindow::event(event);
 }
 

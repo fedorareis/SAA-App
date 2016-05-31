@@ -82,6 +82,11 @@ CDTIReport* Decision::generateReport(std::vector<CDTIPlane *>* list, CDTIPlane* 
       planes->set_allocated_velocity((*it)->mutable_velocity());
       planes->set_allocated_position((*it)->mutable_position());
       planes->set_severity((*it)->severity());
+      for(int i = 0; i < (*it)->planetags_size(); i++)
+      {
+         planes->add_planetags((*it)->planetags(i));
+      }
+
    }
 
    return report;

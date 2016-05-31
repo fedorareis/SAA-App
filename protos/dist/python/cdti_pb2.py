@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='cdti.proto',
   package='',
   syntax='proto2',
-  serialized_pb=_b('\n\ncdti.proto\")\n\x06Vector\x12\t\n\x01X\x18\x01 \x02(\x02\x12\t\n\x01Y\x18\x02 \x02(\x02\x12\t\n\x01Z\x18\x03 \x02(\x02\"\xac\x01\n\tCDTIPlane\x12\n\n\x02id\x18\x01 \x02(\t\x12\x19\n\x08position\x18\x02 \x02(\x0b\x32\x07.Vector\x12\x19\n\x08velocity\x18\x03 \x02(\x0b\x32\x07.Vector\x12%\n\x08severity\x18\x04 \x02(\x0e\x32\x13.CDTIPlane.Severity\"6\n\x08Severity\x12\r\n\tPROXIMATE\x10\x00\x12\x0b\n\x07TRAFFIC\x10\x01\x12\x0e\n\nRESOLUTION\x10\x02\"\xd6\x01\n\nCDTIReport\x12\x11\n\ttimestamp\x18\x01 \x02(\x10\x12\x1b\n\x07ownship\x18\x02 \x02(\x0b\x32\n.CDTIPlane\x12\x17\n\x0f\x61\x64visoryMessage\x18\x03 \x01(\t\x12+\n\radvisoryLevel\x18\x04 \x01(\x0e\x32\x14.CDTIReport.Severity\x12\x1a\n\x06planes\x18\x05 \x03(\x0b\x32\n.CDTIPlane\"6\n\x08Severity\x12\r\n\tPROXIMATE\x10\x00\x12\x0b\n\x07TRAFFIC\x10\x01\x12\x0e\n\nRESOLUTION\x10\x02\x42#\n\x1b\x65\x64u.calpoly.capstone.sensorB\x04\x43\x64ti')
+  serialized_pb=_b('\n\ncdti.proto\")\n\x06Vector\x12\t\n\x01X\x18\x01 \x02(\x02\x12\t\n\x01Y\x18\x02 \x02(\x02\x12\t\n\x01Z\x18\x03 \x02(\x02\"\xd3\x01\n\tCDTIPlane\x12\n\n\x02id\x18\x01 \x02(\t\x12\x19\n\x08position\x18\x02 \x02(\x0b\x32\x07.Vector\x12\x19\n\x08velocity\x18\x03 \x02(\x0b\x32\x07.Vector\x12%\n\x08severity\x18\x04 \x02(\x0e\x32\x13.CDTIPlane.Severity\x12\x11\n\tplaneTags\x18\x05 \x03(\x05\"J\n\x08Severity\x12\x07\n\x03\x41IR\x10\x00\x12\r\n\tPROXIMATE\x10\x01\x12\x0b\n\x07TRAFFIC\x10\x02\x12\x0e\n\nRESOLUTION\x10\x03\x12\t\n\x05\x43RASH\x10\x04\"\xea\x01\n\nCDTIReport\x12\x11\n\ttimestamp\x18\x01 \x02(\x10\x12\x1b\n\x07ownship\x18\x02 \x02(\x0b\x32\n.CDTIPlane\x12\x17\n\x0f\x61\x64visoryMessage\x18\x03 \x01(\t\x12+\n\radvisoryLevel\x18\x04 \x01(\x0e\x32\x14.CDTIReport.Severity\x12\x1a\n\x06planes\x18\x05 \x03(\x0b\x32\n.CDTIPlane\"J\n\x08Severity\x12\x07\n\x03\x41IR\x10\x00\x12\r\n\tPROXIMATE\x10\x01\x12\x0b\n\x07TRAFFIC\x10\x02\x12\x0e\n\nRESOLUTION\x10\x03\x12\t\n\x05\x43RASH\x10\x04\x42#\n\x1b\x65\x64u.calpoly.capstone.sensorB\x04\x43\x64ti')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -32,22 +32,30 @@ _CDTIPLANE_SEVERITY = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='PROXIMATE', index=0, number=0,
+      name='AIR', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TRAFFIC', index=1, number=1,
+      name='PROXIMATE', index=1, number=1,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='RESOLUTION', index=2, number=2,
+      name='TRAFFIC', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RESOLUTION', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CRASH', index=4, number=4,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=176,
-  serialized_end=230,
+  serialized_start=195,
+  serialized_end=269,
 )
 _sym_db.RegisterEnumDescriptor(_CDTIPLANE_SEVERITY)
 
@@ -58,22 +66,30 @@ _CDTIREPORT_SEVERITY = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='PROXIMATE', index=0, number=0,
+      name='AIR', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TRAFFIC', index=1, number=1,
+      name='PROXIMATE', index=1, number=1,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='RESOLUTION', index=2, number=2,
+      name='TRAFFIC', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RESOLUTION', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CRASH', index=4, number=4,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=176,
-  serialized_end=230,
+  serialized_start=195,
+  serialized_end=269,
 )
 _sym_db.RegisterEnumDescriptor(_CDTIREPORT_SEVERITY)
 
@@ -158,6 +174,13 @@ _CDTIPLANE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='planeTags', full_name='CDTIPlane.planeTags', index=4,
+      number=5, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -172,7 +195,7 @@ _CDTIPLANE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=58,
-  serialized_end=230,
+  serialized_end=269,
 )
 
 
@@ -231,8 +254,8 @@ _CDTIREPORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=233,
-  serialized_end=447,
+  serialized_start=272,
+  serialized_end=506,
 )
 
 _CDTIPLANE.fields_by_name['position'].message_type = _VECTOR

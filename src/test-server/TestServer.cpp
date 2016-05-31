@@ -13,7 +13,7 @@ SensorEndpoint * TestServer::tcasSocket = nullptr;
 SensorEndpoint * TestServer::radarSocket = nullptr;
 
 //todo figure out what numbers to put here
-Randomizer *TestServer::tcasRangeNoise = new Randomizer(-100, 100);
+Randomizer *TestServer::tcasRangeNoise = new Randomizer(-100 * NAUT_MILES_TO_FEET, 100 * NAUT_MILES_TO_FEET);
 Randomizer *TestServer::tcasAltitudeNoise = new Randomizer(-125, 125);
 Randomizer *TestServer::tcasBearingNoise = new Randomizer(-10, 10);
 
