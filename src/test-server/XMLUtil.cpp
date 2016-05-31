@@ -8,6 +8,7 @@
 #include <cstring>
 #include <typeinfo>
 #include <iostream>
+#include <sstream>
 
 /**
     * Extract a floating point value from an xml attribute.
@@ -15,18 +16,14 @@
 double XMLUtil::ExtractFloat(rapidxml::xml_attribute<> * attribute)
 {
     // Run-time check to determine whether b is actually a Derived*
-    float val = static_cast<float>(std::atof(attribute->value()));
-
-    // If b was originally a Derived*, then d3 is a valid pointer.
-    if(val)
+    float value;
+    std::istringstream iss(attribute->value());
+    iss >> value;
+    if(iss.bad() || iss.fail())
     {
-        return val;
-    }
-    else
-    {
-        // Run-time check failed.
         throw std::exception();
     }
+    return value;
 }
 /**
  * Extract a boolean from an xml attribute.
