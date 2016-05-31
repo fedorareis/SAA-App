@@ -66,7 +66,6 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
         ownshipImage->drawPlane(this, width / 2, height / 2, false);
     }
 
-    float largestD = 18.0f;
 
 
     //if there is a report to be read, attempt to render planes here
@@ -74,20 +73,14 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     if(currentReport)
     {
         int planeSize = currentReport->planes_size();
-        for(int i = 0; i < planeSize; i++)
-        {
-            CDTIPlane report = currentReport->planes(i);
-            float d = fmax(report.position().y(), report.position().x());
-            largestD = fmax(largestD, d);
-        }
-        //scale = height/2/(largestD*1.05f);
-
+        //render each plane
         for(int i = 0; i < planeSize; i++)
         {
             bool direction = false;
             float angle = 0;
             CDTIPlane report = currentReport->planes(i);
             PlaneImage* currentImage = nullptr;
+            //get correct severity to update
             switch(report.severity())
             {
                 case CDTIPlane_Severity_RESOLUTION:
@@ -104,6 +97,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
                     currentImage = proximateImage;
                     break;
             }
+            //check for directional
             Vector3d vel(report.velocity().x(), report.velocity().y(), report.velocity().z());
             if(vel.getMagnitude()  < 1e-6)
             {
@@ -125,8 +119,6 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
                                                 ().x() * scale, direction, angle, tag);
                 }
             }
-            //render planes here
-
         }
     }
     mtx.unlock();
@@ -134,7 +126,7 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
 std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
 {
     Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());
-    std::__cxx11::string newline = "\r\n";
+    std::string newline = "\r\n";
 
     //Plane labels -- ID, Position, Velocity, Direction (angle)
     std::ostringstream out;
