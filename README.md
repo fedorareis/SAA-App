@@ -101,15 +101,15 @@ A third top level directory, ```test``` contains unit tests.
 We’ve had a few issues with the build process due to the difficulty of wrangling C++ dependencies. If you have run ```build.sh``` and are having trouble building the project, try these steps:
 
 1. On OSX: use Homebrew to install the following dependencies:
-> brew install homebrew/science/armadillo
-> brew install boost
-> brew install qt5
-> brew install autoconf
-> brew install automake
-> brew install libtool
+ brew install homebrew/science/armadillo
+ brew install boost
+ brew install qt5
+ brew install autoconf
+ brew install automake
+ brew install libtool
 
 2. On Linux:
-> sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
+ sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
 
 3. Re-run ```cmake ..``` from the build folder, then ```make```.
 
