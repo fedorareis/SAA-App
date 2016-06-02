@@ -52,15 +52,15 @@ The ```saa-application``` models a UAV in an airspace. The application reads in 
 The ```cdti``` application provides a simple graphical view into the current simulation state. The CDTI is meant to help in debugging the simulation, as well as providing a more understandable look into the end result of the correlation algorithm. The CDTI does not need to be running, and is an optional component.
 
 #### Use Cases
-The major use case for the Saa Application is to provide a framework for analyzing, testing, and comparing correlation algorithms. Most research work with the application will occur in the saa-application. The test server and CDTI provide tools for analyzing the research done.
+The major use case for the SAA application is to provide a framework for analyzing, testing, and comparing correlation algorithms. Most research work with this application will occur in the saa-application. The test server and CDTI provide tools for analyzing the research done.
 
 #### Target Users
-The target users for Version 0.1.0 A are testers, and team members. This version is not meant as a public release, but an early preview to ensure that the software runs successfully. Several large features are missing from this release, the most glaring being a good correlation algorithm.
+The target users for Version 0.1.0 A are testers and team members. This version is not meant as a public release, but it is an early preview to ensure that the software runs successfully. Several large features are missing from this release, the most glaring being a good correlation algorithm.
 
 ### Section 2: Installation and Dependencies 
 To download project dependencies and build the application, run ```./build.sh``` from the home folder.
 
- > Note, this script is still in early alpha. If you experience problems, please contact the project maintainers with your error log.
+ > Note, this script is still in alpha. If you experience problems, please contact the project maintainers with your error log.
  
 The SAA application relies on the following dependencies:
 
@@ -74,7 +74,7 @@ The SAA application relies on the following dependencies:
   
 * [GoogleTest][gtest] allows us to test our application, and write mock objects.
 
- Once the system is built, Unit tests can be run by running ```test-all```
+Once the system is built, unit tests can be run by running ```test-all```.
 
 ### Section 3: Running the system
  
@@ -89,24 +89,24 @@ The SAA application relies on the following dependencies:
 
 The SAA Application is broken up into four major modules, found in the ```src``` folder. ```common```, ```cdti```, ```saa-application``` and ```test-server```.
 
-The Common folder contains functions and classes used across all three sub-applications of the project, including the networking code, and some plane math.
+The ```common``` folder contains functions and classes used across all three sub-applications of the project, including the networking code, and some plane math.
 
-The other three submodules contain support classes for their sub-applications. Correlation and decision making code exists in  ```saa-application```, Test case code exists in ```test-server```, and graphics code exists in ```cdti```
+The other three submodules contain support classes for their sub-applications. Correlation and decision-making code exists in  ```saa-application```, test case code exists in ```test-server```, and graphical code exists in ```cdti```.
 
 The main methods for each application exist in the top level ```app``` directory.
 
 A third top level directory, ```test``` contains unit tests.
 
 ### Section 5: Build issue FAQ
-We’ve had a few issues with the build process due to the difficulty of wrangling C++ dependencies. If you have run ```build.sh``` and are having trouble building the project, try these steps:
+We have had a few issues with the build process due to the difficulty of wrangling C++ dependencies. If you run ```build.sh``` and are having trouble building the project, try these steps:
 
 1. On OSX: use Homebrew to install the following dependencies:
- ```brew install homebrew/science/armadillo
- brew install boost
- brew install qt5
- brew install autoconf
- brew install automake
- brew install libtool```
+ ```brew install homebrew/science/armadillo```
+ ```brew install boost```
+ ```brew install qt5```
+ ```brew install autoconf```
+ ```brew install automake```
+ ```brew install libtool```
 
 2. On Linux:
  ```sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool```
@@ -116,7 +116,7 @@ We’ve had a few issues with the build process due to the difficulty of wrangli
 4. If all else fails, please contact the project maintainer at kpidding@calpoly.edu.
 
 ### Section 6: Test Case Documentation
-Below is an example Test Case from the application. Test cases are a standard xml document. More examples of test cases can be found under ```resources/testCases```.
+Below is an example Test Case from the application. Test cases are a standard XML document. More examples of test cases can be found under ```resources/testCases```.
 
     <test name="Two Planes Crossing"
       description="The two planes approach each other, but remain seperate correlations"
