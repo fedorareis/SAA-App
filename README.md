@@ -85,21 +85,38 @@ The SAA application relies on the following dependencies:
  At any point during a simulation, you may also run the program ```app/cdti``` to view the current state of the simulation on a display.
  
 ### Section 4: System Architecture
- This section is provided as a quick reference of the major components of the system. It is meant to help a new team member get quickly aquainted with the structure of the program.
+ This section is provided as a quick reference of the major components of the system. It is meant to help a new team member get quickly acquainted with the structure of the program.
 
-The Saa Application is broken up into four major modules, found in the ```src``` folder. ```common```, ```cdti```, ```saa-application``` and ```test-server```.
+The SAA Application is broken up into four major modules, found in the ```src``` folder. ```common```, ```cdti```, ```saa-application``` and ```test-server```.
 
 The Common folder contains functions and classes used across all three sub-applications of the project, including the networking code, and some plane math.
 
-The other three submodules contain support classes for their sub-applicatons. Correlation and decision making code exists in  ```saa-application```, Test case code exists in ```test-server```, and graphics code exists in ```cdti```
+The other three submodules contain support classes for their sub-applications. Correlation and decision making code exists in  ```saa-application```, Test case code exists in ```test-server```, and graphics code exists in ```cdti```
 
 The main methods for each application exist in the top level ```app``` directory.
 
 A third top level directory, ```test``` contains unit tests.
 
-### Section 5: Test Case Documentation
-Below is an example Test Case from the application. Test cases are a standard xml document. More examples of test cases can be found under ```resources/testCases```
+### Section 5: Build issue FAQ
+We’ve had a few issues with the build process due to the difficulty of wrangling C++ dependencies. If you have run ```build.sh``` and are having trouble building the project, try these steps:
 
+1. On OSX: use Homebrew to install the following dependencies:
+> brew install homebrew/science/armadillo
+> brew install boost
+> brew install qt5
+> brew install autoconf
+> brew install automake
+> brew install libtool
+
+2. On Linux:
+> sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
+
+3. Re-run ```cmake ..``` from the build folder, then ```make```.
+
+4. If all else fails, please contact the project maintainer at kpidding@calpoly.edu.
+
+### Section 6: Test Case Documentation
+Below is an example Test Case from the application. Test cases are a standard xml document. More examples of test cases can be found under ```resources/testCases```.
 
     <test name="Two Planes Crossing"
       description="The two planes approach each other, but remain seperate correlations"
