@@ -4,7 +4,6 @@
       sensorError="false">
 <ownship tag="ABC123">
       <tcas enabled="true" />
-      <radar enabled="true"/>
       <ads-b enabled="true" />
       <movement type="linear">
          <position x="0" y="0" z="0"/>
