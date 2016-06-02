@@ -40,11 +40,17 @@ echo "Third party libraries installed"
 echo "ML pack dependicies\n"
 
 if [ "$OSTYPE" == "linux-gnu" ]; then
-	sudo apt-get install libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
+	sudo apt-get install glm libarmadillo-dev libboost-all-dev qtdeclarative5-dev autoconf automake libtool
 
 elif [ "$OSTYPE" == "darwin"* ]; then
 	#install_homebrew
-	brew install homebrew/science/armadillo boost qt5 autoconf automake libtool 
+	brew install homebrew/science/armadillo
+	brew install glm
+	brew install boost 
+	brew install qt5
+	brew install autoconf 
+	brew install automake 
+	brew install libtool 
 fi
 
 echo "Now to finish up building mlpack\n\n"
