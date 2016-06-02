@@ -5,6 +5,7 @@
 #include "CDTIGUIDisplay.h"
 #include <common/Maths.h>
 #include <sstream>
+#include <boost/algorithm/string.hpp>
 
 Proximate* CDTIGUIDisplay::proximateImage = nullptr;
 Resolution* CDTIGUIDisplay::resolutionImage = nullptr;
@@ -62,13 +63,34 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
         out << radius / scale << " NMI";
         painter.drawText(5+radius,0,QString(out.str().c_str()));
     }
+
+    if (currentReport)
+    {
+        // paint advisory message
+        std::string advMsg = currentReport->advisorymessage();
+
+        QColor penColor(255, 0, 0);
+
+        if (advMsg.compare("Move out of the way") != 0)
+        {
+            penColor = QColor(255, 255, 255);
+        }
+
+        boost::to_upper(advMsg);
+
+        painter.setPen(QPen(penColor, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        //painter.setBrush(QBrush(QColor(255,255,255)));
+        painter.translate(-1 * (width / 4), -1 * (height / 2));
+        QRect rect = QRect(0, 0, 400, 75);
+        painter.drawText( rect, Qt::AlignCenter, advMsg.c_str() );
+        painter.drawRect( rect );
+    }
+
     //render ownship. everything is relative to it, so it never moved from the center
     if(ownshipImage)
     {
         ownshipImage->drawPlane(this, width / 2, height / 2, false);
     }
-
-
 
     //if there is a report to be read, attempt to render planes here
     mtx.lock();
@@ -125,6 +147,9 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     }
     mtx.unlock();
 }
+
+
+
 std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
 {
     Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());

@@ -16,12 +16,13 @@ class CDTIGUIDisplay : private QMainWindow, public Display
 private:
     int width, height;
     const int numGridCircles = 5;
-    //use to scale the
+    // use to scale the display
     float scale = 20.0f;
     CDTIReport reportData;
     CDTIReport* currentReport = nullptr;
-    /*for space saving reasons. There only need to use one loaded asset set per plane,
-     * so the CDTIGUIDIPLAY is responsible for keeping track of these imaages*/
+    /* for space saving reasons. There only need to use one loaded asset set per plane,
+     * so the CDTIGUIDIPLAY is responsible for keeping track of these images.
+     */
     static Proximate* proximateImage;
     static Resolution* resolutionImage;
     static Traffic* trafficImage;
