@@ -1,0 +1,32 @@
+<test name="Mike's Test 1: Two planes approach owhship: head-on, and 6'o clock"
+	      description="Single plane approaches head-on"
+	      time = "120"
+	      sensorError="false">
+	
+	    <ownship tag="N113MR">
+	        <tcas enabled="true" error="0"/>
+	        <radar enabled="true"/>
+	        <ads-b enabled="true" error="0"/>
+	        <movement type="linear">
+	            <position x="0" y="0" z="0"/>
+	            <direction x="2000" y="0" z="0"/>
+	        </movement>
+	    </ownship>
+	    <plane tag="N113JR">
+	        <ads-b enabled="true"/>
+	        <tcas enabled="true"/>
+	        <movement type="linear">
+	            <position x="10" y="0" z="0"/> <!--NED in Nautical Miles-->
+	            <direction x="-2000" y="0" z="0"/> <!--Feet/second-->
+	        </movement>
+	    </plane>
+	
+	    <plane tag="N503JR">
+	        <ads-b enabled="true"/>
+	        <tcas enabled="true"/>
+	        <movement type="linear">
+	            <position x="-10" y="0" z="0"/> <!--NED in Nautical Miles-->
+	            <direction x="2000" y="0" z="0"/> <!--Feet/second-->
+	        </movement>
+	    </plane>
+</test>
