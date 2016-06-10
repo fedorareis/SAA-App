@@ -32,6 +32,7 @@
 class CDTIGUIDisplay : private QMainWindow, public Display
 {
     Q_OBJECT
+
 private:
     int width, height;
     const int numGridCircles = 5;
@@ -39,9 +40,8 @@ private:
     float scale = 20.0f;
     CDTIReport reportData;
     CDTIReport* currentReport = nullptr;
-    /* for space saving reasons. There only need to use one loaded asset set per plane,
-     * so the CDTIGUIDIPLAY is responsible for keeping track of these images.
-     */
+    // for space saving reasons, only need to use one loaded asset set per plane.
+    // CDTIGUIDisplay is responsible for keeping track of these images.
     static Proximate* proximateImage;
     static Resolution* resolutionImage;
     static Traffic* trafficImage;
@@ -52,19 +52,24 @@ private:
     void paintEvent(QPaintEvent* event) override;
 
     std::mutex mtx;
+
+    void renderApproachingPlanes();
+    void renderOwnship();
     PlaneImage* getSeverityImage(const CDTIPlane& report);
-    std::string getplaneTag(const CDTIPlane& report) const;
+    std::string getPlaneTag(const CDTIPlane& report) const;
     void scaleUp();
     void scaleDown();
+
 protected:
     virtual bool event(QEvent* event) override;
+
 public:
     /**
      * initializes a display with the default resolution of 1280 x 720
      */
     CDTIGUIDisplay();
     /**
-     * initializes a display with eh
+     * initializes a display with given width and height
      *
      * @param width: the width of the window to be created
      * @param height: the height of the window to be created

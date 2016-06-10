@@ -60,10 +60,11 @@ void CDTIGUIDisplay::setupLayout()
 }
 void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
 {
-    //TODO Move to airplane implementation?
-    //setup loading directory
-    //render ownship
-    //render gridlines
+    // TODO: Possibly move to airplane implementation,
+    // 1. setup loading directory
+    // 2. render gridlines, advisory message
+    // 3. render ownship, approaching planes
+    // Step 3 must be last because of PlaneImage class.
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
@@ -73,7 +74,8 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
 
     int largerRes = std::max(width,height);
     int numActualCircles = largerRes / 100;
-    //paint the grid cirlces
+
+    // paint the grid cirlces
     for (int i = 0, radius = 100; i <= numActualCircles; i++, radius += 100.0f)
     {
         painter.drawEllipse(QPointF(0.0f, 0.0f),(float)radius,(float)radius);
@@ -83,40 +85,40 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
         painter.drawText(5+radius,0,QString(out.str().c_str()));
     }
 
+    // paint advisory message
     if (currentReport)
     {
-        // paint advisory message
         std::string advMsg = currentReport->advisorymessage();
-
         QColor penColor(255, 0, 0);
 
+        // check for color of advisory
         if (advMsg.compare("Move out of the way") != 0)
         {
             penColor = QColor(255, 255, 255);
         }
-
         boost::to_upper(advMsg);
 
         painter.setPen(QPen(penColor, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-        //painter.setBrush(QBrush(QColor(255,255,255)));
         painter.translate(-1 * (width / 4), -1 * (height / 2));
         QRect rect = QRect(0, 0, 400, 75);
         painter.drawText( rect, Qt::AlignCenter, advMsg.c_str() );
         painter.drawRect( rect );
     }
 
-    //render ownship. everything is relative to it, so it never moved from the center
-    if (ownshipImage)
-    {
-        ownshipImage->drawPlane(this, width / 2, height / 2, false);
-    }
+    renderOwnship();
+    renderApproachingPlanes();
+}
 
-    //if there is a report to be read, attempt to render planes here
+void CDTIGUIDisplay::renderApproachingPlanes()
+{
     mtx.lock();
+
+    // if there is a valid report, render planes
     if (currentReport)
     {
         int planeSize = currentReport->planes_size();
-        //render each plane
+
+        // render each plane
         for (int i = 0; i < planeSize; i++)
         {
             bool direction = false;
@@ -124,13 +126,13 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             CDTIPlane report = currentReport->planes(i);
             PlaneImage* currentImage = getSeverityImage(report);
 
-            //check for valid image
+            // check for valid image
             if (currentImage)
             {
                 int posX = width / 2.0f - report.position().y() * scale;
                 int posY = height / 2.0f - report.position().x() * scale;
 
-                //check for directional planes
+                // check for directional planes
                 Vector3d vel(report.velocity().x(), report.velocity().y(), report.velocity().z());
                 direction = vel.getMagnitude() >= 1e-6;
                 std::string tag = "";
@@ -139,14 +141,24 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
                 {
                     angle = radToDeg(atan2(vel.y, vel.x));
                     posX = width / 2.0f + report.position().y() * scale;
-                    std::string tag = getplaneTag(report);
+                    std::string tag = getPlaneTag(report);
                 }
                 currentImage->drawPlane(this, posX, posY, direction, angle, tag);
             }
 
         }
     }
+
     mtx.unlock();
+}
+
+void CDTIGUIDisplay::renderOwnship()
+{
+    // everything is relative to ownship, never moves from the center
+    if (ownshipImage)
+    {
+        ownshipImage->drawPlane(this, width / 2, height / 2, false);
+    }
 }
 
 PlaneImage* CDTIGUIDisplay::getSeverityImage(const CDTIPlane& report)
@@ -174,7 +186,7 @@ PlaneImage* CDTIGUIDisplay::getSeverityImage(const CDTIPlane& report)
 }
 
 
-std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
+std::string CDTIGUIDisplay::getPlaneTag(const CDTIPlane& report) const
 {
     std::string newline = "\r\n";
 
@@ -193,22 +205,17 @@ std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
     return out.str();
 }
 
-void CDTIGUIDisplay::init()
+void CDTIGUIDisplay::scaleDown()
 {
-    setupLayout();
-    show();
+    scale /= 1.05;
+    std::cout << "Scale: " << scale << std::endl;
+    update();
 }
 
-void CDTIGUIDisplay::renderReport(CDTIReport &report)
+void CDTIGUIDisplay::scaleUp()
 {
-    mtx.lock();
-    CDTIReport copyReport(report);
-    reportData = copyReport;
-    currentReport = &reportData;
-    std::string log(reportData.DebugString());
-    mtx.unlock();
-
-    std::cout << log << std::endl;
+    scale *= 1.05;
+    std::cout << "Scale: " << scale << std::endl;
     update();
 }
 
@@ -251,18 +258,21 @@ bool CDTIGUIDisplay::event(QEvent *event)
     return QMainWindow::event(event);
 }
 
-void CDTIGUIDisplay::scaleDown()
+void CDTIGUIDisplay::init()
 {
-    scale /= 1.05;
-    std::cout << "Scale: " << scale << std::endl;
-    update();
+    setupLayout();
+    show();
 }
 
-void CDTIGUIDisplay::scaleUp()
+void CDTIGUIDisplay::renderReport(CDTIReport &report)
 {
-    scale *= 1.05;
-    std::cout << "Scale: " << scale << std::endl;
+    mtx.lock();
+    CDTIReport copyReport(report);
+    reportData = copyReport;
+    currentReport = &reportData;
+    std::string log(reportData.DebugString());
+    mtx.unlock();
+
+    std::cout << log << std::endl;
     update();
 }
-
-
