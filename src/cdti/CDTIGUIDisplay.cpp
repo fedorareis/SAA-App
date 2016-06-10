@@ -106,40 +106,24 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     }
 
     //render ownship. everything is relative to it, so it never moved from the center
-    if(ownshipImage)
+    if (ownshipImage)
     {
         ownshipImage->drawPlane(this, width / 2, height / 2, false);
     }
 
     //if there is a report to be read, attempt to render planes here
     mtx.lock();
-    if(currentReport)
+    if (currentReport)
     {
         int planeSize = currentReport->planes_size();
         //render each plane
-        for(int i = 0; i < planeSize; i++)
+        for (int i = 0; i < planeSize; i++)
         {
             bool direction = false;
             float angle = 0;
             CDTIPlane report = currentReport->planes(i);
-            PlaneImage* currentImage = nullptr;
-            //get correct severity to update
-            switch(report.severity())
-            {
-                case CDTIPlane_Severity_RESOLUTION:
-                    currentImage = resolutionImage;
-                    break;
-                case CDTIPlane_Severity_TRAFFIC:
-                    currentImage = trafficImage;
-                    break;
-                case CDTIPlane_Severity_AIR:
-                    currentImage = airImage;
-                    break;
-                case CDTIPlane_Severity_PROXIMATE:
-                default:
-                    currentImage = proximateImage;
-                    break;
-            }
+            PlaneImage* currentImage = getSeverityImage(report);
+
             //check for directional
             Vector3d vel(report.velocity().x(), report.velocity().y(), report.velocity().z());
             if(vel.getMagnitude()  < 1e-6)
@@ -167,11 +151,33 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
     mtx.unlock();
 }
 
+PlaneImage* CDTIGUIDisplay::getSeverityImage(const CDTIPlane& report)
+{
+    PlaneImage* image = nullptr;
+
+    switch (report.severity())
+    {
+        case CDTIPlane_Severity_RESOLUTION:
+            image = resolutionImage;
+            break;
+        case CDTIPlane_Severity_TRAFFIC:
+            image = trafficImage;
+            break;
+        case CDTIPlane_Severity_AIR:
+            image = airImage;
+            break;
+        case CDTIPlane_Severity_PROXIMATE:
+        default:
+            image = proximateImage;
+            break;
+    }
+
+    return image;
+}
 
 
 std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
 {
-    Vector3d currentPlaneVel = Vector3d(report.velocity().x(), report.velocity().y(), report.velocity().z());
     std::string newline = "\r\n";
 
     //Plane labels -- ID, Position, Velocity, Direction (angle)
@@ -181,16 +187,16 @@ std::string CDTIGUIDisplay::getplaneTag(const CDTIPlane& report) const
     out << "IDs( ";
 
     for (int idx = 0; idx < report.planetags_size(); idx++)// plainID : report.planetags())
-                    {
-                        out << report.planetags(idx) << " ";
-                    }
+    {
+        out << report.planetags(idx) << " ";
+    }
     out << ")" << newline;
+
     return out.str();
 }
 
 void CDTIGUIDisplay::init()
 {
-
     setupLayout();
     show();
 }
@@ -207,6 +213,7 @@ void CDTIGUIDisplay::renderReport(CDTIReport &report)
     std::cout << log << std::endl;
     update();
 }
+
 bool CDTIGUIDisplay::event(QEvent *event)
 {
     if (event->type() == QEvent::KeyPress)
@@ -236,21 +243,23 @@ bool CDTIGUIDisplay::event(QEvent *event)
             }
         }
     }
-
     else if(event->type() == QEvent::Resize)
     {
         QResizeEvent *resizeEvent = (QResizeEvent *)event;
         width = resizeEvent->size().width();
         height = resizeEvent->size().height();
     }
+
     return QMainWindow::event(event);
 }
+
 void CDTIGUIDisplay::scaleDown()
 {
     scale /= 1.05;
     std::cout << "Scale: " << scale << std::endl;
     update();
 }
+
 void CDTIGUIDisplay::scaleUp()
 {
     scale *= 1.05;

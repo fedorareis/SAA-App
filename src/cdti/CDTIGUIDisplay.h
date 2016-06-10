@@ -52,6 +52,7 @@ private:
     void paintEvent(QPaintEvent* event) override;
 
     std::mutex mtx;
+    PlaneImage* getSeverityImage(const CDTIPlane& report);
     std::string getplaneTag(const CDTIPlane& report) const;
     void scaleUp();
     void scaleDown();
