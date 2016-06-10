@@ -124,28 +124,26 @@ void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
             CDTIPlane report = currentReport->planes(i);
             PlaneImage* currentImage = getSeverityImage(report);
 
-            //check for directional
-            Vector3d vel(report.velocity().x(), report.velocity().y(), report.velocity().z());
-            if(vel.getMagnitude()  < 1e-6)
+            //check for valid image
+            if (currentImage)
             {
-                if(currentImage)
-                    //Positions are NED relative, Y is x, x is y etc.
-                    currentImage->drawPlane(this, width / 2.0f - report.position().y() * scale, height / 2.0f - report.position
-                        ().x() * scale, direction, angle);
-            }
-            else
-            {
-                direction = true;
-                angle = radToDeg(atan2(vel.y, vel.x));
-                if(currentImage) {
-                    std::string tag = getplaneTag(report);
+                int posX = width / 2.0f - report.position().y() * scale;
+                int posY = height / 2.0f - report.position().x() * scale;
 
-                    //Positions are NED relative, Y is x, x is y etc.
-                    currentImage->drawPlane(this, width / 2.0f + report.position().y() * scale,
-                                            height / 2.0f - report.position
-                                                ().x() * scale, direction, angle, tag);
+                //check for directional planes
+                Vector3d vel(report.velocity().x(), report.velocity().y(), report.velocity().z());
+                direction = vel.getMagnitude() >= 1e-6;
+                std::string tag = "";
+
+                if (direction)
+                {
+                    angle = radToDeg(atan2(vel.y, vel.x));
+                    posX = width / 2.0f + report.position().y() * scale;
+                    std::string tag = getplaneTag(report);
                 }
+                currentImage->drawPlane(this, posX, posY, direction, angle, tag);
             }
+
         }
     }
     mtx.unlock();
