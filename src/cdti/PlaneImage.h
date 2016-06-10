@@ -32,9 +32,9 @@ private:
     QImage image, dirImage;
     QPainter painter;
     QBrush imageBrush;
-    QPen outlinePen; //transparent for now, but can be implemented if desired;
+    QPen outlinePen; // transparent for now, can be implement later
     bool directional;
-    
+
 public:
     PlaneImage(std::string resPath,std::string dirPath, int width, int height);
     void drawPlane(QPaintDevice *window, int posX, int posY, bool directional, float angle = 0, std::string text = "");

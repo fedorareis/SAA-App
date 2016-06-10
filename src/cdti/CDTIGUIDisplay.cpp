@@ -53,14 +53,15 @@ CDTIGUIDisplay::CDTIGUIDisplay(): CDTIGUIDisplay(1280, 720)
 void CDTIGUIDisplay::setupLayout()
 {
     QPalette Pal(palette());
-    //set backgroud color
+    // set background color
     Pal.setColor(QPalette::Background, Qt::black);
     setAutoFillBackground(true);
     setPalette(Pal);
 }
+
 void CDTIGUIDisplay::paintEvent(QPaintEvent *event)
 {
-    // TODO: Possibly move to airplane implementation,
+    // TODO: Possibly move to airplane implementation.
     // 1. setup loading directory
     // 2. render gridlines, advisory message
     // 3. render ownship, approaching planes
@@ -185,13 +186,13 @@ PlaneImage* CDTIGUIDisplay::getSeverityImage(const CDTIPlane& report)
     return image;
 }
 
-
 std::string CDTIGUIDisplay::getPlaneTag(const CDTIPlane& report) const
 {
     std::string newline = "\r\n";
 
-    //Plane labels -- ID, Position, Velocity, Direction (angle)
+    // plane labels -- ID, Position, Velocity, Direction (angle)
     std::ostringstream out;
+
     out << "ID: " << report.id() << newline;// << "Position: (";
     std::cout.precision(4);
     out << "IDs( ";
@@ -200,6 +201,7 @@ std::string CDTIGUIDisplay::getPlaneTag(const CDTIPlane& report) const
     {
         out << report.planetags(idx) << " ";
     }
+
     out << ")" << newline;
 
     return out.str();
@@ -224,31 +226,34 @@ bool CDTIGUIDisplay::event(QEvent *event)
     if (event->type() == QEvent::KeyPress)
     {
         QKeyEvent *keyEvent = (QKeyEvent *)event;
+
         if (keyEvent->key() == Qt::Key_Up)
         {
             scaleUp();
         }
+
         if (keyEvent->key() == Qt::Key_Down)
         {
             scaleDown();
         }
     }
-    else if(event->type() == QEvent::Wheel)
+    else if (event->type() == QEvent::Wheel)
     {
         QWheelEvent *wheelEvent = (QWheelEvent *)event;
-        if(wheelEvent->orientation() == Qt::Vertical)
+
+        if (wheelEvent->orientation() == Qt::Vertical)
         {
             if (wheelEvent->delta() > 0)
             {
                 scaleUp();
             }
-            else if(wheelEvent->delta() < 0)
+            else if (wheelEvent->delta() < 0)
             {
                 scaleDown();
             }
         }
     }
-    else if(event->type() == QEvent::Resize)
+    else if (event->type() == QEvent::Resize)
     {
         QResizeEvent *resizeEvent = (QResizeEvent *)event;
         width = resizeEvent->size().width();

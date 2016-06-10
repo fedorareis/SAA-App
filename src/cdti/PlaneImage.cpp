@@ -39,13 +39,14 @@ PlaneImage::PlaneImage(std::string resPath, std::string dirPath, int width, int 
 
     dirImage.load(projectDir.filePath(dirPath.c_str()));
     dirImage = dirImage.scaled(width,height);
-     //TODO: this should mutate. in case not, well, here's the problem
+
+    // TODO: should mutate. in case not, well, here lies the problem.
 
     imageBrush.setTextureImage(image);
 
-    //init outline to be invisible
+    // init outline to be invisible
     outlinePen.setColor(QColor(0,0,0,0));
-    //Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin
+    // Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin
     outlinePen.setCapStyle(Qt::RoundCap);
     outlinePen.setJoinStyle(Qt::RoundJoin);
     outlinePen.setStyle(Qt::SolidLine);
@@ -57,7 +58,7 @@ void PlaneImage::drawPlane(QPaintDevice *window, int posX, int posY, bool direct
     QImage drawImage;
     QFont font;
 
-    if(directional)
+    if (directional)
         drawImage = dirImage;
     else
         drawImage = image;
@@ -65,27 +66,25 @@ void PlaneImage::drawPlane(QPaintDevice *window, int posX, int posY, bool direct
     imageBrush.setTextureImage(drawImage);
 
     painter.begin(window);
-        painter.resetTransform();
-        painter.setBrush(imageBrush);
-        painter.setPen(outlinePen);
-        //offset currentImage size
-        painter.translate(posX,posY);
-        painter.save();
-        painter.rotate(angle);
-        painter.translate(-drawImage.width() / 2, -drawImage.height() / 2);
-        painter.drawRect(0,0,drawImage.width(),drawImage.height());
-        painter.restore();
-        painter.setPen(QColor(255,255,255));
-        Vector3d textLocation(drawImage.width() / 2, drawImage.height() / 2, 0);
-        int offset(textLocation.getMagnitude() - 10);
-        painter.translate(-offset, -offset - textMargin);
-
-        font = painter.font();
-        int fontSize = font.pointSize() / 2;
-        font.setPointSize(fontSize);
-        painter.setFont(font);
-
-        painter.drawText(105, 15, 500, 100, Qt::TextWordWrap, QString(text.c_str()));
+    painter.resetTransform();
+    painter.setBrush(imageBrush);
+    painter.setPen(outlinePen);
+    // offset currentImage size
+    painter.translate(posX,posY);
+    painter.save();
+    painter.rotate(angle);
+    painter.translate(-drawImage.width() / 2, -drawImage.height() / 2);
+    painter.drawRect(0,0,drawImage.width(),drawImage.height());
+    painter.restore();
+    painter.setPen(QColor(255,255,255));
+    Vector3d textLocation(drawImage.width() / 2, drawImage.height() / 2, 0);
+    int offset(textLocation.getMagnitude() - 10);
+    painter.translate(-offset, -offset - textMargin);
+    font = painter.font();
+    int fontSize = font.pointSize() / 2;
+    font.setPointSize(fontSize);
+    painter.setFont(font);
+    painter.drawText(105, 15, 500, 100, Qt::TextWordWrap, QString(text.c_str()));
     painter.end();
 
 }

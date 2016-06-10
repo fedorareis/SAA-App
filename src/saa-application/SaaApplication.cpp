@@ -218,13 +218,14 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
    while(ownSock.hasData())
    {
       planeMutex.lock();
-      ownSock.operator>>(ownship); //blocking call, waits for server
+      // blocking call, waits for server
+      ownSock.operator>>(ownship);
       // TODO: Switch to actual ownship data for use by Decision
-      ownshipPlane = SensorData("Ownship", ownship.ownship_latitude(), ownship.ownship_longitude(), ownship.ownship_altitude(), ownship
-          .north()
-          , ownship.east(),
-                                ownship
-          .down(), Sensor::ownship, 0, 0);
+      ownshipPlane = SensorData("Ownship", ownship.ownship_latitude(),
+                                ownship.ownship_longitude(),
+                                ownship.ownship_altitude(),
+                                ownship.north(), ownship.east(),
+                                ownship.down(), Sensor::ownship, 0, 0);
       planeMutex.unlock();
    }
    std::cout << "Ownship Thread done\n";
@@ -238,7 +239,8 @@ void processOwnship(ClientSocket &ownSock, OwnshipReport &ownship, bool &finishe
 void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
 {
    AdsBReport adsb;
-   while(adsbSock.hasData())
+
+   while (adsbSock.hasData())
    {
       adsbSock.operator>>(adsb); //blocking call, waits for server
       planeMutex.lock();
@@ -247,8 +249,8 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
       planes.push_back(SaaApplication::adsbToRelative(*cpy, ownship));
       planeMutex.unlock();
    }
-   std::cout << "ADSBThread done\n";
 
+   std::cout << "ADSBThread done\n";
    finished = true;
 }
 
@@ -258,7 +260,8 @@ void processAdsb(ClientSocket &adsbSock, OwnshipReport &ownship, bool &finished)
 void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
 {
    TcasReport tcas;
-   while(tcasSock.hasData())
+
+   while (tcasSock.hasData())
    {
       tcasSock.operator>>(tcas); //blocking call, waits for server
       planeMutex.lock();
@@ -266,8 +269,8 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
       //planes.back().printPos();
       planeMutex.unlock();
    }
-   std::cout << "TCASThread done\n";
 
+   std::cout << "TCASThread done\n";
    finished = true;
 }
 
@@ -277,7 +280,8 @@ void processTcas(ClientSocket &tcasSock, OwnshipReport &ownship, bool &finished)
 void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finished)
 {
    RadarReport radar;
-   while(radarSock.hasData())
+
+   while (radarSock.hasData())
    {
       radar.Clear();
       radarSock.operator>>(radar); //blocking call, waits for server
@@ -285,11 +289,11 @@ void processRadar(ClientSocket &radarSock, OwnshipReport &ownship, bool &finishe
       RadarReport* cpy = new RadarReport;
       cpy->CopyFrom(radar);
       planes.push_back(SaaApplication::radarToRelative(*cpy, ownship));
-//      planes.back().printPos();
+      //planes.back().printPos();
       planeMutex.unlock();
    }
-   std::cout << "RadarThread done\n";
 
+   std::cout << "RadarThread done\n";
    finished = true;
 }
 
